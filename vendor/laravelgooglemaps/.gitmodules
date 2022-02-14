@@ -1,0 +1,3 @@
+[submodule "vendor/farhanwazir/laravelgooglemaps"]
+	path = vendor/farhanwazir/laravelgooglemaps
+	url = https://github.com/farhanwazir/laravelgooglemaps.git
