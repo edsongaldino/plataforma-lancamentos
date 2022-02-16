@@ -396,7 +396,7 @@ class Construtora extends Model
 
     public function getLogoPremium()
     {
-        $logo_construtora = env('APP_URL')."/assets/images/premium/construtora/logo_{$this->id}.png";
+        $logo_construtora = "assets/images/premium/construtora/logo_{$this->id}.png";
 
         if(file_exists($logo_construtora)){
             return $logo_construtora;
