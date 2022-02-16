@@ -94,6 +94,7 @@
     <script src="/global/js/loader/index.js"></script>
     <script src="/global/js/ajax/index.js"></script>
     <script src="/assets/premium/js/index.js?v={{ filemtime('assets/premium/js/index.js') }}"></script>
+    <script src="/site/js/empreendimento/formulario.js?v=1.5"></script>
     <!-- Bootstrap-->
     <script src="/assets/premium/bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
     <script src="/assets/javascripts/sweetalert2.8.js"></script>
