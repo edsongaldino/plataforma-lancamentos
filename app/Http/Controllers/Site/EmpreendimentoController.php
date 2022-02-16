@@ -135,19 +135,19 @@ class EmpreendimentoController extends Controller
 
     public function plantas($id){
         $this->data['empreendimento'] = Empreendimento::find($id);
-        $this->data['plantas'] = Planta::find($id);
+        $this->data['plantas'] = Planta::where('empreendimento_id',$id)->get();
         return view('site.empreendimento.premium.mobile.plantas', $this->data);
     }
 
     public function garagem($id){
         $this->data['empreendimento'] = Empreendimento::find($id);
-        $this->data['plantas'] = Planta::find($id);
+        $this->data['plantas'] = Planta::where('empreendimento_id',$id)->get();
         return view('site.empreendimento.premium.mobile.garagem', $this->data);
     }
 
     public function tour360($id){
         $this->data['empreendimento'] = Empreendimento::find($id);
-        $this->data['plantas'] = Planta::find($id);
+        $this->data['plantas'] = Planta::where('empreendimento_id',$id)->get();
         return view('site.empreendimento.premium.mobile.tour360', $this->data);
     }  
 

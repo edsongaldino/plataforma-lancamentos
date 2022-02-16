@@ -120,7 +120,7 @@
     </div>
 
     @include('site.empreendimento.premium.mobile.proposta.modal_unidade')
-
+    @include('site.empreendimento.premium.mobile.proposta.modal_garagem')
 @endsection
 
 @push('rodape')

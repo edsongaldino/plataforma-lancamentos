@@ -35,7 +35,10 @@
 	<link type="text/css" rel="stylesheet" href="/assets/premium/css/style.css?v={{ filemtime('assets/premium/css/style.css') }}" />
     <link href="/assets/premium/js/lightbox/ekko-lightbox.css" rel="stylesheet">
 
-        @stack('includes_head')
+    <script src="/site/ferramenta/js/jQuery/jquery.min.js"></script>
+    <script src="/site/ferramenta/js/jQuery/jquery-ui.min.js"></script> 
+
+    @stack('includes_head')
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"/>
     <style>

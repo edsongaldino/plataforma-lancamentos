@@ -12,8 +12,6 @@
 <link rel="stylesheet" type="text/css" href="/site/css/apartment-layout.css?v=02">
 <link rel="stylesheet" type="text/css" href="/site/css/empreendimento.css">
 <link rel="stylesheet" href="/assets/sweetalert/dist/sweetalert.css">
-<script src="/site/ferramenta/js/jQuery/jquery.min.js"></script>
-<script src="/site/ferramenta/js/jQuery/jquery-ui.min.js"></script>  
 <script src="/site/ferramenta/bootstrap/bootstrap.min.js"></script>
 <script src="/site/ferramenta/js/swiper.js"></script>
 <script src="/site/ferramenta/mail/validate.js"></script>
@@ -190,7 +188,11 @@
             <a href="/empreendimento/{{ $empreendimento->id }}/unidades"><div class="unidades-disponiveis"><i class="far fa-check-square" aria-hidden="true"></i> Unidades Disponíveis</div></a>
             @if($empreendimento->variacao->nome <> "Lote")
             <a href="/empreendimento/{{ $empreendimento->id }}/plantas"><div class="plantas-disponiveis"><i class="fa fa-object-group" aria-hidden="true"></i> Plantas </div></a>
-            <a href="/empreendimento/{{ $empreendimento->id }}/garagem"><div class="vagas-disponiveis"><i class="fa fa-car" aria-hidden="true"></i> Mapa de Vagas</div></a>
+            
+            <div class="btn-mapa-vagas" data-toggle="modal" data-target="#ModalGaragem">
+                <div class="vagas-disponiveis"><i class="fa fa-car" aria-hidden="true"></i> Mapa de Vagas</div>
+            </a>
+           
             @endif
             <a href="/empreendimento/{{ $empreendimento->id }}/fotos"><div class="galeria-fotos"><i class="fa fa-camera" aria-hidden="true"></i> Galeria de Fotos</div></a>
             @php
@@ -277,6 +279,8 @@
     </div>
 
 </div>
+
+@include('site.empreendimento.premium.mobile.proposta.modal_garagem')
 
 
 @endsection
