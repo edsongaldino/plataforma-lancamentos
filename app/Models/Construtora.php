@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Image;
 use \DB;
+use Illuminate\Support\Facades\Storage;
 
 class Construtora extends Model
 {
@@ -391,6 +392,18 @@ class Construtora extends Model
     public function getLogoUrl($pasta = 'original')
     {
         return url("uploads/construtora/{$this->id}/{$pasta}/construtora-{$this->id}.png");
+    }
+
+    public function getLogoPremium()
+    {
+        $logo_construtora = env('APP_URL')."/assets/images/premium/construtora/logo_{$this->id}.png";
+
+        if (file_exists($logo_construtora)) {
+            return url("assets/images/premium/construtora/logo_{$this->id}.png");
+        } else {
+            return url("assets/images/premium/logo_lancamentos.png");
+        }
+        
     }
 
     public function getPaginaUrl()

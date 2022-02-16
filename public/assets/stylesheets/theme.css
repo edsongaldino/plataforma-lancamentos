@@ -6,6 +6,9 @@ Theme Version: 	1.7.0
 html,
 body {
 	background: #ecedf0;
+	background-image: url(/assets/images/bg-admin.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
 	width: 100%;
 }
 

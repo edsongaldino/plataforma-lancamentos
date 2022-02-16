@@ -110,7 +110,7 @@
                     <div class="valor-caracteristica">{{ $empreendimento->getCaracteristica('qtd_elevador') }}</div>                    
                 </div> 
 
-            @elseif($empreendimento->subtipo_id == 3)
+            @elseif($empreendimento->subtipo_id == 3 || $empreendimento->subtipo_id == 4)
                 
                 @if($empreendimento->variacao->nome == "Lote")
 
