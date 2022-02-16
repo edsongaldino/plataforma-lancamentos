@@ -398,9 +398,9 @@ class Construtora extends Model
     {
         $logo_construtora = env('APP_URL')."/assets/images/premium/construtora/logo_{$this->id}.png";
 
-        if (file_exists($logo_construtora)) {
-            return url("assets/images/premium/construtora/logo_{$this->id}.png");
-        } else {
+        if(file_exists($logo_construtora)){
+            return $logo_construtora;
+        }else{
             return url("assets/images/premium/logo_lancamentos.png");
         }
         
