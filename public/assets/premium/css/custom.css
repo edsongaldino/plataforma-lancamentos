@@ -2338,6 +2338,10 @@ html.no-pointerevents.no-touchevents .gallery-grid-item:hover span  {
 	margin-bottom: 4%;
 }
 
+#detalhes-empreendimento #botoes .vagas-disponiveis:active{
+	background-color: #d8d4d4 !important;
+}
+
 #detalhes-empreendimento #botoes .plantas-disponiveis{
 	height: 70px;
 	width: 100%;
