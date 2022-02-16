@@ -10,7 +10,7 @@
 
             <div class="panel panel-sign">
                 <div class="panel-title-sign mt-xl text-right">
-                    <h2 class="title text-uppercase text-weight-bold m-none"><i class="fa fa-user mr-xs"></i> Sign In</h2>
+                    <h2 class="title text-uppercase text-weight-bold m-none"><i class="fa fa-user mr-xs"></i> Acesso Painel/h2>
                 </div>
                 <div class="panel-body">
                     <form method="POST" action="{{ route('backpack.auth.login') }}">

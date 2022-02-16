@@ -2700,3 +2700,185 @@ html.no-pointerevents.no-touchevents .gallery-grid-item:hover span  {
 	height: 1px;
 	float: left;
 }
+
+.modalDialog {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+
+.modalDialog:target {
+	opacity:1;
+	pointer-events: auto;
+}
+
+.modalDialog .modalAtendimento {
+	width: 90%;
+    position: relative;
+    margin: 50% 5% 0 5%;
+    padding: 5px 20px 13px 20px;
+    border-radius: 0px;
+    background: #fff;
+}
+
+.modalDialog .icone-chat-modal{
+	margin: -80px 0 0 0px;
+}
+
+.modalDialog .icone-chat-modal.chat-center{
+	margin: -80px 0 0 30%;
+}
+
+.modalDialog .modalAtendimento .titulo-chat-modal{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+	color: #007297 !important;
+}
+
+.modalDialog .modalAtendimento form{
+	background: #FFF !important;
+    border: 0px !important;
+	padding: 0 !important;
+}
+
+.modalDialog .modalAtendimento form .nome-modal{
+	width: 100%;
+    float: left;
+    height: 50px;
+	margin: 10px 0;
+    font-size: 20px;
+    color: rgb(0 0 0 / 50%);
+	border: 1px solid #3797dd36;
+}
+
+.modalDialog .modalAtendimento form .whatsapp-modal{
+	width: 100%;
+	float: left;
+	height: 50px;
+	font-size: 20px;
+    color: rgb(0 0 0 / 50%);
+	border: 1px solid #3797dd36;
+	margin-bottom: 15px;
+}
+
+.modalDialog .modalAtendimento .chat-mobile{
+	width: 100% !important;
+	background-color: #41c2df !important;
+    margin-top: 0px;
+    font-size: 16px;
+	border: 0px;
+    border-bottom: 0px;
+	height: 60px;
+	color: #FFF !important;
+}
+
+.modalDialog .modalAtendimento .ligar-mobile{
+	width: 100% !important;
+	background-color: #41c2df !important;
+    margin-top: 0px;
+    font-size: 16px;
+	border: 0px;
+    border-bottom: 0px;
+	height: 60px;
+	color: #FFF !important;
+}
+
+.modalDialog .modalAtendimento .btn-whatsapp{
+	width: 100%;
+    background-color: #00c35c !important;
+    margin-top: 15px;
+    font-size: 18px;
+    border: 0px;
+    border-bottom: 0px;
+    height: 80px;
+}
+
+.modalDialog .modalAtendimento .btn-whatsapp-off{
+	width: 100%;
+    background-color: #acacac !important;
+    margin-top: 15px;
+    font-size: 18px;
+    border: 0px;
+    border-bottom: 0px;
+    height: 80px;
+	color: #484b5b;
+}
+
+.modalDialog .modalAtendimento .btn-ligar{
+	width: 100%;
+    background-color: #0fa0aa !important;
+    margin-top: 15px;
+    font-size: 18px;
+    border: 0px;
+    border-bottom: 0px;
+    height: 80px;
+}
+
+
+.modalDialog .modalAtendimento .btn-ligar-off{
+	width: 100%;
+    background-color: #acacac !important;
+    margin-top: 15px;
+    font-size: 18px;
+    border: 0px;
+    border-bottom: 0px;
+    height: 80px;
+	color: #484b5b;
+}
+
+.close {
+	background: rgb(27 127 204);
+    color: #FFFFFF !important;
+    line-height: 40px !important;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 50px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+    opacity: 100 !important;
+}
+
+.modalDialog .img-responsive {
+	width: auto !important;
+	height: auto;
+}
+
+.modalDialog .texto-chat-modal{
+	font-size: 18px;
+    line-height: 20px;
+    margin: 10px 5px;
+    color: #13665b;
+}
+
+.modalDialog .ChatMobileEnviar{
+	width: 100%;
+    background-color: #0fa0aa !important;
+    margin-top: 20px !important;
+    font-size: 18px;
+    border: 0px;
+    height: 60px;
+}
+
+
+.close:hover { background: #00d9ff; }

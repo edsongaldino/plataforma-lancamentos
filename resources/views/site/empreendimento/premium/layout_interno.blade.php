@@ -58,12 +58,10 @@
         <a href="/empreendimento/{{ $empreendimento->id }}/premium"><div class="logo"><img src="{{ url($empreendimento->construtora->getLogoPremium()) }}" alt="" class="img-responsive center-block d-block mx-auto"></div></a>
         <div class="logo-empreendimento"><img src="{{ url($empreendimento->getLogo()) }}" class="img-responsive center-block d-block mx-auto" alt="" width="100" height="76"></div>
         
-        @if(isset($proposta))
-        <div class="sair"><i class="fas fa-sign-out-alt" aria-hidden="true"></i></div>
-        @else
-        <div class="chat"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
-        @endif
-
+        <a href="#openModal" id="ModalChat">
+            <div class="chat"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
+        </a>
+        
     </div>
 
     <div id="loader" class="loader"></div>
@@ -71,7 +69,7 @@
     @yield('content')
 
     @stack('rodape') 
-
+    @include('site/empreendimento/mobile/modalChatDados')
     @include('site.empreendimento.premium.mobile.fotos_empreendimento')
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
     <script>
