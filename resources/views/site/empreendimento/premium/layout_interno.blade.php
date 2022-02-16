@@ -33,11 +33,9 @@
 	<!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="/assets/premium/css/custom.css?v={{ filemtime('assets/premium/css/custom.css') }}" />
 	<link type="text/css" rel="stylesheet" href="/assets/premium/css/style.css?v={{ filemtime('assets/premium/css/style.css') }}" />
-    <script src="/assets/premium/js/jquery-1.12.0.min.js"></script>
-    <link rel="stylesheet" href="/assets/sweetalert/dist/sweetalert.css">
     <link href="/assets/premium/js/lightbox/ekko-lightbox.css" rel="stylesheet">
 
-    @stack('includes_head')
+        @stack('includes_head')
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"/>
     <style>
@@ -94,7 +92,6 @@
     <script src="/global/js/loader/index.js"></script>
     <script src="/global/js/ajax/index.js"></script>
     <script src="/assets/premium/js/index.js?v={{ filemtime('assets/premium/js/index.js') }}"></script>
-    <script src="/site/js/empreendimento/formulario.js?v=1.5"></script>
     <!-- Bootstrap-->
     <script src="/assets/premium/bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
     <script src="/assets/javascripts/sweetalert2.8.js"></script>

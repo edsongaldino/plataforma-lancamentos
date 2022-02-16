@@ -316,3 +316,152 @@ $(function(){
         return false;        
     });    
 })
+
+function habilitaEnvio(){
+    $('.btn-enviar-mobile').css('display','block');
+    $('.loadingImg_Mobile').css('display','none');
+  }
+  
+  function DesabilitaEnvioChat(){
+    $('.loadingImg_Chat').css('display','block');
+    $('.ChatMobileEnviar').css('display','none');
+  }
+  
+  function HabilitaEnvioChat(){
+    $('.loadingImg_Chat').css('display','none');
+    $('.ChatMobileEnviar').css('display','block');
+  }
+   
+  $(document).on('click', '.chat-mobile', function (e) {
+    
+    e.preventDefault();
+  
+    DesabilitaEnvioChat();
+  
+    let nome = $('#nome').val();
+    let whatsapp = $('#whatsapp').val();
+    let tipo_clique = $('#tipo_clique').val();
+    let empreendimento_id = $('#empreendimento_id').val();
+  
+  
+    if (nome == '') {
+      Swal.fire('Desculpe', 'Por favor, nos informe seu nome', 'error');
+      HabilitaEnvioChat();
+      return false;
+    }
+  
+    if (whatsapp == '') {
+      Swal.fire('Desculpe', 'Por favor, nos informe seu telefone', 'error');
+      HabilitaEnvioChat();
+      return false;
+    }
+  
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    
+    $.ajax({
+      url: "/chat-empreendimento",
+      type:"POST",
+      data:{
+        nome:nome,
+        whatsapp:whatsapp,
+        tipo_clique:tipo_clique,
+        empreendimento_id:empreendimento_id
+      },
+      success:function(response){
+        $('.loadingImg_Chat').css('display','none');
+        $('.link-whatsapp-mobile').css('display','block');
+        $('.link-telefone-mobile').css('display','none');
+        $('.continuar').css('display','none');
+        $('.texto-chat-modal').css('display','none');
+        $('.nome-modal').css('display','none');
+        $('.whatsapp-modal').css('display','none');
+        $('.icone-chat-modal').addClass('chat-center');
+      },
+      error: function(response) {
+        $('#erro_envio').text(response.responseJSON.errors);
+        HabilitaEnvioChat();
+      },
+    });
+  
+  });
+  
+  $(document).on('click', '.ligar-mobile', function (e) {
+    
+    e.preventDefault();
+  
+    let nome = $('#nome').val();
+    let whatsapp = $('#whatsapp').val();
+    let tipo_clique = 'Telefone';
+    let empreendimento_id = $('#empreendimento_id').val();
+  
+  
+    if (nome == '') {
+      Swal.fire('Desculpe', 'Por favor, nos informe seu nome', 'error');
+      return false;
+    }
+  
+    if (whatsapp == '') {
+      Swal.fire('Desculpe', 'Por favor, nos informe seu telefone', 'error');
+      return false;
+    }
+  
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    
+    $.ajax({
+      url: "/chat-empreendimento",
+      type:"POST",
+      data:{
+        nome:nome,
+        whatsapp:whatsapp,
+        tipo_clique:tipo_clique,
+        empreendimento_id:empreendimento_id
+      },
+      success:function(response){
+        $('.link-telefone-mobile').css('display','block');
+        $('.link-whatsapp-mobile').css('display','none');
+        $('.continuar').css('display','none');
+        $('.texto-chat-modal').css('display','none');
+        $('.nome-modal').css('display','none');
+        $('.whatsapp-modal').css('display','none');
+        $('.icone-chat-modal').addClass('chat-center');
+      },
+      error: function(response) {
+        $('#erro_envio').text(response.responseJSON.errors);
+      },
+    });
+  
+  });
+  
+  $(document).on('click', '#ModalLigar', function (e) {
+    $('#botaoContinuar').addClass('ligar-mobile');
+    $('#botaoContinuar').removeClass('chat-mobile');
+  });
+  
+  $(document).on('click', '#ModalChat', function (e) {
+    $('#botaoContinuar').removeClass('ligar-mobile');
+    $('#botaoContinuar').addClass('chat-mobile');
+  });
+  
+  $(document).on('click', '.enviar-novo-topo', function (e) {
+    $('.form-submit-cont-topo').css('display','none');
+    $('.loadingImg').css('display','block');
+  });
+  
+  $(document).on('click', '.enviar-novo', function (e) {
+    $('.form-submit-bottom').css('display','none');
+    $('.loadingImg_Botton').css('display','block');
+  });
+  
+  $(document).on('click', '.botao-enviar', function (e) {
+    $('.btn-enviar-mobile').css('display','none');
+    $('.loadingImg_Mobile').css('display','block');
+  });
+  

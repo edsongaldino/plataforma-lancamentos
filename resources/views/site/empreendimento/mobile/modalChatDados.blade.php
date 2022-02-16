@@ -9,7 +9,7 @@
         <input type="hidden" name="tipo_clique" id="tipo_clique" value="Whatsapp">
         <input type="hidden" name="empreendimento_id" id="empreendimento_id" value="{{ $empreendimento->id }}">
 
-        <div class="loadingImg_Chat" style="display:none;"><img src="/site/imagens/loader2.gif" alt=""></div>
+        <div class="loadingImg_Chat" style="display:none;"><img src="/site/imagens/loader2.gif" title="Loader" alt="Loader" width="50" height="50" class="center"></div>
         <button type="button" id="botaoContinuar" class="btn btn-primary continuar ChatMobileEnviar" style="display:block;"><i class="fa fa-arrow-right" aria-hidden="true"></i> Continuar</button>
 
       </form>
