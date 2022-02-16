@@ -57,7 +57,7 @@
         <div class="logo-empreendimento"><img src="{{ url($empreendimento->getLogo()) }}" class="img-responsive center-block d-block mx-auto" alt="" width="100" height="76"></div>
         
         <a href="#openModal" id="ModalChat">
-            <div class="chat"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
+            <div class="chat"><i class="fab fa-whatsapp" aria-hidden="true"></i><br/><span class="corretor-on">Corretor <strong>ON</strong></span></div>
         </a>
         
     </div>
