@@ -337,10 +337,12 @@
             {{ $unidade->nome }}
         </div>  
         
+        @if($empreendimento->tipo == 'Horizontal')
         <div class="marcador" style="
         top: calc({{ $unidade->coord_y - $metade_tam_unid }}px - 630px); 
         left: calc({{ $unidade->coord_x - $metade_tam_unid }}px - 200px);">
         </div>
+        @endif
 
         
     @else
