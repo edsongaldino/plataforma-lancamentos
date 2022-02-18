@@ -17,8 +17,6 @@
             <div class="tempo-resposta"><i class="far fa-clock" aria-hidden="true"></i><br/>Tempo de Resposta: <span class="tempo">24 à 48h</span></div>
             <div class="info"><i class="fas fa-info-circle" aria-hidden="true"></i><br/>A disponibilidade e os valores poderão sofrer alteração à qualquer momento sem aviso prévio</div>
 
-            <div class="suporte">Caso tenha alguma dúvida, estamos à disposição para lhe auxiliar</div>
-            <div class="whatsapp"><i class="fab fa-whatsapp" aria-hidden="true"></i> Suporte</div>
         </div>
             
     </div>

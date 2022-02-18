@@ -49,13 +49,17 @@
 
             @foreach ($vagas as $vaga)
                 <div class="vaga" data-idvaga="{{ $vaga->id }}" data-nomevaga="{{ $vaga->nome }}">
+                    <span class="icone-vaga">
                     @if($vaga->tipo_vaga == 'Gaveta Coberta' || $vaga->tipo_vaga == 'Gaveta Descoberta')
                         <i class="fas fa-car" aria-hidden="true"></i>
                         <i class="fas fa-car" aria-hidden="true"></i><br/>
                     @else
                         <i class="fas fa-car" aria-hidden="true"></i><br/>
                     @endif
+                    </span>
+                    <span class="nome-vaga">
                     {{ $vaga->nome }}
+                    </span>
                 </div>
             @endforeach
 

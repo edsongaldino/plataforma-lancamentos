@@ -134,7 +134,9 @@ class PropostaController extends Controller
         $this->data['tabela'] = TabelaVendas::where('empreendimento_id', $proposta->empreendimento_id)->where('tipo_tabela_id', 1)->first();
         (new Proposta())->AtualizaPreferencias($request);
 
-        (new Proposta())->enviarEmails($proposta);
+        if(env('APP_ENV') <> 'local'){
+            (new Proposta())->enviarEmails($proposta);
+        }
 
         return view('site.empreendimento.premium.mobile.proposta.finalizar', $this->data);
     }

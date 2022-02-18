@@ -279,7 +279,7 @@ img {
 	color: #FFF;
 	font-size: 16px;
 	padding: 10px 0 10px 0;
-	background-color: #3c763d;
+	background-color: #28a745;
 }
 
 .rodape .btn-proposta-enviar{
@@ -305,6 +305,7 @@ img {
 	padding: 10px 0 10px 0;
 	background-color: #059494;
 }
+
 
 
 .rodape .btn-editar{
@@ -1500,7 +1501,14 @@ img {
     padding: 15px 0;
     border: 1px dashed #c5c5c5;
     border-radius: 5px;
-    font-size: 20px;
+}
+
+.conteudo .vagas .vaga .icone-vaga{
+	font-size: 20px;
+}
+
+.conteudo .vagas .vaga .nome-vaga{
+	font-size: 16px;
 }
 
 .conteudo .vagas .vaga:nth-of-type(3n){

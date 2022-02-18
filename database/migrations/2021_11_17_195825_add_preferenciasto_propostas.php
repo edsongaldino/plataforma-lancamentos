@@ -15,7 +15,7 @@ class AddPreferenciastoPropostas extends Migration
     {
         Schema::table('propostas', function (Blueprint $table) {
             $table->enum('preferencia_contato', ['Telefone', 'Whatsapp', 'E-mail', 'Qualquer Opção'])->default('Qualquer Opção')->after('comentarios');
-            $table->enum('preferencia_horario', ['Manhã', 'Tarde', 'Horário e Almoço', 'Horário Comercial', 'Noite', 'Qualquer'])->default('Qualquer')->after('comentarios');
+            $table->enum('preferencia_horario', ['Manhã', 'Tarde', 'Horário de Almoço', 'Horário Comercial', 'Noite', 'Qualquer'])->default('Qualquer')->after('comentarios');
         });
     }
 

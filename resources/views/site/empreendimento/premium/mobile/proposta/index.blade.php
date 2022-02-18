@@ -125,11 +125,11 @@
 
 @push('rodape')
 <div class="rodape">
-    <a href="/unidade/{{ $unidade->id }}/condicoes-construtora"><div class="btn-condicoes-construtora"><i class="fa fa-handshake-o" aria-hidden="true"></i> Condições da Construtora</div></a>
+    <a href="/unidade/{{ $unidade->id }}/condicoes-construtora"><div class="btn-voltar"><i class="fa fa-handshake-o" aria-hidden="true"></i></div></a>
     @if(isset($proposta))
-    <div class="btn-proposta-enviar" onclick="EnviarFormProposta();"><i class="fa fa-edit" aria-hidden="true"></i> Atualizar Proposta</div>
+    <div class="btn-gravar-dados" onclick="EnviarFormProposta();"><i class="fa fa-edit" aria-hidden="true"></i> Atualizar Proposta</div>
     @else
-    <div class="btn-proposta-enviar" onclick="EnviarFormProposta();"><i class="fa fa-paper-plane" aria-hidden="true"></i> Enviar Proposta</div>
+    <div class="btn-gravar-dados" onclick="EnviarFormProposta();"><i class="fa fa-paper-plane" aria-hidden="true"></i> Próxima Etapa</div>
     @endif
 </div>
 

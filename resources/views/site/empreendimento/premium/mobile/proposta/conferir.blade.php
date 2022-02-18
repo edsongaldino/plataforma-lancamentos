@@ -103,7 +103,7 @@
                     <option value="">Selecione um horário</option>
                     <option value="Manhã">Manhã</option>
                     <option value="Tarde">Tarde</option>
-                    <option value="Horário e Almoço">Horário e Almoço</option>
+                    <option value="Horário de Almoço">Horário de Almoço</option>
                     <option value="Horário Comercial">Horário Comercial</option>
                     <option value="Noite">Noite</option>
                     <option value="Qualquer">Qualquer</option>
@@ -123,7 +123,7 @@
 
 @push('rodape')
 <div class="rodape">
-    <a href="/proposta/{{ $proposta->id }}/editar-proposta"><div class="btn-editar"><i class="fa fa-edit" aria-hidden="true"></i> Editar</div></a>
-    <div class="btn-enviar-proposta" onclick="EnviarProposta();"><i class="fa fa-send" aria-hidden="true"></i> Enviar</div>
+    <a href="/proposta/{{ $proposta->id }}/editar-proposta"><div class="btn-voltar"><i class="fa fa-edit" aria-hidden="true"></i></div></a>
+    <div class="btn-gravar-dados" onclick="EnviarProposta();"><i class="fa fa-send" aria-hidden="true"></i> Enviar Proposta</div>
 </div>
 @endpush

@@ -75,6 +75,7 @@
                 </div>
 
                 @if(isset($unidade->garagem))
+                @if($unidade->garagem->count() > 0)
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fa fa-car" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">   
@@ -82,6 +83,15 @@
                     </div>
                     <div class="valor-caracteristica">{{ unidade_vagas($unidade->id) }}</div>                    
                 </div>
+                @else
+                <div class="item">
+                    <div class="icone-caracteristica"><i class="fa fa-car" aria-hidden="true"></i></div>
+                    <div class="titulo-caracteristica">   
+                        {{  $unidade->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor ?? '' }} Vagas
+                    </div>
+                    <div class="valor-caracteristica">-</div>                    
+                </div>
+                @endif
                 @else
                     @if ($unidade->planta)
                         <div class="item">
@@ -215,6 +225,7 @@
                     <div class="valor-caracteristica">{{ $unidade->planta->area_privativa ?? '' }}m²</div>                    
                 </div>
                 @if(isset($unidade->garagem))
+                @if($unidade->garagem->count() > 0)
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fa fa-car" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">   
@@ -222,6 +233,15 @@
                     </div>
                     <div class="valor-caracteristica">{{ unidade_vagas($unidade->id) }}</div>                    
                 </div>
+                @else
+                <div class="item">
+                    <div class="icone-caracteristica"><i class="fa fa-car" aria-hidden="true"></i></div>
+                    <div class="titulo-caracteristica">   
+                        {{  $unidade->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor ?? '' }} Vagas
+                    </div>
+                    <div class="valor-caracteristica">-</div>                    
+                </div>
+                @endif
                 @else
                     @if ($unidade->planta)
                         <div class="item">

@@ -499,6 +499,8 @@ if(!function_exists('getImplantacaoUnidade')){
 
 	function getImplantacaoUnidade($id){
 
+		if(env('APP_ENV') <> 'local'):
+
 			$url = "https://v2.convertapi.com/convert/web/to/png?Secret=KJUVlR0CjjyZU4YG";
 
 			$unidade = Unidade::find($id);
@@ -579,7 +581,11 @@ if(!function_exists('getImplantacaoUnidade')){
 			}
 	
 			return url($diretorio.$imagename);
+		else:
 
+			return url("assets/images/!logged-empreendimento.jpg");
+		
+		endif;
 	}
 }
 
