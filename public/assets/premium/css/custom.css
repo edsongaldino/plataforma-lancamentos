@@ -407,6 +407,11 @@ img {
     background: #FFF;
 }
 
+.unidades .linha-unidade:active{
+	background-color: #f9f9f9 !important;
+	border: 1px dashed #3e3c3c;
+}
+
 .unidades .linha-unidade .linha{
     width: 100%;
     height: 25px;
