@@ -506,7 +506,8 @@ if(!function_exists('getImplantacaoUnidade')){
 			$unidade = Unidade::find($id);
 
 			$posicao_unidade = $unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor;
-
+			dd($posicao_unidade);
+			
 			switch($posicao_unidade):
 
 				case 'frente':
