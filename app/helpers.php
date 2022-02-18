@@ -524,8 +524,6 @@ if(!function_exists('getImplantacaoUnidade')){
 				
 			endswitch;
 
-			dd($foto_implantacao);
-
 			list($largura, $altura) = getimagesize($foto_implantacao);
 	
 			$curl = curl_init($url);
@@ -542,7 +540,7 @@ if(!function_exists('getImplantacaoUnidade')){
 						"Parameters": [
 							{
 								"Name": "Url",
-								"Value": "https://www.lancamentosonline.com.br/unidade/'.$id.'/37/visualizar-mapa-vertical/mobile"
+								"Value": "https://www.lancamentosonline.com.br/unidade/'.$id.'/37/visualizar-mapa-vertical/'.$posicao_unidade.'"
 							},
 							{
 								"Name": "StoreFile",
