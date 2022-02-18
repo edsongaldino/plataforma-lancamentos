@@ -468,7 +468,7 @@
 
 @push('rodape')
 <div class="rodape">
-    <div class="btn-voltar" onclick='history.go(-1)'><i class="fa fa-reply-all" aria-hidden="true"></i></div>
+    <a href="{{ $_SERVER['HTTP_REFERER'] }}"><div class="btn-voltar"><i class="fa fa-reply-all" aria-hidden="true"></i></div></a>
     <a href="/unidade/{{ $unidade->id }}/condicoes-construtora"><div class="btn-condicoes-pagamento"><i class="fa fa-handshake-o" aria-hidden="true"></i> Condições de Pagamento</div></a>
 </div>
 @endpush
