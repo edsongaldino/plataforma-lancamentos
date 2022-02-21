@@ -10,6 +10,7 @@ use App\Models\Lead;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Empreendimento\Lead\Construtora as EmailConstrutora;
+use App\Mail\Empreendimento\Lead\Administrador as EmailAdm;
 
 class LeadController extends Controller
 {
@@ -190,6 +191,28 @@ class LeadController extends Controller
     public function TestarEnvio($lead){
         $lead = Lead::find($lead);
         Mail::to('edsongaldino@outlook.com')->send(new EmailConstrutora($lead));
+    }
+
+    public function ReenviarLeads(){
+
+        $leads = Lead::where('created_at','>', '2022-02-10 00:00:01')->limit(1)->get();
+
+        foreach($leads as $lead){
+            /*$contatos_construtora = $lead->construtora->usuarios->toArray();
+        
+            if ($contatos_construtora) {
+                $destinatarios = array_column($contatos_construtora, 'email');
+                Mail::to($destinatarios)->send(new EmailConstrutora($lead));
+            }*/
+
+            if (config('app.ambiente') == 'producao') {
+                $adms = [];
+                $adms[] = 'edson@lancamentosonline.com.br';
+                $adms[] = 'contato@lancamentosonline.com.br';
+                Mail::to($adms)->send(new EmailAdm($lead));    
+            }  
+
+        }
     }
 
 }
