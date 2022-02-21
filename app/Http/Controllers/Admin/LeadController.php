@@ -191,7 +191,8 @@ class LeadController extends Controller
     public function TestarEnvio($lead){
         
         $lead = Lead::find($lead);
-        Mail::to('contato@lancamentosonline.com.br')->send(new EmailAdm($lead));
+        $adms = ['contato@lancamentosonline.com.br', 'edsongaldino@outlook.com'];
+        Mail::to($adms)->send(new EmailAdm($lead));
 
         $contatos_construtora = $lead->construtora->usuarios->toArray();
         
