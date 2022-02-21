@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Construtora;
 use App\Models\Empreendimento;
+use App\Models\Lead;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Empreendimento\Lead\Construtora as EmailConstrutora;
 
 class LeadController extends Controller
 {
@@ -182,6 +185,11 @@ class LeadController extends Controller
             echo $response;
         } 
 
+    }
+
+    public function TestarEnvio($lead = 7659){
+        $lead = Lead::find($lead);
+        Mail::to('edsongaldino@outlook.com')->send(new EmailConstrutora($lead));
     }
 
 }
