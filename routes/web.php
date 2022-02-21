@@ -596,4 +596,4 @@ Route::get('resumo-estatistica/{tipo}/{mes}/{ano}', 'Admin\EstatisticaController
 Route::get('integracao-mrv', 'Admin\LeadController@integracaoMrvHom');
 Route::get('integracao-mrv-new', 'Admin\LeadController@integracaoMrvNew');
 Route::get('atualiza-reservas', 'Admin\CronController@BaixaReserva');
-Route::get('testar-envio/{$lead}', 'Admin\LeadController@TestarEnvio');
+Route::get('testar-envio/{lead}', 'Admin\LeadController@TestarEnvio');
