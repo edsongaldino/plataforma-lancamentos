@@ -22,46 +22,57 @@
       
 
       @if(isset($ocultar))
-        @if($ocultar <> 'S' && $ocultar <> 'OD' || $unidade->situacao <> 'Vendida')
 
-          @if($unidade->getCaracteristica('valor_m2'))
+        @if($unidade->situacao == 'Vendida')
           <div class="terreno">
             <div class="titulo">Valor (M²)</div>
             <div class="valor">
-              R$ {{ $unidade->getCaracteristica('valor_m2') ?? '' }}
+              -
             </div>
           </div>
-          @else
+        @else
+          @if($ocultar <> 'S' && $ocultar <> 'OD')
 
             @if($unidade->getCaracteristica('valor_m2'))
             <div class="terreno">
               <div class="titulo">Valor (M²)</div>
               <div class="valor">
-                R$ {{ round($unidade->getCaracteristica('metragem_total')/$unidade->getCaracteristica('valor_m2')) }}
+                R$ {{ $unidade->getCaracteristica('valor_m2') ?? '' }}
               </div>
             </div>
             @else
+
+              @if($unidade->getCaracteristica('valor_m2'))
+              <div class="terreno">
+                <div class="titulo">Valor (M²)</div>
+                <div class="valor">
+                  R$ {{ round($unidade->getCaracteristica('metragem_total')/$unidade->getCaracteristica('valor_m2')) }}
+                </div>
+              </div>
+              @else
+              <div class="terreno">
+                <div class="titulo">Valor (M²)</div>
+                <div class="valor">
+                  Consulte
+                </div>
+              </div>
+              @endif
+
+            @endif
+
+          @else
+          
             <div class="terreno">
               <div class="titulo">Valor (M²)</div>
               <div class="valor">
                 Consulte
               </div>
             </div>
-            @endif
 
           @endif
-
-        @else
         
-          <div class="terreno">
-            <div class="titulo">Valor (M²)</div>
-            <div class="valor">
-              Consulte
-            </div>
-          </div>
-
         @endif
-      
+
       @endif
 
     </div>
