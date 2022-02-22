@@ -22,7 +22,7 @@
       
 
       @if(isset($ocultar))
-        @if($ocultar <> 'S' && $ocultar <> 'OD')
+        @if($ocultar <> 'S' && $ocultar <> 'OD' || $unidade->situacao <> 'Vendida')
 
           @if($unidade->getCaracteristica('valor_m2'))
           <div class="terreno">

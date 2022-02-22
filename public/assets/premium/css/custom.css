@@ -2884,6 +2884,15 @@ html.no-pointerevents.no-touchevents .gallery-grid-item:hover span  {
     opacity: 100 !important;
 }
 
+.fechar-modal{
+	width: 50px !important;
+    margin-top: 20px !important;
+    margin-right: 25px !important;
+    border-radius: 5px !important;
+    background: rgb(27 127 204) !important;
+    line-height: 10px !important;
+}
+
 .modalDialog .img-responsive {
 	width: auto !important;
 	height: auto;

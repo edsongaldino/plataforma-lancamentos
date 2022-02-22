@@ -11,7 +11,7 @@
     <div class="unidades">
 
         <div class="topo-unidades">
-            <div class="titulo">Unidades Disponíveis {{ env('APP_ENV') }}</div>
+            <div class="titulo">Unidades Disponíveis</div>
             <div class="qtd-unidades">{{ $unidades->count() }}</div>
         </div>
 

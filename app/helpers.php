@@ -499,7 +499,7 @@ if(!function_exists('getImplantacaoUnidade')){
 
 	function getImplantacaoUnidade($id){
 
-		if (env('APP_ENV') == 'local'){
+		if (getenv('APP_ENV') == 'local'){
 			return url("assets/images/!logged-empreendimento.jpg");
 		}else{
 
