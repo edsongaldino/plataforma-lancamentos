@@ -71,8 +71,15 @@
                                 @php
                                     $valor_m2 = $unidade->caracteristicas->where('nome', 'valor_m2')->first()->pivot->valor;
                                     $metragem = $unidade->caracteristicas->where('nome', 'metragem_total')->first()->pivot->valor;
+
+                                    if(isset($valor_m2) && isset($netragem)){
+                                        $valor = $valor_m2 * $metragem;
+                                    }else{
+                                        $valor = '0.00';
+                                    }
+
                                 @endphp
-                                <div class="valor2">{{ converte_valor_real_semdecimal($valor_m2 * $metragem) }}</div>
+                                <div class="valor2">{{ converte_valor_real_semdecimal($valor) }}</div>
                             @else
                                 <div class="valor2">Consulte</div>
                             @endif
@@ -99,8 +106,14 @@
                                 @php
                                     $valor_m2 = $unidade->caracteristicas->where('nome', 'valor_m2')->first()->pivot->valor;
                                     $metragem = $unidade->caracteristicas->where('nome', 'metragem_total')->first()->pivot->valor;
+
+                                    if(isset($valor_m2) && isset($netragem)){
+                                        $valor = $valor_m2 * $metragem;
+                                    }else{
+                                        $valor = '0.00';
+                                    }
                                 @endphp
-                                <div class="valor2">{{ converte_valor_real_semdecimal($valor_m2 * $metragem) }}</div>
+                                <div class="valor2">{{ converte_valor_real_semdecimal($valor) }}</div>
                             @else
                                 <div class="valor2">Consulte</div>
                             @endif

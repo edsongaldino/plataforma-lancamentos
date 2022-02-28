@@ -426,71 +426,84 @@ if(!function_exists('getMapaUnidade')){
 
 	function getMapaUnidade($id){
 
-			$url = "https://v2.convertapi.com/convert/web/to/png?Secret=KJUVlR0CjjyZU4YG";
+		if (getenv('APP_ENV') == 'local'){
+			return url("assets/images/!logged-empreendimento.jpg");
+		}else{
 
-			$unidade = Unidade::find($id);
-
-			$implantacao = $unidade->empreendimento->getFotoTipo('Implantação');
-
-			if($implantacao){
-				list($largura, $altura) = getimagesize($implantacao);
-			}
-			
-			$curl = curl_init($url);
-			curl_setopt($curl, CURLOPT_URL, $url);
-			curl_setopt($curl, CURLOPT_POST, true);
-			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-	
-			$headers = array(
-			"Content-Type: application/json",
-			);
-			curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-	
-			$data = '{
-						"Parameters": [
-							{
-								"Name": "Url",
-								"Value": "https://www.lancamentosonline.com.br/unidade/'.$id.'/37/visualizar-mapa/mobile"
-							},
-							{
-								"Name": "StoreFile",
-								"Value": true
-							},
-							{
-								"Name": "ImageWidth",
-								"Value": "'.$largura.'"
-							},
-							{
-								"Name": "ImageHeight",
-								"Value": "'.$altura.'"
-							}
-						]
-					}';
-	
-			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-	
-			//for debug only!
-			curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-	
-			$response = curl_exec($curl);
-	
-			$obj = json_decode($response); 
-			
 			$diretorio = "uploads/unidade/".$id."/";
+			$foto = "www_lancamentosonline_com_br.png";
 
-			if(!is_dir($diretorio)){
-				mkdir("uploads/unidade/".$id."/", 0755);
-			}
+			if(file_exists($diretorio.$foto)){
+				$diretorio = "uploads/unidade/".$id."/";
+				$imagename = "www_lancamentosonline_com_br.png";
+			}else{
+
+				$url = "https://v2.convertapi.com/convert/web/to/png?Secret=KJUVlR0CjjyZU4YG";
+
+				$unidade = Unidade::find($id);
+
+				$implantacao = $unidade->empreendimento->getFotoTipo('Implantação');
+
+				if($implantacao){
+					list($largura, $altura) = getimagesize($implantacao);
+				}
 				
-			$imgurl = $obj->Files[0]->Url; 
-			$imagename = basename($imgurl);
-			if(!file_exists($diretorio.$imagename)){
-				$image = getimg($imgurl); 
-				file_put_contents($diretorio.$imagename,$image);			
+				$curl = curl_init($url);
+				curl_setopt($curl, CURLOPT_URL, $url);
+				curl_setopt($curl, CURLOPT_POST, true);
+				curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		
+				$headers = array(
+				"Content-Type: application/json",
+				);
+				curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+		
+				$data = '{
+							"Parameters": [
+								{
+									"Name": "Url",
+									"Value": "https://www.lancamentosonline.com.br/unidade/'.$id.'/37/visualizar-mapa/mobile"
+								},
+								{
+									"Name": "StoreFile",
+									"Value": true
+								},
+								{
+									"Name": "ImageWidth",
+									"Value": "'.$largura.'"
+								},
+								{
+									"Name": "ImageHeight",
+									"Value": "'.$altura.'"
+								}
+							]
+						}';
+		
+				curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+		
+				//for debug only!
+				curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+				curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+		
+				$response = curl_exec($curl);
+		
+				$obj = json_decode($response); 
+				
+				$diretorio = "uploads/unidade/".$id."/";
+
+				if(!is_dir($diretorio)){
+					mkdir("uploads/unidade/".$id."/", 0755);
+				}
+					
+				$imgurl = $obj->Files[0]->Url; 
+				$imagename = basename($imgurl);
+				if(!file_exists($diretorio.$imagename)){
+					$image = getimg($imgurl); 
+					file_put_contents($diretorio.$imagename,$image);			
+				}
 			}
-	
 			return url($diretorio.$imagename);
+		}
 
 	}
 }
@@ -499,89 +512,96 @@ if(!function_exists('getImplantacaoUnidade')){
 
 	function getImplantacaoUnidade($id){
 
-		if (getenv('APP_ENV') == 'local'){
+		if(getenv('APP_ENV') == 'local'){
 			return url("assets/images/!logged-empreendimento.jpg");
 		}else{
 
-			$url = "https://v2.convertapi.com/convert/web/to/png?Secret=KJUVlR0CjjyZU4YG";
-
-			$unidade = Unidade::find($id);
-
-			$posicao_unidade = $unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor;
-
-			switch($posicao_unidade):
-
-				case 'frente':
-					$foto_implantacao = $unidade->empreendimento->getFotoTipo('Implantação Vertical - Frente');
-				break;
-				case 'fundo':
-					$foto_implantacao = $unidade->empreendimento->getFotoTipo('Implantação Vertical - Fundo');
-				break;
-				case 'lateral':
-					$foto_implantacao = $unidade->empreendimento->getFotoTipo('Implantação Vertical - Lateral');
-				break;
-				default:
-					$foto_implantacao = $unidade->empreendimento->getFotoTipo('Implantação Vertical - Frente');
-				break;
-				
-			endswitch;
-
-			list($largura, $altura) = getimagesize($foto_implantacao);
-	
-			$curl = curl_init($url);
-			curl_setopt($curl, CURLOPT_URL, $url);
-			curl_setopt($curl, CURLOPT_POST, true);
-			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-	
-			$headers = array(
-			"Content-Type: application/json",
-			);
-			curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-	
-			$data = '{
-						"Parameters": [
-							{
-								"Name": "Url",
-								"Value": "https://www.lancamentosonline.com.br/unidade/'.$id.'/37/visualizar-mapa-vertical/'.$posicao_unidade.'"
-							},
-							{
-								"Name": "StoreFile",
-								"Value": true
-							},
-							{
-								"Name": "ImageWidth",
-								"Value": "'.$largura.'"
-							},
-							{
-								"Name": "ImageHeight",
-								"Value": "'.$altura.'"
-							}
-						]
-					}';
-	
-			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-	
-			//for debug only!
-			curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-	
-			$response = curl_exec($curl);
-	
-			$obj = json_decode($response);
-				
 			$diretorio = "uploads/unidade/".$id."/";
+			$foto = "www_lancamentosonline_com_br.png";
 
-			if(!is_dir($diretorio)){
-				mkdir("uploads/unidade/".$id."/", 0755);
+			if(file_exists($diretorio.$foto)){
+				$diretorio = "uploads/unidade/".$id."/";
+				$imagename = "www_lancamentosonline_com_br.png";
+			}else{
+				$url = "https://v2.convertapi.com/convert/web/to/png?Secret=KJUVlR0CjjyZU4YG";
+
+				$unidade = Unidade::find($id);
+
+				$posicao_unidade = $unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor;
+
+				switch($posicao_unidade):
+
+					case 'frente':
+						$foto_implantacao = $unidade->empreendimento->getFotoTipo('Implantação Vertical - Frente');
+					break;
+					case 'fundo':
+						$foto_implantacao = $unidade->empreendimento->getFotoTipo('Implantação Vertical - Fundo');
+					break;
+					case 'lateral':
+						$foto_implantacao = $unidade->empreendimento->getFotoTipo('Implantação Vertical - Lateral');
+					break;
+					default:
+						$foto_implantacao = $unidade->empreendimento->getFotoTipo('Implantação Vertical - Frente');
+					break;
+					
+				endswitch;
+
+				list($largura, $altura) = getimagesize($foto_implantacao);
+		
+				$curl = curl_init($url);
+				curl_setopt($curl, CURLOPT_URL, $url);
+				curl_setopt($curl, CURLOPT_POST, true);
+				curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		
+				$headers = array(
+				"Content-Type: application/json",
+				);
+				curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+		
+				$data = '{
+							"Parameters": [
+								{
+									"Name": "Url",
+									"Value": "https://www.lancamentosonline.com.br/unidade/'.$id.'/37/visualizar-mapa-vertical/'.$posicao_unidade.'"
+								},
+								{
+									"Name": "StoreFile",
+									"Value": true
+								},
+								{
+									"Name": "ImageWidth",
+									"Value": "'.$largura.'"
+								},
+								{
+									"Name": "ImageHeight",
+									"Value": "'.$altura.'"
+								}
+							]
+						}';
+		
+				curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+		
+				//for debug only!
+				curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+				curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+		
+				$response = curl_exec($curl);
+		
+				$obj = json_decode($response);
+
+				if(!is_dir($diretorio)){
+					mkdir("uploads/unidade/".$id."/", 0755);
+				}
+					
+				$imgurl = $obj->Files[0]->Url; 
+				$imagename = basename($imgurl);
+				if(!file_exists($diretorio.$imagename)){
+					$image = getimg($imgurl); 
+					file_put_contents($diretorio.$imagename,$image);			
+				}
+
 			}
-				
-			$imgurl = $obj->Files[0]->Url; 
-			$imagename = basename($imgurl);
-			if(!file_exists($diretorio.$imagename)){
-				$image = getimg($imgurl); 
-				file_put_contents($diretorio.$imagename,$image);			
-			}
-	
+			
 			return url($diretorio.$imagename);
 		}
 	}
