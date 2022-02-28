@@ -36,7 +36,7 @@
         <div class="featured-offer-col">
           <div class="featured-offer-planta planta">
             <div class="featured-planta-title">
-              <h3 class="featured-offer-title">{{ $planta_empreendimento->nome }}</h3>
+              <h3 class="featured-offer-title nome-planta"><i class="fa fa-object-group" aria-hidden="true"></i> {{ $planta_empreendimento->nome }}</h3>
             </div>
             <div class="featured-offer-photo gallery-grid-lg planta">
               @php
@@ -66,7 +66,7 @@
                 href="{{ $foto_planta->getUrl('original') }}" 
                 class="{{ url_amigavel($foto_planta->nome.$foto_planta->id)}}" 
                 data-sub-html="{{ $foto_planta->nome }} - Área Privativa ({{ $metragem }} m²)">
-                  <img data-id="{{ $foto_planta->id }}" data-planta="{{ $foto_planta->planta->id }}" src="{{ $foto_planta->getUrl('400x300') }}" class="center-block" alt="" />
+                  <img data-id="{{ $foto_planta->id }}" data-planta="{{ $foto_planta->planta->id }}" src="{{ $foto_planta->getUrl('400x300') }}" class="center-block img-planta" alt="" />
               </a>
             </div>      
 

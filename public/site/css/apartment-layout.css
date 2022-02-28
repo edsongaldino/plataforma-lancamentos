@@ -2807,6 +2807,21 @@ html.no-pointerevents.no-touchevents .featured-offer-col:hover .featured-offer-f
 	overflow: hidden;
 }
 
+.featured-offer-planta.planta .img-planta{
+	margin-bottom: 10px !important;
+}
+
+.featured-offer-planta.planta .nome-planta{
+	line-height: 40px;
+	font-size: 1.65em;
+}
+
+.featured-offer-planta.planta .nome-planta i{
+	color: #028fb5;
+}
+
+
+
 /* flip speed goes here */
 .featured-offer {
 	-webkit-transition: 1s;
