@@ -93,7 +93,7 @@
             </div>                            
 
             @if($empreendimento->subtipo->id == 1 || $empreendimento->subtipo->id == 3)
-              <div class="featured-offer-params">
+              <div class="featured-offer-params info">
                 <div class="featured-area">
                   <img src="/site/images/area-icon.png" alt="" title="Área Privativa da Planta" />{{ $metragem }}m<sup>2</sup>
                 </div>
@@ -105,14 +105,14 @@
                 </div>              
               </div>
             @elseif($empreendimento->subtipo->id == 2)
-              <div class="featured-offer-params">
+              <div class="featured-offer-params info">
                 <div class="featured-area">
                   <img src="/site/images/area-icon.png" alt="" title="Área Privativa da Planta" />
                   {{ $planta_empreendimento->area_privativa }} m<sup>2</sup>
                 </div>                
               </div>
             @else
-              <div class="featured-offer-params">
+              <div class="featured-offer-params info">
                 <div class="featured-area">
                   <img src="/site/images/area-icon.png" alt="" title="Área Privativa da Planta" />{{ $metragem }}m<sup>2</sup>
                 </div>

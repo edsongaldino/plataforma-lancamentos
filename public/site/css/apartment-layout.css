@@ -2664,6 +2664,11 @@ h4.featured-offer-local {
 	width: 237px;
 }
 
+.featured-offer-params.info  {
+	float:left;
+	width: 80% !important;
+}
+
 .featured-price  {
 	float:right;
 	width: 123px;
@@ -8398,6 +8403,10 @@ h4.neighbourhood-title {
 	.featured-offer-params {
 		width: 100%;
 	}
+
+	.featured-offer-params.info {
+		width: 80% !important;
+	}
 	
 	.featured-offer-back .button {
 		width: 100%;
@@ -9399,7 +9408,7 @@ h4.neighbourhood-title {
 
 
 .featured-planta-title{background-color: #EFEFEF; height: 60px; padding: 10px 0 0 10px; width: 100%; text-align: center;}
-.mais-info{font-size: 25px;}
+.mais-info{font-size: 25px; width: 20% !important;}
 
 .featured-planta-description{height: auto; width: 100%; padding: 20px 0 20px 0;}
 .featured-planta-description li{font-size: 14px;}

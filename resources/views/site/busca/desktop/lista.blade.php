@@ -60,7 +60,7 @@
 
               @if ($empreendimento->modalidade == 'Lançamento')
                 <div class="transaction-type lancamento" title="Lançamento">L</div>
-              @elseif ($empreendimento->modalidade == 'Em obra')
+              @elseif ($empreendimento->modalidade == 'Em Obra')
                 <div class="transaction-type obra" title="Em Obra">O</div>
               @elseif ($empreendimento->modalidade == 'Breve')
                 <div class="transaction-type breve" title="Breve Lançamento">B</div>
@@ -155,7 +155,7 @@
                 </div>
                 <div class="list-rooms">
                   <img src="/site/images/rooms-icon.png" alt="" />
-                  {!! qtd_dormitorio($empreendimento) !!}
+                  {!! qtd_dormitorio($empreendimento, true) !!}
                 </div>
                 @if ($suites)
                   <div class="list-baths">
@@ -174,7 +174,7 @@
 
               <div class="list-rooms">
                 <img src="/site/images/rooms-icon.png" alt="" />
-                {!! qtd_dormitorio($empreendimento) !!}
+                {!! qtd_dormitorio($empreendimento, true) !!}
               </div>
               @if ($suites)
                 <div class="list-baths">
