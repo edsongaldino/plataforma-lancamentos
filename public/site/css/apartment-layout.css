@@ -2801,7 +2801,7 @@ html.no-pointerevents.no-touchevents .featured-offer-col:hover .featured-offer-f
 	width: 360px;
 }
 
-.featured-offer-planta.planta{position: unset; float: left;}
+.featured-offer-planta.planta{position: unset; float: left;width: 90%;}
 
 .featured-offer-back {
 	overflow: hidden;
