@@ -218,16 +218,24 @@
         @endif
         @endif
 
+        @php
+        $itens_lazer = $empreendimento->itensLazer;
+        $infra_estrutura = $empreendimento->caracteristicas
+                ->where('tipo', 'Empreendimento')
+                ->where('exibir', 'Sim');
+        @endphp
+
+
         <nav class="abas">
+            @if($itens_lazer->count() > 0)
             <div class="nav-item active" id="itensLazer"><i class="fas fa-swimming-pool" aria-hidden="true"></i> Itens de Lazer</div>
+            @endif
+            @if($infra_estrutura->count() > 0)
             <div class="nav-item" id="infraEstrutura"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Ficha Técnica</div>
+            @endif
         </nav>
 
         <div id="itens-lazer" style="display: block;">
-
-            @php
-            $itens_lazer = $empreendimento->itensLazer;
-            @endphp
 
             @foreach($itens_lazer->all() as $item_lazer)
                 <div class="item"><i class="far fa-check-circle" aria-hidden="true"></i> {{ $item_lazer->nome }}</div>
@@ -236,13 +244,7 @@
         </div>
 
         <div id="infra-estrutura" style="display: none;">
-            
-            @php
-                $infra_estrutura = $empreendimento->caracteristicas
-                ->where('tipo', 'Empreendimento')
-                ->where('exibir', 'Sim');
-            @endphp
-            
+                       
             @foreach($infra_estrutura->all() as $item_infra)  
                 <div class="item"><i class="far fa-check-circle" aria-hidden="true"></i> {{ $item_infra->nome }}</div>
             @endforeach

@@ -112,7 +112,7 @@
                 <div class="descricao-valor">
 
                     @if(isset($tabela->desconto_avista))
-                    Desconto à vista: {{ $tabela->desconto_avista || '' }}% <span class="desconto-avista">(-{{ converte_valor_real(calcular_valor(valor_unidade($unidade), $tabela->desconto_avista, 'DescontoAvista', $tabela)) }})</span><br/>
+                    Pagamento à vista: <strong>{{ converte_valor_real(calcular_valor(valor_unidade($unidade), $tabela->desconto_avista, 'ValorComDesconto', $tabela)) }}</strong><span class="desconto-avista"> (Desconto de {{ $tabela->desconto_avista }}%)</span><br/>
                     @endif
 
                     @if(isset($tabela->correcao_obra))
@@ -191,7 +191,7 @@
                     <div class="descricao-valor">
 
                         @if(isset($tabela->desconto_avista))
-                        Desconto à vista: {{ $tabela->desconto_avista }}% <span class="desconto-avista">(-{{ converte_valor_real(calcular_valor(valor_unidade($unidade), $tabela->desconto_avista, 'DescontoAvista', $tabela)) }})</span><br/>
+                        Pagamento à vista: <strong>{{ converte_valor_real(calcular_valor(valor_unidade($unidade), $tabela->desconto_avista, 'ValorComDesconto', $tabela)) }}</strong><span class="desconto-avista"> (Desconto de {{ $tabela->desconto_avista }}%)</span><br/>
                         @endif
     
                         @if(isset($tabela->correcao_obra))
@@ -284,7 +284,7 @@
                     <div class="descricao-valor">
 
                         @if(isset($tabela->desconto_avista))
-                        Desconto à vista: {{ $tabela->desconto_avista || '' }}% <span class="desconto-avista">(-{{ converte_valor_real(calcular_valor(valor_unidade($unidade), $tabela->desconto_avista, 'DescontoAvista', $tabela)) }})</span><br/>
+                        Pagamento à vista: <strong>{{ converte_valor_real(calcular_valor(valor_unidade($unidade), $tabela->desconto_avista, 'ValorComDesconto', $tabela)) }}</strong><span class="desconto-avista"> (Desconto de {{ $tabela->desconto_avista }}%)</span><br/>
                         @endif
     
                         @if(isset($tabela->correcao_obra))

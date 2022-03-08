@@ -1,6 +1,6 @@
 <div class="modal-header">
     <h5 class="modal-title" id="exampleModalLabel">{{ $planta->nome }} - {{ $planta->area_privativa }}m²</h5>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <button type="button" class="close fechar-modal" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
     </div>

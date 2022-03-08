@@ -4,7 +4,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <i class="fas fa-car" aria-hidden="true"></i> Mapa das vagas
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <button type="button" class="close fechar-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
         </div>
         <div class="modal-body">
             <iframe class="conteudo-mapa" zooming="true" id="iframe" src="{{ env('APP_URL') }}/empreendimento/{{ $empreendimento->id }}/{{ $empreendimento->id*37 }}/visualizar-garagens/mobile" title="Mapa"></iframe>

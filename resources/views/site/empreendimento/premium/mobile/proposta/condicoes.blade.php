@@ -27,7 +27,7 @@
             <div class="item">
                 <div class="titulo">Parcelas Mensais</div>
                 <div class="valor"><strong>{{ $tabela->qtd_mensais }}x</strong> {{ converte_valor_real(calcular_valor(valor_unidade($unidade), $tabela->percentual_mensais, 'Mensal', $tabela)) }}</div>
-                <div class="percentual"><strong>{{ $tabela->percentual_mensais }}%</strong> R$ {{ converte_valor_real(calcular_valor(valor_unidade($unidade), $tabela->percentual_mensais, 'Mensal', $tabela)*$tabela->qtd_mensais) }}</div>
+                <div class="percentual linha-dupla"><strong>{{ $tabela->percentual_mensais }}%</strong><br/> R$ {{ converte_valor_real(calcular_valor(valor_unidade($unidade), $tabela->percentual_mensais, 'Mensal', $tabela)*$tabela->qtd_mensais) }}</div>
             </div>
             @endif
 

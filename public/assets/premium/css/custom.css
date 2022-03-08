@@ -876,10 +876,10 @@ img {
 .conteudo .detalhe-unidade .valor-unidade-topo .descricao-valor{
 	width: 100%;
     height: 20px;
-    line-height: 10px;
+    line-height: 15px;
     text-align: center;
     color: #333;
-    font-size: 10px;
+    font-size: 12px;
 	margin-top: 5px;
 }
 
@@ -1324,6 +1324,11 @@ img {
     font-size: 14px;
     text-align: left;
     padding: 5px 10px;
+}
+
+.conteudo .condicoes-construtora .item .percentual.linha-dupla{
+    line-height: 20px !important;
+    padding: 0px 10px !important;
 }
 
 .conteudo .condicoes-construtora .item .data{

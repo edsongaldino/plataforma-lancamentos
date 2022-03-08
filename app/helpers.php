@@ -1579,6 +1579,13 @@ if (!function_exists('calcular_valor')) {
 			return $resultado;
 		}
 
+		if($tipo == 'ValorComDesconto'){
+			//var_dump($valor_cheio);
+			$desconto = floatval($valor_cheio) * (floatval($percentual) / 100);
+			$resultado = floatval($valor_cheio) - floatval($desconto);
+			return $resultado;
+		}
+
 		if($tipo == 'Saldo'){
 			//var_dump($valor_cheio);
 			$valor_entrada = floatval($valor_cheio) * (floatval($percentual) / 100);
