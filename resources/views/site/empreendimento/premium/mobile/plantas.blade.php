@@ -29,8 +29,9 @@
                 <div class="foto-planta" data-idplanta="{{ $planta_empreendimento->id }}"><img src="{{ $foto_planta->getUrl('400x300') ?? '' }}" alt=""></div>
                 <div class="btn-metragem"><i class="fas fa-ruler-combined" aria-hidden="true"></i> {{ $metragem }}m²</div>
                 <div class="btn-detalhes" data-idplanta="{{ $planta_empreendimento->id }}">+ Detalhes</div>
-                <a href="/empreendimento/planta/{{ $planta_empreendimento->id }}/unidades"><div class="btn-unidades-disponiveis"><i class="fa fa-check" aria-hidden="true"></i> Unidades desta planta</div></a>
+                <a href="/empreendimento/planta/{{ $planta_empreendimento->id }}/unidades"><div class="btn-unidades-disponiveis"><i class="fa fa-eye" aria-hidden="true"></i> Visualizar Unidades da planta</div></a>
             </div>
+
 
         @endforeach
 

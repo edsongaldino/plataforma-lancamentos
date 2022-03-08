@@ -40,7 +40,9 @@
 
       @include('admin/empreendimentos/desktop/empreendimento/principal/caracteristicas')
 
-      @include('admin/empreendimentos/desktop/empreendimento/principal/seo')                                
+      @include('admin/empreendimentos/desktop/empreendimento/principal/seo')  
+      
+      @include('admin/empreendimentos/desktop/empreendimento/principal/arquivos')
     </div>
   </div>
   <div class="col-md-12 col-lg-2">                        

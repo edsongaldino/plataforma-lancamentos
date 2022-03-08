@@ -16,6 +16,7 @@ use App\Models\Caracteristica;
 use App\Models\Cidade;
 use App\Models\Construtora;
 use App\Models\Empreendimento;
+use App\Models\EmpreendimentoArquivos;
 use App\Models\EmpreendimentoPerfil;
 use App\Models\Endereco;
 use App\Models\Estado;
@@ -614,6 +615,25 @@ class EmpreendimentoController
 	{        	
 		$id = $request->id;
 	    $resultado = (new Empreendimento())->salvarCanaisEmpreendimento($request, $id);
+
+	    if ($resultado) {
+	        return response()->json([
+	        	'sucesso' => 'true',
+	        	'mensagem' => 'Dados atualizados',
+	        	'id' => $resultado
+	        ]);
+	    } else {
+	        return response()->json([
+	        	'sucesso' => 'false',
+	        	'mensagem' => 'Erro ao atualizar dados'
+	        ]);
+	    }	    
+	}
+
+	public function salvarArquivosEmpreendimento(Request $request)
+	{        	
+		$id = $request->id;
+	    $resultado = (new EmpreendimentoArquivos())->salvarArquivosEmpreendimento($request, $id);
 
 	    if ($resultado) {
 	        return response()->json([

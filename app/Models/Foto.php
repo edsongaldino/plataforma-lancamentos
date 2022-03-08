@@ -242,6 +242,7 @@ class Foto extends Model
         {        
             try {
                 $empreendimento = (new Empreendimento())->find($id);
+                
                 $file = $request->file('file');
 
                 if ($file) {

@@ -129,6 +129,35 @@ $(function () {
     });
   });
 
+  $("#salvar-arquivos-empreendimento").on('click', function (e) {
+    
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var form = $("#arquivos-empreendimento").closest("form");
+    var formData = new FormData(form[0]);
+    $.ajax({
+        url: '/admin/salvar-arquivos-empreendimento',
+        type: "POST",
+        data: formData,
+        dataType: "json",
+        processData: false,
+        contentType: false,
+        success: function(data) {
+          
+          Swal.fire(
+            'OK!',
+            'Os arquivos foram salvos!',
+            'success'
+          ).then((result) => {
+            // Reload the Page
+            location.reload();
+          });
+        }
+    });
+
+  });
+
+
   $("#salvar-tour-empreendimento").on('click', function () {
     ajaxRequest({
       url: '/admin/empreendimento/salvar-tour',

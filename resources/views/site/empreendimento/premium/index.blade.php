@@ -249,9 +249,9 @@
             
         </div>
 
-        
-        <a href="/empreendimento/{{ $empreendimento->id }}/unidades"><div class="memorial-descritivo"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Memorial Descritivo</div></a>
-        
+        @if($empreendimento->arquivos->where('tipo', 'Memorial Descritivo')->first())
+        <a href="/uploads/arquivos/{{  $empreendimento->arquivos->where('tipo', 'Memorial Descritivo')->first()->arquivo ?? '' }}" target="_blank"><div class="memorial-descritivo"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Memorial Descritivo</div></a>
+        @endif
 
         <div class="localizacao">
             <div class="titulo-mapa"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Localização</div>

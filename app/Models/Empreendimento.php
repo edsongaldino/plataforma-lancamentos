@@ -1381,6 +1381,11 @@ class Empreendimento extends Model
         return $this->hasMany('App\Models\Lead');
     }
 
+    public function arquivos()
+    {
+        return $this->hasMany('App\Models\EmpreendimentoArquivos');
+    }
+
     public function estatistica()
     {
         return $this->hasMany('App\Models\Estatistica');
