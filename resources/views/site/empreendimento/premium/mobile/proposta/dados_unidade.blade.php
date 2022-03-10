@@ -134,6 +134,7 @@
     @if($empreendimento->variacao->nome == "Lote")
 
         <div class="detalhe-unidade condicoes">
+
             <h2><i class="fas fa-info-circle" aria-hidden="true"></i> Dados da Unidade</h2>
 
             <div class="btn-info-unidade mostrar"><i class="fas fa-chevron-down" aria-hidden="true"></i> Mostrar</div>
@@ -174,6 +175,7 @@
 
                 <div class="valor-unidade-topo">
                     <span class="titulo">Valor da Unidade</span><br/>
+                    
                     @if($unidade->caracteristicas->where('nome', 'valor_unidade')->first() && $unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '' && $unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '0')
                         R$ {{ converte_valor_real($unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor) }}
                     @else

@@ -11,11 +11,14 @@
         @if($garagens->count() < 1)
         <script type="text/javascript">
         $(window).load(function() {
-            Swal.fire(
-            'Não existe vaga definida para esta unidade.',
-            'Por favor, selecione sua vaga abaixo:',
-            'error'
-            )
+            Swal.fire({
+            title: 'Não existe vaga definida para esta unidade.',
+            text: 'Por favor, selecione sua vaga antes de continuar',
+            imageUrl: '{{ asset("assets/premium/img/img-vaga.png") }}',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+            })
         });
         </script>
         @endif
@@ -40,8 +43,7 @@
 
         <div class="mapa">
             <div class="btn-mapa-vagas" data-toggle="modal" data-target="#ModalGaragem">
-                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                <div class="titulo">Visualizar mapa de Vagas</div>
+                <img src="{{ asset('assets/premium/img/btn-mapa-vagas.png') }}" class="img-responsive" alt="Botão Mapa de Vagas">
             </div>
         </div>
 
@@ -78,7 +80,7 @@
             @csrf
             <div class="modal-header">
             <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close fechar-modal" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
@@ -105,7 +107,7 @@
             @csrf
             <div class="modal-header">
             <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close fechar-modal" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
