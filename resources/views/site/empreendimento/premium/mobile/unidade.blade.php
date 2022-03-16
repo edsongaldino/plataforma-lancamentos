@@ -71,7 +71,7 @@
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fa fa-object-group" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">{{ $unidade->planta->caracteristicas->where('nome', 'qtd_dormitorio')->first()->pivot->valor ?? '' }} Quartos</div>
-                    @if(isset($unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()))
+                    @if(isset($unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor))
                     <div class="valor-caracteristica">{{ $unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor ?? '' }} Suítes</div> 
                     @else
                     <div class="valor-caracteristica">-</div> 

@@ -23,7 +23,7 @@
                 <div class="valor"><span class="titulo">Quartos</span><br/>{{ $unidade->planta->caracteristicas->where('nome', 'qtd_dormitorio')->first()->pivot->valor ?? '' }}</div>
             </div>
             
-            @if(isset($unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()))
+            @if(isset($unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor))
             <div class="item-planta">
                 <div class="icone"><i class="fas fa-bed" aria-hidden="true"></i></div>
                 <div class="valor"><span class="titulo">Suítes</span><br/>{{ $unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor ?? '' }}</div>
