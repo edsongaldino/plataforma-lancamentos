@@ -195,14 +195,11 @@
             @endif
 
             <a href="/empreendimento/{{ $empreendimento->id }}/fotos"><div class="galeria-fotos"><i class="fa fa-camera" aria-hidden="true"></i> Galeria de Fotos</div></a>
-            @php
-            $link_tour = $empreendimento->caracteristicas->where('nome', 'link_tour')->first();
-            @endphp
-            @if($link_tour)
-            @if ($link_tour->pivot->valor != null) 
+
+            @if ($empreendimento->tour->count() > 0) 
             <a href="/empreendimento/{{ $empreendimento->id }}/tour360"><div class="tour-360"><i class="fas fa-circle-notch" aria-hidden="true"></i> Tour Virtual 360º</div></a>
             @endif
-            @endif
+
         </div>
 
         @php

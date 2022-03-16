@@ -105,7 +105,7 @@
                     </select>
 
                     <label for="nome">Para esta proposta, precisamos da sua data de nascimento</label>
-                    <input type="text" class="form-control data-nascimento date" name="data_nascimento" id="data_nascimento">
+                    <input type="text" class="form-control data-nascimento date" name="data_nascimento" id="data_nascimento" value="{{ $cliente->data_nascimento }}">
                 </div>
 
                 <div id="bens" style="display: @if(isset($proposta)) @if($proposta->tipo_negociacao_saldo == 'Bens Negociáveis') {{ "block" }} @else {{ "none" }} @endif @else {{ "none" }} @endif;">

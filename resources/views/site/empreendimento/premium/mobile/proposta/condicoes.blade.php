@@ -89,10 +89,16 @@
 @push('rodape')
 <div class="rodape">
     <div class="btn-voltar" onclick='history.go(-1)'><i class="fa fa-reply-all" aria-hidden="true"></i></div>
-    @if(isset($tabela))
-    <a href="/unidade/{{ $unidade->id }}/formular-proposta"><div class="btn-proposta"><i class="fa fa-key" aria-hidden="true"></i> Formular Proposta</div></a>
+    @if(isset($proposta))
+    <a href="/proposta/{{ $proposta->id }}/editar-proposta"><div class="btn-proposta"><i class="fa fa-reply-all" aria-hidden="true"></i> Voltar à Proposta</div></a>
     @else
-    <div class="btn-proposta proposta-block"><i class="fa fa-key" aria-hidden="true"></i> Formular Proposta</div>
+
+        @if(isset($tabela))
+        <a href="/unidade/{{ $unidade->id }}/formular-proposta"><div class="btn-proposta"><i class="fa fa-key" aria-hidden="true"></i> Formular Proposta</div></a>
+        @else
+        <div class="btn-proposta proposta-block"><i class="fa fa-key" aria-hidden="true"></i> Formular Proposta</div>
+        @endif
+
     @endif
 </div>
 @endpush

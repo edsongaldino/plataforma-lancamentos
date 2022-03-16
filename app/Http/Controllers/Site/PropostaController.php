@@ -33,6 +33,8 @@ class PropostaController extends Controller
         $this->data['proposta'] = (new Proposta())->SalvarProposta($request);
         $this->data['tabela'] = TabelaVendas::where('empreendimento_id', $unidade->empreendimento_id)->where('tipo_tabela_id', 1)->first();
 
+        $request->session()->put('proposta', $this->data['proposta']);
+
         if($this->data['empreendimento']->tipo == 'Vertical'){
             $garagem = PropostaVaga::where('proposta_id', $this->data['proposta']->id)->get();
             $this->data['garagens'] = $garagem;

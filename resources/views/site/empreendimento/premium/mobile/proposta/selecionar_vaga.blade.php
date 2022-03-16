@@ -8,7 +8,7 @@
 
     <div class="conteudo">
 
-        @if($garagens->count() < 1)
+        @if($unidade->garagem->count() < 1)
         <script type="text/javascript">
         $(window).load(function() {
             Swal.fire({
@@ -24,18 +24,18 @@
         @endif
 
         <div class="garagens">
-            @if($garagens->count() > 0)
+            @if($unidade->garagem->count() > 0)
             <div class="titulo-vagas-proposta"><i class="fas fa-car" aria-hidden="true"></i> Vagas selecionadas</div>
-            @foreach ($garagens as $garagem)
+            @foreach ($unidade->garagem as $garagem)
             <div class="garagem">
                 <div class="icone"><i class="fas fa-car" aria-hidden="true"></i></div>
-                <div class="nome">Vaga Nº{{ $garagem->vaga->nome }}<br/><span class="pavimento">{{ $garagem->vaga->pavimento->nome ?? 'Nome do pavimento' }}</span></div>
+                <div class="nome">Vaga Nº{{ $garagem->nome }}<br/><span class="pavimento">{{ $garagem->pavimento->nome ?? 'Nome do pavimento' }}</span></div>
                 @if($garagens->count() > ($unidade->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor ?? ''))
                 <div class="valor">{{ converte_valor_real_semdecimal($tabela->valor_vaga_extra ?? '') }}</div>
                 @else
                 <div class="valor">-</div>
                 @endif
-                <div class="excluirVaga" data-id-vaga="{{ $garagem->vaga->id }}" data-nome-vaga="{{ $garagem->vaga->nome }}" ><i class="far fa-times-circle" aria-hidden="true"></i></div>
+                <div class="excluirVaga" data-id-vaga="{{ $garagem->id }}" data-nome-vaga="{{ $garagem->nome }}" ><i class="far fa-times-circle" aria-hidden="true"></i></div>
             </div>
             @endforeach
             @endif

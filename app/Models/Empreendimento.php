@@ -1446,6 +1446,11 @@ class Empreendimento extends Model
         return $this->hasMany('App\Models\Oferta');
     }
 
+    public function tour()
+    {
+        return $this->hasMany('App\Models\TourVirtual');
+    }
+
     public function tabelas()
     {
         return $this->hasMany('App\Models\TabelaVendas');

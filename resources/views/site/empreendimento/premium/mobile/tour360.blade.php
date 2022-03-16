@@ -37,6 +37,15 @@
     <div id="tour">
         <div class="titulo-tour"><i class="fas fa-circle-notch" aria-hidden="true"></i> Tour 360º</div>
 
+        @foreach ($empreendimento->tour as $tour)
+        <a data-fancybox data-type="iframe" data-src="{{ $tour->link }}" href="javascript:;">
+            <div class="btn-tour-360">
+                <div class="title"><i class="fas fa-circle-notch" aria-hidden="true"></i> {{ $tour->titulo }}</div>
+                <div class="subtitulo">Clique para abrir</div>
+            </div>
+        </a>
+        @endforeach
+
         @php
         $link_tour = $empreendimento->caracteristicas->where('nome', 'link_tour')->first();
         @endphp
@@ -55,4 +64,25 @@
     <div class="btn-voltar" onclick='history.go(-1)'><i class="fa fa-reply-all" aria-hidden="true"></i></div>
     <a href="/empreendimento/{{ $empreendimento->id }}/premium"><div class="btn-condicoes-pagamento"><i class="fa fa-building" aria-hidden="true"></i> Empreendimento</div></a>
 </div>
+
+<script>
+    $(function() {
+        $(".fancyboxIframe").fancybox({
+            maxWidth    : 900,
+            maxHeight   : 600,
+            fitToView   : false,
+            width       : '90%',
+            height      : '90%',
+            autoSize    : false,
+            closeClick  : false,
+            openEffect  : 'none',
+            closeEffect : 'none',
+        iframe: {
+            scrolling : 'auto',
+            preload   : true
+        }
+        });
+    });
+</script>
+
 @endpush
