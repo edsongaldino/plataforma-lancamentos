@@ -78,6 +78,10 @@ class EmpreendimentoController extends Controller
         $this->data['unidade'] = $unidade;
         $this->data['empreendimento'] = Empreendimento::find($unidade->empreendimento_id);
         $this->data['tabela'] = TabelaVendas::where('empreendimento_id', $unidade->empreendimento_id)->where('tipo_tabela_id', 1)->first();
+
+        //elimina sessão proposta
+        session()->pull('proposta');
+
         return view('site.empreendimento.premium.mobile.unidade', $this->data);
     }
 

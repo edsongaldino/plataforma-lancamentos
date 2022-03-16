@@ -46,14 +46,6 @@
         </a>
         @endforeach
 
-        @php
-        $link_tour = $empreendimento->caracteristicas->where('nome', 'link_tour')->first();
-        @endphp
-        @if($link_tour)
-        @if ($link_tour->pivot->valor != null) 
-        <iframe src="{{ $link_tour->pivot->valor }}" title="Tour Virtual" class="tour"></iframe>          
-        @endif
-        @endif
     </div>
 </div>
 

@@ -1517,6 +1517,10 @@ img {
     font-size: 18px;
 }
 
+.conteudo .garagens .titulo-vagas-proposta.extra{
+    background-color: #026b6b;
+}
+
 .conteudo .garagens .garagem{
 	float: left;
 	width: 100%;
@@ -1530,19 +1534,36 @@ img {
 
 .conteudo .garagens .garagem .icone{
 	float: left;
-	width: 10%;
-	font-size: 25px;	
+	width: 15%;
+	font-size: 20px;	
+	text-align: center;
+	color: #6e8181;
 }
 
 .conteudo .garagens .garagem .nome{
 	float: left;
-    width: 50%;
-    font-size: 18px;
+    width: 45%;
+    font-size: 16px;
     padding: 10px 5px 0px 5px;
     line-height: 15px;	
 }
 
 .conteudo .garagens .garagem .nome .pavimento{
+	font-size: 12px;
+    color: #999;
+    line-height: 15px;	
+}
+
+.conteudo .garagens .garagem .tipo{
+	float: left;
+    width: 40%;
+    font-size: 16px;
+    padding: 10px 5px 0px 5px;
+    line-height: 15px;
+    color: #17a2b8;
+}
+
+.conteudo .garagens .garagem .tipo .tipo-vaga{
 	font-size: 12px;
     color: #999;
     line-height: 15px;	
@@ -2931,4 +2952,8 @@ html.no-pointerevents.no-touchevents .gallery-grid-item:hover span  {
     /* margin-top: 10px !important; */
     position: relative;
     top: 20px;
+}
+
+.fancybox__content{
+	padding: 0px !important;
 }

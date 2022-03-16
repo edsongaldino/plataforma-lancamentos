@@ -25,20 +25,39 @@
 
         <div class="garagens">
             @if($unidade->garagem->count() > 0)
-            <div class="titulo-vagas-proposta"><i class="fas fa-car" aria-hidden="true"></i> Vagas selecionadas</div>
+            <div class="titulo-vagas-proposta"><i class="fas fa-car" aria-hidden="true"></i> Vagas da Unidade</div>
             @foreach ($unidade->garagem as $garagem)
             <div class="garagem">
-                <div class="icone"><i class="fas fa-car" aria-hidden="true"></i></div>
+                <div class="icone">
+                    @if($garagem->tipo_vaga == 'Gaveta Coberta' || $garagem->tipo_vaga == 'Gaveta Descoberta')
+                    <i class="fas fa-car" aria-hidden="true"></i><i class="fas fa-car" aria-hidden="true"></i>
+                    @else
+                    <i class="fas fa-car" aria-hidden="true"></i>
+                    @endif
+                </div>
                 <div class="nome">Vaga Nº{{ $garagem->nome }}<br/><span class="pavimento">{{ $garagem->pavimento->nome ?? 'Nome do pavimento' }}</span></div>
+                <div class="tipo">{{ $garagem->tipo_vaga }}<br/><span class="tipo-vaga">Tipo da Vaga</span></div>
+            </div>
+            @endforeach
+            @endif
+
+
+            @if($garagens->count() > 0)
+            <div class="titulo-vagas-proposta extra"><i class="fas fa-car" aria-hidden="true"></i> Vagas Extras</div>
+            @foreach ($garagens as $garagem)
+            <div class="garagem">
+                <div class="icone"><i class="fas fa-car" aria-hidden="true"></i></div>
+                <div class="nome">Vaga Nº{{ $garagem->vaga->nome }}<br/><span class="pavimento">{{ $garagem->vaga->pavimento->nome ?? 'Nome do pavimento' }}</span></div>
                 @if($garagens->count() > ($unidade->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor ?? ''))
                 <div class="valor">{{ converte_valor_real_semdecimal($tabela->valor_vaga_extra ?? '') }}</div>
                 @else
                 <div class="valor">-</div>
                 @endif
-                <div class="excluirVaga" data-id-vaga="{{ $garagem->id }}" data-nome-vaga="{{ $garagem->nome }}" ><i class="far fa-times-circle" aria-hidden="true"></i></div>
+                <div class="excluirVaga" data-id-vaga="{{ $garagem->vaga->id }}" data-nome-vaga="{{ $garagem->vaga->nome }}" ><i class="far fa-times-circle" aria-hidden="true"></i></div>
             </div>
             @endforeach
             @endif
+
         </div>
 
         <div class="mapa">
