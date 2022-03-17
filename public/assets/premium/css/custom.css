@@ -483,6 +483,10 @@ img {
     font-weight: bold;
 }
 
+.unidades .linha-unidade .linha .valor.casa{
+    width: 35%;
+}
+
 .unidades .linha-unidade .linha .valor2{
     width: 30%;
     height: 25px;
@@ -552,6 +556,10 @@ img {
     text-align: center;
     font-size: 12px;
     float: left;
+}
+
+.unidades .linha-unidade .linha .preco.casa{
+    width: 35%;
 }
 
 .unidades .linha-unidade .linha .preco2{

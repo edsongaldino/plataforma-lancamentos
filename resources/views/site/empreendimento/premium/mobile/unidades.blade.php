@@ -96,11 +96,10 @@
                 <div class="linha-unidade">
                     <div class="linha">
                         <div class="unidade">{{ $unidade->nome ?? ''}}</div>
-                        <div class="metragem">{{ $unidade->planta->area_privativa ?? '' }}m²</div>
-                        <div class="metragem"></div>
+                        <div class="metragem lote">{{ $unidade->planta->area_privativa ?? '' }}m²</div>
                         <div class="garagem"><i class="fa fa-car" aria-hidden="true"></i></div>
                         @if($unidade->caracteristicas->where('nome', 'valor_unidade')->first() && $unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '' && $unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '0')
-                        <div class="valor2">{{ converte_valor_real_semdecimal($unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor) }}</div>
+                        <div class="valor casa">{{ converte_valor_real_semdecimal($unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor) }}</div>
                         @else
                             @if($unidade->caracteristicas->where('nome', 'valor_m2')->first() && $unidade->caracteristicas->where('nome', 'metragem_total')->first())
                                 @php
@@ -113,18 +112,17 @@
                                         $valor = '0.00';
                                     }
                                 @endphp
-                                <div class="valor2">{{ converte_valor_real_semdecimal($valor) }}</div>
+                                <div class="valor casa">{{ converte_valor_real_semdecimal($valor) }}</div>
                             @else
-                                <div class="valor2">Consulte</div>
+                                <div class="valor casa">Consulte</div>
                             @endif
                         @endif
                     </div>
                     <div class="linha">
                         <div class="andar">{{ $unidade->quadra->nome ?? ''}}</div>
-                        <div class="area">Metragem</div>
-                        <div class="area"></div>
+                        <div class="area lote">Metragem</div>
                         <div class="vaga">1 vaga</div>
-                        <div class="preco2">Valor: R$</div>
+                        <div class="preco casa">Valor: R$</div>
                     </div>
                 </div>
                 @endif
