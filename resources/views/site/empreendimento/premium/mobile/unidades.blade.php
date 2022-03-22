@@ -22,7 +22,7 @@
                 <div class="linha">
                     <div class="unidade">{{ $unidade->nome ?? ''}}</div>
                     <div class="metragem">{{ $unidade->planta->area_privativa ?? '' }}m²</div>
-                    <div class="metragem">@if (isset($unidade->planta) && $unidade->planta->caracteristicas->where('nome', 'laje_tecnica')->first()) {{  $unidade->planta->caracteristicas->where('nome', 'laje_tecnica')->first()->pivot->valor.'m²' }} @endif</div>
+                    <div class="metragem">@if (isset($unidade->planta) && isset($unidade->planta->caracteristicas->where('nome', 'laje_tecnica')->first())) {{  $unidade->planta->caracteristicas->where('nome', 'laje_tecnica')->first()->pivot->valor.'m²' }} @endif</div>
                     <div class="garagem"><i class="fa fa-car" aria-hidden="true"></i></div>
                     @if(isset($unidade->caracteristicas->where('nome', 'valor_unidade')->first()) && isset($unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> ''))
                         <div class="valor">{{ converte_valor_real_semdecimal($unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor) }}</div>
