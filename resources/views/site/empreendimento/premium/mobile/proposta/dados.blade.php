@@ -28,15 +28,16 @@
             </form>
 
         </div>
-
         
     </div>
 
 @endsection
 
 @push('rodape')
+
 <div class="rodape">
     <div class="btn-voltar" onclick='history.go(-1)'><i class="fa fa-reply-all" aria-hidden="true"></i></div>
     <div class="btn-gravar-dados" onclick="EnviarFormCliente();"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Próxima etapa</div>
 </div>
+
 @endpush

@@ -176,8 +176,10 @@ $(".sair").on('click', function () {
 $(".vaga").on('click', function () { 
 
     var id = $(this).attr("data-idvaga");
+    var tipo = $(this).attr("data-tipovaga");
     var nome = $(this).attr("data-nomevaga");
     $("input[name=idVaga]").attr("value",id);
+    $("input[name=tipoVaga]").attr("value",tipo);
     $("#ModalVaga").find("h5").html('<i class="fas fa-car" aria-hidden="true"></i> ' + nome);
      
     $("#ModalVaga").modal("show");

@@ -23,6 +23,21 @@
         </script>
         @endif
 
+        @if(isset($vagaExiste))
+        <script type="text/javascript">
+        $(window).load(function() {
+            Swal.fire({
+                title: 'Esta vaga ja está adcionada na proposta!',
+                text: 'Por favor, selecione outra vaga ou clique em continuar',
+                imageUrl: '{{ asset("assets/premium/img/img-ops.png") }}',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Custom image'
+            })
+        });
+        </script>
+        @endif
+
         <div class="garagens">
             @if($unidade->garagem->count() > 0)
             <div class="titulo-vagas-proposta"><i class="fas fa-car" aria-hidden="true"></i> Vagas da Unidade</div>
@@ -47,13 +62,9 @@
             @foreach ($garagens as $garagem)
             <div class="garagem">
                 <div class="icone"><i class="fas fa-car" aria-hidden="true"></i></div>
-                <div class="nome">Vaga Nº{{ $garagem->vaga->nome }}<br/><span class="pavimento">{{ $garagem->vaga->pavimento->nome ?? 'Nome do pavimento' }}</span></div>
-                @if($garagens->count() > ($unidade->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor ?? ''))
-                <div class="valor">{{ converte_valor_real_semdecimal($tabela->valor_vaga_extra ?? '') }}</div>
-                @else
-                <div class="valor">-</div>
-                @endif
-                <div class="excluirVaga" data-id-vaga="{{ $garagem->vaga->id }}" data-nome-vaga="{{ $garagem->vaga->nome }}" ><i class="far fa-times-circle" aria-hidden="true"></i></div>
+                <div class="nome">Vaga Nº{{ $garagem->nome }}<br/><span class="pavimento">{{ $garagem->pavimento->nome ?? 'Nome do pavimento' }}</span></div>
+                <div class="valor">{{  $garagem->caracteristicas->where('nome', 'valor_vaga')->first()->pivot->valor ?? 'R$ Consulte' }}</div>
+                <div class="excluirVaga" data-id-vaga="{{ $garagem->id }}" data-nome-vaga="{{ $garagem->nome }}" ><i class="far fa-times-circle" aria-hidden="true"></i></div>
             </div>
             @endforeach
             @endif
@@ -65,11 +76,35 @@
                 <img src="{{ asset('assets/premium/img/btn-mapa-vagas.png') }}" class="img-responsive" alt="Botão Mapa de Vagas">
             </div>
         </div>
+        
+        @if($unidade->garagem->count() > 0)
+
+        <div class="vagas">
+
+            @foreach ($vagas_extras as $vaga_extra)
+                <div class="vaga extra" data-idvaga="{{ $vaga_extra->id }}" data-tipovaga="{{ $vaga_extra->formato_vaga }}" data-nomevaga="{{ $vaga_extra->nome }}">
+                    <span class="icone-vaga">
+                    @if($vaga_extra->tipo_vaga == 'Gaveta Coberta' || $vaga_extra->tipo_vaga == 'Gaveta Descoberta')
+                        <i class="fas fa-car" aria-hidden="true"></i>
+                        <i class="fas fa-car" aria-hidden="true"></i><br/>
+                    @else
+                        <i class="fas fa-car" aria-hidden="true"></i><br/>
+                    @endif
+                    </span>
+                    <span class="nome-vaga">
+                    {{ $vaga_extra->nome }}
+                    </span>
+                </div>
+            @endforeach
+
+        </div>
+
+        @else
 
         <div class="vagas">
 
             @foreach ($vagas as $vaga)
-                <div class="vaga" data-idvaga="{{ $vaga->id }}" data-nomevaga="{{ $vaga->nome }}">
+                <div class="vaga" data-idvaga="{{ $vaga->id }}" data-tipovaga="{{ $vaga->formato_vaga }}" data-nomevaga="{{ $vaga->nome }}">
                     <span class="icone-vaga">
                     @if($vaga->tipo_vaga == 'Gaveta Coberta' || $vaga->tipo_vaga == 'Gaveta Descoberta')
                         <i class="fas fa-car" aria-hidden="true"></i>
@@ -85,6 +120,8 @@
             @endforeach
 
         </div>
+
+        @endif
 
     </div>
 
@@ -104,9 +141,11 @@
             </button>
             </div>
             <div class="modal-body" id="detalhe-vaga-modal">
+        
                 <input type="hidden" name="id" value="{{ $proposta->id }}">
                 <div class="titulo-modal-vaga">Deseja incluir esta vaga na sua proposta?</div>
                 <input type="hidden" name="idVaga">
+                <input type="hidden" name="tipoVaga">
                 
             </div>
             <div class="modal-footer">
