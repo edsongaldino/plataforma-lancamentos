@@ -163,16 +163,17 @@
 		</div>
 		
 		<div class="col-md-6">
-		<div class="form-group">
-			<label class="">Valor da Unidade</label>
-			<div class="input-group btn-group">
-				<span class="input-group-addon valor">
-					<i class="fa fa-dollar" aria-hidden="true"></i>
-				</span>
-				<input type="text" name="valor_unidade" class="form-control moeda valor-unidade" @if (isset($entry) && $entry->caracteristicas->where('nome', 'valor_unidade')->first())value="{{ converte_valor_real($entry->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor) }}"@endif>		
+			<div class="form-group">
+				<label class="">Valor da Unidade</label>
+				<div class="input-group btn-group">
+					<span class="input-group-addon valor">
+						<i class="fa fa-dollar" aria-hidden="true"></i>
+					</span>
+					<input type="text" name="valor_unidade" class="form-control moeda valor-unidade" @if (isset($entry) && $entry->caracteristicas->where('nome', 'valor_unidade')->first())value="{{ converte_valor_real($entry->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor) }}"@endif>		
+				</div>
 			</div>
 		</div>
-		</div>
+		
 	</div>
 
 	<div class="row">
