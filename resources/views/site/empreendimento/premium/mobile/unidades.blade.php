@@ -24,10 +24,10 @@
                     <div class="metragem">{{ $unidade->planta->area_privativa ?? '' }}m²</div>
                     <div class="metragem">@if (isset($unidade->planta) && $unidade->planta->caracteristicas->where('nome', 'laje_tecnica')->first()) {{  $unidade->planta->caracteristicas->where('nome', 'laje_tecnica')->first()->pivot->valor.'m²' }} @endif</div>
                     <div class="garagem"><i class="fa fa-car" aria-hidden="true"></i></div>
-                    @if($unidade->caracteristicas->where('nome', 'valor_unidade')->first() && $unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '')
+                    @if(isset($unidade->caracteristicas->where('nome', 'valor_unidade')->first()) && isset($unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> ''))
                         <div class="valor">{{ converte_valor_real_semdecimal($unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor) }}</div>
                     @else
-                        @if($unidade->caracteristicas->where('nome', 'valor_m2')->first() && $unidade->caracteristicas->where('nome', 'metragem_total')->first())
+                        @if(isset($unidade->caracteristicas->where('nome', 'valor_m2')->first()) && isset($unidade->caracteristicas->where('nome', 'metragem_total')->first()))
                             @php
                                 $valor_m2 = $unidade->caracteristicas->where('nome', 'valor_m2')->first()->pivot->valor;
                                 $metragem = $unidade->caracteristicas->where('nome', 'metragem_total')->first()->pivot->valor;
@@ -43,10 +43,10 @@
                     <div class="area">Área Útil</div>
                     <div class="area">Laje Técnica</div>
                     <div class="vaga">
-                        @if($unidade->caracteristicas->where('nome', 'vagas_garagem')->first())
+                        @if(isset($unidade->caracteristicas->where('nome', 'vagas_garagem')->first()))
                             {{ $unidade->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor }}
                         @else
-                            @if($unidade->planta->caracteristicas->where('nome', 'vagas_garagem')->first())
+                            @if(isset($unidade->planta->caracteristicas->where('nome', 'vagas_garagem')->first()))
                                 {{ $unidade->planta->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor }}
                             @else
                                 -
