@@ -53,6 +53,15 @@ class PropostaController extends Controller
 
         $proposta = Proposta::find($request->id);
         $unidade = Unidade::find($proposta->unidade_id);
+
+        $propostaVaga = PropostaVaga::where('proposta_id', $request->id)->where('garagem_id', $request->idVaga)->first();
+
+        if(isset($propostaVaga->id)){
+            $this->data['vagaExiste'] = 'Sim';
+        }else{
+            $this->data['vaga'] = (new PropostaVaga())->salvarVaga($request, $proposta);
+        }  
+
         $this->data['proposta'] = $proposta;
         $this->data['unidade'] = $unidade;
         $this->data['empreendimento'] = Empreendimento::find($proposta->empreendimento_id);
@@ -63,13 +72,7 @@ class PropostaController extends Controller
         $this->data['vagas'] = Garagem::where('empreendimento_id', $unidade->empreendimento_id)->get();
         $this->data['vagas_extras'] = Garagem::where('empreendimento_id', $unidade->empreendimento_id)->where('formato_vaga', 'Extra')->where('situacao', 'Disponível')->get();
 
-        $propostaVaga = PropostaVaga::where('proposta_id', $request->id)->where('garagem_id', $request->idVaga)->first();
-
-        if(isset($propostaVaga->id)){
-            $this->data['vagaExiste'] = 'Sim';
-        }else{
-            $this->data['vaga'] = (new PropostaVaga())->salvarVaga($request, $proposta);
-        }           
+                 
         return view('site.empreendimento.premium.mobile.proposta.selecionar_vaga', $this->data); 
 
     }

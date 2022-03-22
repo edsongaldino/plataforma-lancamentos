@@ -252,45 +252,45 @@
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<div class="row">
-			@if ($entry->empreendimento->variacao->nome <> 'Lote')
-			<div class="col-md-6">
-				<div class="form-group">
-					<label class="">Planta (Opcional)</label>
-					<div class="input-group btn-group">
-						<span class="input-group-addon">
-							<i class="fa fa-cube" aria-hidden="true"></i>
-						</span>
-						<select name="planta_id" class="form-control">
-							<option value="">Selecione uma planta</option>
-							@foreach($plantas as $planta)
-								<option @if ($entry->planta_id == $planta->id) selected="true" @endif value="{{ $planta->id }}">{{ $planta->nome }}</option>
-							@endforeach
-						</select>
-					</div>
-				</div>	
-			</div>
-			@endif
-			<div class="col-md-6">
-				<div class="form-group">
-					<label class="">Situação</label>
-					<div class="input-group btn-group">
-						<span class="input-group-addon">
-							<i class="fa fa-check-square-o" aria-hidden="true"></i>
-						</span>
-						<select name="situacao" class="form-control">
-							<option @if ($entry->situacao == 'Disponível') selected="true" @endif value="Disponível">Disponível</option>
-							<option @if ($entry->situacao == 'Vendida') selected="true" @endif value="Vendida">Vendida</option>
-							<option @if ($entry->situacao == 'Reservada') selected="true" @endif value="Reservada">Reservada</option>
-							<option @if ($entry->situacao == 'Bloqueada') selected="true" @endif value="Bloqueada">Bloqueada</option>
-							<option @if ($entry->situacao == 'Outros') selected="true" @endif value="Outros">Outros</option>
-						</select>
-					</div>
+	<div class="row">
+		@if ($entry->empreendimento->variacao->nome <> 'Lote')
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="">Planta (Opcional)</label>
+				<div class="input-group btn-group">
+					<span class="input-group-addon">
+						<i class="fa fa-cube" aria-hidden="true"></i>
+					</span>
+					<select name="planta_id" class="form-control">
+						<option value="">Selecione uma planta</option>
+						@foreach($plantas as $planta)
+							<option @if ($entry->planta_id == $planta->id) selected="true" @endif value="{{ $planta->id }}">{{ $planta->nome }}</option>
+						@endforeach
+					</select>
+				</div>
+			</div>	
+		</div>
+		@endif
+		<div class="col-md-6">
+			<div class="form-group">
+				<label class="">Situação</label>
+				<div class="input-group btn-group">
+					<span class="input-group-addon">
+						<i class="fa fa-check-square-o" aria-hidden="true"></i>
+					</span>
+					<select name="situacao" class="form-control">
+						<option @if ($entry->situacao == 'Disponível') selected="true" @endif value="Disponível">Disponível</option>
+						<option @if ($entry->situacao == 'Vendida') selected="true" @endif value="Vendida">Vendida</option>
+						<option @if ($entry->situacao == 'Reservada') selected="true" @endif value="Reservada">Reservada</option>
+						<option @if ($entry->situacao == 'Bloqueada') selected="true" @endif value="Bloqueada">Bloqueada</option>
+						<option @if ($entry->situacao == 'Outros') selected="true" @endif value="Outros">Outros</option>
+					</select>
 				</div>
 			</div>
-
 		</div>
+
 	</div>
 
 	@endif

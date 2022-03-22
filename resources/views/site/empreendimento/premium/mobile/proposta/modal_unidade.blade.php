@@ -13,6 +13,7 @@
 
 
             @if($unidade->empreendimento->subtipo_id == 1)
+            
             <div class="item-planta">
                 <div class="icone"><i class="fa fa-object-group" aria-hidden="true"></i></div>
                 <div class="valor"><span class="titulo">Área Privativa</span><br/>{{ $unidade->planta->area_privativa }}m²</div>
@@ -36,6 +37,7 @@
             </div>
 
             @elseif($unidade->empreendimento->subtipo_id == 2)
+
             <div class="item-planta">
                 <div class="icone"><i class="fa fa-object-group" aria-hidden="true"></i></div>
                 <div class="valor"><span class="titulo">Área Privativa</span><br/>{{ $unidade->planta->area_privativa }}m²</div>
@@ -55,26 +57,31 @@
                 <div class="icone"><i class="fas fa-toilet" aria-hidden="true"></i></div>
                 <div class="valor"><span class="titulo">Banheiro</span><br/>{{ $unidade->planta->caracteristicas->where('nome', 'qtd_banheiro')->first()->pivot->valor ?? '' }}</div>
             </div>
+
             @elseif($unidade->empreendimento->subtipo_id == 3)
+
             <div class="item-planta">
                 <div class="icone"><i class="fa fa-object-group" aria-hidden="true"></i></div>
                 <div class="valor"><span class="titulo">Área Privativa</span><br/>{{ $unidade->planta->area_privativa }}m²</div>
             </div>
 
             <div class="item-planta">
-                <div class="icone"><i class="fas fa-border-style" aria-hidden="true"></i></div>
-                <div class="valor"><span class="titulo">Laje Técnica</span><br/>{{ $unidade->planta->caracteristicas->where('nome', 'laje_tecnica')->first()->pivot->valor ?? '' }}m²</div>
+                <div class="icone"><i class="fas fa-bed" aria-hidden="true"></i></div>
+                <div class="valor"><span class="titulo">Quartos</span><br/>{{ $unidade->planta->caracteristicas->where('nome', 'qtd_dormitorio')->first()->pivot->valor ?? '' }}</div>
+            </div>
+            
+            @if(isset($unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor))
+            <div class="item-planta">
+                <div class="icone"><i class="fas fa-bed" aria-hidden="true"></i></div>
+                <div class="valor"><span class="titulo">Suítes</span><br/>{{ $unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor ?? '' }}</div>
+            </div>
+            @endif
+    
+            <div class="item-planta">
+                <div class="icone"><i class="fas fa-car" aria-hidden="true"></i></div>
+                <div class="valor"><span class="titulo">Garagem</span><br/>{{ $unidade->planta->caracteristicas->where('nome', 'qtd_vaga')->first()->pivot->valor ?? '' }}</div>
             </div>
 
-            <div class="item-planta">
-                <div class="icone"><i class="fas fa-coffee" aria-hidden="true"></i></div>
-                <div class="valor"><span class="titulo">Possui copa?</span><br/>{{ $unidade->planta->caracteristicas->where('nome', 'possui_copa')->first()->pivot->valor ?? '' }}</div>
-            </div>
-
-            <div class="item-planta">
-                <div class="icone"><i class="fas fa-toilet" aria-hidden="true"></i></div>
-                <div class="valor"><span class="titulo">Banheiro</span><br/>{{ $unidade->planta->caracteristicas->where('nome', 'qtd_banheiro')->first()->pivot->valor ?? '' }}</div>
-            </div>
             @endif
             
             @php

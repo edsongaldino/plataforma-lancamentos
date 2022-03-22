@@ -56,6 +56,21 @@
             <div class="valor"><span class="titulo">Área Privativa</span><br/>{{ $planta->area_privativa }}m²</div>
         </div>
 
+        <div class="item-planta">
+            <div class="icone"><i class="fas fa-bed" aria-hidden="true"></i></div>
+            <div class="valor"><span class="titulo">Quartos</span><br/>{{ $planta->caracteristicas->where('nome', 'qtd_dormitorio')->first()->pivot->valor ?? '' }}</div>
+        </div>
+
+        <div class="item-planta">
+            <div class="icone"><i class="fas fa-bed" aria-hidden="true"></i></div>
+            <div class="valor"><span class="titulo">Suítes</span><br/>{{ $planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor ?? '' }}</div>
+        </div>
+
+        <div class="item-planta">
+            <div class="icone"><i class="fas fa-car" aria-hidden="true"></i></div>
+            <div class="valor"><span class="titulo">Garagem</span><br/>{{ $planta->caracteristicas->where('nome', 'qtd_vaga')->first()->pivot->valor ?? '' }}</div>
+        </div>
+
         @endif
         
         @php

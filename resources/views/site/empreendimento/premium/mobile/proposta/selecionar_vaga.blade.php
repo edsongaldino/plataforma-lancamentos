@@ -8,7 +8,7 @@
 
     <div class="conteudo">
 
-        @if($unidade->garagem->count() < 1)
+        @if($unidade->garagem->count() < 1 && $garagens->count() < 1)
         <script type="text/javascript">
         $(window).load(function() {
             Swal.fire({
@@ -58,12 +58,22 @@
 
 
             @if($garagens->count() > 0)
-            <div class="titulo-vagas-proposta extra"><i class="fas fa-car" aria-hidden="true"></i> Vagas Extras</div>
+            <div class="titulo-vagas-proposta extra"><i class="fas fa-car" aria-hidden="true"></i> Vagas Selecionadas</div>
             @foreach ($garagens as $garagem)
             <div class="garagem">
-                <div class="icone"><i class="fas fa-car" aria-hidden="true"></i></div>
+                <div class="icone">
+                    @if($garagem->tipo_vaga == 'Gaveta Coberta' || $garagem->tipo_vaga == 'Gaveta Descoberta')
+                    <i class="fas fa-car" aria-hidden="true"></i><i class="fas fa-car" aria-hidden="true"></i>
+                    @else
+                    <i class="fas fa-car" aria-hidden="true"></i>
+                    @endif
+                </div>
                 <div class="nome">Vaga Nº{{ $garagem->nome }}<br/><span class="pavimento">{{ $garagem->pavimento->nome ?? 'Nome do pavimento' }}</span></div>
-                <div class="valor">{{  $garagem->caracteristicas->where('nome', 'valor_vaga')->first()->pivot->valor ?? 'R$ Consulte' }}</div>
+                @if($garagem->formato_vaga == 'Extra')
+                <div class="valor">{{ $garagem->formato_vaga }}<br/><span class="formato-vaga">{{  $garagem->caracteristicas->where('nome', 'valor_vaga')->first()->pivot->valor ?? 'R$ Consulte' }}</span></div>
+                @else
+                <div class="valor">{{ $garagem->formato_vaga }}<br/><span class="formato-vaga">-</div>
+                @endif
                 <div class="excluirVaga" data-id-vaga="{{ $garagem->id }}" data-nome-vaga="{{ $garagem->nome }}" ><i class="far fa-times-circle" aria-hidden="true"></i></div>
             </div>
             @endforeach
@@ -78,7 +88,7 @@
         </div>
         
         @if($unidade->garagem->count() > 0)
-
+        
         <div class="vagas">
 
             @foreach ($vagas_extras as $vaga_extra)
