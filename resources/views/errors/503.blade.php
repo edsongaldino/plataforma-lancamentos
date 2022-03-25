@@ -12,5 +12,5 @@
   @php
     $default_error_message = "The server is overloaded or down for maintenance. Please try again later.";
   @endphp
-  {!! $default_error_message !!}
+  {!! isset($exception)? ($exception->getMessage()?$exception->getMessage():$default_error_message): $default_error_message !!}
 @endsection
