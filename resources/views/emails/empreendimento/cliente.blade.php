@@ -18,6 +18,7 @@
      background-color: #d1d1d1;
      line-height:100%;
    }
+
    body {
      width: 100%;
      height: 100%;
@@ -27,6 +28,7 @@
      -webkit-font-smoothing: antialiased;
      -webkit-text-size-adjust:100%;
    }
+
    html {
      width: 100%;
    }
@@ -145,6 +147,7 @@
       </table></td>
     </tr>
   </table>
+  
   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="full">
     <tr>
       <td align="center"><table width="600" border="0" cellspacing="0" cellpadding="0" align="center" class="devicewidth">
@@ -226,6 +229,7 @@
       </table></td>
     </tr>
   </table>
+  
   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="full">
     <tr>
       <td align="center"><table width="600" border="0" cellspacing="0" cellpadding="0" align="center" class="devicewidth">

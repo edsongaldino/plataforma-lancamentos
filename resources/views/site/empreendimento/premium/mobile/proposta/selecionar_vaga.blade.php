@@ -80,11 +80,16 @@
             @endif
 
         </div>
+        <?php
+        $mapaGaragem = $empreendimento->fotos->where('tipo', 'Mapa de Vagas')->where('status', 'Liberada')->first();
+        ?>
 
         <div class="mapa">
-            <div class="btn-mapa-vagas" data-toggle="modal" data-target="#ModalGaragem">
+
+            <a href="/uploads/empreendimento/{{ $mapaGaragem->empreendimento_id ?? '' }}/original/{{ $mapaGaragem->arquivo ?? '' }}" data-toggle="lightbox">
                 <img src="{{ asset('assets/premium/img/btn-mapa-vagas.png') }}" class="img-responsive" alt="Botão Mapa de Vagas">
-            </div>
+            </a>
+            
         </div>
         
         @if($unidade->garagem->count() > 0)

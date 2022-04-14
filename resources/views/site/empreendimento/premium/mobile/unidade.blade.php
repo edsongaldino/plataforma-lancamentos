@@ -119,7 +119,11 @@
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fab fa-uncharted" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">Posição</div>
+                    @if($unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first() <> '')
                     <div class="valor-caracteristica">{{ $unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor ?? '' }}</div>                    
+                    @else
+                    <div class="valor-caracteristica">-</div> 
+                    @endif
                 </div> 
                 <div class="item">
                     <div class="icone-caracteristica {{ url_amigavel($unidade->caracteristicas->where('nome', 'tipo_sol')->first()->pivot->valor ?? '') }}"><i class="fas fa-cloud-sun" aria-hidden="true"></i></div>
@@ -267,7 +271,11 @@
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fab fa-uncharted" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">Posição</div>
+                    @if($unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first() <> '')
                     <div class="valor-caracteristica">{{ $unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor ?? '' }}</div>                    
+                    @else
+                    <div class="valor-caracteristica">-</div> 
+                    @endif                    
                 </div> 
                 <div class="item">
                     <div class="icone-caracteristica {{ url_amigavel($unidade->caracteristicas->where('nome', 'tipo_sol')->first()->pivot->valor ?? '') }}"><i class="fas fa-cloud-sun" aria-hidden="true"></i></div>
@@ -406,7 +414,11 @@
                         <div class="item">
                             <div class="icone-caracteristica"><i class="fab fa-uncharted" aria-hidden="true"></i></div>
                             <div class="titulo-caracteristica">Posição</div>
+                            @if($unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first() <> '')
                             <div class="valor-caracteristica">{{ $unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor ?? '' }}</div>                    
+                            @else
+                            <div class="valor-caracteristica">-</div> 
+                            @endif                    
                         </div> 
                         <div class="item">
                             <div class="icone-caracteristica {{ url_amigavel($unidade->caracteristicas->where('nome', 'tipo_sol')->first()->pivot->valor ?? '') }}"><i class="fas fa-cloud-sun" aria-hidden="true"></i></div>

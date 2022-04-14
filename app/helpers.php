@@ -527,7 +527,12 @@ if(!function_exists('getImplantacaoUnidade')){
 
 				$unidade = Unidade::find($id);
 
-				$posicao_unidade = $unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor;
+				if($unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first() <> ''){
+					$posicao_unidade = $unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor;
+				}else{
+					$posicao_unidade = 'frente';
+				}
+				
 
 				switch($posicao_unidade):
 

@@ -44,10 +44,10 @@
                     <div class="area">Área Útil</div>
                     <div class="area">Quartos</div>
                     <div class="vaga">
-                        @if(isset($unidade->caracteristicas->where('nome', 'vagas_garagem')->first()))
+                        @if($unidade->caracteristicas->where('nome', 'vagas_garagem')->first() <> '')
                             {{ $unidade->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor ?? '' }}
                         @else
-                            @if(isset($unidade->planta->caracteristicas->where('nome', 'vagas_garagem')->first()))
+                            @if($unidade->planta->caracteristicas->where('nome', 'vagas_garagem')->first() <> '')
                                 {{ $unidade->planta->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor ?? '' }}
                             @else
                                 -
