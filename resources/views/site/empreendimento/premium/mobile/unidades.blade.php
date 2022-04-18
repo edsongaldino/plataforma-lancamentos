@@ -17,6 +17,7 @@
 
         @foreach ($unidades as $unidade)
         <a href="/proposta/unidade/{{ $unidade->id }}">
+            
             @if($empreendimento->subtipo_id == 1)
 
             <div class="linha-unidade">
@@ -44,11 +45,15 @@
                     <div class="area">Área Útil</div>
                     <div class="area">Quartos</div>
                     <div class="vaga">
-                        @if($unidade->caracteristicas->where('nome', 'vagas_garagem')->first() <> '')
+                        @if($unidade->caracteristicas->where('nome', 'vagas_garagem')->first() <> null)
                             {{ $unidade->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor ?? '' }}
                         @else
-                            @if($unidade->planta->caracteristicas->where('nome', 'vagas_garagem')->first() <> '')
-                                {{ $unidade->planta->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor ?? '' }}
+                            @if(isset($unidade->planta))
+                                @if($unidade->planta->caracteristicas->where('nome', 'vagas_garagem')->first() <> null)
+                                    {{ $unidade->planta->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor ?? '' }}
+                                @else
+                                    -
+                                @endif
                             @else
                                 -
                             @endif
@@ -84,10 +89,10 @@
                     <div class="area">Área Útil</div>
                     <div class="area">Laje Técnica</div>
                     <div class="vaga">
-                        @if($unidade->caracteristicas->where('nome', 'vagas_garagem')->first())
+                        @if($unidade->caracteristicas->where('nome', 'vagas_garagem')->first() <> null)
                             {{ $unidade->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor }}
                         @else
-                            @if($unidade->planta->caracteristicas->where('nome', 'vagas_garagem')->first())
+                            @if($unidade->planta->caracteristicas->where('nome', 'vagas_garagem')->first() <> '')
                                 {{ $unidade->planta->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor }}
                             @else
                                 -

@@ -80,7 +80,7 @@
             @endphp
             
             @if(isset($primeira_foto))
-            <a href="/empreendimento/{{ $empreendimento->id }}/fotos-decorado">
+            <a data-fancybox="galleryDecorado" href="{{ $primeira_foto->getUrl('original') }}" data-caption="{{ $primeira_foto->nome }}">
                 <div class="fotos-decorado" style="background-image: url({{ $primeira_foto->getUrl('400x300') }});"> 
                     <div class="titulo-decorado">Unidade Decorada </div>                      
                 </div>  

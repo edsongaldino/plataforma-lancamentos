@@ -86,7 +86,7 @@
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fa fa-car" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">Garagem</div>
-                    <div class="valor-caracteristica">{!! qtd_vagas($empreendimento, 'Vertical') !!} Vaga(s)</div>                    
+                    <div class="valor-caracteristica">{!! vagas_empreendimento($empreendimento) !!} Vaga(s)</div>                    
                 </div> 
 
                 @if($empreendimento->getCaracteristica('estacionamento_rotativo') == 'S')
@@ -102,10 +102,11 @@
                     <div class="titulo-caracteristica">Previão de Entrega</div>
                     <div class="valor-caracteristica">{{ get_previsao_entrega($empreendimento) }}</div>                    
                 </div> 
+
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fas fa-columns" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">Elevadores</div>
-                    <div class="valor-caracteristica">{{ $empreendimento->getCaracteristica('qtd_elevador') }}</div>                    
+                    <div class="valor-caracteristica">{{ get_elevadores($empreendimento->id) }}</div>                    
                 </div> 
 
             @elseif($empreendimento->subtipo_id == 3 || $empreendimento->subtipo_id == 4)
@@ -165,7 +166,7 @@
                     <div class="item">
                         <div class="icone-caracteristica"><i class="fa fa-car" aria-hidden="true"></i></div>
                         <div class="titulo-caracteristica">Garagem</div>
-                        <div class="valor-caracteristica">{!! qtd_vagas($empreendimento, 'Vertical') !!} Vaga(s)</div>                    
+                        <div class="valor-caracteristica">{!! vagas_empreendimento($empreendimento) !!} Vaga(s)</div>                      
                     </div> 
                     
                     <div class="item">

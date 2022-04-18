@@ -68,15 +68,22 @@
                     <div class="titulo-caracteristica">{{ $unidade->planta->nome ?? '' }}</div>
                     <div class="valor-caracteristica">{{ $unidade->planta->area_privativa ?? '' }}m²</div>                    
                 </div>
+                @if(isset($unidade->planta))
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fa fa-object-group" aria-hidden="true"></i></div>
-                    <div class="titulo-caracteristica">{{ $unidade->planta->caracteristicas->where('nome', 'qtd_dormitorio')->first()->pivot->valor ?? '' }} Quartos</div>
-                    @if(isset($unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor))
-                    <div class="valor-caracteristica">{{ $unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor ?? '' }} Suítes</div> 
-                    @else
-                    <div class="valor-caracteristica">-</div> 
-                    @endif
+                    <div class="titulo-caracteristica">
+                        @if($unidade->planta->caracteristicas->where('nome', 'qtd_dormitorio')->first() <> null) 
+                            {{ $unidade->planta->caracteristicas->where('nome', 'qtd_dormitorio')->first()->pivot->valor ?? '' }} Quartos</div>
+                            @if($unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first() && $unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor <> '')
+                            <div class="valor-caracteristica">{{ $unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor ?? '' }} Suítes</div> 
+                            @else
+                            <div class="valor-caracteristica">-</div> 
+                            @endif
+                        @else
+                        <div class="valor-caracteristica">-</div> 
+                        @endif
                 </div>
+                @endif
 
                 @if(isset($unidade->garagem))
                 @if($unidade->garagem->count() > 0)
@@ -120,7 +127,7 @@
                     <div class="icone-caracteristica"><i class="fab fa-uncharted" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">Posição</div>
                     @if($unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first() <> '')
-                    <div class="valor-caracteristica">{{ $unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor ?? '' }}</div>                    
+                    <div class="valor-caracteristica uppercase">{{ $unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor ?? '' }}</div>                    
                     @else
                     <div class="valor-caracteristica">-</div> 
                     @endif
@@ -272,7 +279,7 @@
                     <div class="icone-caracteristica"><i class="fab fa-uncharted" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">Posição</div>
                     @if($unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first() <> '')
-                    <div class="valor-caracteristica">{{ $unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor ?? '' }}</div>                    
+                    <div class="valor-caracteristica uppercase">{{ $unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor ?? '' }}</div>                    
                     @else
                     <div class="valor-caracteristica">-</div> 
                     @endif                    
@@ -415,7 +422,7 @@
                             <div class="icone-caracteristica"><i class="fab fa-uncharted" aria-hidden="true"></i></div>
                             <div class="titulo-caracteristica">Posição</div>
                             @if($unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first() <> '')
-                            <div class="valor-caracteristica">{{ $unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor ?? '' }}</div>                    
+                            <div class="valor-caracteristica uppercase">{{ $unidade->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor ?? '' }}</div>                    
                             @else
                             <div class="valor-caracteristica">-</div> 
                             @endif                    

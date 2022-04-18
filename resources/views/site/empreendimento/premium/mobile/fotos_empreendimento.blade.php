@@ -17,6 +17,4 @@
         <a data-fancybox="galleryDecorado" href="{{ $decorado->getUrl('original') }}" data-caption="{{ $decorado->nome }}"></a>
     @endforeach
 
-    
-
 </div>

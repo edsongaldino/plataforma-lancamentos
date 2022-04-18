@@ -869,6 +869,38 @@ if (!function_exists('qtd_vagas')) {
 	}
 }
 
+if (!function_exists('vagas_empreendimento')) {
+	function vagas_empreendimento($empreendimento) {
+		$unidades = $empreendimento->unidades;
+		if ($unidades) {
+
+			$vagas = [];
+
+			foreach ($unidades as $unidade) {
+				$vaga = $unidade->caracteristicas->where('nome', 'vagas_garagem')->first();
+				if ($vaga) {
+					if ($vaga->pivot->valor) {
+						$vagas[] = $vaga->pivot->valor;	
+					}					
+				}
+			}
+
+			if ($vagas) {
+				$minimo = min($vagas);
+				$maximo = max($vagas);
+
+				if ($minimo == $maximo) {
+					return $minimo;
+				}
+
+				return "{$minimo} à {$maximo}";
+			}			
+		}
+
+		return false;		
+	}
+}
+
 if (!function_exists('converte_valor_real')) {
 
 	function converte_valor_real($valor) {	
@@ -1207,6 +1239,28 @@ if (!function_exists('filemtime')) {
 	function filemtime($url) {        	
 		$url_saida = filemtime($url);
 		return $url_saida;	        
+	}
+}
+
+if (!function_exists('get_elevadores')) {
+	function get_elevadores($empreendimento) {        	
+		$torres = Torre::where('empreendimento_id', $empreendimento)->get();
+		foreach($torres as $torre){
+			$elevador_social = 0;
+			$elevador_servico = 0;
+			if($torre->caracteristicas->where('nome', 'elevador_social')->first()){
+				$elevador_social += $torre->caracteristicas->where('nome', 'elevador_social')->first()->pivot->valor;
+			}
+
+			if($torre->caracteristicas->where('nome', 'elevador_servico')->first()){
+				$elevador_servico += $torre->caracteristicas->where('nome', 'elevador_servico')->first()->pivot->valor;
+			}
+			
+		}
+		
+
+		return $elevador_servico + $elevador_servico;
+		        
 	}
 }
 

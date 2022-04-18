@@ -30,6 +30,9 @@ img {
 	background-size: cover;
 
 }
+.uppercase{
+	text-transform: uppercase !important;
+}
 
 .topo{
 	width: 100%;
