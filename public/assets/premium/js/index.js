@@ -54,6 +54,18 @@ $(".ocultar").on('click', function () {
     $('.ocultar').hide(); 
 });
 
+$(".mostrarC").on('click', function () {
+  $('#PropostaConstrutora').slideToggle('slow'); 
+  $('.mostrarC').hide(); 
+  $('.ocultarC').show(); 
+});
+
+$(".ocultarC").on('click', function () {
+  $('#PropostaConstrutora').slideToggle('slow'); 
+  $('.mostrarC').show(); 
+  $('.ocultarC').hide(); 
+});
+
 
 $(".mostrarProposta").on('click', function () {
     $('#minhaProposta').slideToggle('slow'); 
