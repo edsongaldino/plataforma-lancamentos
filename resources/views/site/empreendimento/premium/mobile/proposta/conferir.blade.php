@@ -10,6 +10,8 @@
 
         @include('site.empreendimento.premium.mobile.proposta.dados_unidade')
 
+        @include('site.empreendimento.premium.mobile.proposta.proposta_construtora')
+
         <div class="confirma">
             <i class="fas fa-exclamation-circle" aria-hidden="true"></i><br/>Antes de enviar para a construtora, confira a sua proposta
         </div>

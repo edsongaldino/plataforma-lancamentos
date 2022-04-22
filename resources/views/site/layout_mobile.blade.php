@@ -128,7 +128,6 @@
           </a>
         </li>
 
-
         <li>
           <a href="/admin" class="painel-admin">
             <i class="fa fa-cog" aria-hidden="true"></i>
@@ -233,7 +232,6 @@
 
       gtag('config', 'UA-80336341-1');
     </script>
-
     <script type="text/javascript" src="/site/m/js/materialize.min.js"></script>
     <script type="text/javascript" src="/site/m/js/slick.min.js"></script>
     <script type="text/javascript" src="/site/m/js/jquery.swipebox.min.js"></script>

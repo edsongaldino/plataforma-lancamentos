@@ -58,6 +58,7 @@
         </div> 
         @endif
         @endforeach
+
     </div>
 
     </div>
@@ -71,6 +72,7 @@
         <div class="caracteristicas">
             <div class="titulo"></div>
             @if($empreendimento->subtipo_id == 1 || $empreendimento->subtipo_id == 2)
+
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fa fa-building" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">{{ $empreendimento->torres->count() }} Torre(s)</div>
@@ -82,6 +84,16 @@
                     <div class="titulo-caracteristica">{{ $empreendimento->plantas->count() }} Planta(s)</div>
                     <div class="valor-caracteristica">{!! qtd_metragem($empreendimento) !!}m²</div>                    
                 </div>
+
+                @if($empreendimento->subtipo_id == 1)
+
+                <div class="item">
+                    <div class="icone-caracteristica"><i class="fa fa-bed" aria-hidden="true"></i></div>
+                    <div class="titulo-caracteristica">{!! qtd_dormitorio($empreendimento) !!} Quartos</div>
+                    <div class="valor-caracteristica">{!! qtd_suites($empreendimento) !!} Suíte(s)</div>                    
+                </div>
+
+                @endif
 
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fa fa-car" aria-hidden="true"></i></div>
@@ -223,7 +235,6 @@
                 ->where('exibir', 'Sim');
         @endphp
 
-
         <nav class="abas">
             @if($itens_lazer->count() > 0)
             <div class="nav-item active" id="itensLazer"><i class="fas fa-swimming-pool" aria-hidden="true"></i> Itens de Lazer</div>
@@ -282,7 +293,6 @@
 
 @include('site.empreendimento.premium.mobile.proposta.modal_garagem')
 
-
 @endsection
 
 @push('rodape')
@@ -318,5 +328,4 @@
 
     </script>
     
-
 @endpush

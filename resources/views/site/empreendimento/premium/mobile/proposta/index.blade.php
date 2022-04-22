@@ -10,6 +10,8 @@
 
         @include('site.empreendimento.premium.mobile.proposta.dados_unidade')
 
+        @include('site.empreendimento.premium.mobile.proposta.proposta_construtora')
+
         <div class="dados-proposta">
 
             @if(isset($proposta))

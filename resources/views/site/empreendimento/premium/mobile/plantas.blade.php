@@ -28,8 +28,7 @@
                 <div class="titulo-planta"><i class="fa fa-object-group" aria-hidden="true"></i> {{ $planta_empreendimento->nome }}</div>
                 <div class="foto-planta" data-idplanta="{{ $planta_empreendimento->id }}"><img src="{{ $foto_planta->getUrl('400x300') ?? '' }}" alt=""></div>
                 <div class="btn-metragem"><i class="fas fa-ruler-combined" aria-hidden="true"></i> {{ $metragem }}m²</div>
-                <div class="btn-detalhes" data-idplanta="{{ $planta_empreendimento->id }}">+ Detalhes</div>
-                <a href="/empreendimento/planta/{{ $planta_empreendimento->id }}/unidades"><div class="btn-unidades-disponiveis"><i class="fa fa-eye" aria-hidden="true"></i> Visualizar Unidades da planta</div></a>
+                <div class="btn-detalhes" data-idplanta="{{ $planta_empreendimento->id }}"><i class="fa fa-plus" aria-hidden="true"></i> Detalhes</div>
             </div>
 
 

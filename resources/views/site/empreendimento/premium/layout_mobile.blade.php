@@ -16,7 +16,6 @@
     <link type="text/css" rel="stylesheet" href="/assets/premium/css/custom.css" />
 	<link type="text/css" rel="stylesheet" href="/assets/premium/css/style.css" />
     <link href="/assets/premium/fontawesome/css/all.css" rel="stylesheet">
-    
 
 </head>
 <body>
@@ -27,7 +26,6 @@
     </div>
 
     @yield('content')
-
 
     @stack('rodape') 
 
