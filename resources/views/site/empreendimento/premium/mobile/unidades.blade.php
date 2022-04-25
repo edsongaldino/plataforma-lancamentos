@@ -48,7 +48,11 @@
 
                         @if(isset($unidade->garagem))
                             @if($unidade->garagem->count() > 0)
-                                {{ $unidade->garagem->count() ?? '' }}
+                                @if(isset($unidade->garagem->first()->tipo_vaga) && ($unidade->garagem->first()->tipo_vaga == 'Gaveta Coberta' || $unidade->garagem->first()->tipo_vaga == 'Gaveta Descoberta'))
+                                    {{ $unidade->garagem->count()*2 ?? '' }}
+                                @else
+                                    {{ $unidade->garagem->count() ?? '' }}
+                                @endif
                             @else
                                 {{  $unidade->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor ?? '' }}
                             @endif

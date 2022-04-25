@@ -90,7 +90,11 @@
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fa fa-car" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">   
-                        {{ $unidade->garagem->count() ?? '' }} Vagas
+                        @if(isset($unidade->garagem->first()->tipo_vaga) && ($unidade->garagem->first()->tipo_vaga == 'Gaveta Coberta' || $unidade->garagem->first()->tipo_vaga == 'Gaveta Descoberta'))
+                            {{ $unidade->garagem->count()*2 ?? '' }} Vaga(s)
+                        @else
+                            {{ $unidade->garagem->count() ?? '' }} Vaga(s)
+                        @endif
                     </div>
                     <div class="valor-caracteristica">{{ unidade_vagas($unidade->id) }}</div>                    
                 </div>
@@ -245,7 +249,11 @@
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fa fa-car" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">   
-                        {{ $unidade->garagem->count() ?? '' }} Vagas
+                        @if(isset($unidade->garagem->first()->tipo_vaga) && ($unidade->garagem->first()->tipo_vaga == 'Gaveta Coberta' || $unidade->garagem->first()->tipo_vaga == 'Gaveta Descoberta'))
+                            {{ $unidade->garagem->count()*2 ?? '' }} Vaga(s)
+                        @else
+                            {{ $unidade->garagem->count() ?? '' }} Vaga(s)
+                        @endif
                     </div>
                     <div class="valor-caracteristica">{{ unidade_vagas($unidade->id) }}</div>                    
                 </div>
