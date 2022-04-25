@@ -172,6 +172,15 @@
                                             @endif
                                         </div>
 
+                                        <label class="col-md-2 control-label">Qtde Banheiros</label>
+                                        <div class="col-md-2">                                
+                                            @if(isset($planta) && $planta->caracteristicas->where('nome', 'qtd_banheiro')->first())
+                                                <input class="form-control" type="text" name="qtd_banheiro" value="{{  $planta->caracteristicas->where('nome', 'qtd_banheiro')->first()->pivot->valor }}">
+                                            @else
+                                                <input class="form-control" type="text" name="qtd_banheiro">
+                                            @endif                                                                  
+                                        </div>
+
                                         <div style="clear: both; margin-bottom: 10px; padding-bottom: 10px"></div>                                                
                                     </div>
                                 @endif                            

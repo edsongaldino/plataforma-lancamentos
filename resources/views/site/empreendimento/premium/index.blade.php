@@ -89,8 +89,8 @@
 
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fa fa-bed" aria-hidden="true"></i></div>
-                    <div class="titulo-caracteristica">{!! qtd_dormitorio($empreendimento) !!} Quartos</div>
-                    <div class="valor-caracteristica">{!! qtd_suites($empreendimento) !!} Suíte(s)</div>                    
+                    <div class="titulo-caracteristica">{!! qtd_dormitorio($empreendimento, true) !!} Quartos</div>
+                    <div class="valor-caracteristica">{!! qtd_suites($empreendimento, true) !!} Suíte(s)</div>                    
                 </div>
 
                 @endif

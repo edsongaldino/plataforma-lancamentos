@@ -24,7 +24,7 @@
                 <div class="linha">
                     <div class="unidade">{{ $unidade->nome ?? ''}}</div>
                     <div class="metragem">{{ $unidade->planta->area_privativa ?? '' }}m²</div>
-                    <div class="metragem">-</div>
+                    <div class="metragem">{{ $unidade->planta->caracteristicas->where('nome', 'qtd_dormitorio')->first()->pivot->valor ?? '' }}</div>
                     <div class="garagem"><i class="fa fa-car" aria-hidden="true"></i></div>
                     @if($unidade->caracteristicas->where('nome', 'valor_unidade')->first() && $unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '')
                         <div class="valor">{{ converte_valor_real_semdecimal($unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor) }}</div>
@@ -45,19 +45,17 @@
                     <div class="area">Área Útil</div>
                     <div class="area">Quartos</div>
                     <div class="vaga">
-                        @if($unidade->caracteristicas->where('nome', 'vagas_garagem')->first() <> null)
-                            {{ $unidade->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor ?? '' }}
-                        @else
-                            @if(isset($unidade->planta))
-                                @if($unidade->planta->caracteristicas->where('nome', 'vagas_garagem')->first() <> null)
-                                    {{ $unidade->planta->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor ?? '' }}
-                                @else
-                                    -
-                                @endif
+
+                        @if(isset($unidade->garagem))
+                            @if($unidade->garagem->count() > 0)
+                                {{ $unidade->garagem->count() ?? '' }}
                             @else
-                                -
+                                {{  $unidade->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor ?? '' }}
                             @endif
+                        @else
+                            {{ $unidade->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor ?? '' }}
                         @endif
+
                     </div>
                     <div class="preco">Valor: R$</div>
                 </div>

@@ -239,6 +239,7 @@
                     <div class="titulo-caracteristica">{{ $unidade->planta->nome ?? '' }}</div>
                     <div class="valor-caracteristica">{{ $unidade->planta->area_privativa ?? '' }}m²</div>                    
                 </div>
+
                 @if(isset($unidade->garagem))
                 @if($unidade->garagem->count() > 0)
                 <div class="item">
@@ -270,6 +271,7 @@
 
                     @endif
                 @endif
+                
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fas fa-border-style" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">Laje Téc.</div>
