@@ -235,10 +235,22 @@
       }
 
       .marcador{
-        background-image: url("/site/images/pin-mapa-unidade-vertical.png"); 
+        background-image: url("/site/images/pin-mapa-unidade-horizontal.png"); 
         background-repeat: no-repeat;
         width: 348px;
         height: 208px;
+        position: absolute;
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 3;   
+      }
+
+      .marcador-vertical{
+        background-image: url("/site/images/pin-mapa-unidade-vertical.png"); 
+        background-repeat: no-repeat;
+        width: 206px;
+        height: 299px;
         position: absolute;
         text-align: center;
         font-weight: bold;
@@ -367,6 +379,11 @@
         
         @if($empreendimento->tipo == 'Horizontal')
         <div class="marcador" style="
+        top: calc({{ $unidade->coord_y - $metade_tam_unid }}px - 80px); 
+        left: calc({{ $unidade->coord_x - $metade_tam_unid }}px + 40px);">
+        </div>
+        @elseif($empreendimento->tipo == 'Vertical')
+        <div class="marcador-vertical" style="
         top: calc({{ $unidade->coord_y - $metade_tam_unid }}px - 80px); 
         left: calc({{ $unidade->coord_x - $metade_tam_unid }}px + 40px);">
         </div>

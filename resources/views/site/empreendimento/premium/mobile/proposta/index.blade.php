@@ -127,7 +127,9 @@
 
 @push('rodape')
 <div class="rodape">
-    <a href="/unidade/{{ $unidade->id }}/condicoes-construtora"><div class="btn-voltar"><i class="fa fa-handshake-o" aria-hidden="true"></i></div></a>
+
+    <div class="btn-voltar" onclick='history.go(-1)'><i class="fa fa-reply-all" aria-hidden="true"></i></div>
+        
     @if(isset($proposta))
     <div class="btn-gravar-dados" onclick="EnviarFormProposta();"><i class="fa fa-edit" aria-hidden="true"></i> Atualizar Proposta</div>
     @else

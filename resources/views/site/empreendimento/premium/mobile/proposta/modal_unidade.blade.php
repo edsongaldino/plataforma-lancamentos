@@ -26,7 +26,7 @@
             
             @if(isset($unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor))
             <div class="item-planta">
-                <div class="icone"><i class="fas fa-bed" aria-hidden="true"></i></div>
+                <div class="icone"><i class="fas fa-bath" aria-hidden="true"></i></div>
                 <div class="valor"><span class="titulo">Suítes</span><br/>{{ $unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor ?? '' }}</div>
             </div>
             @endif
@@ -55,7 +55,7 @@
 
             <div class="item-planta">
                 <div class="icone"><i class="fas fa-toilet" aria-hidden="true"></i></div>
-                <div class="valor"><span class="titulo">Banheiro</span><br/>{{ $unidade->planta->caracteristicas->where('nome', 'qtd_banheiro')->first()->pivot->valor ?? '' }}</div>
+                <div class="valor"><span class="titulo">Banheiros</span><br/>{{ $unidade->planta->caracteristicas->where('nome', 'qtd_banheiro')->first()->pivot->valor ?? '' }}</div>
             </div>
 
             @elseif($unidade->empreendimento->subtipo_id == 3)
@@ -72,7 +72,7 @@
             
             @if(isset($unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor))
             <div class="item-planta">
-                <div class="icone"><i class="fas fa-bed" aria-hidden="true"></i></div>
+                <div class="icone"><i class="fas fa-bath" aria-hidden="true"></i></div>
                 <div class="valor"><span class="titulo">Suítes</span><br/>{{ $unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor ?? '' }}</div>
             </div>
             @endif

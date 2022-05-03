@@ -39,11 +39,31 @@
                     @endif
                 @endif
                 @if (isset($unidade->planta))
+
+                @if ($unidade->planta->caracteristicas->where('nome', 'laje_tecnica')->first()->pivot->valor <> null)
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fas fa-border-style" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">Laje Téc.</div>
                     <div class="valor-caracteristica">{{  $unidade->planta->caracteristicas->where('nome', 'laje_tecnica')->first()->pivot->valor ?? '' }}m²</div>                    
                 </div>
+                @endif
+
+
+                <div class="item">
+                    <div class="icone-caracteristica"><i class="fa fa-object-group" aria-hidden="true"></i></div>
+                    <div class="titulo-caracteristica">
+                        @if($unidade->planta->caracteristicas->where('nome', 'qtd_dormitorio')->first() <> null) 
+                            {{ $unidade->planta->caracteristicas->where('nome', 'qtd_dormitorio')->first()->pivot->valor ?? '' }} Quartos</div>
+                            @if($unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first() && $unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor <> '')
+                            <div class="valor-caracteristica">{{ $unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor ?? '' }} Suítes</div> 
+                            @else
+                            <div class="valor-caracteristica">-</div> 
+                            @endif
+                        @else
+                        <div class="valor-caracteristica">-</div> 
+                        @endif
+                </div>
+
                 @endif
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fab fa-uncharted" aria-hidden="true"></i></div>

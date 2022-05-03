@@ -20,7 +20,7 @@
         </div>
 
         <div class="item-planta">
-            <div class="icone"><i class="fas fa-bed" aria-hidden="true"></i></div>
+            <div class="icone"><i class="fas fa-bath" aria-hidden="true"></i></div>
             <div class="valor"><span class="titulo">Suítes</span><br/>{{ $unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor ?? '' }}</div>
         </div>
 
