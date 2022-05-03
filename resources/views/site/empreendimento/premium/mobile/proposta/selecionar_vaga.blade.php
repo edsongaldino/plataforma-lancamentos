@@ -50,7 +50,7 @@
                     <i class="fas fa-car" aria-hidden="true"></i>
                     @endif
                 </div>
-                <div class="nome">Vaga Nº{{ $garagem->nome }}<br/><span class="pavimento">{{ $garagem->pavimento->nome ?? 'Nome do pavimento' }}</span></div>
+                <div class="nome">{{ $garagem->nome }}<br/><span class="pavimento">{{ $garagem->pavimento->nome ?? 'Nome do pavimento' }}</span></div>
                 <div class="tipo">{{ $garagem->tipo_vaga }}<br/><span class="tipo-vaga">Tipo da Vaga</span></div>
             </div>
             @endforeach
@@ -68,7 +68,7 @@
                     <i class="fas fa-car" aria-hidden="true"></i>
                     @endif
                 </div>
-                <div class="nome">Vaga Nº{{ $garagem->nome }}<br/><span class="pavimento">{{ $garagem->pavimento->nome ?? 'Nome do pavimento' }}</span></div>
+                <div class="nome">{{ $garagem->nome }}<br/><span class="pavimento">{{ $garagem->pavimento->nome ?? 'Nome do pavimento' }}</span></div>
                 @if($garagem->formato_vaga == 'Extra')
                 <div class="valor">{{ $garagem->formato_vaga }}<br/><span class="formato-vaga">{{  $garagem->caracteristicas->where('nome', 'valor_vaga')->first()->pivot->valor ?? 'R$ Consulte' }}</span></div>
                 @else
@@ -93,8 +93,19 @@
         </div>
         
         @if($unidade->garagem->count() > 0)
+
+        <div class="vaga-extra-select">
+            <label for="nome">Deseja incluir vagas extras na proposta?</label>
+            <select class="form-control select" name="vaga_extra" id="vaga_extra">
+                <option value="" selected>Selecione</option>
+                <option value="Sim">SIM</option>
+                <option value="Não">NÃO</option>
+            </select>
+        </div>
         
-        <div class="vagas">
+        <div class="vagas" id="boxVagasEstras" style="display: none;">
+
+            <p class="titulo-vaga-extra">Selecione abaixo uma vaga extra, para cada vaga extra selecionada será incluído o valor de <b>({{ converte_valor_real($tabela->valor_vaga_extra) }})</b> no valor final da proposta</p>
 
             @foreach ($vagas_extras as $vaga_extra)
                 <div class="vaga extra" data-idvaga="{{ $vaga_extra->id }}" data-tipovaga="{{ $vaga_extra->formato_vaga }}" data-nomevaga="{{ $vaga_extra->nome }}">

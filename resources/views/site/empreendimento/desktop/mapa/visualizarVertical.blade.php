@@ -384,8 +384,8 @@
         </div>
         @elseif($empreendimento->tipo == 'Vertical')
         <div class="marcador-vertical" style="
-        top: calc({{ $unidade->coord_y - $metade_tam_unid }}px - 80px); 
-        left: calc({{ $unidade->coord_x - $metade_tam_unid }}px + 40px);">
+        top: calc({{ $unidade->coord_y - $metade_tam_unid }}px - 299px); 
+        left: calc({{ $unidade->coord_x - $metade_tam_unid }}px - 70px);">
         </div>
         @endif
     

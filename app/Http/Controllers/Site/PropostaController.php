@@ -37,7 +37,7 @@ class PropostaController extends Controller
 
         if($this->data['empreendimento']->tipo == 'Vertical'){
 
-            $this->data['garagens'] =  Garagem::where('unidade_id', $request->unidade_id)->get();
+            $this->data['garagens'] =  Garagem::where('unidade_id', $request->unidade_id)->where('formato_vaga', 'Extra')->get();
             
             $this->data['vagas'] = Garagem::where('empreendimento_id', $unidade->empreendimento_id)->get();
             $this->data['vagas_extras'] = Garagem::where('empreendimento_id', $unidade->empreendimento_id)->where('formato_vaga', 'Extra')->where('situacao', 'Disponível')->get();
@@ -53,6 +53,8 @@ class PropostaController extends Controller
 
         $proposta = Proposta::find($request->id);
         $unidade = Unidade::find($proposta->unidade_id);
+
+        $this->data['tabela'] = TabelaVendas::where('empreendimento_id', $unidade->empreendimento_id)->where('tipo_tabela_id', 1)->first();
 
         $propostaVaga = PropostaVaga::where('proposta_id', $request->id)->where('garagem_id', $request->idVaga)->first();
 

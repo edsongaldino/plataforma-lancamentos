@@ -1562,7 +1562,7 @@ img {
 	background-color: #F5F5F5;
 	line-height: 50px;
 	color: #353738;
-	padding: 0 10px;
+	padding: 0px;
 }
 
 .conteudo .garagens .garagem .icone{
@@ -1575,7 +1575,7 @@ img {
 
 .conteudo .garagens .garagem .nome{
 	float: left;
-    width: 45%;
+    width: 37%;
     font-size: 16px;
     padding: 10px 5px 0px 5px;
     line-height: 15px;	
@@ -1589,7 +1589,7 @@ img {
 
 .conteudo .garagens .garagem .tipo{
 	float: left;
-    width: 40%;
+    width: 48%;
     font-size: 16px;
     padding: 10px 5px 0px 5px;
     line-height: 15px;
@@ -1620,6 +1620,28 @@ img {
 	width: 10%;
 	font-size: 20px;
 	color: #a5231a;	
+}
+
+.conteudo .vaga-extra-select{
+	padding: 10px 20px;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 16px;
+    float: left;
+    width: 100%;
+}
+
+.conteudo .vaga-extra-select select{
+	height: 60px;
+    text-align: center;
+    font-size: 25px;
+    color: #06889d;
+}
+
+.conteudo .titulo-vaga-extra{
+	text-align: center;
+	font-size: 18px;
+	color: #007297;
 }
 
 

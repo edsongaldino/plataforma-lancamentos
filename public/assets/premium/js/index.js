@@ -36,6 +36,18 @@ $("#tipo_negociacao_saldo").on('change', function () {
     }
 });
 
+$("#vaga_extra").on('change', function () {
+
+  var vaga_extra = $(this).val();
+
+  if (vaga_extra == 'Sim') {
+      $("#boxVagasEstras").css("display", "block");
+  }else{
+      $("#boxVagasEstras").css("display", "none");
+  }
+
+});
+
 $(".mostrar").on('click', function () {
     $('#dadosUnidade').slideToggle('slow'); 
     $('.mostrar').hide(); 

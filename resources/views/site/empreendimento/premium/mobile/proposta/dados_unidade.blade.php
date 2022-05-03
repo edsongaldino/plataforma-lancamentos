@@ -39,8 +39,9 @@
                     @endif
                 @endif
                 @if (isset($unidade->planta))
+                
 
-                @if ($unidade->planta->caracteristicas->where('nome', 'laje_tecnica')->first()->pivot->valor <> null)
+                @if ($unidade->planta->caracteristicas->where('nome', 'laje_tecnica')->first())
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fas fa-border-style" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">Laje Téc.</div>
