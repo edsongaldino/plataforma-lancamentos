@@ -278,17 +278,16 @@ class Proposta extends Model
 
     public function enviarEmails($proposta)
     {
-        $contatos_construtora = $proposta->construtora->usuarios->where('email', '<>', 'admin@gmail.com')->toArray();
 
-        if ($contatos_construtora) {
-            //$destinatarios = array_column($contatos_construtora, 'email');
-            $destinatarios = 'edson@lancamentosonline.com.br';
-        }    
-        
+        if($proposta->empreendimento->caracteristicas->where('nome', 'email_proposta')->first()){
+            $email_proposta = $proposta->empreendimento->caracteristicas->where('nome', 'email_proposta')->first()->pivot->valor;
+        }else{
+            $email_proposta = $proposta->construtora->email;
+        }
 
         //Envia proposta para a construtora
-        $assunto = "Uma nova proposta foi enviada {$proposta->empreendimento->nome}";        
-        Mail::to($destinatarios)->send(new PropostaConstrutora($proposta, $assunto));
+        $assunto = "Você recebeu uma proposta para o empreendimento {$proposta->empreendimento->nome}";        
+        Mail::to($email_proposta)->send(new PropostaConstrutora($proposta, $assunto));
 
         $assunto = "Sua proposta para o empreendimento {$proposta->empreendimento->nome} foi enviada para a construtora";
 

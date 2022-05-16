@@ -198,19 +198,31 @@ class Lead extends Model
 
     public function enviarEmailsConstrutora()
     {
-        $contatos_construtora = $this->construtora->usuarios->toArray();
+
+        /*$contatos_construtora = $this->construtora->usuarios->toArray();
     
         if ($contatos_construtora) {
             $destinatarios = array_column($contatos_construtora, 'email');
             Mail::to($destinatarios)->send(new EmailConstrutora($this));
+        }*/
+
+        /*Antes os leads eram enviados para todos os usuários da construtora, correção feita em 16/05/2022*/
+
+        if($this->empreendimento->caracteristicas->where('nome', 'email_lead')->first()){
+            $email_lead = $this->empreendimento->caracteristicas->where('nome', 'email_lead')->first()->pivot->valor;
+        }else{
+            $email_lead = $this->construtora->email;
         }
+
+        Mail::to($email_lead)->send(new EmailConstrutora($this));
 
         if (config('app.ambiente') == 'producao') {
             $adms = [];
             $adms[] = 'edson@lancamentosonline.com.br';
             $adms[] = 'contato@lancamentosonline.com.br';
             Mail::to($adms)->send(new EmailAdm($this));    
-        }        
+        }
+
     }
 
     public function enviarSugestoes()

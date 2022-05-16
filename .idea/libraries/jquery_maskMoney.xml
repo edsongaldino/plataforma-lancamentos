@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jquery.maskMoney">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/public/assets/javascripts/mascaras/jquery.maskMoney.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

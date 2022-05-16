@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="lightGallery-master">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/public/site/js/lightgallery/NOVO/lightGallery-master.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
