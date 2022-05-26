@@ -129,6 +129,8 @@ Route::group(['middleware' => ['site']], function () {
 
 	Route::get('/proposta/{id}/conferir-proposta', 'Site\PropostaController@ConferirProposta');
 	
+	Route::get('/proposta/{id}/layout-proposta', 'Site\PropostaController@layoutProposta');
+
 
 	Route::get('/empreendimento/{id}/plantas', 'Site\EmpreendimentoController@plantas');
 	Route::get('/empreendimento/{id}/fotos', 'Site\EmpreendimentoController@fotos');

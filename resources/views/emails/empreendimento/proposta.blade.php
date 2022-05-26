@@ -255,7 +255,7 @@
                                 $tipo_sol = 'SN';                              
                               }
                             @endphp
-                            <img src="https://www.domusapp.com.br/sistema/imagem/icone/icone_{{ $tipo_sol }}.png" title="Sol {{ $proposta->unidade->getCaracteristica('tipo_sol') }}" width="120" height="60">
+                            <img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/images/icone_{{ $tipo_sol }}.png" title="Sol {{ $proposta->unidade->getCaracteristica('tipo_sol') }}" width="120" height="60">
                           </td>
                         </tr>
                         <tr>

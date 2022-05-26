@@ -168,4 +168,10 @@ class PropostaController extends Controller
         return view('site.empreendimento.premium.mobile.proposta.index', $this->data);
     }
 
+
+    public function layoutProposta($id){
+        $this->data['proposta'] = Proposta::find($id);
+        return view('emails.empreendimento.proposta', $this->data);
+    }
+
 }
