@@ -25,19 +25,7 @@
 
             <div class="valor-unidade">
                 <i class="fa fa-usd" aria-hidden="true"></i> 
-                    @if($unidade->caracteristicas->where('nome', 'valor_unidade')->first() && $unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '')
-                        {{ converte_valor_real($unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor) }}
-                    @else
-                        @if($unidade->caracteristicas->where('nome', 'valor_m2')->first() && $unidade->caracteristicas->where('nome', 'metragem_total')->first())
-                            @php
-                                $valor_m2 = $unidade->caracteristicas->where('nome', 'valor_m2')->first()->pivot->valor;
-                                $metragem = $unidade->caracteristicas->where('nome', 'metragem_total')->first()->pivot->valor;
-                            @endphp
-                            {{ converte_valor_real($valor_m2 * $metragem) }}
-                        @else
-                            Consulte
-                        @endif
-                    @endif
+                {{ get_valor_unidade($proposta->unidade) }}
                 <br/>
                 <div class="descricao-valor">
 

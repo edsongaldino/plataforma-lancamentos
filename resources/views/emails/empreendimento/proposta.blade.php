@@ -247,17 +247,14 @@
                           </tr>
                         @endif
                       @else:
-                        <tr>
-                          <td colspan="5" align="center" bgcolor="#FFFFFF">
-                            @php
-                              $tipo_sol = 'SP';
-                              if ($proposta->unidade->getCaracteristica('tipo_sol') == 'Nascente') {
-                                $tipo_sol = 'SN';                              
-                              }
-                            @endphp
-                            <img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/images/icone_{{ $tipo_sol }}.png" title="Sol {{ $proposta->unidade->getCaracteristica('tipo_sol') }}" width="120" height="60">
-                          </td>
-                        </tr>
+
+                        @php
+                          $tipo_sol = 'SP';
+                          if ($proposta->unidade->getCaracteristica('tipo_sol') == 'Nascente') {
+                            $tipo_sol = 'SN';                              
+                          }
+                        @endphp
+          
                         <tr>
                           <td width="11%" align="center" bgcolor="#FFFFFF" class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
                             <img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/images/icon-unidade-1.png" width="30" height="30">
@@ -269,6 +266,19 @@
                             {{ $proposta->unidade->torre->nome }} - {{ $proposta->unidade->andar->numero }}º Andar, Unidade {{ $proposta->unidade->nome }}                            
                           </td>
                         </tr>
+
+                        <tr>
+                          <td width="11%" align="center" bgcolor="#FFFFFF" class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
+                          <img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/images/icone_{{ $tipo_sol }}.png" title="Sol {{ $proposta->unidade->getCaracteristica('tipo_sol') }}" width="30" height="30">
+                          </td>
+                          <td width="19%" align="left" bgcolor="#FFFFFF" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
+                            Orientação Solar:
+                          </td>
+                          <td colspan="3" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
+                            {{ $proposta->unidade->getCaracteristica('tipo_sol') ?? '' }}                            
+                          </td>
+                        </tr>
+
                         <tr>
                           <td height="20" align="center" bgcolor="#FFFFFF">
                             <span class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
@@ -283,14 +293,33 @@
                           <td width="29%" height="20" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                             {{ $proposta->unidade->planta->nome }}
                           </td>
-                          <td width="15%" bgcolor="#FFFFFF">
+
+
+                          @if($proposta->unidade->planta->area_privativa)
+
+                            <td width="15%" bgcolor="#FFFFFF">
                             <span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
-                              Metragem:
+                                Metragem:
                             </span>
-                          </td>
-                          <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
+                            </td>
+                            <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
+                            {{ $proposta->unidade->planta->area_privativa }}m²
+                            </td>
+
+                          @else
+
+                            <td width="15%" bgcolor="#FFFFFF">
+                            <span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
+                                Metragem:
+                            </span>
+                            </td>
+                            <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                             {{ $proposta->empreendimento->getCaracteristica('area_privativa_real', 'minimo_planta') }}m²
-                          </td>
+                            </td>
+
+                          @endif
+
+                          
                         </tr>
                         <tr>
                           <td height="20" align="center" bgcolor="#FFFFFF">
@@ -298,27 +327,59 @@
                               <img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/images/icon-quartos.png" alt="" width="30" height="30">
                             </span>
                           </td>
-                          <td height="20" align="left" bgcolor="#FFFFFF">
-                            <span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
-                              Dormitórios:
-                            </span>
-                          </td>
-                          <td height="20" align="left" bgcolor="#FFFFFF" style="font:600 20px Open Sans, Arial, Helvetica, sans-serif; color:#F90;">
-                            <span style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;; font-family: Open Sans, Arial, Helvetica, sans-serif; font-size: 16px">
-                              {{ $proposta->empreendimento->getCaracteristica('qtd_dormitorio', 'minimo_planta') }}
-                            </span>
-                          </td>
-                          <td height="20" bgcolor="#FFFFFF" style="font:600 20px Open Sans, Arial, Helvetica, sans-serif; color:#F90;">
-                            <span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
-                              Suítes:
-                            </span>
-                          </td>
-                          <td height="20" align="left" bgcolor="#FFFFFF" style="font:600 20px Open Sans, Arial, Helvetica, sans-serif; color:#F90;">
-                            <span style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;font-family: Open Sans, Arial, Helvetica, sans-serif; font-size: 16px">
-                              {{ $proposta->empreendimento->getCaracteristica('minimo_suites', 'minimo_planta') }}
-                            </span>
-                          </td>
-                        </tr>                        
+
+
+                          @if($proposta->unidade->planta)
+                            <td height="20" align="left" bgcolor="#FFFFFF">
+                              <span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
+                                Dormitórios:
+                              </span>
+                            </td>
+                            <td height="20" align="left" bgcolor="#FFFFFF" style="font:600 20px Open Sans, Arial, Helvetica, sans-serif; color:#F90;">
+                              <span style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;; font-family: Open Sans, Arial, Helvetica, sans-serif; font-size: 16px">
+                              {{ $proposta->unidade->planta->caracteristicas->where('nome', 'qtd_dormitorio')->first()->pivot->valor ?? '' }}
+                              </span>
+                            </td>
+
+                            @if($proposta->unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor)
+                            <td height="20" bgcolor="#FFFFFF" style="font:600 20px Open Sans, Arial, Helvetica, sans-serif; color:#F90;">
+                              <span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
+                                Suítes:
+                              </span>
+                            </td>
+                            <td height="20" align="left" bgcolor="#FFFFFF" style="font:600 20px Open Sans, Arial, Helvetica, sans-serif; color:#F90;">
+                              <span style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;font-family: Open Sans, Arial, Helvetica, sans-serif; font-size: 16px">
+                              {{ $proposta->unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor }}
+                              </span>
+                            </td>
+                            @endif
+                          @else
+                            <td height="20" align="left" bgcolor="#FFFFFF">
+                              <span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
+                                Dormitórios:
+                              </span>
+                            </td>
+                            <td height="20" align="left" bgcolor="#FFFFFF" style="font:600 20px Open Sans, Arial, Helvetica, sans-serif; color:#F90;">
+                              <span style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;; font-family: Open Sans, Arial, Helvetica, sans-serif; font-size: 16px">
+                                {{ $proposta->empreendimento->getCaracteristica('qtd_dormitorio', 'minimo_planta') }}
+                              </span>
+                            </td>
+                            @if($proposta->unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first())
+                            <td height="20" bgcolor="#FFFFFF" style="font:600 20px Open Sans, Arial, Helvetica, sans-serif; color:#F90;">
+                              <span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
+                                Suítes:
+                              </span>
+                            </td>
+                            <td height="20" align="left" bgcolor="#FFFFFF" style="font:600 20px Open Sans, Arial, Helvetica, sans-serif; color:#F90;">
+                              <span style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;font-family: Open Sans, Arial, Helvetica, sans-serif; font-size: 16px">
+                                {{ $proposta->empreendimento->getCaracteristica('minimo_suites', 'minimo_planta') }}
+                              </span>
+                            </td>
+                            @endif
+                          @endif
+
+                        </tr>
+                                                
                       @endif
                         
                       <tr>
@@ -333,21 +394,7 @@
                           </span>
                         </td>
                         <td height="20" colspan="3" align="left" bgcolor="#FFFFFF" style="font:600 20px Open Sans, Arial, Helvetica, sans-serif; color:#F90;">
-                          R$ 
-                          
-                          @if($proposta->unidade->caracteristicas->where('nome', 'valor_unidade')->first() && $proposta->unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '')
-                          {{ converte_valor_real($proposta->unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor) }}
-                          @else
-                              @if($proposta->unidade->caracteristicas->where('nome', 'valor_m2')->first() && $proposta->unidade->caracteristicas->where('nome', 'metragem_total')->first())
-                                  @php
-                                      $valor_m2 = $proposta->unidade->caracteristicas->where('nome', 'valor_m2')->first()->pivot->valor;
-                                      $metragem = $proposta->unidade->caracteristicas->where('nome', 'metragem_total')->first()->pivot->valor;
-                                  @endphp
-                                  {{ converte_valor_real($valor_m2 * $metragem) }}
-                              @else
-                                  Consulte
-                              @endif
-                          @endif
+                          R$ {{ get_valor_unidade($proposta->unidade) }}
                         </td>
                       </tr>
                       <tr>
@@ -405,6 +452,7 @@
                   <td width="31%" height="20" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">                    
                     {{ $proposta->cliente->cpf }}
                   </td>
+                  @if($proposta->cliente->data_nascimento)
                   <td width="15%" bgcolor="#FFFFFF">
                     <span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
                     D. Nasc:
@@ -413,6 +461,14 @@
                   <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                     {{ $proposta->cliente->data_nascimento }}
                   </td>
+                  @else
+                  <td width="15%" bgcolor="#FFFFFF">
+
+                  </td>
+                  <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
+
+                  </td>
+                  @endif
                 </tr>
                 <tr>
                   <td height="20" align="center" bgcolor="#FFFFFF">
@@ -443,14 +499,14 @@
                   <td height="20" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                     {{ $proposta->cliente->telefone }}
                   </td>
+                  
                   <td height="20" bgcolor="#FFFFFF">
-                    <span class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;; font-family: Open Sans, Arial, Helvetica, sans-serif; font-size: 14px">
-                      E. Civil:
-                    </span>
+
                   </td>
                   <td height="20" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
-                    {{ $proposta->cliente->estado_civil }}
+
                   </td>
+                  
                 </tr>
                 
                 @if($proposta->cliente->estado_civil == 'Casado' || $proposta->cliente->estado_civil == 'União Estável' && $proposta->cliente->conjuge)
@@ -542,6 +598,7 @@
                   <tr>
                     <td colspan="4" align="center" bgcolor="#FFFFFF">&nbsp;</td>
                   </tr>
+                  @if($proposta->valor_proposta)
                   <tr>
                     <td width="31%" align="right" bgcolor="#F5F5F5" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
                       Valor da proposta:
@@ -552,6 +609,7 @@
                       </span>
                     </td>
                   </tr>
+                  @endif
                   @if($proposta->entrada_proposta)
                   <tr>
                     <td height="20" align="right" bgcolor="#FFFFFF">

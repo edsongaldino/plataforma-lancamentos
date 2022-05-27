@@ -1541,6 +1541,32 @@ if (!function_exists('obter_valor_unidade')) {
 
 }
 
+if (!function_exists('get_valor_unidade')) {
+
+	function get_valor_unidade($unidade) {
+		if($unidade->caracteristicas->where('nome', 'valor_unidade')->first() && $unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> ''){
+			$valor_unidade = converte_valor_real($unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor);
+		}else{
+
+			if($unidade->caracteristicas->where('nome', 'valor_m2')->first() && $unidade->caracteristicas->where('nome', 'metragem_total')->first()){
+
+					$valor_m2 = $unidade->caracteristicas->where('nome', 'valor_m2')->first()->pivot->valor;
+					$metragem = $unidade->caracteristicas->where('nome', 'metragem_total')->first()->pivot->valor;
+
+					$valor_unidade = converte_valor_real($valor_m2 * $metragem);
+			}else{
+				$valor_unidade = 'Consulte';
+			}
+		}
+
+		return $valor_unidade;
+	}
+
+}
+
+
+
+
 if (!function_exists('total_valor_honorario')) {
 	function total_valor_honorario($construtora_id, $empreendimento_id = null) {      	
 		$total = 0;
