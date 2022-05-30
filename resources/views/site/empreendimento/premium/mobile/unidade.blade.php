@@ -25,7 +25,7 @@
 
             <div class="valor-unidade">
                 <i class="fa fa-usd" aria-hidden="true"></i> 
-                {{ get_valor_unidade($proposta->unidade) }}
+                {{ get_valor_unidade($unidade) }}
                 <br/>
                 <div class="descricao-valor">
 

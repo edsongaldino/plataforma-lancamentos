@@ -223,6 +223,7 @@
                               <span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">Metragem:</span>
                             </td>
                             <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">  
+                            
                               @if($proposta->unidade->planta->area_privativa)
                                 {{ $proposta->unidade->planta->area_privativa }}m²
                               @else
