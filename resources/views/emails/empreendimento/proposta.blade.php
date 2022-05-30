@@ -156,7 +156,7 @@
                       <td height="20">&nbsp;</td>
                     </tr>
                     <tr>
-                      <td height="68" align="center"><img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/img/icone-empreendimento.png" alt="" width="60" height="60"></td>
+                      <td height="68" align="center"><img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/img/tipo_empreendimento_{{ $proposta->empreendimento->subtipo->id }}.png" alt="" width="60" height="60"></td>
                     </tr>
                     <tr>
                       <td height="20" align="center">&nbsp;</td>
@@ -167,8 +167,7 @@
                         <tr>
                           <td colspan="5" align="center" bgcolor="#00B2B2"><span style="font:bold 22px Arial, Helvetica, sans-serif; color:#FFF; font-family: Arial, Helvetica, sans-serif; font-size: 22px">{{ $proposta->empreendimento->nome }}</span></td>
                         </tr>                        
-                        @if($proposta->empreendimento->subtipo->id == 3 
-                          || $proposta->empreendimento->subtipo->id == 4)
+                        @if($proposta->empreendimento->subtipo->id == 3 || $proposta->empreendimento->subtipo->id == 4)
                           <tr>
                             <td colspan="5" align="center" bgcolor="#FFFFFF">
                               <img src="https://www.lancamentosonline.com.br/imagens/empreendimento/{{ $proposta->empreendimento->id}}/arquivo/{{ $proposta->empreendimento->logomarca }}" title="{{ $proposta->empreendimento->nome }}" width="125" height="95">
@@ -176,13 +175,13 @@
                           </tr>
                           <tr>
                             <td width="11%" align="center" bgcolor="#FFFFFF" class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
-                              <img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/images/icon-unidade-1.png" width="30" height="30">
+                              <img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/img/tipo_empreendimento_{{ $proposta->empreendimento->subtipo->id }}.png" width="30" height="30">
                             </td>
                             <td width="19%" align="left" bgcolor="#FFFFFF" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
                               Unidade:
                             </td>
                             <td colspan="3" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
-                              {{ $proposta->unidade->quadra->nome }} - Unidade {{ $proposta->unidade->nome }}
+                              {{ $proposta->unidade->quadra->nome ?? '' }} - Unidade {{ $proposta->unidade->nome }}
                             </td>
                           </tr>
                         @if($proposta->empreendimento->variacao->nome == 'Lote')
@@ -257,7 +256,7 @@
           
                         <tr>
                           <td width="11%" align="center" bgcolor="#FFFFFF" class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
-                            <img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/images/icon-unidade-1.png" width="30" height="30">
+                            <img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/img/tipo_empreendimento_{{ $proposta->empreendimento->subtipo->id }}.png" width="30" height="30">
                           </td>
                           <td width="19%" align="left" bgcolor="#FFFFFF" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
                             Unidade:
@@ -321,6 +320,10 @@
 
                           
                         </tr>
+
+                        @if($proposta->empreendimento->subtipo->id == 2)
+
+                        @else
                         <tr>
                           <td height="20" align="center" bgcolor="#FFFFFF">
                             <span class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
@@ -379,6 +382,8 @@
                           @endif
 
                         </tr>
+
+                        @endif
                                                 
                       @endif
                         
@@ -598,6 +603,18 @@
                   <tr>
                     <td colspan="4" align="center" bgcolor="#FFFFFF">&nbsp;</td>
                   </tr>
+
+                  <tr>
+                    <td width="31%" align="right" bgcolor="#FFFFFF" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
+                      Formato da proposta:
+                    </td>
+                    <td colspan="3" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
+                      <span style="font:600 20px Open Sans, Arial, Helvetica, sans-serif; color:#fc6;">
+                        {{ $proposta->tipo_proposta }}
+                      </span>
+                    </td>
+                  </tr>
+
                   @if($proposta->valor_proposta)
                   <tr>
                     <td width="31%" align="right" bgcolor="#F5F5F5" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
@@ -633,10 +650,10 @@
                       {{ converte_valor_real(calcular_percentual(valor_unidade($proposta->unidade), converte_reais_to_mysql($proposta->entrada_proposta), '', '1')) }}%%
                       @endif
                     </td>
-
-
+                    
                   </tr>
                   @endif
+
                   @if($proposta->quantidade_parcela)
                   <tr>
                     <td height="20" align="right" bgcolor="#F5F5F5">
@@ -656,7 +673,8 @@
                       R$ {{ number_format($proposta->quantidade_parcela * $proposta->getOriginal('valor_parcela'), 2, ',', '.') }}
                     </td>
                   </tr>
-                @endif
+                  @endif
+
                 @if ($proposta->baloes->count() > 0)
                 <tr>
                 <td height="20" rowspan="{{ $proposta->baloes->count() + 1 }}" align="right" bgcolor="#FFFFFF">
@@ -701,6 +719,8 @@
                   </td>
                 </tr>
                 @endif
+                
+                @if($proposta->saldo_remanescente > 0)
                 <tr>
                   <td align="right" bgcolor="#FFFFFF" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
                     Saldo Remanescente:
@@ -711,6 +731,8 @@
                     </span>
                     </td>
                 </tr>
+                @endif
+
                 @if(isset($proposta->tabela->correcao_compra))
                 <tr>
                   <td align="right" bgcolor="#F5F5F5" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
