@@ -200,8 +200,8 @@
                             <td width="15%" bgcolor="#FFFFFF"><span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">Metragem:</span></td>
                             <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
 
-                              @if($unidade->getCaracteristica('metragem_total'))
-                                {{ $unidade->getCaracteristica('metragem_total') ?? '' }}m²
+                              @if($proposta->unidade->getCaracteristica('metragem_total'))
+                                {{ $proposta->unidade->getCaracteristica('metragem_total') ?? '' }}m²
                               @else
                                 De {{ $proposta->empreendimento->getCaracteristica("area_unidade_min") }} à {{ $proposta->empreendimento->getCaracteristica("area_unidade_max") }}m²
                               @endif
@@ -223,8 +223,8 @@
                               <span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">Metragem:</span>
                             </td>
                             <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">  
-                              @if($unidade->planta->area_privativa))
-                                {{ $unidade->planta->area_privativa }}m²
+                              @if($proposta->unidade->planta->area_privativa)
+                                {{ $proposta->unidade->planta->area_privativa }}m²
                               @else
                                 {{ $proposta->empreendimento->getCaracteristica('area_privativa_real', 'minimo_planta') }}m²
                               @endif
