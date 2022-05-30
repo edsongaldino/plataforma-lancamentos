@@ -199,8 +199,13 @@
                             </td>
                             <td width="15%" bgcolor="#FFFFFF"><span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">Metragem:</span></td>
                             <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
-                              De {{ $proposta->empreendimento->getCaracteristica("area_unidade_min") }} 
-                              à {{ $proposta->empreendimento->getCaracteristica("area_unidade_max") }}m²
+
+                              @if($unidade->getCaracteristica('metragem_total'))
+                                {{ $unidade->getCaracteristica('metragem_total') ?? '' }}m²
+                              @else
+                                De {{ $proposta->empreendimento->getCaracteristica("area_unidade_min") }} à {{ $proposta->empreendimento->getCaracteristica("area_unidade_max") }}m²
+                              @endif
+                           
                             </td>
                           </tr>
                         @else                                              
@@ -217,8 +222,13 @@
                             <td width="15%" bgcolor="#FFFFFF">
                               <span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">Metragem:</span>
                             </td>
-                            <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">                              
-                              {{ $proposta->empreendimento->getCaracteristica('area_privativa_real', 'minimo_planta') }}m²
+                            <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">  
+                              @if($unidade->planta->area_privativa))
+                                {{ $unidade->planta->area_privativa }}m²
+                              @else
+                                {{ $proposta->empreendimento->getCaracteristica('area_privativa_real', 'minimo_planta') }}m²
+                              @endif
+                              
                             </td>
                           </tr>
                           <tr>
@@ -230,7 +240,7 @@
                             </td>
                             <td height="20" align="left" bgcolor="#FFFFFF" style="font:600 20px Open Sans, Arial, Helvetica, sans-serif; color:#F90;">
                               <span style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;; font-family: Open Sans, Arial, Helvetica, sans-serif; font-size: 16px">
-                                {{ $proposta->empreendimento->getCaracteristica('qtd_dormitorio', 'minimo_planta') }}
+                                {{ $proposta->unidade->planta->caracteristicas->where('nome', 'qtd_dormitorio')->first()->pivot->valor ?? '' }}
                               </span>
                             </td>
                             <td height="20" bgcolor="#FFFFFF" style="font:600 20px Open Sans, Arial, Helvetica, sans-serif; color:#F90;">
@@ -240,7 +250,7 @@
                             </td>
                             <td height="20" align="left" bgcolor="#FFFFFF" style="font:600 20px Open Sans, Arial, Helvetica, sans-serif; color:#F90;">
                                 <span style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;; font-family: Open Sans, Arial, Helvetica, sans-serif; font-size: 16px">
-                                  {{ $proposta->empreendimento->getCaracteristica('minimo_suites', 'minimo_planta') }}
+                                {{ $proposta->unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor ?? '' }}
                                 </span>
                             </td>
                           </tr>
@@ -457,6 +467,7 @@
                   <td width="31%" height="20" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">                    
                     {{ $proposta->cliente->cpf }}
                   </td>
+
                   @if($proposta->cliente->data_nascimento)
                   <td width="15%" bgcolor="#FFFFFF">
                     <span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
@@ -466,7 +477,9 @@
                   <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                     {{ $proposta->cliente->data_nascimento }}
                   </td>
+
                   @else
+
                   <td width="15%" bgcolor="#FFFFFF">
 
                   </td>
@@ -474,6 +487,7 @@
 
                   </td>
                   @endif
+
                 </tr>
                 <tr>
                   <td height="20" align="center" bgcolor="#FFFFFF">
@@ -515,6 +529,7 @@
                 </tr>
                 
                 @if($proposta->cliente->estado_civil == 'Casado' || $proposta->cliente->estado_civil == 'União Estável' && $proposta->cliente->conjuge)
+
                   <tr>
                     <td height="20" align="center" bgcolor="#FFFFFF">
                       <span class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
@@ -538,6 +553,7 @@
                       {{ $proposta->cliente->conjuge->cpf }}
                     </td>
                   </tr>
+
                 @endif
 
                 <tr>
@@ -571,13 +587,17 @@
       <td height="20" align="center" class="smallfont" style="font:16px Arial, Helvetica, sans-serif; font-style:italic; color:#FFFFFF; padding:0 0px 0 0px;">&nbsp;</td>
     </tr>
     <tr>
-      <td><table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-        <tr>
-          <td width="40%" height="2"></td>
-          <td width="10%" height="2"></td>
-          <td width="40%" height="2"></td>
-        </tr>
-      </table></td>
+      <td>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+          <tr>
+            <td width="40%" height="2"></td>
+            <td width="10%" height="2"></td>
+            <td width="40%" height="2"></td>
+          </tr>
+        </table>
+
+      </td>
     </tr>
     <tr>
       <td bgcolor="#FFFFFF">&nbsp;</td>
@@ -627,6 +647,7 @@
                     </td>
                   </tr>
                   @endif
+
                   @if($proposta->entrada_proposta)
                   <tr>
                     <td height="20" align="right" bgcolor="#FFFFFF">
@@ -650,7 +671,6 @@
                       {{ converte_valor_real(calcular_percentual(valor_unidade($proposta->unidade), converte_reais_to_mysql($proposta->entrada_proposta), '', '1')) }}%%
                       @endif
                     </td>
-                    
                   </tr>
                   @endif
 
@@ -697,6 +717,7 @@
                     </tr>
                   @endforeach
                 @endif
+
                 @if($proposta->valor_bens)
                 <tr>
                   <td align="right" bgcolor="#F5F5F5" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
@@ -709,6 +730,7 @@
                   </td>
                 </tr>
                 @endif
+
                 @if($proposta->descricao_bens)
                 <tr>
                   <td align="right" bgcolor="#F5F5F5" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
@@ -743,6 +765,7 @@
                   </td>
                 </tr>
                 @endif
+
                 @if(isset($proposta->tabela->correcao_poschave))
                 <tr>
                   <td align="right" bgcolor="#FFFFFF" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
@@ -753,6 +776,7 @@
                   </td>
                 </tr>
                 @endif
+
                 <tr>
                   <td colspan="4" align="justify" bgcolor="#FBFBFB" style="font:12px Open Sans, Arial, Helvetica, sans-serif; color:#333; padding:20px; text-align:justify;">
                     Informamos que sua proposta será enviada para a construtora para análise, no período máximo de <strong>24 horas</strong> você será informado se a mesmo foi aprovada ou não. A proposta não garante a reserva da unidade e também não gera nenhum vínculo com a construtora e/ou incorporadora.
