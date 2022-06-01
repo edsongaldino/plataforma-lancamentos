@@ -17,7 +17,7 @@ use App\Models\Torre;
 use App\Models\Unidade;
 
 if (!function_exists('percentual_perfil_construtora')) {
-    function percentual_perfil($tipo, $id) {    	
+    function percentual_perfil($tipo, $id) {
 
     	switch ($tipo) {
     		case 'usuario':
@@ -26,11 +26,11 @@ if (!function_exists('percentual_perfil_construtora')) {
     		case 'construtora':
     			$perfil = Construtora::find($id)->perfil->toArray();
     			break;
-    		
+
     		default:
     			return 0;
     			break;
-    	}    	
+    	}
 
 		if ($perfil) {
 			$completos = function ($perfil) {
@@ -56,7 +56,7 @@ if (!function_exists('percentual_perfil_construtora')) {
 
 if (!function_exists('percentual_empreendimento')) {
     function percentual_empreendimento($empreendimento)
-    {    	
+    {
     	$perfil = $empreendimento->perfil->toArray();
     	return (new EmpreendimentoPerfil())->getPercentual($perfil);
     }
@@ -64,7 +64,7 @@ if (!function_exists('percentual_empreendimento')) {
 
 if (!function_exists('total_quadras')) {
     function total_quadras($id)
-    {    	
+    {
     	$empreendimento = Empreendimento::find($id);
     	if ($empreendimento->quadras) {
     		return $empreendimento->quadras->count();
@@ -76,7 +76,7 @@ if (!function_exists('total_quadras')) {
 
 if (!function_exists('total_torres')) {
     function total_torres($id)
-    {    	
+    {
     	$empreendimento = Empreendimento::find($id);
     	if ($empreendimento->torres) {
     		return $empreendimento->torres->count();
@@ -88,7 +88,7 @@ if (!function_exists('total_torres')) {
 
 if (!function_exists('total_pavimentos')) {
     function total_pavimentos($id)
-    {    	
+    {
     	$empreendimento = Empreendimento::find($id);
     	if ($empreendimento->pavimentos) {
     		return $empreendimento->pavimentos->count();
@@ -100,14 +100,14 @@ if (!function_exists('total_pavimentos')) {
 
 if (!function_exists('caracteristicas_planta')) {
 	function caracteristicas_planta($planta_id)
-	{    			
+	{
 		return Planta::find($planta_id)->caracteristicas->where('exibir', 'Sim')->toArray();
 	}
 }
 
 if (!function_exists('get_caracteristica')) {
 	function get_caracteristica($modelName, $id, $nome, $campo, $pivot = true)
-	{    			
+	{
 		$caracteristica = null;
 
 		switch ($modelName) {
@@ -119,12 +119,12 @@ if (!function_exists('get_caracteristica')) {
 				$model = Torre::find($id);
 				$caracteristica = $model->caracteristicas->where('nome', $nome)->where('tipo', 'Torre');
 				break;
-			
+
 			default:
 
 				break;
 		}
-		
+
 		if ($caracteristica && $c = $caracteristica->first()) {
 
 			$c = $c->toArray();
@@ -141,7 +141,7 @@ if (!function_exists('get_caracteristica')) {
 }
 
 if (!function_exists('unidades')) {
-	function unidades($situacao, $empreendimento_id, $construtora_id = null) {    		
+	function unidades($situacao, $empreendimento_id, $construtora_id = null) {
 
 		if ($construtora_id) {
 			$construtora = Construtora::find($construtora_id);
@@ -152,24 +152,24 @@ if (!function_exists('unidades')) {
 
 		if ($empreendimento_id && $situacao) {
 			$empreendimento = Empreendimento::find($empreendimento_id);
-			
+
 			if ($situacao == 'Todas') {
-				return $empreendimento->unidades->count();	
+				return $empreendimento->unidades->count();
 			}
 
 			return $empreendimento->unidades()->where('situacao', $situacao)->get()->count();
 		}
-					
+
 		$total = 0;
 
 		foreach ($empreendimentos as $empreendimento) {
 			if ($empreendimento->status == 'Liberada') {
 				if ($situacao == "Todas") {
-					$total = $total + $empreendimento->unidades->count();	
+					$total = $total + $empreendimento->unidades->count();
 				} else {
 					$total = $total + $empreendimento->unidades()->where('situacao', $situacao)->count();
 				}
-			}				
+			}
 		}
 
 		return $total;
@@ -178,7 +178,7 @@ if (!function_exists('unidades')) {
 
 if (!function_exists('empreendimentos')) {
 	function empreendimentos($construtora_id)
-	{    		
+	{
 		if ($construtora_id) {
 			return Construtora::find($construtora_id)->empreendimentos->where('status', 'Liberada')->count();
 		} else {
@@ -192,23 +192,23 @@ if (!function_exists('empreendimentos')) {
 if (!function_exists('percentual_acesso')) {
 	function percentual_acesso($construtora_id, $dispositivo) {
 		if ($construtora_id) {
-			$empreendimentos = Construtora::find($construtora_id)->empreendimentos->where('status', 'Liberada');	
+			$empreendimentos = Construtora::find($construtora_id)->empreendimentos->where('status', 'Liberada');
 		} else {
 			$empreendimentos = (new Empreendimento())->where('status', 'Liberada')->get();
 		}
-		
+
 		$total =  0;
 		$total2 = 0;
 
 		foreach ($empreendimentos as $empreendimento) {
-			$total += $empreendimento->leads->where('dispositivo', '<>', '')->count();	
-			$total2 += $empreendimento->leads->where('dispositivo', $dispositivo)->count();	
-		}		
-		
+			$total += $empreendimento->leads->where('dispositivo', '<>', '')->count();
+			$total2 += $empreendimento->leads->where('dispositivo', $dispositivo)->count();
+		}
+
 		if($total2) {
 			return ($total2 * 100) / $total;
 		}
-			
+
 		return 0;
 	}
 }
@@ -216,23 +216,23 @@ if (!function_exists('percentual_acesso')) {
 if (!function_exists('percentual_origem_acesso')) {
 	function percentual_origem_acesso($construtora_id, $origem) {
 		if ($construtora_id) {
-			$empreendimentos = Construtora::find($construtora_id)->empreendimentos->where('status', 'Liberada');	
+			$empreendimentos = Construtora::find($construtora_id)->empreendimentos->where('status', 'Liberada');
 		} else {
 			$empreendimentos = (new Empreendimento())->where('status', 'Liberada')->get();
 		}
-		
+
 		$total =  0;
 		$total2 = 0;
 
 		foreach ($empreendimentos as $empreendimento) {
-			$total += $empreendimento->leads->where('origem', '<>', '')->count();	
-			$total2 += $empreendimento->leads->where('origem', $origem)->count();	
-		}		
-		
+			$total += $empreendimento->leads->where('origem', '<>', '')->count();
+			$total2 += $empreendimento->leads->where('origem', $origem)->count();
+		}
+
 		if($total2) {
 			return ($total2 * 100) / $total;
 		}
-			
+
 		return 0;
 	}
 }
@@ -241,20 +241,20 @@ if (!function_exists('total_views')) {
 	function total_views($construtora_id, $mes, $ano) {
 
 		if ($construtora_id) {
-			$empreendimentos = Construtora::find($construtora_id)->empreendimentos->where('status', 'Liberada');	
+			$empreendimentos = Construtora::find($construtora_id)->empreendimentos->where('status', 'Liberada');
 		} else {
 			$empreendimentos = (new Empreendimento())->where('status', 'Liberada')->get();
 		}
-	
+
 		$total =  0;
 
 		foreach ($empreendimentos as $empreendimento) {
-			$views = $empreendimento->resumo_estatistica()->select('resumo_estatisticas.total')->where('tipo', 'Visualização')->where('ano', $ano)->where('mes', $mes)->get()->first();	
-			
+			$views = $empreendimento->resumo_estatistica()->select('resumo_estatisticas.total')->where('tipo', 'Visualização')->where('ano', $ano)->where('mes', $mes)->get()->first();
+
 			if($views):
 				$total += $views->total;
 			endif;
-		}	
+		}
 
 		return $total;
 	}
@@ -264,21 +264,21 @@ if (!function_exists('total_cliques')) {
 	function total_cliques($construtora_id, $mes, $ano) {
 
 		if ($construtora_id) {
-			$empreendimentos = Construtora::find($construtora_id)->empreendimentos->where('status', 'Liberada');	
+			$empreendimentos = Construtora::find($construtora_id)->empreendimentos->where('status', 'Liberada');
 		} else {
 			$empreendimentos = (new Empreendimento())->where('status', 'Liberada')->get();
 		}
 
 		$total =  0;
-	
+
 		foreach ($empreendimentos as $empreendimento) {
 			$cliques = $empreendimento->resumo_estatistica()->select('resumo_estatisticas.total')->where('tipo', 'Clique')->where('ano', $ano)->where('mes', $mes)->get()->first();
-			
+
 			if($cliques):
 				$total += $cliques->total;
 			endif;
-		}	
-						
+		}
+
 		return $total;
 
 	}
@@ -292,17 +292,17 @@ if (!function_exists('total_leads')) {
 		$data_final = $ano_mes.'-31 23:59:00';
 
 		if ($construtora_id) {
-			$empreendimentos = Construtora::find($construtora_id)->empreendimentos->where('status', 'Liberada');	
+			$empreendimentos = Construtora::find($construtora_id)->empreendimentos->where('status', 'Liberada');
 		} else {
 			$empreendimentos = (new Empreendimento())->where('status', 'Liberada')->get();
 		}
-	
+
 		$total =  0;
 
 		foreach ($empreendimentos as $empreendimento) {
-			$total = Empreendimento::find($empreendimento->id)->leads->whereBetween('created_at', [$data_inicial, $data_final])->count();	
-		}	
-						
+			$total = Empreendimento::find($empreendimento->id)->leads->whereBetween('created_at', [$data_inicial, $data_final])->count();
+		}
+
 		return $total;
 	}
 }
@@ -310,11 +310,11 @@ if (!function_exists('total_leads')) {
 if (!function_exists('percentual_renda')) {
 	function percentual_renda($construtora_id, $renda) {
 		if ($construtora_id) {
-			$empreendimentos = Construtora::find($construtora_id)->empreendimentos->where('status', 'Liberada');	
+			$empreendimentos = Construtora::find($construtora_id)->empreendimentos->where('status', 'Liberada');
 		} else {
 			$empreendimentos = Empreendimento::where('status', 'Liberada')->get();
 		}
-		
+
 		$total =  0;
 		$total2 = 0;
 
@@ -324,13 +324,13 @@ if (!function_exists('percentual_renda')) {
 				$total2 += $empreendimento->leads->where('renda', '<>' ,'')->count();
 			}else{
 				$total2 += $empreendimento->leads->where('renda', $renda)->count();
-			}	
+			}
 		}
-		
+
 		if($total2) {
 			return ($total2 * 100) / $total;
 		}
-			
+
 		return 0;
 	}
 }
@@ -338,27 +338,27 @@ if (!function_exists('percentual_renda')) {
 if (!function_exists('percentual_interesse')) {
 	function percentual_interesse($construtora_id, $interesse) {
 		if ($construtora_id) {
-			$empreendimentos = Construtora::find($construtora_id)->empreendimentos->where('status', 'Liberada');	
+			$empreendimentos = Construtora::find($construtora_id)->empreendimentos->where('status', 'Liberada');
 		} else {
 			$empreendimentos = (new Empreendimento())->where('status', 'Liberada')->get();
 		}
-		
+
 		$total =  0;
 		$total2 = 0;
 
 		foreach ($empreendimentos as $empreendimento) {
-			$total += $empreendimento->leads->count();		
+			$total += $empreendimento->leads->count();
 			if($interesse == "Inicial")	{
 				$total2 += $empreendimento->leads->where('interesse', '<>' ,'')->count();
 			}else{
-				$total2 += $empreendimento->leads->where('interesse', $interesse)->count();	
+				$total2 += $empreendimento->leads->where('interesse', $interesse)->count();
 			}
-		}		
-		
+		}
+
 		if($total2) {
 			return ($total2 * 100) / $total;
 		}
-			
+
 		return 0;
 	}
 }
@@ -396,7 +396,7 @@ if (!function_exists('get_construtoras')) {
 if (!function_exists('get_empreendimentos')) {
 	function get_empreendimentos() {
 		if (get_construtora_id()) {
-			return Empreendimento::where('construtora_id', get_construtora_id())->where('status', 'Liberada')->orderBy('nome', 'asc')->get();	
+			return Empreendimento::where('construtora_id', get_construtora_id())->where('status', 'Liberada')->orderBy('nome', 'asc')->get();
 		}
 
 		return Empreendimento::where('status', 'Liberada')->orderBy('nome', 'asc')->get();
@@ -404,21 +404,21 @@ if (!function_exists('get_empreendimentos')) {
 }
 
 if (!function_exists('getimg')) {
-	function getimg($url) {         
-		$headers[] = 'Accept: image/gif, image/x-bitmap, image/jpeg, image/pjpeg, image/png';              
-		$headers[] = 'Connection: Keep-Alive';         
-		$headers[] = 'Content-type: application/x-www-form-urlencoded;charset=UTF-8';         
-		$user_agent = 'php';         
-		$process = curl_init($url);         
-		curl_setopt($process, CURLOPT_HTTPHEADER, $headers);         
-		curl_setopt($process, CURLOPT_HEADER, 0);         
-		curl_setopt($process, CURLOPT_USERAGENT, $user_agent);         
-		curl_setopt($process, CURLOPT_TIMEOUT, 30);         
-		curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);         
-		curl_setopt($process, CURLOPT_FOLLOWLOCATION, 1);         
-		$return = curl_exec($process);         
-		curl_close($process);         
-		return $return;     
+	function getimg($url) {
+		$headers[] = 'Accept: image/gif, image/x-bitmap, image/jpeg, image/pjpeg, image/png';
+		$headers[] = 'Connection: Keep-Alive';
+		$headers[] = 'Content-type: application/x-www-form-urlencoded;charset=UTF-8';
+		$user_agent = 'php';
+		$process = curl_init($url);
+		curl_setopt($process, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($process, CURLOPT_HEADER, 0);
+		curl_setopt($process, CURLOPT_USERAGENT, $user_agent);
+		curl_setopt($process, CURLOPT_TIMEOUT, 30);
+		curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($process, CURLOPT_FOLLOWLOCATION, 1);
+		$return = curl_exec($process);
+		curl_close($process);
+		return $return;
 	}
 }
 
@@ -426,7 +426,7 @@ if(!function_exists('getMapaUnidade')){
 
 	function getMapaUnidade($id){
 
-		if (getenv('APP_ENV') == 'local'){
+		if(getenv('APP_ENV') == 'local'){
 			return url("assets/images/!logged-empreendimento.jpg");
 		}else{
 
@@ -447,17 +447,17 @@ if(!function_exists('getMapaUnidade')){
 				if($implantacao){
 					list($largura, $altura) = getimagesize($implantacao);
 				}
-				
+
 				$curl = curl_init($url);
 				curl_setopt($curl, CURLOPT_URL, $url);
 				curl_setopt($curl, CURLOPT_POST, true);
 				curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		
+
 				$headers = array(
 				"Content-Type: application/json",
 				);
 				curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-		
+
 				$data = '{
 							"Parameters": [
 								{
@@ -478,28 +478,28 @@ if(!function_exists('getMapaUnidade')){
 								}
 							]
 						}';
-		
+
 				curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-		
+
 				//for debug only!
 				curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
 				curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-		
+
 				$response = curl_exec($curl);
-		
-				$obj = json_decode($response); 
-				
+
+				$obj = json_decode($response);
+
 				$diretorio = "uploads/unidade/".$id."/";
 
 				if(!is_dir($diretorio)){
 					mkdir("uploads/unidade/".$id."/", 0755);
 				}
-					
-				$imgurl = $obj->Files[0]->Url; 
+
+				$imgurl = $obj->Files[0]->Url;
 				$imagename = basename($imgurl);
 				if(!file_exists($diretorio.$imagename)){
-					$image = getimg($imgurl); 
-					file_put_contents($diretorio.$imagename,$image);			
+					$image = getimg($imgurl);
+					file_put_contents($diretorio.$imagename,$image);
 				}
 			}
 			return url($diretorio.$imagename);
@@ -532,7 +532,7 @@ if(!function_exists('getImplantacaoUnidade')){
 				}else{
 					$posicao_unidade = 'frente';
 				}
-				
+
 
 				switch($posicao_unidade):
 
@@ -548,21 +548,21 @@ if(!function_exists('getImplantacaoUnidade')){
 					default:
 						$foto_implantacao = $unidade->empreendimento->getFotoTipo('Implantação Vertical - Frente');
 					break;
-					
+
 				endswitch;
 
 				list($largura, $altura) = getimagesize($foto_implantacao);
-		
+
 				$curl = curl_init($url);
 				curl_setopt($curl, CURLOPT_URL, $url);
 				curl_setopt($curl, CURLOPT_POST, true);
 				curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		
+
 				$headers = array(
 				"Content-Type: application/json",
 				);
 				curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-		
+
 				$data = '{
 							"Parameters": [
 								{
@@ -583,30 +583,30 @@ if(!function_exists('getImplantacaoUnidade')){
 								}
 							]
 						}';
-		
+
 				curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-		
+
 				//for debug only!
 				curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
 				curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-		
+
 				$response = curl_exec($curl);
-		
+
 				$obj = json_decode($response);
 
 				if(!is_dir($diretorio)){
 					mkdir("uploads/unidade/".$id."/", 0755);
 				}
-					
-				$imgurl = $obj->Files[0]->Url; 
+
+				$imgurl = $obj->Files[0]->Url;
 				$imagename = basename($imgurl);
 				if(!file_exists($diretorio.$imagename)){
-					$image = getimg($imgurl); 
-					file_put_contents($diretorio.$imagename,$image);			
+					$image = getimg($imgurl);
+					file_put_contents($diretorio.$imagename,$image);
 				}
 
 			}
-			
+
 			return url($diretorio.$imagename);
 		}
 	}
@@ -663,11 +663,11 @@ if (!function_exists('qtd_metragem')) {
 
 		foreach ($plantas as $planta) {
 			if ($planta->area_privativa) {
-				$valores[] = $planta->area_privativa;	
-			}			
-		}		
+				$valores[] = $planta->area_privativa;
+			}
+		}
 
-		if ($valores) {			
+		if ($valores) {
 			$minimo = number_format(min($valores), 0, '', '');
 			$maximo = number_format(max($valores), 0, '', '');
 
@@ -697,7 +697,7 @@ if (!function_exists('qtd_suites')) {
 			$suite = $planta->caracteristicas->where('nome', 'qtd_suite')->first();
 			if ($suite) {
 				$valores[] = $suite->pivot->valor;
-			}	
+			}
 		}
 
 		if ($valores) {
@@ -707,13 +707,13 @@ if (!function_exists('qtd_suites')) {
 			if ($minimo == $maximo) {
 				return $minimo;
 			}
-			
+
 			if($minimo == 0){
 				return $maximo;
 			}
 
-			return "{$minimo} à {$maximo}";	
-		}		
+			return "{$minimo} à {$maximo}";
+		}
 	}
 }
 
@@ -728,17 +728,17 @@ if (!function_exists('qtd_dormitorio')) {
 
 		foreach ($plantas as $planta) {
 
-			$caracteristica = $planta->caracteristicas->where('nome', 'Quarto')->where('tipo', 'Planta')->first();			
+			$caracteristica = $planta->caracteristicas->where('nome', 'Quarto')->where('tipo', 'Planta')->first();
 
 			if ($caracteristica && $caracteristica->pivot->valor > 0) {
 				$valores[] = $caracteristica->pivot->valor;
 			} else {
 				$caracteristica = $planta->caracteristicas->where('nome', 'qtd_dormitorio')->where('tipo', 'Planta')->first();
-				
+
 				if ($caracteristica && $caracteristica->pivot->valor > 0) {
 					$valores[] = $caracteristica->pivot->valor;
 				}
-			}		
+			}
 		}
 
 		if ($valores) {
@@ -752,13 +752,13 @@ if (!function_exists('qtd_dormitorio')) {
 			}
 
 			if($minimo != $maximo) {
-				
+
 				if($minimo == 0){
-					$texto = "{$maximo} <span class='texto_previsao'>";	
+					$texto = "{$maximo} <span class='texto_previsao'>";
 				}else{
 					$texto = "{$minimo}<span class='texto_previsao'> à </span>{$maximo}<span class='texto_previsao'>";
 				}
-				
+
 			}
 		}
 
@@ -775,7 +775,7 @@ if (!function_exists('qtd_vagas')) {
 			return $vagas;
 		}
 
-		$unidades = $empreendimento->unidades;	
+		$unidades = $empreendimento->unidades;
 
 		$minimoCobertas = 0;
 		$minimoDescobertas = 0;
@@ -800,10 +800,10 @@ if (!function_exists('qtd_vagas')) {
 		}
 
 		if ($total) {
-			return array_sum($cobertas) + array_sum($descobertas);			
+			return array_sum($cobertas) + array_sum($descobertas);
 		}
 
-		if ($cobertas || $descobertas) {	
+		if ($cobertas || $descobertas) {
 			$maximoCobertas = max($cobertas);
 			$maximoDescobertas = max($descobertas);
 
@@ -816,14 +816,14 @@ if (!function_exists('qtd_vagas')) {
 				if ($minimoCobertas == 0) {
 					$texto_vagas = $total_vagas;
 				}else{
-					$texto_vagas = $minimoCobertas." e ".$total_vagas;	
-				}			
+					$texto_vagas = $minimoCobertas." e ".$total_vagas;
+				}
 			} else {
 				if ($minimoCobertas == 0) {
 					if ($minimoDescobertas == 0) {
 						$texto_vagas = $total_vagas;
 					} else {
-						$texto_vagas = $minimoDescobertas ." à ".$total_vagas;	
+						$texto_vagas = $minimoDescobertas ." à ".$total_vagas;
 					}
 				} else {
 					if ($minimoCobertas == $total_vagas) {
@@ -831,7 +831,7 @@ if (!function_exists('qtd_vagas')) {
 					} else {
 						$texto_vagas = $minimoCobertas." à ".$total_vagas;
 					}
-				}				
+				}
 			}
 
 			return $texto_vagas;
@@ -848,8 +848,8 @@ if (!function_exists('qtd_vagas')) {
 				$vaga = $planta->caracteristicas->where('nome', 'vagas_garagem')->first();
 				if ($vaga) {
 					if ($vaga->pivot->valor) {
-						$vagas[] = $vaga->pivot->valor;	
-					}					
+						$vagas[] = $vaga->pivot->valor;
+					}
 				}
 			}
 
@@ -862,10 +862,10 @@ if (!function_exists('qtd_vagas')) {
 				}
 
 				return "{$minimo} à {$maximo}";
-			}			
+			}
 		}
 
-		return false;		
+		return false;
 	}
 }
 
@@ -880,8 +880,8 @@ if (!function_exists('vagas_empreendimento')) {
 				$vaga = $unidade->caracteristicas->where('nome', 'vagas_garagem')->first();
 				if ($vaga) {
 					if ($vaga->pivot->valor) {
-						$vagas[] = $vaga->pivot->valor;	
-					}					
+						$vagas[] = $vaga->pivot->valor;
+					}
 				}
 			}
 
@@ -894,71 +894,71 @@ if (!function_exists('vagas_empreendimento')) {
 				}
 
 				return "{$minimo} à {$maximo}";
-			}			
+			}
 		}
 
-		return false;		
+		return false;
 	}
 }
 
 if (!function_exists('converte_valor_real')) {
 
-	function converte_valor_real($valor) {	
+	function converte_valor_real($valor) {
 		if (is_numeric($valor)) {
 			try {
-				$valor = number_format($valor,2,",",".");	
+				$valor = number_format($valor,2,",",".");
 			} catch (\Exception $e) {
 				return $valor;
 			}
-			
+
 			if($valor > 0) {
 				return $valor;
 			} else {
 				return 0;
 			}
-		}	
+		}
 	}
 }
 
 if (!function_exists('converte_valor_real_semdecimal')) {
 
-	function converte_valor_real_semdecimal($valor) {	
+	function converte_valor_real_semdecimal($valor) {
 		if (is_numeric($valor)) {
 			try {
-				$valor = number_format($valor,0,",",".");	
+				$valor = number_format($valor,0,",",".");
 			} catch (\Exception $e) {
 				return $valor;
 			}
-			
+
 			if($valor > 0) {
 				return $valor;
 			} else {
 				return 0;
 			}
-		}	
+		}
 	}
 }
 
 if (!function_exists('converte_reais_to_mysql')) {
-	function converte_reais_to_mysql($valor) {	
+	function converte_reais_to_mysql($valor) {
 		$valor = str_replace('.', '', $valor);
 		$valor = str_replace(',', '.', $valor);
-		
+
 		return $valor;
 	}
 }
 
 if (!function_exists('isMobile')) {
-	function isMobile() {	
+	function isMobile() {
 		$detect = new \Mobile_Detect();
-		return $detect->isMobile();       
+		return $detect->isMobile();
 	}
 }
 
 if (!function_exists('isAndroid')) {
-	function isAndroid() {	
+	function isAndroid() {
 		$detect = new \Mobile_Detect();
-		return $detect->isAndroidOS();       
+		return $detect->isAndroidOS();
 	}
 }
 
@@ -974,8 +974,8 @@ if (!function_exists('isAdmin')) {
 }
 
 if (!function_exists('get_construtora_id')) {
-	function get_construtora_id() {    	
-		return \Auth::user()->construtora_id;		
+	function get_construtora_id() {
+		return \Auth::user()->construtora_id;
 	}
 }
 
@@ -1039,7 +1039,7 @@ if (!function_exists('unidade_vagas')) {
 
         return $unidade_vagas;
 	}
-}        
+}
 
 if (!function_exists('total_unidades_construtora')) {
 	function total_unidades_construtora($construtora) {
@@ -1056,7 +1056,7 @@ if (!function_exists('remove_caracter_especial')) {
 	function remove_caracter_especial($texto) {
 	$texto = strtolower(strtr($texto, "�������������������������� -", "aaaaeeiooouucAAAAEEIOOOUUC  "));
 	$texto = preg_replace("[^a-zA-Z0-9_]", "", $texto);
-	
+
 	return $texto;
 	}
 }
@@ -1111,7 +1111,7 @@ if (!function_exists('mes_extenso_abreviado')) {
 				$mes_extenso = "DEZ";
 				break;
 		}
-		
+
 		return ucfirst($mes_extenso);
 	}
 }
@@ -1119,7 +1119,7 @@ if (!function_exists('mes_extenso_abreviado')) {
 if (!function_exists('converte_utf8')) {
 	function converte_utf8($string) {
 		if (utf8_decode($string) == $string) {
-		  return utf8_decode($string);		
+		  return utf8_decode($string);
 		} else {
 		  return $string;
 		}
@@ -1130,20 +1130,20 @@ if (!function_exists('atribuir_caracteristica')) {
 	function atribuir_caracteristica($request, $model, $tipo, $caracteristicas) {
 
 		foreach ($caracteristicas as $caracteristica) {
-			
+
 			$item = Caracteristica::where('nome', $caracteristica)->where('tipo', $tipo)->first();
-			
+
 	        if ($item) {
-				
+
 				$model->caracteristicas()->detach($item->id);
 				$model->caracteristicas()->attach($item, [
 					'valor' => $request->{$caracteristica}
-				]); 
+				]);
 
-				if ($request->{$caracteristica} == '0') {	            	
-	                $model->caracteristicas()->detach($item->id);              	                
-				}   
-				           
+				if ($request->{$caracteristica} == '0') {
+	                $model->caracteristicas()->detach($item->id);
+				}
+
 	        }
 	    }
 	}
@@ -1152,7 +1152,7 @@ if (!function_exists('atribuir_caracteristica')) {
 if (!function_exists('validar_cep')) {
 	function validar_cep($cep) {
 	    $cep = trim($cep);
-	    
+
 	    if(preg_match("/[0-9]{5,5}([- ]?[0-9]{4})?$/", $cep)) {
 	    	return true;
 	    }
@@ -1164,7 +1164,7 @@ if (!function_exists('validar_cep')) {
 if (!function_exists('atribuir_caracteristica_manual')) {
 	function atribuir_caracteristica_manual($valor, $model, $tipo, $caracteristica, $parametros = []) {
         $item = Caracteristica::where('nome', $caracteristica)->where('tipo', $tipo)->first();
-        if ($item) {  
+        if ($item) {
 
 			if(isset($parametros["tipo"])){
 				if($parametros["tipo"] == "valor"){
@@ -1172,7 +1172,7 @@ if (!function_exists('atribuir_caracteristica_manual')) {
 				}
 			}
 
-            $model->caracteristicas()->detach($item->id);           
+            $model->caracteristicas()->detach($item->id);
             $model->caracteristicas()->attach($item, [
                 'valor' => $valor
             ]);
@@ -1181,32 +1181,32 @@ if (!function_exists('atribuir_caracteristica_manual')) {
 }
 
 if (!function_exists('get_texto_quarto_suite')) {
-	function get_texto_quarto_suite($empreendimento) {        
-      	
+	function get_texto_quarto_suite($empreendimento) {
+
       	$quartos = qtd_dormitorio($empreendimento, true);
-      	
+
       	$suites = qtd_suites($empreendimento, true);
 
         if ($quartos == $suites) {
           return "{$suites} Suítes";
         } else {
         	if ($suites) {
-        		return "{$quartos} Quarto(s) sendo {$suites} suítes";	
+        		return "{$quartos} Quarto(s) sendo {$suites} suítes";
         	} else {
         		return "{$quartos} Quarto(s)";
         	}
-        }         
+        }
 	}
 }
 
 if (!function_exists('get_texto_vagas')) {
-	function get_texto_vagas($unidade) {        
-      	
+	function get_texto_vagas($unidade) {
+
 		$vagas = Garagem::where('unidade_id', $unidade)->get();
 		$total = $vagas->count();
 		$texto_vagas = '';
 		if($total > 0){
-			
+
 			$i = 0;
 			foreach($vagas as $vaga){
 				if($total == 1){
@@ -1220,30 +1220,30 @@ if (!function_exists('get_texto_vagas')) {
 					}
 
 				}
-									
+
 			}
 
 		}
-		return $texto_vagas;	        
+		return $texto_vagas;
 	}
 }
 
 if (!function_exists('get_total_vagas_unidade')) {
-	function get_total_vagas_unidade($unidade) {        	
+	function get_total_vagas_unidade($unidade) {
 		$total = Garagem::where('unidade_id', $unidade)->count();
-		return $total;	        
+		return $total;
 	}
 }
 
 if (!function_exists('filemtime')) {
-	function filemtime($url) {        	
+	function filemtime($url) {
 		$url_saida = filemtime($url);
-		return $url_saida;	        
+		return $url_saida;
 	}
 }
 
 if (!function_exists('get_elevadores')) {
-	function get_elevadores($empreendimento) {        	
+	function get_elevadores($empreendimento) {
 		$torres = Torre::where('empreendimento_id', $empreendimento)->get();
 		foreach($torres as $torre){
 			$elevador_social = 0;
@@ -1255,12 +1255,12 @@ if (!function_exists('get_elevadores')) {
 			if($torre->caracteristicas->where('nome', 'elevador_servico')->first()){
 				$elevador_servico += $torre->caracteristicas->where('nome', 'elevador_servico')->first()->pivot->valor;
 			}
-			
+
 		}
-		
+
 
 		return $elevador_servico + $elevador_servico;
-		        
+
 	}
 }
 
@@ -1269,7 +1269,7 @@ if (!function_exists('get_elevadores')) {
 if (!function_exists('get_previsao_entrega')) {
 	function get_previsao_entrega($empreendimento) {
         if ($empreendimento->tipo == 'Vertical') {
-        	
+
         	$torres = $empreendimento->torres;
 
         	$valores = [];
@@ -1299,7 +1299,7 @@ if (!function_exists('get_previsao_entrega')) {
 
         		if (!$mes_abreviado) {
 					return $torre->previsao_entrega_ano;
-        		}        		
+        		}
 
         		return "{$mes_abreviado}/{$torre->previsao_entrega_ano}";
         	}
@@ -1328,12 +1328,12 @@ if (!function_exists('get_previsao_entrega')) {
         	$quadra = $empreendimento->quadras->where('previsao_entrega_ano', $explode[0])->where('previsao_entrega_mes', $explode[1])->first();
 
         	if ($quadra) {
-        		
+
         		$data = "{$quadra->previsao_entrega_ano}-{$quadra->previsao_entrega_mes}";
 
         		if ($data <= (new \DateTime())->format('Y-m')) {
         			return 'Pronto';
-        		}        		
+        		}
 
         		$mes_abreviado = mes_extenso_abreviado($quadra->previsao_entrega_mes);
 
@@ -1351,7 +1351,7 @@ if (!function_exists('get_previsao_entrega')) {
 }
 
 if (!function_exists('dump_query')) {
-	function dump_query($query) {      	
+	function dump_query($query) {
       	$resultado = str_replace(array('?'), array('\'%s\''), $query->toSql());
       	$resultado = vsprintf($resultado, $query->getBindings());
       	return $resultado;
@@ -1359,7 +1359,7 @@ if (!function_exists('dump_query')) {
 }
 
 if (!function_exists('url_possui')) {
-	function url_possui($texto) {      	
+	function url_possui($texto) {
 		$url = url()->current();
 		if (strpos($url, $texto) !== false) {
 		    return true;
@@ -1370,90 +1370,90 @@ if (!function_exists('url_possui')) {
 }
 
 if (!function_exists('perfil_empreendimento')) {
-	function perfil_empreendimento($empreendimento) {      	
+	function perfil_empreendimento($empreendimento) {
     	return $empreendimento->perfil->toArray();
 	}
 }
 
 if (!function_exists('data_br')) {
-	function data_br($data) {      	
+	function data_br($data) {
 		if ($data) {
 			try {
-				return (new \DateTime($data))->format('d/m/Y');		
+				return (new \DateTime($data))->format('d/m/Y');
 			} catch (\Exception $e) {
-				
-			}			
-		}    	
+
+			}
+		}
 	}
 }
 
 if (!function_exists('data_mysql')) {
-	function data_mysql($data) {      	
+	function data_mysql($data) {
 		if ($data) {
 			$ano= substr($data, 6);
 			$mes= substr($data, 3,-5);
 			$dia= substr($data, 0,-8);
-			return $ano."-".$mes."-".$dia;	
-		}    	
+			return $ano."-".$mes."-".$dia;
+		}
 	}
 }
 
 if (!function_exists('hora_br')) {
-	function hora_br($data) {      	
+	function hora_br($data) {
 		if ($data) {
-			return (new \DateTime($data))->format('H:i\h');	
-		}    	
+			return (new \DateTime($data))->format('H:i\h');
+		}
 	}
 }
 
 if (!function_exists('total_vgv_geral')) {
 
-	function total_vgv_geral($construtora_id, $empreendimento_id = null) {      	
+	function total_vgv_geral($construtora_id, $empreendimento_id = null) {
 		$total = 0;
 
 		if (!$construtora_id) {
 			return [];
 		}
-	
+
 		if ($empreendimento_id) {
 			$unidades = Unidade::where('empreendimento_id', $empreendimento_id)->get();
 		} else {
 			$unidades = Construtora::find($construtora_id)->unidades;
-		}		
+		}
 
 		foreach ($unidades as $un) {
 
 			if($un->situacao == 'Vendida'){
-				
-				$venda = CompradorUnidade::where('unidade_id', $un->id)->where('valor','>','0.00')->count();	
-				
+
+				$venda = CompradorUnidade::where('unidade_id', $un->id)->where('valor','>','0.00')->count();
+
 				if($venda > 0){
 					$valor_venda = CompradorUnidade::where('unidade_id', $un->id)->where('valor','>','0.00')->select('valor')->get();
 					foreach($valor_venda as $vl){
-						
+
 						$valor = converte_reais_to_mysql($vl->valor);
 						$total += $valor;
-		
+
 					}
 				}else{
 					$valor = obter_valor_unidade($un);
-					$total += ($valor);	
+					$total += ($valor);
 				}
-					
+
 			}else{
 				$valor = obter_valor_unidade($un);
-				$total += ($valor);	
-			}				
+				$total += ($valor);
+			}
 		}
 
 
 		return $total;
-	}	
+	}
 }
 
 if (!function_exists('total_valor_unidade')) {
 
-	function total_valor_unidade($construtora_id, $empreendimento_id = null, $situacao = null) {      	
+	function total_valor_unidade($construtora_id, $empreendimento_id = null, $situacao = null) {
 		$total = 0;
 
 		if($situacao == 'Vendida'){
@@ -1469,12 +1469,12 @@ if (!function_exists('total_valor_unidade')) {
 			if (!$construtora_id) {
 				return [];
 			}
-		
+
 			if ($empreendimento_id) {
 				$unidades = Unidade::where('empreendimento_id', $empreendimento_id)->get();
 			} else {
 				$unidades = Construtora::find($construtora_id)->unidades;
-			}		
+			}
 
 			foreach ($unidades as $un) {
 				if ($situacao) {
@@ -1484,18 +1484,18 @@ if (!function_exists('total_valor_unidade')) {
 					}
 				} else {
 					$valor = obter_valor_unidade($un);
-					$total += ($valor);				
-				}			
+					$total += ($valor);
+				}
 			}
 
 		}
 
 		return $total;
-	}	
+	}
 }
 
 if (!function_exists('total_vagas_unidade')) {
-	function total_vagas_unidade($unidade) {      	
+	function total_vagas_unidade($unidade) {
 		$total = 0;
 
 		$total_garagens = Garagem::where('unidade_id', $unidade)->count();
@@ -1508,7 +1508,7 @@ if (!function_exists('total_vagas_unidade')) {
 		}
 
 		return $total;
-	}	
+	}
 }
 
 if (!function_exists('obter_valor_unidade')) {
@@ -1519,15 +1519,15 @@ if (!function_exists('obter_valor_unidade')) {
 		$valor = $unidade->caracteristicas->where('nome', 'valor_unidade')->first();
 
 		if ($valor) {
-			
+
 			$valor_unidade = $valor->pivot->valor;
 
 		} else {
-			
+
 			$valor = $unidade->caracteristicas->where('nome', 'valor_m2')->first();
 
 			if ($valor) {
-				
+
 				$metragem = $unidade->caracteristicas->where('nome', 'metragem_total')->first();
 
 				if ($metragem) {
@@ -1568,65 +1568,65 @@ if (!function_exists('get_valor_unidade')) {
 
 
 if (!function_exists('total_valor_honorario')) {
-	function total_valor_honorario($construtora_id, $empreendimento_id = null) {      	
+	function total_valor_honorario($construtora_id, $empreendimento_id = null) {
 		$total = 0;
 
 		if (!$construtora_id) {
 			return [];
 		}
-	
+
 		if ($empreendimento_id) {
 			$compradores = Empreendimento::find($empreendimento_id)->compradores;
 		} else {
-			$compradores = Construtora::find($construtora_id)->compradores;	
+			$compradores = Construtora::find($construtora_id)->compradores;
 		}
-		
+
 		foreach ($compradores as $c) {
 			$valor = 0;
 
 			$valor_honorario = $c->getOriginal('valor_honorario');
 
 			if ($valor_honorario) {
-				$valor = $valor_honorario;	
+				$valor = $valor_honorario;
 			}
 
-			$total += (floatval($valor));				
+			$total += (floatval($valor));
 		}
 
 		return $total;
-			
-	}	
+
+	}
 }
 
 if (!function_exists('mensalidade_atraso')) {
 	function mensalidade_atraso() {
 		$construtora_id = get_construtora_id();
-		$lancamentos = LancamentoFinanceiro::where('construtora_id', $construtora_id)->get();		
+		$lancamentos = LancamentoFinanceiro::where('construtora_id', $construtora_id)->get();
 		if (count($lancamentos)) {
 			foreach ($lancamentos as $l) {
 				if (lancamento_vencido($l)) {
 					return true;
-				} 
+				}
 			}
 		}
 
 		return false;
-	}	
+	}
 }
 
 if (!function_exists('lancamento_vencido')) {
-	function lancamento_vencido($lancamento) {		
-		$hoje = (new \DateTime())->format('Y-m-d');			
+	function lancamento_vencido($lancamento) {
+		$hoje = (new \DateTime())->format('Y-m-d');
 		if ($lancamento->situacao == 'Aberto' && $lancamento->getOriginal('vencimento') < $hoje) {
 			return true;
-		}	
+		}
 		return false;
-	}	
+	}
 }
 
 if (!function_exists('calcular_valor')) {
 
-	function calcular_valor($valor_cheio, $percentual, $tipo, $tabela) 
+	function calcular_valor($valor_cheio, $percentual, $tipo, $tabela)
     {
 		if($tipo == 'Entrada'){
 			//var_dump($valor_cheio);
@@ -1676,27 +1676,27 @@ if (!function_exists('calcular_valor')) {
 			$valor_entrada = floatval($valor_cheio) * (floatval($percentual) / 100);
 			return $valor_cheio - $valor_entrada;
 		}
-        
+
     }
 
 }
 
 if (!function_exists('calcular_percentual')) {
 
-	function calcular_percentual($valor_cheio, $valor, $tipo, $tabela) 
+	function calcular_percentual($valor_cheio, $valor, $tipo, $tabela)
     {
 		if($tipo == ''){
 			//var_dump($valor_cheio);
 			return $resultado = (floatval($valor) / floatval($valor_cheio)) * 100;
 		}
-        
+
     }
 
 }
 
 if (!function_exists('valor_unidade')) {
 
-	function valor_unidade($unidade) 
+	function valor_unidade($unidade)
     {
 		if($unidade->caracteristicas->where('nome', 'valor_unidade')->first() && $unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '' && $unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '0'){
 			$valor = $unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor;
@@ -1712,7 +1712,7 @@ if (!function_exists('valor_unidade')) {
 		}
 
 		return $valor;
-        
+
     }
 
 }

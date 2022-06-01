@@ -21,7 +21,7 @@ img {
 	background-image: url('/assets/images/premium/img_parallax.jpg');
 
 	/* Full height */
-	height: 100%; 
+	height: 100%;
 
 	/* Create the parallax scrolling effect */
 	background-attachment: fixed;
@@ -1247,7 +1247,7 @@ img {
 	font-size: 60px;
     color: #ffc107;
     margin: 0px 0 10px 0;
-} 
+}
 
 .conteudo .condicoes-construtora h2{
 	font-size: 20px;
@@ -1568,7 +1568,7 @@ img {
 .conteudo .garagens .garagem .icone{
 	float: left;
 	width: 15%;
-	font-size: 20px;	
+	font-size: 20px;
 	text-align: center;
 	color: #6e8181;
 }
@@ -1578,13 +1578,13 @@ img {
     width: 37%;
     font-size: 16px;
     padding: 10px 5px 0px 5px;
-    line-height: 15px;	
+    line-height: 15px;
 }
 
 .conteudo .garagens .garagem .nome .pavimento{
 	font-size: 12px;
     color: #999;
-    line-height: 15px;	
+    line-height: 15px;
 }
 
 .conteudo .garagens .garagem .tipo{
@@ -1599,27 +1599,27 @@ img {
 .conteudo .garagens .garagem .tipo .tipo-vaga{
 	font-size: 12px;
     color: #999;
-    line-height: 15px;	
+    line-height: 15px;
 }
 
 .conteudo .garagens .garagem .valor{
 	float: left;
 	width: 30%;
 	font-size: 18px;
-	color: #d17002;	
+	color: #d17002;
 }
 
 .conteudo .garagens .garagem .valor .formato-vaga{
 	font-size: 12px;
     color: #999;
-    line-height: 15px;	
+    line-height: 15px;
 }
 
 .conteudo .garagens .garagem .excluirVaga{
 	float: left;
 	width: 10%;
 	font-size: 20px;
-	color: #a5231a;	
+	color: #a5231a;
 }
 
 .conteudo .vaga-extra-select{
@@ -1640,8 +1640,15 @@ img {
 
 .conteudo .titulo-vaga-extra{
 	text-align: center;
-	font-size: 18px;
+	font-size: 16px;
 	color: #007297;
+}
+
+.conteudo .titulo-vaga-extra .tit{
+	text-align: center;
+	font-size: 18px;
+	color: #ffc107;
+    font-weight: bold;
 }
 
 
@@ -1688,7 +1695,7 @@ img {
 	color: #FFF;
 	font-size: 30px;
 }
-  
+
 #ModalGaragem .modal-content {
 	height: 100%;
 	border-radius: 0;
@@ -1731,7 +1738,7 @@ img {
 	color: rgb(0, 0, 0);
 	font-size: 30px;
 }
-  
+
 #ModalMapaUnidades .modal-content {
 	height: 98vh !important;
 	border-radius: 0;
@@ -2062,7 +2069,7 @@ img {
 	height: 50px;
 	line-height: 50px;
 	font-size: 1.08em;
-	font-weight: bold;	
+	font-weight: bold;
 	cursor: pointer;
 }
 

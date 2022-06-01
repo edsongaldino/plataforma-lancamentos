@@ -208,7 +208,8 @@
                            
                             </td>
                           </tr>
-                        @else                                              
+                        @else    
+
                           <tr>
                             <td height="20" align="center" bgcolor="#FFFFFF">
                               <span class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;"><img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/images/icon-planta.png" alt="" width="30" height="30"></span>
@@ -222,16 +223,15 @@
                             <td width="15%" bgcolor="#FFFFFF">
                               <span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">Metragem:</span>
                             </td>
-                            <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">  
-                            
+                            <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                               @if($proposta->unidade->planta->area_privativa)
                                 {{ $proposta->unidade->planta->area_privativa }}m²
                               @else
                                 {{ $proposta->empreendimento->getCaracteristica('area_privativa_real', 'minimo_planta') }}m²
                               @endif
-                              
                             </td>
                           </tr>
+
                           <tr>
                             <td height="20" align="center" bgcolor="#FFFFFF">
                               <span class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;"><img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/images/icon-quartos.png" alt="" width="30" height="30"></span>
@@ -255,7 +255,9 @@
                                 </span>
                             </td>
                           </tr>
+
                         @endif
+                        
                       @else:
 
                         @php

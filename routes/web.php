@@ -96,7 +96,7 @@ Route::group(['middleware' => ['site']], function () {
 
 	Route::post('contato-construtora', 'Site\EmpreendimentoController@contato')->name('contato-construtora');
 	Route::post('chat-empreendimento', 'Site\EmpreendimentoController@ChatEmpreendimento')->name('chat-empreendimento');
-	
+
 
 	Route::post('/buscar-cliente', 'Site\EmpreendimentoController@buscarCliente');
 	Route::post('/carregar-oferta', 'Site\EmpreendimentoController@oferta');
@@ -105,7 +105,7 @@ Route::group(['middleware' => ['site']], function () {
 	Route::get('/empreendimento/{id}/mapa', 'Site\EmpreendimentoController@mapa');
 	Route::get('/empreendimento/proposta/{id}', 'Site\EmpreendimentoController@proposta');
 	Route::post('/garagem/mapa', 'Site\EmpreendimentoController@garagemMapa');
-	
+
 
 
 	//Layout Proposta Online (PREMIUM)
@@ -126,9 +126,10 @@ Route::group(['middleware' => ['site']], function () {
 	Route::post('/proposta/buscar-vaga', 'Site\PropostaController@BuscarVaga');
 	Route::post('/proposta/gravar-vaga', 'Site\PropostaController@GravarVagaProposta');
 	Route::post('/proposta/remover-vaga', 'Site\PropostaController@RemoverVagaProposta');
+    Route::post('/proposta/gravar-vaga-extra', 'Site\PropostaController@GravarVagaExtra');
 
 	Route::get('/proposta/{id}/conferir-proposta', 'Site\PropostaController@ConferirProposta');
-	
+
 	Route::get('/proposta/{id}/layout-proposta', 'Site\PropostaController@layoutProposta');
 
 
@@ -138,7 +139,7 @@ Route::group(['middleware' => ['site']], function () {
 	Route::get('/empreendimento/{id}/tour360', 'Site\EmpreendimentoController@tour360');
 	Route::post('/planta/detalhe', 'Site\EmpreendimentoController@detalhePlanta');
 	Route::get('/empreendimento/planta/{id}/unidades', 'Site\EmpreendimentoController@unidadesPlanta');
-	
+
 	Route::get('/proposta-online/{empreendimento}-{id}.html', 'Site\EmpreendimentoController@premium')->where([
 		'empreendimento' => '(.*)',
 		'id' => '([0-9]+)'
@@ -250,7 +251,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth'], 'namespace' 
 
 	Route::post('buscar-torres-quadras-tabelas', 'TabelaVendasController@buscarTorresQuadrasTabela');
 	Route::post('buscar-previsao-entrega', 'TabelaVendasController@buscarPrevisaoEntrega');
-	
+
 	// Oferta
 
 	Route::get('ofertas', 'OfertaController@index');
@@ -385,7 +386,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth'], 'namespace' 
 
 	// Rotas Atualizações
 	Route::get('empreendimento/{id}/atualiza-garagens', 'EmpreendimentoController@atualizarGaragensEmpreendimento')->name('empreendimento.atualiza-garagens');
-	
+
 	// Empreendimento rotas auxiliares
 
 	Route::post('filtrar-empreendimento', 'EmpreendimentoController@filtrarEmpreendimentos');

@@ -31,8 +31,8 @@ class Proposta extends Model
 
     public function salvar($request)
     {
-        try {    
-            DB::beginTransaction();        
+        try {
+            DB::beginTransaction();
 
             $cliente = $this->salvarDadosCliente($request);
             $oferta = Oferta::find($request->oferta_id);
@@ -47,33 +47,33 @@ class Proposta extends Model
             $proposta->entrada_proposta = $request->entrada_proposta;
 
             if ($request->quantidade_parcela) {
-                $proposta->quantidade_parcela = $request->quantidade_parcela;    
+                $proposta->quantidade_parcela = $request->quantidade_parcela;
             }
 
             if ($request->valor_parcela) {
-                $proposta->valor_parcela = $request->valor_parcela;    
+                $proposta->valor_parcela = $request->valor_parcela;
             }
 
             if ($request->saldo_remanescente) {
-                $proposta->saldo_remanescente = $request->saldo_remanescente;    
+                $proposta->saldo_remanescente = $request->saldo_remanescente;
             }
 
             if ($request->tipo_negociacao_saldo) {
-                $proposta->tipo_negociacao_saldo = $request->tipo_negociacao_saldo;    
+                $proposta->tipo_negociacao_saldo = $request->tipo_negociacao_saldo;
             }
 
             if ($request->valor_bens) {
-                $proposta->valor_bens = $request->valor_bens;    
+                $proposta->valor_bens = $request->valor_bens;
             }
 
             if ($request->descricao_bens) {
-                $proposta->descricao_bens = $request->descricao_bens;    
+                $proposta->descricao_bens = $request->descricao_bens;
             }
 
             if ($request->comentarios) {
-                $proposta->comentarios = $request->comentarios;    
+                $proposta->comentarios = $request->comentarios;
             }
-            
+
             $proposta->save();
 
             if ($request->valor_parcela_balao) {
@@ -98,8 +98,8 @@ class Proposta extends Model
 
     public function SalvarProposta($request)
     {
-        try {    
-            DB::beginTransaction();        
+        try {
+            DB::beginTransaction();
 
             $tabela = TabelaVendas::where('empreendimento_id', $request->empreendimento_id)->where('tipo_tabela_id', 1)->first();
 
@@ -121,39 +121,39 @@ class Proposta extends Model
                 $proposta->entrada_proposta = $request->valor_entrada;
 
                 if ($request->qtd_mensal) {
-                    $proposta->quantidade_parcela = $request->qtd_mensal;    
+                    $proposta->quantidade_parcela = $request->qtd_mensal;
                 }
 
                 if ($request->valor_mensal) {
-                    $proposta->valor_parcela = $request->valor_mensal;    
+                    $proposta->valor_parcela = $request->valor_mensal;
                 }
 
                 if ($request->saldo_remanescente) {
-                    $proposta->saldo_remanescente = $request->saldo_remanescente;   
+                    $proposta->saldo_remanescente = $request->saldo_remanescente;
                 }
 
                 if ($request->tipo_negociacao_saldo) {
-                    $proposta->tipo_negociacao_saldo = $request->tipo_negociacao_saldo;    
+                    $proposta->tipo_negociacao_saldo = $request->tipo_negociacao_saldo;
                 }
 
                 if ($request->valor_bens) {
-                    $proposta->valor_bens = $request->valor_bens;    
+                    $proposta->valor_bens = $request->valor_bens;
                 }
-    
+
                 if ($request->descricao_bens) {
-                    $proposta->descricao_bens = $request->descricao_bens;    
+                    $proposta->descricao_bens = $request->descricao_bens;
                 }
 
                 if ($request->banco_preferencial) {
-                    $proposta->banco_preferencial = $request->banco_preferencial;    
+                    $proposta->banco_preferencial = $request->banco_preferencial;
                 }
 
             }
 
             if ($request->comentarios) {
-                $proposta->comentarios = $request->comentarios;    
+                $proposta->comentarios = $request->comentarios;
             }
-            
+
             $proposta->save();
 
             if ($request->valor_parcela_balao) {
@@ -178,8 +178,8 @@ class Proposta extends Model
 
     public function AtualizarProposta($request)
     {
-        try {    
-            DB::beginTransaction();        
+        try {
+            DB::beginTransaction();
 
             $tabela = TabelaVendas::where('empreendimento_id', $request->empreendimento_id)->where('tipo_tabela_id', 1)->first();
 
@@ -201,39 +201,39 @@ class Proposta extends Model
                 $proposta->entrada_proposta = $request->valor_entrada;
 
                 if ($request->qtd_mensal) {
-                    $proposta->quantidade_parcela = $request->qtd_mensal;    
+                    $proposta->quantidade_parcela = $request->qtd_mensal;
                 }
 
                 if ($request->valor_mensal) {
-                    $proposta->valor_parcela = $request->valor_mensal;    
+                    $proposta->valor_parcela = $request->valor_mensal;
                 }
 
                 if ($request->saldo_remanescente) {
-                    $proposta->saldo_remanescente = $request->saldo_remanescente;   
+                    $proposta->saldo_remanescente = $request->saldo_remanescente;
                 }
 
                 if ($request->tipo_negociacao_saldo) {
-                    $proposta->tipo_negociacao_saldo = $request->tipo_negociacao_saldo;    
+                    $proposta->tipo_negociacao_saldo = $request->tipo_negociacao_saldo;
                 }
 
                 if ($request->valor_bens) {
-                    $proposta->valor_bens = $request->valor_bens;    
+                    $proposta->valor_bens = $request->valor_bens;
                 }
-    
+
                 if ($request->descricao_bens) {
-                    $proposta->descricao_bens = $request->descricao_bens;    
+                    $proposta->descricao_bens = $request->descricao_bens;
                 }
 
                 if ($request->banco_preferencial) {
-                    $proposta->banco_preferencial = $request->banco_preferencial;    
+                    $proposta->banco_preferencial = $request->banco_preferencial;
                 }
 
             }
 
             if ($request->comentarios) {
-                $proposta->comentarios = $request->comentarios;    
+                $proposta->comentarios = $request->comentarios;
             }
-            
+
             $proposta->save();
 
             if ($request->valor_parcela_balao) {
@@ -264,6 +264,12 @@ class Proposta extends Model
         $proposta->save();
     }
 
+    public function VagaExtra($request){
+        $proposta = Proposta::find($request->id);
+        $proposta->vaga_extra = $request->vaga_extra;
+        $proposta->save();
+    }
+
 
     public function salvarDadosCliente($request)
     {
@@ -286,23 +292,23 @@ class Proposta extends Model
         }
 
         //Envia proposta para a construtora
-        $assunto = "Você recebeu uma proposta para o empreendimento {$proposta->empreendimento->nome}";        
+        $assunto = "Você recebeu uma proposta para o empreendimento {$proposta->empreendimento->nome}";
         Mail::to($email_proposta)->send(new PropostaConstrutora($proposta, $assunto));
 
         $assunto = "Sua proposta para o empreendimento {$proposta->empreendimento->nome} foi enviada para a construtora";
 
         try {
-            Mail::to($proposta->cliente->email)->send(new PropostaConstrutora($proposta, $assunto));    
+            Mail::to($proposta->cliente->email)->send(new PropostaConstrutora($proposta, $assunto));
         } catch (\Exception $e) {
             // Se der algum erro no envio da proposta para o cliente
             // Não precisa fazer nada só ignora
-        }        
+        }
 
         if (env('ambiente') == 'producao') {
             $adms = [];
             $adms[] = 'edson@lancamentosonline.com.br';
             $adms[] = 'contato@lancamentosonline.com.br';
-            Mail::to($adms)->send(new EmailAdm($proposta, $assunto));    
+            Mail::to($adms)->send(new EmailAdm($proposta, $assunto));
         }
     }
 
@@ -345,7 +351,7 @@ class Proposta extends Model
      public function garagem()
      {
         return $this->hasMany('App\Models\PropostaVaga');
-        
+
      }
 
     /*

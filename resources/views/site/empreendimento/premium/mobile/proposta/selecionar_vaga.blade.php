@@ -89,24 +89,32 @@
             <a href="/uploads/empreendimento/{{ $mapaGaragem->empreendimento_id ?? '' }}/original/{{ $mapaGaragem->arquivo ?? '' }}" data-toggle="lightbox">
                 <img src="{{ asset('assets/premium/img/btn-mapa-vagas.png') }}" class="img-responsive" alt="Botão Mapa de Vagas">
             </a>
-            
+
         </div>
-        
+
         @if($unidade->garagem->count() > 0)
 
         <div class="vaga-extra-select">
             <label for="nome">Deseja incluir vagas extras na proposta?</label>
+            <form action="/proposta/gravar-vaga-extra" method="POST" name="FormGravarVagaExtra" id="FormGravarVagaExtra">
+            @csrf
+            <input type="hidden" name="id" value="{{ $proposta->id }}">
             <select class="form-control select" name="vaga_extra" id="vaga_extra">
                 <option value="" selected>Selecione</option>
                 <option value="Sim">SIM</option>
                 <option value="Não">NÃO</option>
             </select>
+            </form>
         </div>
-        
+
         <div class="vagas" id="boxVagasEstras" style="display: none;">
 
-            <p class="titulo-vaga-extra">Selecione abaixo uma vaga extra, para cada vaga extra selecionada será incluído o valor de <b>({{ converte_valor_real($tabela->valor_vaga_extra) }})</b> no valor final da proposta</p>
+            <div class="titulo-vaga-extra">
+                <div class="tit"><i class="fas fa-car" aria-hidden="true"></i> Vaga Extra: R$ {{ converte_valor_real($tabela->valor_vaga_extra) }}</div>
+                O valor da vaga extra será acrescido à sua proposta
+            </div>
 
+            <!--
             @foreach ($vagas_extras as $vaga_extra)
                 <div class="vaga extra" data-idvaga="{{ $vaga_extra->id }}" data-tipovaga="{{ $vaga_extra->formato_vaga }}" data-nomevaga="{{ $vaga_extra->nome }}">
                     <span class="icone-vaga">
@@ -122,6 +130,8 @@
                     </span>
                 </div>
             @endforeach
+
+            !-->
 
         </div>
 
@@ -167,12 +177,12 @@
             </button>
             </div>
             <div class="modal-body" id="detalhe-vaga-modal">
-        
+
                 <input type="hidden" name="id" value="{{ $proposta->id }}">
                 <div class="titulo-modal-vaga">Deseja incluir esta vaga na sua proposta?</div>
                 <input type="hidden" name="idVaga">
                 <input type="hidden" name="tipoVaga">
-                
+
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
@@ -198,7 +208,7 @@
             <div class="modal-body" id="detalhe-vaga-modal">
                 <input type="hidden" name="proposta_id" value="{{ $proposta->id }}">
                 <input type="hidden" name="vaga_id" value="">
-                <div class="titulo-modal-vaga">Deseja REMOVER esta vaga na sua proposta?</div>                
+                <div class="titulo-modal-vaga">Deseja REMOVER esta vaga na sua proposta?</div>
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
@@ -214,10 +224,10 @@
 @push('rodape')
 <div class="rodape">
     <a href="/proposta/{{ $proposta->id }}/editar-proposta"><div class="btn-voltar"><i class="fa fa-reply-all" aria-hidden="true"></i></div></a>
-    @if($garagens->count() < 1)
+    @if($unidade->garagem->count() < 1 && $garagens->count() < 1)
     <div class="btn-gravar-dados marcarVaga"><i class="fa fa-send" aria-hidden="true"></i> Próxima etapa</div>
     @else
-    <a href="/proposta/{{ $proposta->id }}/conferir-proposta"><div class="btn-gravar-dados"><i class="fa fa-send" aria-hidden="true"></i> Próxima etapa</div></a>
+    <div class="btn-gravar-dados" onclick="ConferirProposta();"><i class="fa fa-send" aria-hidden="true"></i> Próxima etapa</div>
     @endif
 </div>
 @endpush

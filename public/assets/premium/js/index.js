@@ -49,9 +49,9 @@ $("#vaga_extra").on('change', function () {
 });
 
 $(".mostrar").on('click', function () {
-    $('#dadosUnidade').slideToggle('slow'); 
-    $('.mostrar').hide(); 
-    $('.ocultar').show(); 
+    $('#dadosUnidade').slideToggle('slow');
+    $('.mostrar').hide();
+    $('.ocultar').show();
 });
 
 
@@ -61,34 +61,34 @@ $(".proposta-block").on('click', function () {
 
 
 $(".ocultar").on('click', function () {
-    $('#dadosUnidade').slideToggle('slow'); 
-    $('.mostrar').show(); 
-    $('.ocultar').hide(); 
+    $('#dadosUnidade').slideToggle('slow');
+    $('.mostrar').show();
+    $('.ocultar').hide();
 });
 
 $(".mostrarC").on('click', function () {
-  $('#PropostaConstrutora').slideToggle('slow'); 
-  $('.mostrarC').hide(); 
-  $('.ocultarC').show(); 
+  $('#PropostaConstrutora').slideToggle('slow');
+  $('.mostrarC').hide();
+  $('.ocultarC').show();
 });
 
 $(".ocultarC").on('click', function () {
-  $('#PropostaConstrutora').slideToggle('slow'); 
-  $('.mostrarC').show(); 
-  $('.ocultarC').hide(); 
+  $('#PropostaConstrutora').slideToggle('slow');
+  $('.mostrarC').show();
+  $('.ocultarC').hide();
 });
 
 
 $(".mostrarProposta").on('click', function () {
-    $('#minhaProposta').slideToggle('slow'); 
-    $('.mostrarProposta').hide(); 
-    $('.ocultarProposta').show(); 
+    $('#minhaProposta').slideToggle('slow');
+    $('.mostrarProposta').hide();
+    $('.ocultarProposta').show();
 });
 
 $(".ocultarProposta").on('click', function () {
-    $('#minhaProposta').slideToggle('slow'); 
-    $('.mostrarProposta').show(); 
-    $('.ocultarProposta').hide(); 
+    $('#minhaProposta').slideToggle('slow');
+    $('.mostrarProposta').show();
+    $('.ocultarProposta').hide();
 });
 
 
@@ -104,25 +104,25 @@ $(".btn-detalhes, .foto-planta").on('click', function () {
       feedback: false,
       resultado: '#detalhe-planta-modal'
     });
-    
+
     $("#plantaModal").modal("show");
 });
 
 
 function inicializar() {
     var coordenadas = {lat: parseFloat($('#latitude').val()), lng: parseFloat($('#longitude').val()) };
-   
+
     var mapa = new google.maps.Map(document.getElementById('mapa-google'), {
      zoom: 15,
-     center: coordenadas 
+     center: coordenadas
    });
-   
+
     var marker = new google.maps.Marker({
      position: coordenadas,
      map: mapa,
      title: 'Meu marcador'
    });
-   
+
 }
 
 function EnviarFormCliente() {
@@ -132,7 +132,7 @@ function EnviarFormCliente() {
     var email = FormCliente.email.value;
     var telefone = FormCliente.telefone.value;
     var renda = FormCliente.renda.value;
-    
+
     if (nome == "") {
         Swal.fire('Ops','O campo nome deve ser preenchico','error');
         FormCliente.nome.focus();
@@ -150,7 +150,7 @@ function EnviarFormCliente() {
         FormCliente.email.focus();
         return false;
     }
-  
+
     if (telefone == "") {
         Swal.fire('Ops','O campo telefone deve ser preenchido!','error');
         FormCliente.telefone.focus();
@@ -162,20 +162,26 @@ function EnviarFormCliente() {
         FormCliente.renda.focus();
         return false;
     }
-    
+
     document.getElementById('FormCliente').submit();
 }
-  
+
+function ConferirProposta() {
+
+    document.getElementById('FormGravarVagaExtra').submit();
+
+}
+
 $("#add-balao").on('click', function () {
     $('#box-baloes').append('<div class="linha-balao del"><input type="text" class="form-control valor-balao money" name="valor_parcela_balao[]" onblur="calcula_saldo()"><input type="text" class="form-control data-balao date" name="data_parcela_balao[]">');
 });
 
-$(".delBalao").on('click', function () { 
+$(".delBalao").on('click', function () {
     $("#box-baloes").find("div.del:last").remove();
     calcula_saldo();
 });
 
-$(".sair").on('click', function () { 
+$(".sair").on('click', function () {
 
     Swal.fire({
         title: "Deseja realmente sair desta proposta?",
@@ -197,7 +203,7 @@ $(".sair").on('click', function () {
 
 });
 
-$(".vaga").on('click', function () { 
+$(".vaga").on('click', function () {
 
     var id = $(this).attr("data-idvaga");
     var tipo = $(this).attr("data-tipovaga");
@@ -205,18 +211,18 @@ $(".vaga").on('click', function () {
     $("input[name=idVaga]").attr("value",id);
     $("input[name=tipoVaga]").attr("value",tipo);
     $("#ModalVaga").find("h5").html('<i class="fas fa-car" aria-hidden="true"></i> ' + nome);
-     
+
     $("#ModalVaga").modal("show");
 
-});   
+});
 
-$(".excluirVaga").on('click', function () { 
+$(".excluirVaga").on('click', function () {
 
     var id = $(this).attr("data-id-vaga");
     var nome = $(this).attr("data-nome-vaga");
     $("input[name=vaga_id]").attr("value",id);
     $("#ModalRemoverVaga").find("h5").html('<i class="fas fa-car" aria-hidden="true"></i> ' + nome);
-     
+
     $("#ModalRemoverVaga").modal("show");
 
 });
@@ -224,9 +230,9 @@ $(".excluirVaga").on('click', function () {
 
 function EnviarFormProposta() {
 
-    var tipo_proposta = FormProposta.tipo_proposta.value; 
-    var valor_unidade = FormProposta.valor_unidade.value;  
-    
+    var tipo_proposta = FormProposta.tipo_proposta.value;
+    var valor_unidade = FormProposta.valor_unidade.value;
+
     if (tipo_proposta == "Pagamento à Vista") {
 
         var valor_avista = FormProposta.valor_avista.value.replace(".", "").replace(",", ".");
@@ -266,15 +272,15 @@ function EnviarFormProposta() {
         }
 
     }
-    
+
     document.getElementById('FormProposta').submit();
   }
 
   function EnviarProposta() {
 
-    var preferencia_contato = FormPreferencias.preferencia_contato.value; 
-    var preferencia_horario = FormPreferencias.preferencia_horario.value;  
-    
+    var preferencia_contato = FormPreferencias.preferencia_contato.value;
+    var preferencia_horario = FormPreferencias.preferencia_horario.value;
+
     if (preferencia_contato == '' || preferencia_horario == '') {
 
         Swal.fire('Ops','As opções de contato precisam ser selecionadas!','error');
@@ -282,14 +288,14 @@ function EnviarFormProposta() {
         return false;
 
     }
-    
+
     document.getElementById('FormPreferencias').submit();
   }
 
- 
+
   $("#valor_entrada, #valor_mensal, #qtd_mensal, .valor-balao").on('blur',function(){
 
-     calcula_saldo();  
+     calcula_saldo();
 
   });
 
@@ -303,12 +309,12 @@ function EnviarFormProposta() {
     valor_unidade = $("#valor_unidade").val();
 
     total_baloes = 0;
-  
-    $('.valor-balao').each(function (index, element) {      
+
+    $('.valor-balao').each(function (index, element) {
       var valor = element.value.replace(".", "").replace(",", ".");
       if (valor !== undefined) {
         total_baloes = parseFloat(total_baloes) + parseFloat(valor);
-      }      
+      }
     });
 
     total_mensal = parseFloat(qtd_mensal || 0) * parseFloat(valor_mensais || 0);
@@ -329,7 +335,7 @@ function EnviarFormProposta() {
 /*
 * Here is how you use it
 */
-$(function(){    
+$(function(){
     $('.view-pdf').on('click',function(){
         var pdf_link = $(this).attr('href');
         var iframe = '<div class="iframe-container"><iframe src="'+pdf_link+'"></iframe></div>'
@@ -339,55 +345,55 @@ $(function(){
         closeButton:true,
         scrollable:false
         });
-        return false;        
-    });    
+        return false;
+    });
 })
 
 function habilitaEnvio(){
     $('.btn-enviar-mobile').css('display','block');
     $('.loadingImg_Mobile').css('display','none');
   }
-  
+
   function DesabilitaEnvioChat(){
     $('.loadingImg_Chat').css('display','block');
     $('.ChatMobileEnviar').css('display','none');
   }
-  
+
   function HabilitaEnvioChat(){
     $('.loadingImg_Chat').css('display','none');
     $('.ChatMobileEnviar').css('display','block');
   }
-   
+
   $(document).on('click', '.chat-mobile', function (e) {
-    
+
     e.preventDefault();
-  
+
     DesabilitaEnvioChat();
-  
+
     let nome = $('#nome').val();
     let whatsapp = $('#whatsapp').val();
     let tipo_clique = $('#tipo_clique').val();
     let empreendimento_id = $('#empreendimento_id').val();
-  
-  
+
+
     if (nome == '') {
       Swal.fire('Desculpe', 'Por favor, nos informe seu nome', 'error');
       HabilitaEnvioChat();
       return false;
     }
-  
+
     if (whatsapp == '') {
       Swal.fire('Desculpe', 'Por favor, nos informe seu telefone', 'error');
       HabilitaEnvioChat();
       return false;
     }
-  
+
     $.ajaxSetup({
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       }
     });
-    
+
     $.ajax({
       url: "/chat-empreendimento",
       type:"POST",
@@ -412,35 +418,35 @@ function habilitaEnvio(){
         HabilitaEnvioChat();
       },
     });
-  
+
   });
-  
+
   $(document).on('click', '.ligar-mobile', function (e) {
-    
+
     e.preventDefault();
-  
+
     let nome = $('#nome').val();
     let whatsapp = $('#whatsapp').val();
     let tipo_clique = 'Telefone';
     let empreendimento_id = $('#empreendimento_id').val();
-  
-  
+
+
     if (nome == '') {
       Swal.fire('Desculpe', 'Por favor, nos informe seu nome', 'error');
       return false;
     }
-  
+
     if (whatsapp == '') {
       Swal.fire('Desculpe', 'Por favor, nos informe seu telefone', 'error');
       return false;
     }
-  
+
     $.ajaxSetup({
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       }
     });
-    
+
     $.ajax({
       url: "/chat-empreendimento",
       type:"POST",
@@ -463,31 +469,30 @@ function habilitaEnvio(){
         $('#erro_envio').text(response.responseJSON.errors);
       },
     });
-  
+
   });
-  
+
   $(document).on('click', '#ModalLigar', function (e) {
     $('#botaoContinuar').addClass('ligar-mobile');
     $('#botaoContinuar').removeClass('chat-mobile');
   });
-  
+
   $(document).on('click', '#ModalChat', function (e) {
     $('#botaoContinuar').removeClass('ligar-mobile');
     $('#botaoContinuar').addClass('chat-mobile');
   });
-  
+
   $(document).on('click', '.enviar-novo-topo', function (e) {
     $('.form-submit-cont-topo').css('display','none');
     $('.loadingImg').css('display','block');
   });
-  
+
   $(document).on('click', '.enviar-novo', function (e) {
     $('.form-submit-bottom').css('display','none');
     $('.loadingImg_Botton').css('display','block');
   });
-  
+
   $(document).on('click', '.botao-enviar', function (e) {
     $('.btn-enviar-mobile').css('display','none');
     $('.loadingImg_Mobile').css('display','block');
   });
-  

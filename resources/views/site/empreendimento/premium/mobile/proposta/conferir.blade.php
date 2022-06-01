@@ -20,7 +20,7 @@
             <div class="btn-minha-propostra mostrarProposta"><i class="fas fa-chevron-down" aria-hidden="true"></i> Minha Proposta</div>
             <div class="btn-minha-propostra ocultarProposta" style="display: none;"><i class="fas fa-chevron-up" aria-hidden="true"></i> Minha Proposta</div>
         </div>
-        
+
         <div class="condicoes-construtora minha-proposta" id="minhaProposta" style="display: none;">
 
             @if($proposta->tipo_proposta == 'Pagamento à Vista')
@@ -58,10 +58,23 @@
                     <div class="percentual"><strong>{{ converte_valor_real(calcular_percentual(valor_unidade($unidade), converte_reais_to_mysql($total_balao), '', $tabela)) }}%</strong></div>
                 </div>
 
+                @if($proposta->vaga_extra == 'Sim')
+
+                <div class="item">
+                    <div class="titulo">Vaga Extra Selecionada</div>
+                    <div class="valor">R$ {{ converte_valor_real($tabela->valor_vaga_extra) }}</div>
+                    <div class="percentual"><strong><i class="fas fa-car" aria-hidden="true"></i></strong></div>
+                </div>
+
+                @php $total_vaga_extra = $tabela->valor_vaga_extra; @endphp
+                @else
+                @php $total_vaga_extra = 0; @endphp
+                @endif
+
                 <div class="item">
                     <div class="titulo">Saldo Remanescente</div>
-                    <div class="saldo-remanescente">R$ {{ $proposta->saldo_remanescente }}</div>
-                    <div class="percentual-remanescente">{{ converte_valor_real(calcular_percentual(valor_unidade($unidade), converte_reais_to_mysql($proposta->saldo_remanescente), '', $tabela)) }}%</div>
+                    <div class="saldo-remanescente">R$ {{ converte_valor_real(converte_reais_to_mysql($proposta->saldo_remanescente)+($total_vaga_extra)) }}</div>
+                    <div class="percentual-remanescente">{{ converte_valor_real(calcular_percentual((valor_unidade($unidade)+$total_vaga_extra), converte_reais_to_mysql($proposta->saldo_remanescente), '', $tabela)) }}%</div>
                 </div>
 
                 <div class="item">
@@ -116,7 +129,7 @@
 
             </form>
         </div>
-        
+
     </div>
 
     @include('site.empreendimento.premium.mobile.proposta.modal_unidade')

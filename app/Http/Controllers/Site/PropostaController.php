@@ -38,7 +38,7 @@ class PropostaController extends Controller
         if($this->data['empreendimento']->tipo == 'Vertical'){
 
             $this->data['garagens'] =  Garagem::where('unidade_id', $request->unidade_id)->where('formato_vaga', 'Extra')->get();
-            
+
             $this->data['vagas'] = Garagem::where('empreendimento_id', $unidade->empreendimento_id)->get();
             $this->data['vagas_extras'] = Garagem::where('empreendimento_id', $unidade->empreendimento_id)->where('formato_vaga', 'Extra')->where('situacao', 'Disponível')->get();
             return view('site.empreendimento.premium.mobile.proposta.selecionar_vaga', $this->data);
@@ -49,7 +49,7 @@ class PropostaController extends Controller
     }
 
     public function GravarVagaProposta(Request $request){
-        
+
 
         $proposta = Proposta::find($request->id);
         $unidade = Unidade::find($proposta->unidade_id);
@@ -58,11 +58,11 @@ class PropostaController extends Controller
 
         $propostaVaga = PropostaVaga::where('proposta_id', $request->id)->where('garagem_id', $request->idVaga)->first();
 
-        if(isset($propostaVaga->id)){
+        if(isset($propostaVaga->id) || isset($unidade->garagem->id)){
             $this->data['vagaExiste'] = 'Sim';
         }else{
             $this->data['vaga'] = (new PropostaVaga())->salvarVaga($request, $proposta);
-        }  
+        }
 
         $this->data['proposta'] = $proposta;
         $this->data['unidade'] = $unidade;
@@ -74,8 +74,8 @@ class PropostaController extends Controller
         $this->data['vagas'] = Garagem::where('empreendimento_id', $unidade->empreendimento_id)->get();
         $this->data['vagas_extras'] = Garagem::where('empreendimento_id', $unidade->empreendimento_id)->where('formato_vaga', 'Extra')->where('situacao', 'Disponível')->get();
 
-                 
-        return view('site.empreendimento.premium.mobile.proposta.selecionar_vaga', $this->data); 
+
+        return view('site.empreendimento.premium.mobile.proposta.selecionar_vaga', $this->data);
 
     }
 
@@ -89,14 +89,31 @@ class PropostaController extends Controller
         $this->data['unidade'] = Unidade::find($proposta->unidade_id);
         $this->data['empreendimento'] = Empreendimento::find($proposta->empreendimento_id);
         $this->data['tabela'] = TabelaVendas::where('empreendimento_id', $proposta->empreendimento_id)->where('tipo_tabela_id', 1)->first();
-        
+
         $garagem = Garagem::where('proposta_vaga.proposta_id', $proposta->id)->join('proposta_vaga', 'garagens.id', '=', 'proposta_vaga.garagem_id')->select('garagens.*')->get();
         $this->data['garagens'] = $garagem;
         $this->data['vagas'] = Garagem::where('empreendimento_id', $proposta->empreendimento_id)->get();
         $this->data['vagas_extras'] = Garagem::where('empreendimento_id', $proposta->empreendimento_id)->where('formato_vaga', 'Extra')->where('situacao', 'Disponível')->get();
 
-        return view('site.empreendimento.premium.mobile.proposta.selecionar_vaga', $this->data);          
-         
+        return view('site.empreendimento.premium.mobile.proposta.selecionar_vaga', $this->data);
+
+
+    }
+
+    public function GravarVagaExtra(Request $request){
+
+        $proposta = Proposta::find($request->id);
+        $this->data['proposta'] = $proposta;
+
+        $unidade = Unidade::find($proposta->unidade_id);
+        $this->data['unidade'] = $unidade;
+        $this->data['empreendimento'] = Empreendimento::find($unidade->empreendimento_id);
+        (new Proposta())->VagaExtra($request);
+        $this->data['tabela'] = TabelaVendas::where('empreendimento_id', $unidade->empreendimento_id)->where('tipo_tabela_id', 1)->first();
+
+        $request->session()->put('proposta', $this->data['proposta']);
+        return view('site.empreendimento.premium.mobile.proposta.conferir', $this->data);
+
 
     }
 
@@ -108,7 +125,7 @@ class PropostaController extends Controller
         $this->data['proposta'] = $proposta;
         $this->data['tabela'] = TabelaVendas::where('empreendimento_id', $proposta->empreendimento_id)->where('tipo_tabela_id', 1)->first();
         return view('site.empreendimento.premium.mobile.proposta.conferir', $this->data);
-         
+
 
     }
 
@@ -128,8 +145,8 @@ class PropostaController extends Controller
         }else{
             $this->data['vagas'] = Garagem::where('empreendimento_id', $proposta->empreendimento_id)->get();
         }
-        
-        return view('site.empreendimento.premium.mobile.proposta.selecionar_vaga', $this->data);          
+
+        return view('site.empreendimento.premium.mobile.proposta.selecionar_vaga', $this->data);
 
     }
 
