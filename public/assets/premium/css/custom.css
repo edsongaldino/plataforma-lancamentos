@@ -1059,7 +1059,7 @@ img {
 	float: left;
 	height: 100px;
 	font-family: 'Urbanist', sans-serif !important;
-	padding: 15px !important;
+	padding: 15px 5px !important;
 	border: 1px solid rgb(221, 221, 221) !important;
     border-radius: 12px !important;
 	margin-right: 2%;
