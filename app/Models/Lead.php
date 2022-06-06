@@ -41,7 +41,7 @@ class Lead extends Model
 
         DB::beginTransaction();
 
-        $empreendimento = Empreendimento::find($request->empreendimento_id);        
+        $empreendimento = Empreendimento::find($request->empreendimento_id);
 
         $lead = $this;
         $lead->empreendimento_id = $empreendimento->id;
@@ -59,7 +59,7 @@ class Lead extends Model
             $lead->renda = $request->renda;
             $lead->mensagem = $request->mensagem;
         }
-        
+
         $lead->dispositivo = $this->getDispositivo($request);
         $lead->origem = $this->getOrigemContato($request);
         $lead->tempo = $this->getTempoAcesso($request);
@@ -75,7 +75,7 @@ class Lead extends Model
             }
             $this->integracoes();
         endif;
-        
+
         DB::commit();
 
         return true;
@@ -83,10 +83,11 @@ class Lead extends Model
 
     public function jaEnviou($request)
     {
-        $leads = Lead::where('nome', $request->nome)
-            ->where('email', $request->email)
-            ->whereRaw('created_at >= DATE_SUB(NOW(),INTERVAL 10 MINUTE)')
-            ->get();
+        if($request->whatsapp){
+            $leads = Lead::where('nome', $request->nome)->where('telefone', $request->whatsapp)->whereRaw('created_at >= DATE_SUB(NOW(),INTERVAL 10 MINUTE)')->get();
+        }else{
+            $leads = Lead::where('nome', $request->nome)->where('email', $request->email)->whereRaw('created_at >= DATE_SUB(NOW(),INTERVAL 10 MINUTE)')->get();
+        }
 
         $total = count($leads);
 
@@ -96,11 +97,19 @@ class Lead extends Model
 
         $empreendimento = Empreendimento::find($request->empreendimento_id);
 
-        $lead = Lead::where('empreendimento_id', $empreendimento->id)
+        if($request->whatsapp){
+            $lead = Lead::where('empreendimento_id', $empreendimento->id)
+            ->where('construtora_id', $empreendimento->construtora_id)
+            ->where('nome', $request->nome)
+            ->where('telefone', $request->whatsapp)
+            ->get();
+        }else{
+            $lead = Lead::where('empreendimento_id', $empreendimento->id)
             ->where('construtora_id', $empreendimento->construtora_id)
             ->where('nome', $request->nome)
             ->where('telefone', $request->telefone)
             ->get();
+        }
 
         if (count($lead)) {
             return true;
@@ -118,13 +127,13 @@ class Lead extends Model
             "Mitula",
             "Trovit",
             "Youtube",
-            "Instagram", 
+            "Instagram",
             "Yahoo"
         ];
 
         $origem_usuario = null;
 
-        $origem = $request->session()->exists('url_origem') 
+        $origem = $request->session()->exists('url_origem')
             ? session('url_origem')
             : 'Não identificado';
 
@@ -134,7 +143,7 @@ class Lead extends Model
                 break;
             }
         }
-        
+
         if (!$origem_usuario) {
             $origem_usuario = "Lançamentos Online";
         }
@@ -173,14 +182,14 @@ class Lead extends Model
                 break;
             }
         }
-        
+
         return $modelo ? $modelo : "Desktop";
     }
 
     public function enviarEmails()
     {
         $contatos_construtora = $this->construtora->usuarios->toArray();
-    
+
         if ($contatos_construtora) {
             $destinatarios = array_column($contatos_construtora, 'email');
             Mail::to($destinatarios)->send(new EmailConstrutora($this));
@@ -192,15 +201,15 @@ class Lead extends Model
             $adms = [];
             $adms[] = 'edson@lancamentosonline.com.br';
             $adms[] = 'contato@lancamentosonline.com.br';
-            Mail::to($adms)->send(new EmailAdm($this));    
-        }        
+            Mail::to($adms)->send(new EmailAdm($this));
+        }
     }
 
     public function enviarEmailsConstrutora()
     {
 
         /*$contatos_construtora = $this->construtora->usuarios->toArray();
-    
+
         if ($contatos_construtora) {
             $destinatarios = array_column($contatos_construtora, 'email');
             Mail::to($destinatarios)->send(new EmailConstrutora($this));
@@ -220,14 +229,14 @@ class Lead extends Model
             $adms = [];
             $adms[] = 'edson@lancamentosonline.com.br';
             $adms[] = 'contato@lancamentosonline.com.br';
-            Mail::to($adms)->send(new EmailAdm($this));    
+            Mail::to($adms)->send(new EmailAdm($this));
         }
 
     }
 
     public function enviarSugestoes()
     {
-       
+
         Mail::to($this->email)->send(new EmailSugestao($this));
 
     }
@@ -254,19 +263,19 @@ class Lead extends Model
             curl_setopt($curl, CURLOPT_URL, $url);
             curl_setopt($curl, CURLOPT_POST, true);
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    
+
             $headers = array(
             "Content-Type: application/json",
             );
             curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-    
+
             $data = '{
-                        "IdImovel": '.$empreendimento->id.', 
-                        "NomeDoImovel": "'.$empreendimento->nome.'", 
-                        "Nome": "'.$this->nome.'", 
-                        "DDD": "'.$this->getDdd().'", 
-                        "Telefone": "'.$this->getTelefoneSemDddMrv().'",  
-                        "Celular": "'.$this->getTelefoneSemDddMrv().'", 
+                        "IdImovel": '.$empreendimento->id.',
+                        "NomeDoImovel": "'.$empreendimento->nome.'",
+                        "Nome": "'.$this->nome.'",
+                        "DDD": "'.$this->getDdd().'",
+                        "Telefone": "'.$this->getTelefoneSemDddMrv().'",
+                        "Celular": "'.$this->getTelefoneSemDddMrv().'",
                         "Email": "'.$this->email.'",
                         "Texto": "'.$this->getMensagem().'",
                         "DataEnvio": "'.$this->created_at->format('Y-m-d H:i:s').'",
@@ -275,16 +284,16 @@ class Lead extends Model
                         "ClientID": "'.$client_id.'",
                         "Dispositivo": "'.$this->getDispositivoMrv().'"
                     }';
-    
+
             curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-    
+
             //for debug only!
             curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-    
+
             $response = curl_exec($curl);
 
-        } 
+        }
 
     }
 
@@ -297,25 +306,25 @@ class Lead extends Model
         return 'M';
     }
 
-    public function getDdd() 
+    public function getDdd()
     {
         if ($this->telefone) {
             return substr($this->telefone, 1, 2);
         }
     }
 
-    public function getTelefoneSemDdd() 
+    public function getTelefoneSemDdd()
     {
         if ($this->telefone) {
-            return substr($this->telefone, 5, 14);    
-        }        
+            return substr($this->telefone, 5, 14);
+        }
     }
 
-    public function getTelefoneSemDddMrv() 
+    public function getTelefoneSemDddMrv()
     {
         if ($this->telefone) {
-            return str_replace('-', '', substr($this->telefone, 5, 14));    
-        }        
+            return str_replace('-', '', substr($this->telefone, 5, 14));
+        }
     }
 
     public function getMensagem()
@@ -365,11 +374,11 @@ class Lead extends Model
             try {
                 $request = $client->post('http://ginco.api.facilitavendas.com/public/portals/lead', [
                     'json' => $dados
-                ]);                
+                ]);
             } catch (\Exception $e) {
                 // Não faz nada
-            }            
-        }        
+            }
+        }
     }
 
     public function integracaoCapys()
@@ -405,7 +414,7 @@ class Lead extends Model
             $resp = curl_exec($curl);
             curl_close($curl);
 
-        } 
+        }
 
     }
 
@@ -440,47 +449,47 @@ class Lead extends Model
             try {
                 $request = $client->post('http://crm.anapro.com.br/webcrm/webapi/integracao/v2/CadastrarProspect', [
                     'json' => $dados
-                ]);                
+                ]);
             } catch (\Exception $e) {
                 // Não faz nada
-            }            
-        }        
+            }
+        }
     }
 
     public function valida_token(){
 
         $url = "https://crmapi.capys.com.br/oauth";
-    
+
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    
+
         $headers = array(
         "Accept: application/json",
         "Authorization: Bearer {token}",
         "Content-Type: application/x-www-form-urlencoded",
         );
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-    
+
         $data = "grant_type=password&auth_token=uHrpWCB27WNqEM92k6yRfDoJmSYngn5X";
-    
+
         curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-    
+
         //for debug only!
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-    
+
         $resp = curl_exec($curl);
         curl_close($curl);
-    
+
         $json_str = json_decode($resp, true);
-        
+
         //Sua string:
         $bearer = $json_str["access_token"];
-    
-        return $bearer;   
-    
+
+        return $bearer;
+
     }
 
     /*

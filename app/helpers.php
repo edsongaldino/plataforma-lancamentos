@@ -582,7 +582,7 @@ if(!function_exists('getImplantacaoUnidade')){
 									"Value": "'.$altura.'"
 								}
 							]
-						}';
+				}';
 
 				curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
