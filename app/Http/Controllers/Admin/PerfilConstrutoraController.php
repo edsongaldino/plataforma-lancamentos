@@ -40,18 +40,18 @@ class PerfilConstrutoraController
 	    	$construtora = $usuario->construtora;
 	    	$endereco = $construtora->endereco;
 
-	    	if ($endereco && $endereco->cidade_id) {	    		
+	    	if ($endereco && $endereco->cidade_id) {
 	    		$cidade = Cidade::find($endereco->cidade_id);
 	    		$cidades = Estado::find($cidade->estado_id)->cidades;
 	    		$bairros = $cidade->bairros;
-	    	} 
-	    	
+	    	}
+
 	    	$telefones = $construtora->telefones->toArray();
 	    	$assinatura = $construtora->assinatura->first();
 	    	$equipe = $this->setCargo($construtora->usuarios->toArray());
     		$perfil = $construtora->perfil->toArray();
-	    }	
-		
+	    }
+
 		if(Auth::user()->getRoleNames() == '["Corretor"]'){
 			$view = 'view';
 		}else{
@@ -76,7 +76,7 @@ class PerfilConstrutoraController
 	}
 
 	public function setCargo($equipe)
-	{	
+	{
 		$equipe = array_filter($equipe, function ($integrante) {
 			$user = BackpackUser::find($integrante['id']);
 
@@ -98,7 +98,7 @@ class PerfilConstrutoraController
 	}
 
 	public function salvarPerfilUsuario(PerfilRequest $request)
-	{        	
+	{
 		$id = Auth::user()->id;
 
 	    $user = (new BackpackUser())->salvarPerfil($request, $id);
@@ -113,11 +113,11 @@ class PerfilConstrutoraController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function salvarConstrutora(PerfilConstrutoraRequest $request)
-	{        	
+	{
 		$id = Auth::user()->construtora->id;
 
 	    $resultado = (new Construtora())->salvarPerfilConstrutora($request, $id);
@@ -133,11 +133,11 @@ class PerfilConstrutoraController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function salvarEnderecoConstrutora(PerfilEnderecoConstrutoraRequest $request)
-	{        	
+	{
 		$id = Auth::user()->construtora->id;
 
 	    $resultado = (new Construtora())->salvarEnderecoConstrutora($request, $id);
@@ -153,11 +153,11 @@ class PerfilConstrutoraController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function salvarCanaisAtendimento(PerfilCanalAtendimentoRequest $request)
-	{        	
+	{
 		$id = Auth::user()->construtora->id;
 
 	    $resultado = (new Construtora())->salvarCanaisAtendimento($request, $id);
@@ -173,11 +173,11 @@ class PerfilConstrutoraController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function salvarRedesSociais(PerfilRedeSocialRequest $request)
-	{        	
+	{
 		$id = Auth::user()->construtora->id;
 
 	    $resultado = (new Construtora())->salvarPerfilRedesSociais($request, $id);
@@ -193,7 +193,7 @@ class PerfilConstrutoraController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function novoMembro(Request $request, $id)
@@ -234,7 +234,7 @@ class PerfilConstrutoraController
 
 	public function atualizarMembro(MembroUpdateRequest $request)
 	{
-		$this->handlePasswordInput($request);
+		//$this->handlePasswordInput($request);
 
 	    $resultado = (new BackpackUser())->salvarDadosMembro($request, $request->construtora_id);
 
@@ -289,7 +289,7 @@ class PerfilConstrutoraController
 	    $this->data['construtora_id'] = Auth::user()->construtora_id;
 
 		return view('admin.perfil_construtora.desktop.planos', $this->data);
-	}	
+	}
 
 	public function atualizarPlano(Request $request, $id)
 	{
@@ -308,7 +308,7 @@ class PerfilConstrutoraController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	// public function loginDomus()
@@ -324,14 +324,14 @@ class PerfilConstrutoraController
  //                    'senha_usuario' => $request->password,
  //                ];
 
-                
+
  //                $client = new Client([
  //                    'request.options' => [
  //                       'timeout' => 6,
- //                       'connect_timeout' => 6 
+ //                       'connect_timeout' => 6
  //                    ]
  //                ]);
-                        
+
  //                $client->post('https://sistema.domuslog.com.br/login2.php', [
  //                    'form_params' => $dados,
 
@@ -339,6 +339,6 @@ class PerfilConstrutoraController
 
  //                return $next($request);
  //            }
- //        }            
+ //        }
 	// }
 }

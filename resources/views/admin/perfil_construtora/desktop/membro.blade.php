@@ -5,36 +5,36 @@
 	@endif
 	<div class="form-group">
 		<label class="">Nome</label>
-		<input type="text" name="nome" class="form-control" @if (isset($entry)) value="{{ $entry->name }}" @endif>		
+		<input type="text" name="nome" class="form-control" @if (isset($entry)) value="{{ $entry->name }}" @endif>
 	</div>
 	<div class="form-group">
 		<label class="">E-mail</label>
-		<input type="email" name="email" class="form-control" @if (isset($entry)) value="{{ $entry->email }}" @endif>		
+		<input type="email" name="email" class="form-control" @if (isset($entry)) value="{{ $entry->email }}" @endif>
 	</div>
 	<div class="form-group">
 		<label class="">Data de nascimento</label>
-		<input type="text" name="data_nascimento" class="form-control date" @if (isset($entry)) value="{{ $entry->data_nascimento }}" @endif>		
+		<input type="text" name="data_nascimento" class="form-control date" @if (isset($entry)) value="{{ $entry->data_nascimento }}" @endif>
 	</div>
 	<div class="form-group">
-		<label class="">Senha</label>
-		<input type="password" name="password" class="form-control">		
+		<label class="">Senhaa</label>
+		<input type="password" name="password" class="form-control">
 	</div>
 	<div class="form-group">
 		<label class="">Confirmar Senha</label>
-		<input type="password" name="password_confirmation" class="form-control">		
+		<input type="password" name="password_confirmation" class="form-control">
 	</div>
 	<div class="form-group">
 		<label class="">Grupo de usuário</label>
 		<br>
 		<select name="grupo[]" class="form-control">
-			@foreach ($grupos as $grupo)			
+			@foreach ($grupos as $grupo)
 				@if ($grupo->name != 'Administrador')
-					<option value="{{ $grupo->id }}" @if (isset($entry) && $entry->hasRole($grupo->name)) selected="true" @endif> {{ $grupo->name }} </option>					
+					<option value="{{ $grupo->id }}" @if (isset($entry) && $entry->hasRole($grupo->name)) selected="true" @endif> {{ $grupo->name }} </option>
 				@endif
 			@endforeach
-		</select>		
+		</select>
 	</div>
-	
+
 	<div class="form-group">
 		<input type="submit" class="btn btn-success submit-btn">
 	</div>
@@ -73,7 +73,7 @@
 					    $('#membro').modal('toggle');
 					    new PNotify({
 					      text: response.mensagem,
-					      type: 'success',                    
+					      type: 'success',
 					    });
 
 					    setTimeout(function () {
@@ -82,18 +82,18 @@
 					} else {
 					    new PNotify({
 					      text: response.mensagem,
-					      type: 'error',                    
+					      type: 'error',
 					    });
 					}
 				},
-				error: function (data) {                
+				error: function (data) {
 			        var dados = $.parseJSON(data.responseText);
 			        if (data.status === 422) {
 			          var errors = dados.errors;
 			          $.each(errors, function(key, value) {
 			            new PNotify({
 			              text: value,
-			              type: 'error',                    
+			              type: 'error',
 			            });
 			          });
 			        }
@@ -101,7 +101,7 @@
 			        if (data.status == 500) {
 			          new PNotify({
 			            text: 'Erro, tente novamente mais tarde',
-			            type: 'error',                    
+			            type: 'error',
 			          });
 			        }
       			}

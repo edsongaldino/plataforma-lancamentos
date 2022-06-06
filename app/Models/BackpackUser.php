@@ -6,7 +6,7 @@ use App\Models\User;
 use Backpack\Base\app\Models\Traits\InheritsRelationsFromParentModel;
 use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
 use Spatie\Permission\Traits\HasRoles;
-use Backpack\CRUD\CrudTrait; 
+use Backpack\CRUD\CrudTrait;
 use App\Models\Construtora;
 use App\Models\UserPerfil;
 use App\Models\ConstrutoraPerfil;
@@ -27,10 +27,10 @@ class BackpackUser extends User
     protected $table = 'users';
 
     protected $fillable = [
-        'name', 
+        'name',
         'email',
         'password',
-        'data_nascimento', 
+        'data_nascimento',
         'foto_perfil',
         'celular',
         'telefone_fixo',
@@ -78,12 +78,12 @@ class BackpackUser extends User
     public function acoesAposInserir($request, $id)
     {
         $usuario = $this->find($id);
-        
+
         if ($request->construtora) {
             $this->atribuirConstrutora($request->construtora, $usuario);
-            $this->criarRegistrosPerfis($usuario->id, $request->construtora);    
+            $this->criarRegistrosPerfis($usuario->id, $request->construtora);
         }
-        
+
         $this->uploadLogoCortada($usuario, $request->foto);
     }
 
@@ -99,7 +99,7 @@ class BackpackUser extends User
         $usuario->save();
     }
 
-    public function uploadLogoCortada($usuario, $value) 
+    public function uploadLogoCortada($usuario, $value)
     {
         $attribute_name = "foto";
         $disk = 'public';
@@ -117,11 +117,11 @@ class BackpackUser extends User
     }
 
     public function salvarPerfil($request, $id)
-    {   
+    {
         $user = User::find($id);
         $user->name = $request->name;
-        $user->email = $request->email;            
-        $user->cpf = $request->cpf;        
+        $user->email = $request->email;
+        $user->cpf = $request->cpf;
         $user->data_nascimento = $request->data_nascimento;
         $user->telefone_fixo = $request->telefone_fixo;
         $user->celular = $request->celular;
@@ -142,7 +142,7 @@ class BackpackUser extends User
     }
 
     public function salvarPerfilDomus($request)
-    {   
+    {
 
         $user = User::find($request->id);
         $user->perfil_domus = $request->perfil_domus;
@@ -158,11 +158,11 @@ class BackpackUser extends User
             $request->validate([
                 $campo => 'image|mimes:jpeg,png,jpg,gif,svg',
             ]);
-            
+
             (new UserPerfil())->marcarPerfil($id, 'Foto');
 
             return '/uploads/' . $request->file($campo)->store('usuario');
-        }         
+        }
     }
 
     public function salvarDadosMembro($request, $construtora_id)
@@ -174,14 +174,14 @@ class BackpackUser extends User
         }
 
         $usuario->name = $request->nome;
-        $usuario->email = $request->email;        
+        $usuario->email = $request->email;
         $usuario->construtora_id = $construtora_id;
 
         if ($request->data_nascimento) {
             $usuario->data_nascimento = $request->data_nascimento;
         }
 
-        if ($request->has('password')) {
+        if ($request->password) {
             $usuario->password = bcrypt($request->password);
         }
 
@@ -237,7 +237,7 @@ class BackpackUser extends User
 
         if ($assinatura && isset($assinatura['recent_invoices'])) {
             foreach ($assinatura->recent_invoices as $fatura) {
-                $url = $fatura->secure_url;   
+                $url = $fatura->secure_url;
             }
         }
 
@@ -252,8 +252,8 @@ class BackpackUser extends User
         if ($roles) {
             foreach ($this->roles as $role) {
                 $perfil = $role->name;
-            }    
-        }        
+            }
+        }
 
         return $perfil;
     }
