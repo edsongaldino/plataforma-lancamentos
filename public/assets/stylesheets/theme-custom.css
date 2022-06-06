@@ -360,7 +360,7 @@ form{
     height: 30px;
     line-height: 30px;
     float: left;
-    border-bottom: 1px solid #ccc;    
+    border-bottom: 1px solid #ccc;
 }
 
 .resumo-proposta .item-resumo .descricao-item{
@@ -396,7 +396,7 @@ form{
     width: 100%;
     height: 80px;
     line-height: 80px;
-    float: left;  
+    float: left;
 }
 
 .resumo-proposta .item-saldo .descricao-item{
@@ -507,7 +507,7 @@ form{
 
 .checkbox-terms label.error:before {
     display: none;
-    
+
 }
 
 .titulo{
@@ -776,6 +776,10 @@ select.populate{
     height: 50px !important;
 }
 
+.input-group .form-control.textarea{
+    height: 100px !important;
+}
+
 .titulo-row{
     width: 100%;
     height: 35px;
@@ -794,7 +798,7 @@ select.populate{
 .input-group .descricao{
     height: 100px !important;
 }
-  
+
 form > label.control-label {
     height: 50px !important;
     line-height: 50px !important;
@@ -1050,7 +1054,7 @@ select.tipo-imagem{
 
 /*EDITAR UNIDADES*/
 
-.btn-unidade-editar{ 
+.btn-unidade-editar{
     width: 100%;
     margin-bottom: 5px;
 }
@@ -1190,7 +1194,7 @@ input.valor-alteracao{
     margin-bottom: 10px;
     background-color: rgb(3, 133, 150) !important;
     border: 1px solid rgb(3, 133, 150) !important;
-}  
+}
 
 .link-construtora{
     width: 100%;
@@ -1199,7 +1203,7 @@ input.valor-alteracao{
     margin-bottom: 10px;
     background-color: rgb(7, 154, 232) !important;
     border: 1px solid rgb(3, 133, 150) !important;
-}  
+}
 
 .link-externo{
     width: 100%;
@@ -1431,7 +1435,7 @@ tr.lista-boletos .btn-group .btn-default{
     font-weight: bold;
     margin-bottom: 20px;
     border-radius: 30px;
-    
+
 }
 
 .titulo-conexao-off{

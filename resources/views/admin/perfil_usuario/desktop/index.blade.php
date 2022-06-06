@@ -63,7 +63,7 @@
             <ul class="simple-todo-list">
               @foreach ($perfil as $item)
               <li @if ($item['completo'] == 'S')class="completed"@endif>{{ $item['nome'] }}</li>
-              @endforeach                          
+              @endforeach
             </ul>
           </div>
         </div>
@@ -73,10 +73,10 @@
         @if (Auth::user()->perfil_profissional != null)
         <h6 class="text-muted">Seu perfil profissional</h6>
         <p>{{ Auth::user()->perfil_profissional }}</p>
-        @endif            
+        @endif
       </div>
     </section>
-  </div>    
+  </div>
   <div class="col-md-8 col-lg-9">
     <div class="panel-group" id="accordion2">
       <div class="panel panel-accordion panel-accordion-primary">
@@ -166,12 +166,35 @@
               </div>
 
               <div class="form-group">
+                <label class="col-md-2 control-label">Senha</label>
+                <div class="col-md-4 control-label">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                    <input name="password" id="password" type="password" class="form-control" value="">
+                  </div>
+                </div>
+                <label class="col-md-2 control-label">Confirmar Senha</label>
+                <div class="col-md-4 control-label">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                    <input name="password_confirmation" id="password_confirmation" type="password" class="form-control" value="">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
                 <label class="col-md-2 control-label" for="textareaDefault">Perfil profissional</label>
                 <div class="col-md-10">
-                  <textarea name="perfil_profissional" class="form-control" rows="3" data-plugin-maxlength maxlength="140">{{ Auth::user()->perfil_profissional }}</textarea>
-                  <p>
-                    <code>Número máximo de caracteres</code> é 140.
-                  </p>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                        <i class="fa fa-id-card-o"></i>
+                        </span>
+                        <textarea name="perfil_profissional" class="form-control textarea" rows="5" data-plugin-maxlength maxlength="140">{{ Auth::user()->perfil_profissional }}</textarea>
+                    </div>
                 </div>
               </div>
 
@@ -203,9 +226,9 @@
 
               <div class="form-group">
                 <div class="col-md-12">
-                  <button class="btn btn-success" type="button" id="salvar-dados-usuario">Salvar dados</button>
+                  <button class="btn btn-success salvar-dados" type="button" id="salvar-dados-usuario">Salvar dados</button>
                 </div>
-              </div>            
+              </div>
             </form>
           </div>
         </div>

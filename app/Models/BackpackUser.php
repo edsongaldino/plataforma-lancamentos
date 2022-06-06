@@ -127,6 +127,11 @@ class BackpackUser extends User
         $user->celular = $request->celular;
         $user->whatsapp = $request->whatsapp;
         $user->perfil_profissional = $request->perfil_profissional;
+
+        if ($request->password) {
+            $user->password = bcrypt($request->password);
+        }
+
         $user->save();
 
         $foto = $this->uploadFoto($request, $id);

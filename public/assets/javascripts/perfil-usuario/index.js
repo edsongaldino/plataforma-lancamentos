@@ -1,7 +1,14 @@
 $(function () {
-  $("#salvar-dados-usuario").on('click', function () {
+  $("#salvar-dados-usuario").on('click', function (e) {
 
     var formData = new FormData($("#dados-usuario")[0]);
+
+    e.preventDefault();
+
+    if ($("#password").val() != $("#password_confirmation").val()) {
+        Swal.fire('Desculpe', 'As senhas não conferem!', 'warning');
+        return false;
+    }
 
     ajaxRequestUpload({
       metodo: 'POST',

@@ -3,20 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use Backpack\Base\app\Http\Controllers\Auth\MyAccountController;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\PerfilRequest;
+use App\Models\BackpackUser;
 
 class PerfilUsuarioController extends MyAccountController
 {
 	public function index()
-	{	   	   
+	{
 		$perfil = Auth::user()->perfil->toArray();
 
 	    return view('admin.perfil_usuario.desktop.index', compact('perfil'));
 	}
 
 	public function salvarPerfilUsuario(PerfilRequest $request)
-	{        	
+	{
 		$id = Auth::user()->id;
 
 	    $user = (new BackpackUser())->salvarPerfil($request, $id);
@@ -31,6 +32,6 @@ class PerfilUsuarioController extends MyAccountController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 }
