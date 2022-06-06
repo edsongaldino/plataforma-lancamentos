@@ -437,8 +437,8 @@ if(!function_exists('getMapaUnidade')){
 				$diretorio = "uploads/unidade/".$id."/";
 				$imagename = "www_lancamentosonline_com_br.png";
 			}else{
-
-				$url = "https://v2.convertapi.com/convert/web/to/png?Secret=KJUVlR0CjjyZU4YG";
+                //KJUVlR0CjjyZU4YG
+				$url = "https://v2.convertapi.com/convert/web/to/png?Secret=3AjOFxiBuJBIpNsq";
 
 				$unidade = Unidade::find($id);
 
