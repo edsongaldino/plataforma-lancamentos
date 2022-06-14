@@ -268,11 +268,15 @@
                     @endif
                 @endif
 
+
+                @if($unidade->planta->caracteristicas->where('nome', 'laje_tecnica')->first())
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fas fa-border-style" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">Laje Téc.</div>
                     <div class="valor-caracteristica">{{  $unidade->planta->caracteristicas->where('nome', 'laje_tecnica')->first()->pivot->valor ?? '' }}m²</div>
                 </div>
+                @endif
+
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fab fa-uncharted" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">Posição</div>

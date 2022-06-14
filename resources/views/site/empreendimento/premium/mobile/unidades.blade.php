@@ -70,7 +70,12 @@
                 <div class="linha">
                     <div class="unidade">{{ $unidade->nome ?? ''}}</div>
                     <div class="metragem">{{ $unidade->planta->area_privativa ?? '' }}m²</div>
-                    <div class="metragem">@if (isset($unidade->planta) && $unidade->planta->caracteristicas->where('nome', 'laje_tecnica')->first()) {{  $unidade->planta->caracteristicas->where('nome', 'laje_tecnica')->first()->pivot->valor.'m²' }} @endif</div>
+
+                    @if(isset($unidade->planta) && $unidade->planta->caracteristicas->where('nome', 'laje_tecnica')->first())
+                    <div class="metragem">{{  $unidade->planta->caracteristicas->where('nome', 'laje_tecnica')->first()->pivot->valor.'m²' }}</div>
+                    @else
+                    <div class="metragem {{ url_amigavel($unidade->caracteristicas->where('nome', 'tipo_sol')->first()->pivot->valor ?? '') }}"><i class="fas fa-cloud-sun" aria-hidden="true"></i></div>
+                    @endif
                     <div class="garagem"><i class="fa fa-car" aria-hidden="true"></i></div>
                     @if($unidade->caracteristicas->where('nome', 'valor_unidade')->first() && $unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '')
                         <div class="valor">{{ converte_valor_real_semdecimal($unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor) }}</div>
@@ -89,7 +94,11 @@
                 <div class="linha">
                     <div class="andar">{{ $unidade->andar->numero ?? ''}}º andar</div>
                     <div class="area">Área Útil</div>
+                    @if(isset($unidade->planta) && $unidade->planta->caracteristicas->where('nome', 'laje_tecnica')->first())
                     <div class="area">Laje Técnica</div>
+                    @else
+                    <div class="area">{{ $unidade->caracteristicas->where('nome', 'tipo_sol')->first()->pivot->valor ?? '' }}</div>
+                    @endif
                     <div class="vaga">
                         @if($unidade->caracteristicas->where('nome', 'vagas_garagem')->first() <> null)
                             {{ $unidade->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor }}

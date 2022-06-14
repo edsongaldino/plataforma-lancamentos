@@ -410,6 +410,13 @@ img {
     background: #FFF;
 }
 
+.unidades .linha-unidade .nascente{
+	color: rgb(6, 108, 177) !important;
+}
+.unidades .linha-unidade .poente{
+	color: rgb(230, 164, 23) !important;
+}
+
 .unidades .linha-unidade:active{
 	background-color: #f9f9f9 !important;
 	border: 1px dashed #3e3c3c;
