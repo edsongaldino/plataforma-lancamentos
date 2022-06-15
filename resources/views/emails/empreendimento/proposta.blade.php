@@ -574,11 +574,58 @@
                     R$ {{ $proposta->cliente->renda }}
                   </td>
                 </tr>
+
+                <tr>
+                  <td height="20" align="center" bgcolor="#FFFFFF">
+                    <span class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
+                        <img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/images/icon-chat.png" alt="" width="30" height="30">
+                    </span>
+                  </td>
+                  <td height="20" align="left" bgcolor="#FFFFFF">
+                    <span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
+                      Preferencia Contato:
+                    </span>
+                  </td>
+                  <td height="20" colspan="3" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
+                    {{ $proposta->preferencia_contato ?? ''}}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td height="20" align="center" bgcolor="#FFFFFF">
+                    <span class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
+                        <img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/images/icon-clock.png" alt="" width="30" height="30">
+                    </span>
+                  </td>
+                  <td height="20" align="left" bgcolor="#FFFFFF">
+                    <span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
+                      Melhor Horário:
+                    </span>
+                  </td>
+                  <td height="20" colspan="3" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
+                    {{ $proposta->preferencia_horario ?? '' }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td height="20" align="center" bgcolor="#FFFFFF">
+                    <span class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
+                        <img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/images/icon-message.png" alt="" width="30" height="30">
+                    </span>
+                  </td>
+                  <td colspan="5" align="justify" bgcolor="#FBFBFB" style="font:18px Open Sans, Arial, Helvetica, sans-serif; padding-left: 5px !important; color:#16c4a9; padding:20px; text-align:left;">
+                    {{ $proposta->comentarios ?? '' }}
+                  </td>
+                </tr>
+
+
                 <tr>
                   <td height="20" colspan="5" align="center" bgcolor="#FFFFFF">
                     &nbsp;
                   </td>
                 </tr>
+
+
               </table>
             </td>
             <td width="23" class="sidespace">&nbsp;</td>
