@@ -25,6 +25,6 @@
 
 @push('rodape')
 <div class="rodape">
-    <a href="/empreendimento/{{ $proposta->empreendimento_id }}/premium"><div class="btn-nova-proposta"><i class="fa fa-briefcase" aria-hidden="true"></i> Nova Proposta</div></a>
+    <a href="/empreendimento/{{ $proposta->empreendimento_id }}/premium"><div class="btn-nova-proposta"><i class="fa fa-home" aria-hidden="true"></i> Voltar para Home</div></a>
 </div>
 @endpush

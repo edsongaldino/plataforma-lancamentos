@@ -160,6 +160,10 @@ class Proposta extends Model
                 (new PropostaBalao())->salvarBaloes($request, $proposta);
             }
 
+            if ($request->data_nascimento) {
+                $this->AtualizaDataNascimentoCliente($request);
+            }
+
             DB::commit();
 
             //$this->enviarEmails($proposta);
@@ -236,6 +240,10 @@ class Proposta extends Model
 
             $proposta->save();
 
+            if ($request->data_nascimento) {
+                $this->AtualizaDataNascimentoCliente($request);
+            }
+
             if ($request->valor_parcela_balao) {
                 (new PropostaBalao())->delBaloes($proposta);
                 (new PropostaBalao())->salvarBaloes($request, $proposta);
@@ -262,6 +270,12 @@ class Proposta extends Model
         $proposta->preferencia_horario = $request->preferencia_horario;
         $proposta->comentarios = $request->comentarios;
         $proposta->save();
+    }
+
+    public function AtualizaDataNascimentoCliente($request){
+        $cliente = Cliente::find($request->cliente_id);
+        $cliente->data_nascimento = $request->data_nascimento;
+        $cliente->save();
     }
 
     public function VagaExtra($request){

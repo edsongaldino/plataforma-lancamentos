@@ -101,13 +101,13 @@
             <input type="hidden" name="id" value="{{ $proposta->id }}">
             <select class="form-control select" name="vaga_extra" id="vaga_extra">
                 <option value="" selected>Selecione</option>
-                <option value="Sim">SIM</option>
-                <option value="Não">NÃO</option>
+                <option value="Sim" @if($proposta->vaga_extra == 'Sim') selected @endif>SIM</option>
+                <option value="Não" @if($proposta->vaga_extra == 'Não') selected @endif>NÃO</option>
             </select>
             </form>
         </div>
 
-        <div class="vagas" id="boxVagasEstras" style="display: none;">
+        <div class="vagas" id="boxVagasEstras" @if($proposta->vaga_extra == 'Sim') style="display: block;" @else style="display: none;"  @endif >
 
             <div class="titulo-vaga-extra">
                 <div class="tit"><i class="fas fa-car" aria-hidden="true"></i> Vaga Extra: R$ {{ converte_valor_real($tabela->valor_vaga_extra) }}</div>

@@ -157,7 +157,15 @@ class PropostaController extends Controller
         $this->data['empreendimento'] = Empreendimento::find($unidade->empreendimento_id);
         $this->data['proposta'] = (new Proposta())->AtualizarProposta($request);
         $this->data['tabela'] = TabelaVendas::where('empreendimento_id', $unidade->empreendimento_id)->where('tipo_tabela_id', 1)->first();
-        return view('site.empreendimento.premium.mobile.proposta.conferir', $this->data);
+
+
+        $this->data['garagens'] =  Garagem::where('unidade_id', $request->unidade_id)->where('formato_vaga', 'Extra')->get();
+
+        $this->data['vagas'] = Garagem::where('empreendimento_id', $unidade->empreendimento_id)->get();
+        $this->data['vagas_extras'] = Garagem::where('empreendimento_id', $unidade->empreendimento_id)->where('formato_vaga', 'Extra')->where('situacao', 'Disponível')->get();
+        return view('site.empreendimento.premium.mobile.proposta.selecionar_vaga', $this->data);
+
+        //return view('site.empreendimento.premium.mobile.proposta.conferir', $this->data);
 
     }
 

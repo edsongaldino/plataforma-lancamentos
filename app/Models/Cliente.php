@@ -99,13 +99,13 @@ class Cliente extends Model
     | ACCESORS
     |--------------------------------------------------------------------------
     */
-
+    /*
     public function getDataNascimentoAttribute($valor)
     {
         if ($valor && (new \DateTime($valor))) {
             return (new \DateTime($valor))->format('d/m/Y');
         }
-    }
+    }*/
 
     public function getRendaAttribute($valor)
     {
