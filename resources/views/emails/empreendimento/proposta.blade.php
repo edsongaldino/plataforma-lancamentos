@@ -467,31 +467,27 @@
                       CPF:
                     </span>
                   </td>
-                  <td width="31%" height="20" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">                    
+                  <td colspan="5" height="20" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">                    
                     {{ $proposta->cliente->cpf }}
                   </td>
-
-                  @if($proposta->cliente->data_nascimento)
-                  <td width="15%" bgcolor="#FFFFFF">
+                </tr>
+                @if($proposta->cliente->data_nascimento)
+                <tr>
+                  <td height="20" align="center" bgcolor="#FFFFFF">
+                    <span class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
+                      <img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/images/icon-data.png" alt="" width="30" height="30">
+                    </span>
+                  </td>
+                  <td height="20" align="left" bgcolor="#FFFFFF">
                     <span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
                     D. Nasc:
                     </span>
                   </td>
-                  <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
+                  <td colspan="5" height="20" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                     {{ $proposta->cliente->data_nascimento }}
                   </td>
-
-                  @else
-
-                  <td width="15%" bgcolor="#FFFFFF">
-
-                  </td>
-                  <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
-
-                  </td>
-                  @endif
-
                 </tr>
+                @endif
                 <tr>
                   <td height="20" align="center" bgcolor="#FFFFFF">
                     <span class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
@@ -518,17 +514,10 @@
                       Telefone:
                     </span>
                   </td>
-                  <td height="20" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
+                  <td height="20" colspan="5" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                     {{ $proposta->cliente->telefone }}
                   </td>
-                  
-                  <td height="20" bgcolor="#FFFFFF">
-
-                  </td>
-                  <td height="20" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
-
-                  </td>
-                  
+                            
                 </tr>
                 
                 @if($proposta->cliente->estado_civil == 'Casado' || $proposta->cliente->estado_civil == 'União Estável' && $proposta->cliente->conjuge)
