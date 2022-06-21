@@ -28,7 +28,7 @@ class Empreendimento extends Model
     protected $table = 'empreendimentos';
     protected $fillable = [
         'construtora_id',
-        'nome', 
+        'nome',
         'descricao',
         'tipo',
         'valor_inicial',
@@ -43,7 +43,7 @@ class Empreendimento extends Model
         'logomarca'
     ];
 
-    protected $registros = 20;    
+    protected $registros = 20;
 
     /*
     |--------------------------------------------------------------------------
@@ -56,7 +56,7 @@ class Empreendimento extends Model
         $quadras = $this->quadras;
         $array = [];
         foreach ($quadras as $quadra) {
-            $unidades = $quadra->unidades->where('situacao', 'Disponível')->where('status', 'Liberada');            
+            $unidades = $quadra->unidades->where('situacao', 'Disponível')->where('status', 'Liberada');
             if (count($unidades)) {
                 $array[] = $quadra;
             }
@@ -70,7 +70,7 @@ class Empreendimento extends Model
         $torres = $this->torres;
         $array = [];
         foreach ($torres as $torre) {
-            $unidades = $torre->unidades->where('situacao', 'Disponível')->where('status', 'Liberada');            
+            $unidades = $torre->unidades->where('situacao', 'Disponível')->where('status', 'Liberada');
             if (count($unidades)) {
                 $array[] = $torre;
             }
@@ -84,9 +84,9 @@ class Empreendimento extends Model
         $empreendimento = new Empreendimento();
 
         if ($id) {
-            $empreendimento = $this->find($id);    
+            $empreendimento = $this->find($id);
         }
-        
+
         $empreendimento->construtora_id = $construtora_id;
         $empreendimento->nome = $request->nome;
         $empreendimento->descricao = $request->descricao;
@@ -95,21 +95,21 @@ class Empreendimento extends Model
         $empreendimento->variacao_id = $request->variacao_id;
         $empreendimento->modalidade = $request->modalidade;
         $empreendimento->status = $request->status;
-        
+
         if ($request->valor_inicial) {
-            $empreendimento->valor_inicial = $request->valor_inicial;    
+            $empreendimento->valor_inicial = $request->valor_inicial;
         }
 
         if ($request->valor_final) {
-            $empreendimento->valor_final = $request->valor_final;    
+            $empreendimento->valor_final = $request->valor_final;
         }
-        
+
         $empreendimento->previsao_entrega = $request->previsao_entrega;
 
         $empreendimento->save();
 
         $logomarca = $this->uploadLogo($request, $empreendimento);
-        
+
         if ($logomarca) {
             $empreendimento->logomarca = $logomarca;
             $empreendimento->save();
@@ -118,7 +118,7 @@ class Empreendimento extends Model
         $this->atribuirCaracteristicasEmpreendimento($request, $empreendimento);
 
         (new EmpreendimentoPerfil())->gerar($empreendimento->id);
-        
+
         (new EmpreendimentoPerfil())->marcarPerfil($empreendimento->id, 'Dados do empreendimento');
 
         return $empreendimento->id;
@@ -155,10 +155,10 @@ class Empreendimento extends Model
             $parametros = array('');
             if(in_array($caracteristica,$valores)):
                 $parametros["tipo"] = "valor";
-            endif;           
+            endif;
             atribuir_caracteristica_manual($request->{$caracteristica}, $empreendimento, 'Empreendimento', $caracteristica, $parametros);
         }
-        
+
     }
 
     public function atribuirMidiasEmpreendimento($request, $empreendimento)
@@ -197,7 +197,7 @@ class Empreendimento extends Model
         $this->atribuirMidiasEmpreendimento($request, $empreendimento);
 
         return true;
-        
+
     }
 
     public function salvarCanaisEmpreendimento($request, $id)
@@ -207,10 +207,10 @@ class Empreendimento extends Model
         $this->atribuirCanaisEmpreendimento($request, $empreendimento);
 
         return true;
-        
+
     }
 
-    public function geraPdfMapa($urlMapa) 
+    public function geraPdfMapa($urlMapa)
     {
 
         $curl = curl_init();
@@ -250,9 +250,9 @@ class Empreendimento extends Model
             }
         }
         return $response;
-    }   
-    
-    public function geraPdfMapaVendas($urlMapa) 
+    }
+
+    public function geraPdfMapaVendas($urlMapa)
     {
 
         $curl = curl_init();
@@ -284,11 +284,11 @@ class Empreendimento extends Model
                 $campo => 'image|mimes:jpeg,png,jpg,gif,svg',
             ]);
 
-            $file = $request->file($campo);                
+            $file = $request->file($campo);
             $filename = $file->getClientOriginalExtension();
             $path = $file->storeAs("empreendimento/{$empreendimento->id}/arquivo", $filename);
             return $filename;
-        }     
+        }
     }
 
     public function getEnderecoCompleto(array $dados = [])
@@ -298,7 +298,7 @@ class Empreendimento extends Model
         if (!isset($dados['endereco'])) {
 
             $cidade = $dados['cidade'];
-            $bairro = $dados['bairro'];            
+            $bairro = $dados['bairro'];
 
             if ($dados['logradouro']) {
                 $resultado .= "{$dados['logradouro']}";
@@ -329,10 +329,10 @@ class Empreendimento extends Model
                 $resultado .= ", {$cidade->estado->nome}";
             }
 
-            return $resultado;            
+            return $resultado;
         }
 
-        $endereco = $dados['endereco'];        
+        $endereco = $dados['endereco'];
 
         if ($endereco) {
             if ($endereco->logradouro) {
@@ -364,7 +364,7 @@ class Empreendimento extends Model
             }
 
             return $resultado;
-        }        
+        }
     }
 
     public function getEnderecoEmpreendimento()
@@ -383,7 +383,7 @@ class Empreendimento extends Model
 
             if ($this->endereco->complemento) {
                 $resultado .= ", {$this->endereco->complemento}";
-            }        
+            }
 
             if ($this->endereco->bairro) {
                 $resultado .= ", {$this->endereco->bairro->nome}";
@@ -402,11 +402,11 @@ class Empreendimento extends Model
             }
         }
 
-        return $resultado;            
+        return $resultado;
     }
 
     public function salvarEnderecoEmpreendimento($request, $id)
-    {        
+    {
         $empreendimento = $this->find($id);
 
         if ($empreendimento->endereco) {
@@ -429,7 +429,7 @@ class Empreendimento extends Model
     }
 
     public function salvarEnderecoStand($request, $id)
-    {        
+    {
         $empreendimento = $this->find($id);
 
         if ($empreendimento->enderecoStand) {
@@ -453,7 +453,7 @@ class Empreendimento extends Model
 
     public function salvarDadosMapa($endereco, $request)
     {
-        if ($request->marcar_mapa == 'Sim') {        
+        if ($request->marcar_mapa == 'Sim') {
             if ($request->latitude) {
                 $endereco->latitude = $request->latitude;
                 $endereco->save();
@@ -463,8 +463,8 @@ class Empreendimento extends Model
                 $endereco->longitude = $request->longitude;
                 $endereco->save();
             }
-            
-            return true;    
+
+            return true;
         }
 
         $gmap = new GMaps();
@@ -476,10 +476,10 @@ class Empreendimento extends Model
         } catch (\Exception $e) {
             $dados = [];
         }
-            
+
         $endereco->latitude = isset($dados[0]) ? $dados[0] : null;
         $endereco->longitude = isset($dados[1]) ? $dados[1] : null;
-        $endereco->save();        
+        $endereco->save();
     }
 
     public function getLatitudeLongitude(array $dados)
@@ -490,7 +490,7 @@ class Empreendimento extends Model
             $dados = $gmap->get_lat_long_from_address($this->getEnderecoCompleto($dados));
         } catch (\Exception $e) {
             $dados = [];
-        }        
+        }
 
         return [
             'latitude' => isset($dados[0]) ? $dados[0] : null,
@@ -499,7 +499,7 @@ class Empreendimento extends Model
     }
 
     public function salvarItensLazerEmpreendimento($request, $id)
-    {        
+    {
         $empreendimento = $this->find($id);
 
         $this->associarItensLazer($empreendimento, $request);
@@ -516,18 +516,18 @@ class Empreendimento extends Model
         $delete = $empreendimento->itensLazer()->get()->toArray();
 
         foreach ($delete as $item) {
-            $empreendimento->itensLazer()->detach($item['id']);            
+            $empreendimento->itensLazer()->detach($item['id']);
         }
 
-        if ($caracteristicas) {            
-            foreach ($caracteristicas as $caracteristica) { 
+        if ($caracteristicas) {
+            foreach ($caracteristicas as $caracteristica) {
                 $empreendimento->itensLazer()->attach($caracteristica);
             }
-        }        
+        }
     }
 
     public function salvarCaracteristicasEmpreendimento($request, $id)
-    {        
+    {
         $empreendimento = $this->find($id);
 
         $this->associarCaracteristicasEmpreendimento($empreendimento, $request);
@@ -544,15 +544,15 @@ class Empreendimento extends Model
         $delete = $empreendimento->caracteristicas()->where('tipo', 'Empreendimento')->get()->toArray();
 
         foreach ($delete as $item) {
-            $empreendimento->caracteristicas()->detach($item['id']);            
+            $empreendimento->caracteristicas()->detach($item['id']);
         }
 
-        if ($caracteristicas) {            
-            foreach ($caracteristicas as $caracteristica) {                
+        if ($caracteristicas) {
+            foreach ($caracteristicas as $caracteristica) {
                 $empreendimento->caracteristicas()->attach($caracteristica);
             }
-        }        
-    }    
+        }
+    }
 
     public function excluir($request)
     {
@@ -562,7 +562,7 @@ class Empreendimento extends Model
 
         if ($id) {
             $empreendimento = $this->find($id);
-            
+
             if ($empreendimento->tipo == 'Vertical') {
                 if (!$this->verificarExclusaoVertical($empreendimento)) {
                     return false;
@@ -633,8 +633,8 @@ class Empreendimento extends Model
 
     public function fotoPrincipal()
     {
-        $foto = $this->fotos->where('destaque_principal', 'Sim')->first();    
-        
+        $foto = $this->fotos->where('destaque_principal', 'Sim')->first();
+
         if ($foto) {
             return url("uploads/empreendimento/{$foto->empreendimento_id}/400x300/{$foto->arquivo}");
         }
@@ -644,8 +644,8 @@ class Empreendimento extends Model
 
     public function fotoMapa()
     {
-        $foto = $this->fotos->where('tipo', 'Implantação')->first();    
-        
+        $foto = $this->fotos->where('tipo', 'Implantação')->first();
+
         if ($foto) {
             return url("uploads/empreendimento/{$foto->empreendimento_id}/400x300/{$foto->arquivo}");
         }
@@ -662,7 +662,7 @@ class Empreendimento extends Model
             'destaque_carrossel' => 'original',
         ];
 
-        $foto = $this->fotos->where($tipo, 'Sim')->first();        
+        $foto = $this->fotos->where($tipo, 'Sim')->first();
         if ($foto && isset($tamanhos[$tipo])) {
             return url("uploads/empreendimento/{$foto->empreendimento_id}/{$tamanhos[$tipo]}/{$foto->arquivo}");
         }
@@ -670,12 +670,12 @@ class Empreendimento extends Model
 
     public function getFotoTipo($tipo = 'Decorado')
     {
-        $foto = $this->fotos->where('tipo', $tipo)->first();        
+        $foto = $this->fotos->where('tipo', $tipo)->first();
         if ($foto) {
             return url("uploads/empreendimento/{$foto->empreendimento_id}/original/{$foto->arquivo}");
         }
     }
-    
+
     public function getFotosCarrossel()
     {
         return Foto::where('empreendimento_id', $this->id)
@@ -705,19 +705,19 @@ class Empreendimento extends Model
         if($parametro == 'valor-de'):
             $oferta = Oferta::where('validade', '>=', date('Y-m-d'))->whereNull('deleted_at')->where('empreendimento_id', $this->id)->select('ofertas.preco_tabela')->orderBy('ofertas.preco_tabela','asc')->first();
             if($oferta):
-                return $oferta->preco_tabela; 
+                return $oferta->preco_tabela;
             else:
-                return '0.00'; 
+                return '0.00';
             endif;
         endif;
 
         if($parametro == 'valor-por'):
             $oferta = Oferta::where('validade', '>=', date('Y-m-d'))->whereNull('deleted_at')->where('empreendimento_id', $this->id)->select('ofertas.preco_oferta')->orderBy('ofertas.preco_oferta','asc')->first();
-            
+
             if($oferta):
-                return $oferta->preco_oferta; 
+                return $oferta->preco_oferta;
             else:
-                return '0.00'; 
+                return '0.00';
             endif;
         endif;
 
@@ -751,7 +751,7 @@ class Empreendimento extends Model
         ->where('unidades.situacao', 'Disponível')
         ->get();
     }
-   
+
     public function getUrlDisponibilidade()
     {
         return "https://www.lancamentosonline.com.br/empreendimento/{$this->id}/unidades/imprimir-disponibilidade";
@@ -778,7 +778,7 @@ class Empreendimento extends Model
     }
 
     public function autocompleteGeral($texto)
-    {    
+    {
         $empreendimentos = $this->getAutocomplete($texto);
         $construtoras = (new Construtora())->getAutocomplete($texto);
         $cidades = (new Cidade())->getAutocomplete($texto);
@@ -794,7 +794,7 @@ class Empreendimento extends Model
             ->where('construtoras.status', 'Liberada')
             ->where('empreendimentos.status', 'Liberada')
             ->get('empreendimentos.nome')
-            ->toArray();        
+            ->toArray();
     }
 
     public function buscar(array $parametros)
@@ -807,7 +807,7 @@ class Empreendimento extends Model
         $empreendimentos->select('empreendimentos.*');
         $empreendimentos->where('empreendimentos.status', 'Liberada');
         $empreendimentos->join('construtoras', 'empreendimentos.construtora_id', '=', 'construtoras.id')
-            ->where('construtoras.status', 'Liberada');    
+            ->where('construtoras.status', 'Liberada');
 
         $this->buscarEstado($parametros, $empreendimentos);
         $this->buscarCidade($parametros, $empreendimentos);
@@ -827,11 +827,11 @@ class Empreendimento extends Model
         $this->buscarOferta($parametros, $empreendimentos);
         $this->buscaOrdenacao($parametros, $empreendimentos);
 
-        $empreendimentos->groupBy('empreendimentos.id');        
-        
+        $empreendimentos->groupBy('empreendimentos.id');
+
         if (!$ordenacao) {
-            $empreendimentos->orderBy('empreendimentos.valor_inicial', 'ASC');    
-        }        
+            $empreendimentos->orderBy('empreendimentos.valor_inicial', 'ASC');
+        }
 
         $dados = $this->paginacao($empreendimentos, $parametros['page'], $parametros['querystring'], $parametros['url']);
 
@@ -843,7 +843,7 @@ class Empreendimento extends Model
             'total' => $dados['total'],
         ];
     }
-    
+
     public function salvarEstatistica($empreendimentos)
     {
         foreach ($empreendimentos as $empreendimento) {
@@ -886,9 +886,9 @@ class Empreendimento extends Model
         $empreendimentos->when($estado_id, function ($q) use ($estado_id, $empreendimentos) {
 
             if (!self::isJoined($empreendimentos, 'enderecos')) {
-                $q->join('enderecos', 'empreendimentos.endereco_id', '=', 'enderecos.id');    
+                $q->join('enderecos', 'empreendimentos.endereco_id', '=', 'enderecos.id');
             }
-            
+
             $q->where('estado_id', $estado_id);
         });
     }
@@ -899,9 +899,9 @@ class Empreendimento extends Model
 
         $empreendimentos->when($cidade_id, function ($q) use ($cidade_id, $empreendimentos) {
             if (!self::isJoined($empreendimentos, 'enderecos')) {
-                $q->join('enderecos', 'empreendimentos.endereco_id', '=', 'enderecos.id');    
+                $q->join('enderecos', 'empreendimentos.endereco_id', '=', 'enderecos.id');
             }
-            
+
             $q->where('cidade_id', $cidade_id);
         });
     }
@@ -932,12 +932,12 @@ class Empreendimento extends Model
             $data_atual = date("Y-m-d");
             $q->where('ofertas.validade',  '>=', $data_atual);
             $q->whereNull('ofertas.deleted_at');
-            
+
         });
     }
 
 
-    
+
 
     public function buscarTipo($parametros, $empreendimentos)
     {
@@ -961,20 +961,20 @@ class Empreendimento extends Model
         $empreendimentos->when($busca_rapida, function ($q) use ($busca_rapida, $empreendimentos) {
 
             if (!self::isJoined($empreendimentos, 'enderecos')) {
-                $q->leftJoin('enderecos', 'empreendimentos.endereco_id', '=', 'enderecos.id');    
+                $q->leftJoin('enderecos', 'empreendimentos.endereco_id', '=', 'enderecos.id');
             }
 
             if (!self::isJoined($empreendimentos, 'cidades')) {
-                $q->leftJoin('cidades', 'enderecos.cidade_id', '=', 'cidades.id');    
+                $q->leftJoin('cidades', 'enderecos.cidade_id', '=', 'cidades.id');
             }
 
             if (!self::isJoined($empreendimentos, 'bairros')) {
-                $q->leftJoin('bairros', 'enderecos.bairro_id', '=', 'bairros.id');    
+                $q->leftJoin('bairros', 'enderecos.bairro_id', '=', 'bairros.id');
             }
 
             if (!self::isJoined($empreendimentos, 'construtoras')) {
                 $q->leftJoin('construtoras', 'empreendimentos.construtora_id', '=', 'construtoras.id');
-            }            
+            }
 
             $q->where(function ($query) use ($busca_rapida) {
                 $query->where('empreendimentos.nome', 'like', "%{$busca_rapida}%");
@@ -982,7 +982,7 @@ class Empreendimento extends Model
                 $query->orWhere('cidades.nome', 'like', "%{$busca_rapida}%");
                 $query->orWhere('construtoras.nome', 'like', "%{$busca_rapida}%");
             });
-            
+
         });
     }
 
@@ -1019,7 +1019,7 @@ class Empreendimento extends Model
 
         $empreendimentos->when($estado_id_multiplo, function ($q) use ($estado_id_multiplo, $empreendimentos) {
             if (!self::isJoined($empreendimentos, 'enderecos')) {
-                $q->join('enderecos', 'empreendimentos.endereco_id', '=', 'enderecos.id');    
+                $q->join('enderecos', 'empreendimentos.endereco_id', '=', 'enderecos.id');
             }
 
             $q->whereIn('estado_id', $estado_id_multiplo);
@@ -1032,7 +1032,7 @@ class Empreendimento extends Model
 
         $empreendimentos->when($cidade_id_multiplo, function ($q) use ($cidade_id_multiplo, $empreendimentos) {
             if (!self::isJoined($empreendimentos, 'enderecos')) {
-                $q->join('enderecos', 'empreendimentos.endereco_id', '=', 'enderecos.id');    
+                $q->join('enderecos', 'empreendimentos.endereco_id', '=', 'enderecos.id');
             }
 
             $q->whereIn('cidade_id', $cidade_id_multiplo);
@@ -1043,9 +1043,9 @@ class Empreendimento extends Model
     {
         $bairro_id_multiplo = isset($parametros['bairro_id_multiplo']) ? $parametros['bairro_id_multiplo'] : null;
 
-        $empreendimentos->when($bairro_id_multiplo, function ($q) use ($bairro_id_multiplo, $empreendimentos) {            
+        $empreendimentos->when($bairro_id_multiplo, function ($q) use ($bairro_id_multiplo, $empreendimentos) {
             if (!self::isJoined($empreendimentos, 'enderecos')) {
-                $q->join('enderecos', 'empreendimentos.endereco_id', '=', 'enderecos.id');    
+                $q->join('enderecos', 'empreendimentos.endereco_id', '=', 'enderecos.id');
             }
 
             $q->whereIn('bairro_id', $bairro_id_multiplo);
@@ -1056,7 +1056,7 @@ class Empreendimento extends Model
     {
         $modalidade_id_multiplo = isset($parametros['modalidade_id_multiplo']) ? $parametros['modalidade_id_multiplo'] : null;
 
-        $empreendimentos->when($modalidade_id_multiplo, function ($q) use ($modalidade_id_multiplo) {       
+        $empreendimentos->when($modalidade_id_multiplo, function ($q) use ($modalidade_id_multiplo) {
             $q->whereIn('empreendimentos.modalidade', $modalidade_id_multiplo);
         });
     }
@@ -1100,7 +1100,7 @@ class Empreendimento extends Model
                 $q->join('plantas', 'empreendimentos.id', '=', 'plantas.empreendimento_id');
             }
 
-            $range = explode('-', $area);            
+            $range = explode('-', $area);
 
             $q->join(DB::raw('caracteristicas_plantas as c3'), function ($j) use ($range) {
                 $j->on('plantas.id', '=', 'c3.planta_id')
@@ -1115,24 +1115,24 @@ class Empreendimento extends Model
 
         $empreendimentos->when($ordenacao, function ($q) use ($empreendimentos, $ordenacao) {
             if ($ordenacao == 'maior_valor' || $ordenacao == 'menor_valor') {
-                
+
                 $ordem = $ordenacao == 'maior_valor' ? 'DESC' : 'ASC';
 
                 $q->orderBy('empreendimentos.valor_inicial', $ordem);
-            }            
+            }
 
             if ($ordenacao == 'maior_area' || $ordenacao == 'menor_area') {
 
-                $ordem = $ordenacao == 'maior_area' ? 'DESC' : 'ASC';                
+                $ordem = $ordenacao == 'maior_area' ? 'DESC' : 'ASC';
 
                 if (!self::isJoined($empreendimentos, 'plantas')) {
-                    $q->join('plantas', 'empreendimentos.id', '=', 'plantas.empreendimento_id');                
+                    $q->join('plantas', 'empreendimentos.id', '=', 'plantas.empreendimento_id');
                 }
 
                 $q->where('plantas.area_privativa', '<>', '');
                 $q->where('plantas.area_privativa', '>', '0.00');
                 $q->orderBy('plantas.area_privativa', $ordem);
-            }            
+            }
         });
     }
 
@@ -1141,12 +1141,12 @@ class Empreendimento extends Model
         DB::enableQueryLog(); // Enable query log
 
         $empreendimentos = Empreendimento::query();
-        
+
         $empreendimentos->where('construtora_id', $construtora_id);
 
         $empreendimentos->when($request->nome, function ($q) use ($request) {
             $q->where('empreendimentos.nome', 'like', "%{$request->nome}%");
-        });        
+        });
 
         $empreendimentos->when($request->subtipo_id, function ($q) use ($request) {
             if ($request->subtipo_id != 'Todas') {
@@ -1157,11 +1157,11 @@ class Empreendimento extends Model
         $empreendimentos->when($request->cidade_id, function ($q) use ($request, $empreendimentos) {
             if ($request->cidade_id != 'Todas') {
                 if (!self::isJoined($empreendimentos, 'enderecos')) {
-                    $q->join('enderecos', 'empreendimentos.endereco_id', '=', 'enderecos.id');    
+                    $q->join('enderecos', 'empreendimentos.endereco_id', '=', 'enderecos.id');
                 }
-                
+
                 $q->where('cidade_id', $request->cidade_id);
-            }           
+            }
         });
 
         $empreendimentos->when($request->status, function ($q) use ($request) {
@@ -1169,10 +1169,10 @@ class Empreendimento extends Model
                 $q->where('status', $request->status);
             } else {
                 $q->where('status', '<>' , 'Excluido');
-            }  
-        });          
+            }
+        });
 
-        return $empreendimentos->get();        
+        return $empreendimentos->get();
     }
 
     public function getCaracteristica($nome, $tipo = 'unico')
@@ -1191,18 +1191,18 @@ class Empreendimento extends Model
             case 'minimo_planta':
                 $valores = $this->getTodosValoresCaracteristicaPlanta($this->plantas, $nome);
                 if ($valores) {
-                    return min($valores);    
+                    return min($valores);
                 }
             break;
 
             case 'maximo_planta':
                 $valores = $this->getTodosValoresCaracteristicaPlanta($this->plantas, $nome);
                 if ($valores) {
-                    return max($valores);    
+                    return max($valores);
                 }
-                
+
             break;
-            
+
             default:
                 $caracteristica = $this->caracteristicas->where('nome', $nome)->first();
                 if ($caracteristica) {
@@ -1230,9 +1230,9 @@ class Empreendimento extends Model
         $valores = [];
 
         foreach ($plantas as $planta) {
-            
+
             $caracteristica = $planta->caracteristicas->where('nome', $nome);
-            
+
             foreach ($caracteristica as $c) {
                 if ($c->pivot->valor) {
                     $valores[] = $c->pivot->valor;
@@ -1251,10 +1251,10 @@ class Empreendimento extends Model
             ->where('subtipo_id', $this->subtipo->id)
             ->where('modalidade', $this->modalidade)
             ->join('enderecos', 'empreendimentos.endereco_id', '=', 'enderecos.id');
-        
+
         if ($this->endereco && $this->endereco->cidade->estado) {
             $resultados->where('estado_id', $this->endereco->cidade->estado->id);
-        }        
+        }
 
         return $resultados->where('empreendimentos.id', '<>', $this->id)
             ->where('empreendimentos.status', 'Liberada')
@@ -1274,7 +1274,7 @@ class Empreendimento extends Model
             ->where('empreendimentos.status', 'Liberada')
             ->limit(8)
             ->get();
-    }    
+    }
 
     public function similares3()
     {
@@ -1335,7 +1335,7 @@ class Empreendimento extends Model
         $destaque_principal = false;
         $destaque_carrossel = 0;
         $classificadas = 0;
- 
+
         foreach ($fotos as $foto) {
             if ($foto->tipo != 'Geral') {
                 $classificadas++;
@@ -1461,6 +1461,11 @@ class Empreendimento extends Model
         return $this->belongsTo('App\Models\TabelaVendas');
     }
 
+    public function TabelaAtiva()
+    {
+        return $this->hasMany('App\Models\TabelaVendas')->where('validade_tabela', '>=', (new \DateTime())->format('Y-m-d'))->whereNull('deleted_at');
+    }
+
     public function ofertasAtivas()
     {
         return $this->hasMany('App\Models\Oferta')->where('validade', '>=', (new \DateTime())->format('Y-m-d'))->whereNull('deleted_at');
@@ -1494,7 +1499,7 @@ class Empreendimento extends Model
     public function perfil()
     {
         return $this->hasMany('App\Models\EmpreendimentoPerfil');
-    }    
+    }
 
     public function fotos()
     {
@@ -1504,25 +1509,25 @@ class Empreendimento extends Model
     public function subtipo()
     {
         return $this->belongsTo('App\Models\Subtipo');
-        
+
     }
 
     public function variacao()
     {
         return $this->belongsTo('App\Models\Variacao');
-        
+
     }
 
     public function pavimentos()
     {
         return $this->hasMany('App\Models\PavimentoGaragem');
-        
+
     }
 
     public function historicoUnidades()
     {
         return $this->hasMany('App\Models\HistoricoAlteracaoUnidade');
-        
+
     }
 
     public function compradores()
@@ -1541,7 +1546,7 @@ class Empreendimento extends Model
     | ACCESORS
     |--------------------------------------------------------------------------
     */
-    
+
     public function getValorInicialAttribute($valor)
     {
         if ($valor) {
