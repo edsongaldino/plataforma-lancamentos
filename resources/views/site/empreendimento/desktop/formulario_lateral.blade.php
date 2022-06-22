@@ -71,9 +71,9 @@ if ($previsao_condominio) {
 <!-- Caso existam tabelas ativas mostra QRCode da Proposta Online e oculta o formulário  -->
 @if($empreendimento->TabelaAtiva->count() > 0)
 
-<div class="box-proposta-online">
-    <img src="/site/imagens/qr-code-proposta/proposta-{{ $empreendimento->id }}.png" alt="" class="qrcode">
-</div>
+    <div class="box-proposta-online">
+        <img src="/site/imagens/qr-code-proposta/proposta-{{ $empreendimento->id }}.png" alt="" class="qrcode">
+    </div>
 
 @else
     <form id="form-contato-construtora">

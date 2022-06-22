@@ -9,7 +9,7 @@ $(function () {
       data: formData,
       beforeSend: addLoading(),
       processData: false,
-      contentType: false, 
+      contentType: false,
       success: function (response) {
         removeLoading();
         Swal.fire({
@@ -30,7 +30,7 @@ $(function () {
           $.each(errors, function(key, value) {
             new PNotify({
               text: value,
-              type: 'error',                    
+              type: 'error',
             });
           });
         }
@@ -38,7 +38,7 @@ $(function () {
         if (data.status == 500) {
           new PNotify({
             text: 'Erro, tente novamente mais tarde',
-            type: 'error',                    
+            type: 'error',
           });
         }
       }
@@ -130,7 +130,7 @@ $(function () {
   });
 
   $("#salvar-arquivos-empreendimento").on('click', function (e) {
-    
+
     e.preventDefault();
     e.stopImmediatePropagation();
     var form = $("#arquivos-empreendimento").closest("form");
@@ -143,7 +143,7 @@ $(function () {
         processData: false,
         contentType: false,
         success: function(data) {
-          
+
           Swal.fire(
             'OK!',
             'Os arquivos foram salvos!',
@@ -183,7 +183,7 @@ $(function () {
     html.show();
 
     $('#telefones').append(html);
-    
+
     $(document).trigger("mascara-telefone");
   });
 
@@ -195,7 +195,7 @@ $(function () {
   $(document).on('change', '.tipo-telefone', function () {
     var tipo = $(this).val();
 
-    if (tipo == 'Celular' || tipo == 'WhatsApp' || tipo == 'CelularWhatsapp') {      
+    if (tipo == 'Celular' || tipo == 'WhatsApp' || tipo == 'CelularWhatsapp') {
       $(this).parent().siblings('.numero-telefone').find('.input-group').find('.input-telefone').unmask().mask('(00) 00000-0000');
     } else {
       $(this).parent().siblings('.numero-telefone').find('.input-group').find('.input-telefone').unmask().mask('(00) 0000-0000');
@@ -215,15 +215,15 @@ $(function () {
     });
     $("#cidade-cep-wrapper").hide();
     $("#cidade-wrapper").show();
-    $("#bairro-wrapper").html('');    
-    $("#bairro-comercial-wrapper").html('');    
+    $("#bairro-wrapper").html('');
+    $("#bairro-comercial-wrapper").html('');
   });
 
   $(document).on("change", "#cidade_id", function () {
     var cidade_id = $(this).val();
     $("#bairro-wrapper").show();
     $("#bairro-comercial-wrapper").show();
-    
+
     ajaxRequest({
       url: '/admin/buscar-bairro',
       metodo: 'POST',
@@ -232,7 +232,7 @@ $(function () {
       },
       feedback: false,
       resultado: "#bairro-wrapper"
-    });    
+    });
 
     ajaxRequest({
       url: '/admin/buscar-bairro-comercial',
@@ -242,7 +242,50 @@ $(function () {
       },
       feedback: false,
       resultado: "#bairro-comercial-wrapper"
-    });    
+    });
+  });
+
+  $(document).on("change", "#estado_stand", function () {
+    var estado_id = $(this).val();
+    ajaxRequest({
+      url: '/admin/buscar-cidade-stand',
+      metodo: 'POST',
+      dados: {
+        estado_id: estado_id
+      },
+      feedback: false,
+      resultado: "#cidade-wrapper-stand"
+    });
+    $("#cidade-cep-wrapper-stand").hide();
+    $("#cidade-wrapper-stand").show();
+    $("#bairro-wrapper-stand").html('');
+    $("#bairro-comercial-wrapper-stand").html('');
+  });
+
+  $(document).on("change", "#cidadeStand", function () {
+    var cidade_id = $(this).val();
+    $("#bairro-wrapper-stand").show();
+    $("#bairro-comercial-wrapper-stand").show();
+
+    ajaxRequest({
+      url: '/admin/buscar-bairro',
+      metodo: 'POST',
+      dados: {
+        cidade_id: cidade_id
+      },
+      feedback: false,
+      resultado: "#bairro-wrapper-stand"
+    });
+
+    ajaxRequest({
+      url: '/admin/buscar-bairro-comercial',
+      metodo: 'POST',
+      dados: {
+        cidade_id: cidade_id
+      },
+      feedback: false,
+      resultado: "#bairro-comercial-wrapper-stand"
+    });
   });
 
   $(document).on("change", "#tipo", function () {
@@ -255,7 +298,7 @@ $(function () {
       },
       feedback: false,
       resultado: "#subtipo"
-    });    
+    });
   });
 
   $(document).on("change", "#subtipo", function () {
@@ -269,7 +312,7 @@ $(function () {
       },
       feedback: false,
       resultado: "#variacao"
-    });    
+    });
   });
 
   $(document).on('click', '.remover-empreendimento', function (e) {
@@ -286,15 +329,15 @@ $(function () {
           reload: true,
           mensagemSucesso: "Empreendimento excluído com sucesso",
           mensagemErro: "Erro ao excluir, tente novamente mais tarde"
-        });        
+        });
       }
-    });    
+    });
   });
 
 
 
   $("#addTour").on('click', function () {
-    $('.linha-tour').clone().appendTo($('#tour360'));    
+    $('.linha-tour').clone().appendTo($('#tour360'));
   });
 
   $(document).on('click', '.removeTour', function () {
@@ -314,9 +357,9 @@ $(function () {
     });
     $("#cidade-cep-wrapper").hide();
     $("#cidade-wrapper").show();
-    $("#bairro-wrapper").html('');    
-    $("#bairro-comercial-wrapper").html('');    
+    $("#bairro-wrapper").html('');
+    $("#bairro-comercial-wrapper").html('');
   });
-  
+
 
 });

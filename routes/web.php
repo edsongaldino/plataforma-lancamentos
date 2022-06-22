@@ -397,6 +397,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth'], 'namespace' 
 
 	Route::post('buscar-cidade', 'CidadeController@buscarCidade');
 
+    Route::post('buscar-cidade-stand', 'CidadeController@buscarCidadeStand');
+
 	Route::post('buscar-bairro', 'CidadeController@buscarBairro');
 
 	Route::post('buscar-bairro-comercial', 'CidadeController@buscarBairroComercial');

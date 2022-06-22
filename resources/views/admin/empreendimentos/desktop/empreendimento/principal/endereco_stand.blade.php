@@ -63,10 +63,10 @@
           </div>
         </div>
 
-        <input type="hidden" name="estado_nome_cep">              
-        <input type="hidden" name="cidade_nome_cep">              
-        <input type="hidden" name="bairro_nome_cep">              
-        
+        <input type="hidden" name="estado_nome_cep">
+        <input type="hidden" name="cidade_nome_cep">
+        <input type="hidden" name="bairro_nome_cep">
+
         @if (isset($endereco_stand) && $endereco_stand->cidade_id)
           <div class="form-group">
             <label class="col-md-2 control-label">UF</label>
@@ -88,24 +88,24 @@
                   @endif
                 </select>
               </div>
-            </div>                          
+            </div>
           </div>
         @else
           <div class="form-group">
             <label class="col-md-2 control-label">UF</label>
             <div class="col-md-5">
-              <div class="input-group">              
+              <div class="input-group">
                 <span class="input-group-addon">
                   <i class="fa fa-map-marker"></i>
                 </span>
-                <div id="estado-wrapper">
-                  <select id="estado" name="estado_id" class="form-control">                
+                <div id="estado-wrapper-stand">
+                  <select id="estado_stand" name="estado_id" class="form-control">
                     <option>Selecione o estado</option>
                     @foreach(get_estados() as $estado)
                       <option value="{{ $estado->id }}">{{ $estado->nome }}</option>
                     @endforeach
                   </select>
-                </div>                
+                </div>
               </div>
             </div>
           </div>
@@ -119,13 +119,13 @@
                 <span class="input-group-addon">
                   <i class="fa fa-map-marker"></i>
                 </span>
-                <div id="cidade-wrapper">
-                  <select id="cidade" name="cidade_id" class="form-control">
+                <div id="cidade-wrapper-stand">
+                  <select id="cidade" name="cidadeStand" class="form-control">
                     @if (isset($cidades_stand))
                     @foreach($cidades_stand as $cidade)
                     <option value="{{ $cidade->id }}"
                     @if ($cidade->id == $endereco_stand->cidade_id)
-                    selected="true" 
+                    selected="true"
                     @endif
                     >{{ $cidade->nome }}</option>
                     @endforeach
@@ -139,15 +139,15 @@
           <div class="form-group">
             <label class="col-md-2 control-label">Cidade</label>
             <div class="col-md-5">
-              <div class="input-group">              
+              <div class="input-group">
                 <span class="input-group-addon">
                   <i class="fa fa-map-marker"></i>
                 </span>
-                <div id="cidade-wrapper"></div>
+                <div id="cidade-wrapper-stand"></div>
               </div>
             </div>
           </div>
-        @endif            
+        @endif
 
         @if (isset($endereco_stand) && $endereco_stand->bairro_id)
           <div class="form-group">
@@ -176,15 +176,15 @@
           <div class="form-group">
             <label class="col-md-2 control-label">Bairro</label>
             <div class="col-md-5">
-              <div class="input-group">              
+              <div class="input-group">
                 <span class="input-group-addon">
                   <i class="fa fa-map-marker"></i>
                 </span>
-                <div id="bairro-wrapper"></div>
+                <div id="bairro-wrapper-stand"></div>
               </div>
             </div>
           </div>
-        @endif        
+        @endif
 
         <div class="form-group">
           <label class="col-md-3 control-label" for="inputSuccess">Por padrão o ponto no mapa é marcado automaticamente  </label>
@@ -194,19 +194,19 @@
                 <input type="checkbox" value="Sim" id="marcar_mapa" name="marcar_mapa" @if(isset($endereco_stand) && $endereco_stand->marcar_mapa == 'Sim') checked="true" @endif>
                 Desejo marcar manualmente
               </label>
-            </div>                    
+            </div>
           </div>
         </div>
 
         <div id="map_stand_canvas" style="width: 100%; height: 400px; margin-bottom:20px;"></div>
 
         <div class="form-group">
-          <div class="col-md-12">  
+          <div class="col-md-12">
 
             @if(Auth::user()->getRoleNames() == '["Diretor"]' || Auth::user()->getRoleNames() == '["Marketing"]' || Auth::user()->getRoleNames() == '["Gerente de Vendas"]' || isAdmin())
-            <button class="btn btn-success salvar-dados" type="button" id="salvar-endereco-stand"><i class="fa fa-save"></i> Salvar dados</button>    
-            @else 
-            <button class="btn btn-success salvar-dados erro-permissao" type="button"><i class="fa fa-save"></i> Salvar dados</button> 
+            <button class="btn btn-success salvar-dados" type="button" id="salvar-endereco-stand"><i class="fa fa-save"></i> Salvar dados</button>
+            @else
+            <button class="btn btn-success salvar-dados erro-permissao" type="button"><i class="fa fa-save"></i> Salvar dados</button>
             @endif
 
           </div>
