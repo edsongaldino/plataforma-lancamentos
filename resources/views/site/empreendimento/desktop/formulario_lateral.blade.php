@@ -72,9 +72,8 @@ if ($previsao_condominio) {
 @if($empreendimento->TabelaAtiva->count() > 0)
 
 <div class="box-proposta-online">
-    <img src="/site/imagens/qr-code-proposta/proposta-{{ $empreendimento->id }}.jfif" alt="" class="qrcode">
+    <img src="/site/imagens/qr-code-proposta/proposta-{{ $empreendimento->id }}.png" alt="" class="qrcode">
 </div>
-
 
 @else
     <form id="form-contato-construtora">
