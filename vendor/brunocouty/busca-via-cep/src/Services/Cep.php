@@ -15,7 +15,7 @@ class Cep
             ]
         ]);
         try{
-            $response = $guzzle->get("https://viacep.com.br/ws/{$cep}/json/unicode/");
+            $response = $guzzle->get("https://viacep.com.br/ws/{$cep}/json/");
         } catch (\Exception $e) {
             return response([
                 'message' => $e->getMessage(),
