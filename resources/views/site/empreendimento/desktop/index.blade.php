@@ -23,9 +23,9 @@
 
 @push('css')
 <!-- Bootstrap -->
-<link rel="stylesheet" href="/site/ferramenta/bootstrap/bootstrap.min.css">    
-<!-- Font awesome styles -->    
-<link rel="stylesheet" href="/site/ferramenta/apartment-font/css/font-awesome.min.css">  
+<link rel="stylesheet" href="/site/ferramenta/bootstrap/bootstrap.min.css">
+<!-- Font awesome styles -->
+<link rel="stylesheet" href="/site/ferramenta/apartment-font/css/font-awesome.min.css">
 <!-- Custom styles -->
 <link rel="stylesheet" type="text/css" href="/site/css/plugins.css">
 <link rel="stylesheet" type="text/css" href="/site/css/apartment-layout.css?v=02">
@@ -38,7 +38,7 @@
 
 @push('js_header')
 <script src="/site/ferramenta/js/jQuery/jquery.min.js"></script>
-<script src="/site/ferramenta/js/jQuery/jquery-ui.min.js"></script>  
+<script src="/site/ferramenta/js/jQuery/jquery-ui.min.js"></script>
 <script src="/site/ferramenta/bootstrap/bootstrap.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-1kSaM3BsibuKoW3Dip8d7Uw2p9mLuws&amp;libraries=places"></script>
 <script src="/site/ferramenta/js/plugins.js"></script>
@@ -65,27 +65,27 @@
 @push('js_footer')
   <script src="/assets/vendor/pnotify/pnotify.custom.js"></script>
   <script src="/assets/vendor/magnific-popup/magnific-popup.js"></script>
-  <script src="/site/painel/assets/javascripts/ui-elements/examples.modals.js"></script>  
+  <script src="/site/painel/assets/javascripts/ui-elements/examples.modals.js"></script>
   <script src="/site/painel/assets/javascripts/ui-elements/examples.lightbox.js"></script>
 @endpush
 
-@section('content')  
+@section('content')
   @include('site/empreendimento/desktop/modal')
   @include('site/empreendimento/desktop/carrossel')
   <section class="section-light no-bottom-padding">
     <div class="container">
       <div class="col-xs-12">
         <div class="row info-empreendimento">
-          <div class="col-xs-12 col-sm-7 col-md-8 col-lg-8">              
+          <div class="col-xs-12 col-sm-7 col-md-8 col-lg-8">
             @include('site/empreendimento/desktop/descricao')
-            <div class="details-parameters detalhe">                                
+            <div class="details-parameters detalhe">
               @if($empreendimento->subtipo->id == 1)
                 @include('site/empreendimento/desktop/apartamento')
               @elseif($empreendimento->subtipo->id==2)
                 @include('site/empreendimento/desktop/comercial')
               @elseif($empreendimento->subtipo->id==5)
                 @include('site/empreendimento/desktop/lote_comercial')
-              @elseif ($empreendimento->subtipo->id == 3)                              
+              @elseif ($empreendimento->subtipo->id == 3)
                 @if($empreendimento->variacao)
                   @if($empreendimento->variacao->nome == "Lote")
                     @include('site/empreendimento/desktop/lote')
@@ -93,7 +93,7 @@
                     @include('site/empreendimento/desktop/condominio')
                   @endif
                 @endif
-              @elseif ($empreendimento->subtipo)                              
+              @elseif ($empreendimento->subtipo)
                 @if($empreendimento->subtipo->id == 4)
                   @if($empreendimento->variacao)
                     @if($empreendimento->variacao->nome == "Lote")
@@ -106,12 +106,12 @@
               @else
                 @include('site/empreendimento/desktop/desconhecido')
               @endif
-              </div>                
-              
+              </div>
+
               @include('site/empreendimento/desktop/descricao_footer')
 
               @include('site/empreendimento/desktop/banner_gms')
-              
+
           </div>
           <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
             @include('site/empreendimento/desktop/formulario_lateral')
@@ -120,22 +120,23 @@
       </div>
       @include('site/empreendimento/desktop/oferta')
       @include('site/empreendimento/desktop/itens_empreendimento')
-                               
-      @if($empreendimento->subtipo && $empreendimento->variacao)       
-        @if($empreendimento->subtipo->id <> 4 && $empreendimento->variacao->nome <> "Lote")       
+
+      @if($empreendimento->subtipo && $empreendimento->variacao)
+        @if($empreendimento->subtipo->id <> 4 && $empreendimento->variacao->nome <> "Lote")
           @include('site/empreendimento/desktop/plantas')
-        @endif                                               
-      @endif                                               
-                  
+        @endif
+      @endif
+
+      @include('site/empreendimento/desktop/video')
       @include('site/empreendimento/desktop/localizacao')
       @include('site/empreendimento/desktop/fotos')
-      @include('site/empreendimento/desktop/formulario_rodape')    
-      @include('site/empreendimento/desktop/similares')   
+      @include('site/empreendimento/desktop/formulario_rodape')
+      @include('site/empreendimento/desktop/similares')
 
       <!-- google maps initialization -->
       <script type="text/javascript">
               google.maps.event.addDomListener(window, 'load', init);
-        function init() {						
+        function init() {
           @if ($empreendimento->endereco->latitude && $empreendimento->endereco->longitude)
             var latitude = {{ $empreendimento->id }};
             var latitude2 = {{ $empreendimento->id }};
@@ -144,7 +145,7 @@
             streetViewInit({{$empreendimento->endereco->latitude}},{{$empreendimento->endereco->longitude}},"estate-street-view");
           @endif
         }
-      </script>        
+      </script>
     </div>
   </section>
 @endsection
