@@ -62,17 +62,17 @@ class EmpreendimentoController
 		if (isAdmin()) {
 			$this->data['construtoras'] = Construtora::all();
 		}
-		
+
 		if ($construtora_id) {
 			$construtora = Construtora::find($construtora_id);
         	$this->data['empreendimentos'] = $construtora->getEmpreendimentos();
 		}
-        
+
         return view('admin.empreendimentos.desktop.empreendimento.index', $this->data);
 	}
 
 	public function filtrarEmpreendimentos(Request $request)
-	{			
+	{
         $construtora_id = Auth::user()->construtora_id;
 
 		$this->data['empreendimentos'] = (new Empreendimento())->filtrar($request, $construtora_id);
@@ -90,51 +90,51 @@ class EmpreendimentoController
 			'retorno' => 'Construtora alterada com sucesso'
 		]);
 	}
-	
+
 	public function cadastrar()
     {
         $this->data['itens_lazer'] = Caracteristica::where('tipo', 'lazer')->where('exibir', 'Sim')->get()->toArray();
 		$this->data['caracteristicas'] = Caracteristica::where('tipo', 'Empreendimento')->where('exibir', 'Sim')->get()->toArray();
-		
+
         return view('admin.empreendimentos.desktop.empreendimento.form', $this->data);
     }
 
     public function editar($id)
-    {      
+    {
 		$empreendimento = Empreendimento::find($id);
         $this->data['entry'] = $empreendimento;
         $this->data['id'] = $id;
 		$this->data['view'] = "edit";
-        $this->data = $this->getRelacionamentos($id, $this->data);        
+        $this->data = $this->getRelacionamentos($id, $this->data);
 
         return view('admin.empreendimentos.desktop.empreendimento.form', $this->data);
 	}
 
 	public function infoUnidade(Request $request, $id)
 	{
-		$unidade = Unidade::find($id);		
+		$unidade = Unidade::find($id);
 		$plantas = $unidade->empreendimento->plantas;
-		
+
 		$this->data['situacao'] = $request->situacao;
-		$this->data['plantas'] = $plantas;		
+		$this->data['plantas'] = $plantas;
 		$this->data['entry'] = $unidade;
 
 		return view('admin.empreendimentos.desktop.empreendimento.unidade.visualizar', $this->data);
 	}
 
 	public function view($id)
-    {      
+    {
 		$empreendimento = Empreendimento::find($id);
         $this->data['entry'] = $empreendimento;
         $this->data['id'] = $id;
 		$this->data['view'] = "view";
-        $this->data = $this->getRelacionamentos($id, $this->data);        
+        $this->data = $this->getRelacionamentos($id, $this->data);
 
         return view('admin.empreendimentos.desktop.empreendimento.form', $this->data);
 	}
-	
+
 	public function excluirEmpreendimento(Request $request)
-	{        	
+	{
 	    $resultado = (new Empreendimento())->excluir($request);
 
 	    if ($resultado) {
@@ -147,7 +147,7 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Para excluir um empreendimento todas as unidades precisam estar vendidas'
 	        ]);
-	    }	    
+	    }
 	}
 
     private function getRelacionamentos($id, $dados)
@@ -158,9 +158,9 @@ class EmpreendimentoController
         $cidades_stand = [];
         $bairros_stand = [];
         $empreendimento = Empreendimento::find($id);
-        
+
         $endereco = $empreendimento->endereco;
-      
+
         if ($endereco && $endereco->cidade_id) {
             $cidade = Cidade::find($endereco->cidade_id);
             $cidades = Estado::find($cidade->estado_id)->cidades()->where('status', 'L')->get();
@@ -168,12 +168,12 @@ class EmpreendimentoController
         }
 
         $endereco_stand = $empreendimento->enderecoStand;
-        
+
         if ($endereco_stand && $endereco_stand->cidade_id) {
             $cidade = Cidade::find($endereco_stand->cidade_id);
             $cidades_stand = Estado::find($cidade->estado_id)->cidades()->where('status', 'L')->get();
             $bairros_stand = $cidade->bairros()->where('status', 'L')->get();
-        }   
+        }
 
         $dados['cidades'] = $cidades;
         $dados['bairros'] = $bairros;
@@ -191,9 +191,9 @@ class EmpreendimentoController
 		$dados['itens_tour'] = $this->tour360($empreendimento);
         return $dados;
 	}
-	
+
 	public function mapaLazer($id)
-	{	        
+	{
 		$empreendimento = Empreendimento::find($id);
 
         $this->data['empreendimento'] = $empreendimento;
@@ -203,7 +203,7 @@ class EmpreendimentoController
 	}
 
 	public function mapa($id)
-	{	        
+	{
 		$empreendimento = Empreendimento::find($id);
 
 		if ($empreendimento->unidades->count() == 0) {
@@ -216,7 +216,7 @@ class EmpreendimentoController
 	}
 
 	public function mapaVertical($id,$view)
-	{	        
+	{
 		$empreendimento = Empreendimento::find($id);
 
 		if ($empreendimento->unidades->count() == 0) {
@@ -245,7 +245,7 @@ class EmpreendimentoController
 			->where('unidades.empreendimento_id', $id)
 			->get();
 		}
-		
+
 		switch($view):
 			case 'frente':
 				$this->data['foto_implantacao'] = $empreendimento->getFotoTipo('Implantação Vertical - Frente');
@@ -265,7 +265,7 @@ class EmpreendimentoController
 	}
 
 	public function mapaGaragens($id)
-	{	        
+	{
 		$empreendimento = Empreendimento::find($id);
 
 		if ($empreendimento->garagens->count() == 0) {
@@ -279,13 +279,13 @@ class EmpreendimentoController
 
 	public function visualizarMapa($id,$hash,$view)
 	{
-		
+
 		if($view == "user"){
 			$idUser = $hash/37;
 			$user = User::find($idUser);
 			$this->data['user'] = $user;
 		}
-		
+
 
 		$empreendimento = Empreendimento::find($id);
 
@@ -295,19 +295,19 @@ class EmpreendimentoController
 
 		$this->data['empreendimento'] = $empreendimento;
 		$this->data['view'] = $view;
-		
+
         return view($this->viewMapa, $this->data);
 	}
 
 	public function visualizarUnidadeMapa($id,$hash,$view)
 	{
-		
+
 		if($view == "user"){
 			$idUser = $hash/37;
 			$user = User::find($idUser);
 			$this->data['user'] = $user;
 		}
-		
+
 		$unidade = Unidade::find($id);
 		$empreendimento = Empreendimento::find($unidade->empreendimento_id);
 
@@ -315,19 +315,19 @@ class EmpreendimentoController
 		$this->data['unidade'] = $unidade;
 		$this->data['view'] = $view;
 		$this->data['tipo'] = 'unidade';
-		
+
         return view($this->viewMapa, $this->data);
 	}
 
 	public function visualizarUnidadeMapaVertical($id,$hash,$view)
 	{
-		
+
 		if($view == "user"){
 			$idUser = $hash/37;
 			$user = User::find($idUser);
 			$this->data['user'] = $user;
 		}
-		
+
 		$unidade = Unidade::find($id);
 		$empreendimento = Empreendimento::find($unidade->empreendimento_id);
 
@@ -348,24 +348,24 @@ class EmpreendimentoController
 				$this->data['foto_implantacao'] = $empreendimento->getFotoTipo('Implantação Vertical - Frente');
 			break;
 		endswitch;
-		
+
 		$this->data['empreendimento'] = $empreendimento;
 		$this->data['unidade'] = $unidade;
 		$this->data['view'] = $view;
 		$this->data['tipo'] = 'unidade';
-		
+
         return view($this->viewMapaVertical, $this->data);
 	}
 
 	public function visualizarMapaLazer($id,$hash,$view)
 	{
-		
+
 		if($view == "user"){
 			$idUser = $hash/37;
 			$user = User::find($idUser);
 			$this->data['user'] = $user;
 		}
-		
+
 
 		$empreendimento = Empreendimento::find($id);
 
@@ -375,19 +375,19 @@ class EmpreendimentoController
 
 		$this->data['empreendimento'] = $empreendimento;
 		$this->data['view'] = $view;
-	
+
         return view($this->viewMapaLazer, $this->data);
 	}
 
 	public function visualizarMapaVertical($id,$hash,$view)
 	{
-		
+
 		if($view == "user"){
 			$idUser = $hash/37;
 			$user = User::find($idUser);
 			$this->data['user'] = $user;
 		}
-		
+
 
 		$empreendimento = Empreendimento::find($id);
 
@@ -432,19 +432,19 @@ class EmpreendimentoController
 				$this->data['foto_implantacao'] = $empreendimento->getFotoTipo('Implantação Vertical - Frente');
 			break;
 		endswitch;
-		
+
         return view($this->viewMapaVertical, $this->data);
 	}
 
 	public function viewMapa($id,$hash,$view)
 	{
-		
+
 		if($view == "user"){
 			$idUser = $hash/37;
 			$user = User::find($idUser);
 			$this->data['user'] = $user;
 		}
-		
+
 
 		$empreendimento = Empreendimento::find($id);
 
@@ -454,12 +454,12 @@ class EmpreendimentoController
 
 		$this->data['empreendimento'] = $empreendimento;
 		$this->data['view'] = $view;
-		
+
         return view('site.empreendimento.mobile.mapa.view', $this->data);
 	}
 
 	public function visualizarGaragens($id,$hash,$view)
-	{	        
+	{
 		$idUser = $hash/37;
 		$user = User::find($idUser);
 
@@ -484,7 +484,7 @@ class EmpreendimentoController
 	}
 
 	public function atualizarGaragensEmpreendimento($id)
-	{	        
+	{
 
 		$unidades = Unidade::where('empreendimento_id',$id)->get();
 
@@ -511,7 +511,7 @@ class EmpreendimentoController
 			$unidade_modificacao = Unidade::select('unidades.updated_at')
 								->where('empreendimento_id', $id)
 								->orderBy('updated_at','DESC')
-								->first();					
+								->first();
 			if($data_modificacao_pdf < $unidade_modificacao->updated_at){
 				$response = $empreendimento->geraPdfMapa($empreendimento->getUrlMapa(), $id);
 				file_put_contents("uploads/pdf/$filename", $response);
@@ -534,7 +534,7 @@ class EmpreendimentoController
 
             $existe = $empreendimento->itensLazer->where('id', $item['id'])->toArray();
 
-            if ($existe) {              
+            if ($existe) {
                 $item['selected'] = 'true';
             } else {
                 $item['selected'] = 'false';
@@ -559,8 +559,8 @@ class EmpreendimentoController
 
         return array_map(function ($item) use ($empreendimento) {
             $existe = $empreendimento->caracteristicas->where('id', $item['id'])->toArray();
-            
-            if ($existe) {                
+
+            if ($existe) {
                 $item['selected'] = 'true';
             } else {
                 $item['selected'] = 'false';
@@ -571,7 +571,7 @@ class EmpreendimentoController
     }
 
 	public function salvarDadosEmpreendimento(EmpreendimentoRequest $request)
-	{        	
+	{
 		$id = $request->id;
 
 		$construtora_id = Auth::user()->construtora_id;
@@ -589,11 +589,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function salvarMidiasEmpreendimento(Request $request)
-	{        	
+	{
 		$id = $request->id;
 	    $resultado = (new Empreendimento())->salvarMidiasEmpreendimento($request, $id);
 
@@ -608,11 +608,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function salvarCanaisEmpreendimento(Request $request)
-	{        	
+	{
 		$id = $request->id;
 	    $resultado = (new Empreendimento())->salvarCanaisEmpreendimento($request, $id);
 
@@ -627,11 +627,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function salvarArquivosEmpreendimento(Request $request)
-	{        	
+	{
 		$id = $request->id;
 	    $resultado = (new EmpreendimentoArquivos())->salvarArquivosEmpreendimento($request, $id);
 
@@ -646,11 +646,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function salvarEnderecoEmpreendimento(EmpreendimentoEnderecoRequest $request)
-	{        	
+	{
 		$id = $request->id;
 
 		if (!$id) {
@@ -673,11 +673,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function salvarEnderecoStand(EmpreendimentoEnderecoRequest $request)
-	{        	
+	{
 		$id = $request->id;
 
 		if (!$id) {
@@ -700,11 +700,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function salvarItensLazerEmpreendimento(Request $request)
-	{        	
+	{
 		$id = $request->id;
 
 		if (!$id) {
@@ -727,11 +727,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function salvarCaracteristicasEmpreendimento(Request $request)
-	{        	
+	{
 		$id = $request->id;
 
 		if (!$id) {
@@ -754,13 +754,13 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function gerarTorresUnidades(GerarTorresUnidadesRequest $request)
-	{        	
+	{
 		$empreendimento = Empreendimento::find($request->empreendimento_id);
-		
+
 		if ($empreendimento && $empreendimento->gerou_unidades == 'Sim') {
 			return response()->json([
 				'sucesso' => 'false',
@@ -771,18 +771,18 @@ class EmpreendimentoController
 		$construtora_id = Auth::user()->construtora_id;
 
 	    $resultado = (new Torre())->gerarTorresUnidades(
-			$request->torres, 
-			$request->andares, 
-			$request->unidades_andar, 
-			$request->nomenclatura_unidades, 
-			$request->empreendimento_id, 
+			$request->torres,
+			$request->andares,
+			$request->unidades_andar,
+			$request->nomenclatura_unidades,
+			$request->empreendimento_id,
 			$construtora_id,
 			$request->unidades_terreo,
 			$request->cobertura,
 			$request
 		);
 
-	    if ($resultado) {	    	
+	    if ($resultado) {
 	    	$empreendimento->gerou_unidades = 'Sim';
 	    	$empreendimento->save();
 
@@ -796,13 +796,13 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao gerar torres e unidades'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function gerarQuadrasUnidades(GerarQuadrasUnidadesRequest $request)
-	{        	
+	{
 		$empreendimento = Empreendimento::find($request->empreendimento_id);
-		
+
 		if ($empreendimento && $empreendimento->gerou_unidades == 'Sim') {
 			return response()->json([
 				'sucesso' => 'false',
@@ -814,7 +814,7 @@ class EmpreendimentoController
 
 	    $resultado = (new Quadra())->gerarQuadrasUnidades($request->quadras, $request->unidades_quadra, $request->nomenclatura, $request->empreendimento_id, $construtora_id);
 
-	    if ($resultado) {	    	
+	    if ($resultado) {
 	    	$empreendimento->gerou_unidades = 'Sim';
 	    	$empreendimento->save();
 
@@ -828,19 +828,19 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao gerar quadras e unidades'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function indexFotosEmpreendimento($id)
 	{
 		$empreendimento = Empreendimento::find($id);
 		$this->data['entry'] = $empreendimento;
-		$this->data['fotos'] = $empreendimento->fotos->where('planta_id', null);		
+		$this->data['fotos'] = $empreendimento->fotos->where('planta_id', null);
 		return view('admin.empreendimentos.desktop.empreendimento.foto.index', $this->data);
 	}
 
 	public function salvarFotosEmpreendimento(Request $request)
-	{        	
+	{
 		$id = $request->id;
 
 		if (!$id) {
@@ -865,19 +865,19 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function alterarFoto($id)
 	{
 		$foto = Foto::find($id);
-		$this->data['entry'] = $foto;		
+		$this->data['entry'] = $foto;
 
 		return view('admin.empreendimentos.desktop.empreendimento.foto.editar', $this->data);
 	}
 
 	public function atualizarFoto(Request $request, $id)
-	{        	
+	{
 		$construtora_id = Auth::user()->construtora_id;
 
 	    $resultado = (new Foto())->atualizar($request, $id, $construtora_id);
@@ -892,11 +892,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function excluirFoto(Request $request)
-	{        	
+	{
 	    $resultado = (new Foto())->excluir($request);
 
 	    if ($resultado) {
@@ -909,11 +909,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function destacarFotoPrincipal(Request $request)
-	{        	
+	{
 	    $resultado = (new Foto())->destacarFotoPrincipal($request);
 
 	    if ($resultado) {
@@ -926,11 +926,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Já existe uma foto principal para este empreendimento'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function removerDestaquePrincipal(Request $request)
-	{        	
+	{
 	    $resultado = (new Foto())->removerDestaquePrincipal($request);
 
 	    if ($resultado) {
@@ -943,11 +943,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function destacarFotoCarrossel(Request $request)
-	{        	
+	{
 	    $resultado = (new Foto())->destacarFotoCarrossel($request);
 
 	    if ($resultado) {
@@ -960,11 +960,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function removerDestaqueCarrossel(Request $request)
-	{        	
+	{
 	    $resultado = (new Foto())->removerDestaqueCarrossel($request);
 
 	    if ($resultado) {
@@ -977,11 +977,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function indexPlantas($id)
-	{		
+	{
 		$empreendimento = Empreendimento::find($id);
 		$plantas = $empreendimento->plantas;
 		$this->data['entry'] = $empreendimento;
@@ -990,7 +990,7 @@ class EmpreendimentoController
 	}
 
 	public function cadastrarPlanta($id)
-	{		
+	{
 		$empreendimento = Empreendimento::find($id);
 		$this->data['entry'] = $empreendimento;
 		$this->data['caracteristicas'] = (new Planta())->caracteristicasPlanta();
@@ -999,7 +999,7 @@ class EmpreendimentoController
 	}
 
 	public function salvarPlanta(PlantaRequest $request)
-	{        	
+	{
 		$id = $request->id;
 
 		$construtora_id = Auth::user()->construtora_id;
@@ -1017,7 +1017,7 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function alterarPlanta($id)
@@ -1053,7 +1053,7 @@ class EmpreendimentoController
 	}
 
 	public function excluirPlanta(Request $request)
-	{        	
+	{
 	    $resultado = (new Planta())->excluir($request);
 
 	    if ($resultado) {
@@ -1066,11 +1066,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function indexTorres($id)
-	{		
+	{
 		$empreendimento = Empreendimento::find($id);
 		$torres = $empreendimento->torres;
 		$this->data['entry'] = $empreendimento;
@@ -1079,7 +1079,7 @@ class EmpreendimentoController
 	}
 
 	public function cadastrarTorre($id)
-	{		
+	{
 		$empreendimento = Empreendimento::find($id);
 		$this->data['entry'] = $empreendimento;
 
@@ -1087,7 +1087,7 @@ class EmpreendimentoController
 	}
 
 	public function salvarTorre(TorreRequest $request)
-	{        		
+	{
 		$construtora_id = Auth::user()->construtora_id;
 
 	    $resultado = (new Torre())->salvarTorre($request, null, $construtora_id);
@@ -1103,7 +1103,7 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao cadastrar torre'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function alterarTorre($id)
@@ -1138,7 +1138,7 @@ class EmpreendimentoController
 	}
 
 	public function excluirTorre(Request $request)
-	{        	
+	{
 	    $resultado = (new Torre())->excluir($request);
 
 	    if ($resultado) {
@@ -1151,11 +1151,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao excluir torre'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function excluirTorresUnidades(Request $request)
-	{        	
+	{
 	    $resultado = (new Torre())->excluirTorresUnidades($request);
 
 	    if ($resultado) {
@@ -1168,11 +1168,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao excluir quadra'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function indexQuadras($id)
-	{		
+	{
 		$empreendimento = Empreendimento::find($id);
 		$quadras = $empreendimento->quadras;
 		$this->data['entry'] = $empreendimento;
@@ -1181,7 +1181,7 @@ class EmpreendimentoController
 	}
 
 	public function cadastrarQuadra($id)
-	{		
+	{
 		$empreendimento = Empreendimento::find($id);
 		$this->data['entry'] = $empreendimento;
 
@@ -1189,7 +1189,7 @@ class EmpreendimentoController
 	}
 
 	public function salvarQuadra(QuadraRequest $request)
-	{        	
+	{
 		$id = $request->id;
 
 		$construtora_id = Auth::user()->construtora_id;
@@ -1207,7 +1207,7 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao cadastrar quadra'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function alterarQuadra($id)
@@ -1242,7 +1242,7 @@ class EmpreendimentoController
 	}
 
 	public function excluirQuadra(Request $request)
-	{        	
+	{
 	    $resultado = (new Quadra())->excluir($request);
 
 	    if ($resultado) {
@@ -1255,11 +1255,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao excluir quadra'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function excluirQuadrasUnidades(Request $request)
-	{        	
+	{
 	    $resultado = (new Quadra())->excluirQuadrasUnidades($request);
 
 	    if ($resultado) {
@@ -1272,11 +1272,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao excluir quadra'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function indexUnidades($id)
-	{		
+	{
 		$empreendimento = Empreendimento::find($id);
 
 		$this->data['torre_selecionada'] = RequestFacade::input('torre', null);
@@ -1287,18 +1287,18 @@ class EmpreendimentoController
 
 	public function alterarUnidade(Request $request, $id)
 	{
-		$unidade = Unidade::find($id);		
+		$unidade = Unidade::find($id);
 		$plantas = $unidade->empreendimento->plantas;
-		
+
 		$this->data['situacao'] = $request->situacao;
-		$this->data['plantas'] = $plantas;		
+		$this->data['plantas'] = $plantas;
 		$this->data['entry'] = $unidade;
 
 		return view('admin.empreendimentos.desktop.empreendimento.unidade.editar', $this->data);
 	}
 
 	public function atualizarUnidade(Request $request, $id)
-	{        	
+	{
 	    $resultado = (new Unidade())->atualizar($request, $id);
 
 	    if ($resultado) {
@@ -1311,23 +1311,23 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function alterarVendaUnidade(Request $request, $id)
 	{
-		$unidade = Unidade::find($id);		
+		$unidade = Unidade::find($id);
 		$plantas = $unidade->empreendimento->plantas;
-		
+
 		$this->data['situacao'] = $request->situacao;
-		$this->data['plantas'] = $plantas;		
+		$this->data['plantas'] = $plantas;
 		$this->data['entry'] = $unidade;
 
 		return view('admin.empreendimentos.desktop.empreendimento.unidade.editar_venda', $this->data);
 	}
 
 	public function atualizarVendaUnidade(Request $request, $id)
-	{        	
+	{
 	    $resultado = (new Unidade())->atualizarVendaUnidade($request, $id);
 
 	    if ($resultado) {
@@ -1340,23 +1340,23 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function alterarReservaUnidade(Request $request, $id)
 	{
-		$unidade = Unidade::find($id);		
+		$unidade = Unidade::find($id);
 		$plantas = $unidade->empreendimento->plantas;
-		
+
 		$this->data['situacao'] = $request->situacao;
-		$this->data['plantas'] = $plantas;		
+		$this->data['plantas'] = $plantas;
 		$this->data['entry'] = $unidade;
 
 		return view('admin.empreendimentos.desktop.empreendimento.unidade.editar_reserva', $this->data);
 	}
 
 	public function atualizarReservaUnidade(Request $request, $id)
-	{        	
+	{
 	    $resultado = (new Unidade())->atualizarReservaUnidade($request, $id);
 
 	    if ($resultado) {
@@ -1369,11 +1369,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function atualizarSituacaoUnidade(Request $request, $id)
-	{        	
+	{
 	    $resultado = (new Unidade())->atualizarSituacao($request, $id);
 
 	    if ($resultado) {
@@ -1386,15 +1386,15 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-		}	
-		    
+		}
+
 	}
 
 	public function filtrarUnidades(Request $request)
-	{			
+	{
 		$unidades = Unidade::query();
 
-		DB::enableQueryLog(); 
+		DB::enableQueryLog();
 
 		$empreendimento = Empreendimento::find($request->empreendimento_id);
 
@@ -1438,7 +1438,7 @@ class EmpreendimentoController
 	}
 
 	public function atualizarCoordenadasUnidade(Request $request)
-	{        	
+	{
 	    $resultado = (new Unidade())->atualizarCoordenadas($request);
 
 	    if ($resultado) {
@@ -1451,11 +1451,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar coordenadas da unidade'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function atualizarCoordenadasVaga(Request $request)
-	{        	
+	{
 	    $resultado = (new Garagem())->atualizarCoordenadas($request);
 
 	    if ($resultado) {
@@ -1468,12 +1468,12 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar coordenadas da vaga'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function atualizarCoordenadasFoto(Request $request)
 	{
-		
+
 		$resultado = (new Foto())->atualizarCoordenadas($request);
 
 		var_dump($resultado);
@@ -1488,11 +1488,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar coordenadas da foto'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function salvarSeo(Request $request)
-	{        	
+	{
 		$id = $request->id;
 
 		if (!$id) {
@@ -1519,7 +1519,7 @@ class EmpreendimentoController
 	}
 
 	public function salvarTour(Request $request)
-	{        	
+	{
 		$id = $request->id;
 
 		if (!$id) {
@@ -1542,7 +1542,7 @@ class EmpreendimentoController
 				$tour->titulo = $request->titulo_tour[$i];
 				$tour->empreendimento_id = $id;
 				$tour->save();
-			} 
+			}
 
         }
 
@@ -1571,10 +1571,12 @@ class EmpreendimentoController
 				'retorno' => 'Cep não encontrado'
 			]);
 		}
-		
+
 		$service = new Cep();
 
 		$response = $service->busca($cep)->getContent();
+
+        dd($response);
 
 		$json = json_decode($response);
 
@@ -1617,7 +1619,7 @@ class EmpreendimentoController
 		$bairros_html = (new CidadeController())->getBairrosHtml($bairros);
 		$bairros_comerciais_html = (new CidadeController())->getBairrosHtml($bairros, true);
 		$estados_html = (new CidadeController())->getEstadosHtml($estados);
-		
+
 		$latLong = (new Empreendimento())->getLatitudeLongitude([
 			'logradouro' => $json->logradouro,
 			'complemento' => $json->complemento,
@@ -1625,7 +1627,7 @@ class EmpreendimentoController
 			'bairro' => $bairro,
 			'cidade' => $cidade
 		]);
-		
+
 		return response()->json([
 			'sucesso' => 'true',
 			'logradouro' => $json->logradouro,
@@ -1633,18 +1635,18 @@ class EmpreendimentoController
 			'estado_id' => $estado->id,
 			'cidade_id' => $cidade->id,
 			'bairro_id' => $bairro->id,
-			'cidades_html' => $cidades_html, 
-			'bairros_html' => $bairros_html, 
+			'cidades_html' => $cidades_html,
+			'bairros_html' => $bairros_html,
 			'bairros_comerciais_html' => $bairros_comerciais_html,
-			'estados_html' => $estados_html, 
+			'estados_html' => $estados_html,
 			'json' => $json,
 			'latitude' => $latLong['latitude'],
 			'longitude' => $latLong['longitude']
-		]);			
+		]);
 	}
 
 	public function indexPavimentos($id)
-	{		
+	{
 		$empreendimento = Empreendimento::find($id);
 		$this->data['entry'] = $empreendimento;
 		$this->data['pavimentos'] = $empreendimento->pavimentos;
@@ -1652,7 +1654,7 @@ class EmpreendimentoController
 	}
 
 	public function cadastrarPavimento($id)
-	{		
+	{
 		$empreendimento = Empreendimento::find($id);
 		$this->data['entry'] = $empreendimento;
 
@@ -1660,7 +1662,7 @@ class EmpreendimentoController
 	}
 
 	public function salvarPavimento(PavimentoGaragemRequest $request)
-	{        		
+	{
 		$construtora_id = Auth::user()->construtora_id;
 
 	    $resultado = (new PavimentoGaragem())->salvarPavimento($request, null, $construtora_id);
@@ -1676,7 +1678,7 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao cadastrar torre'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function alterarPavimento($id)
@@ -1711,7 +1713,7 @@ class EmpreendimentoController
 	}
 
 	public function excluirPavimento(Request $request)
-	{        	
+	{
 	    $resultado = (new PavimentoGaragem())->excluir($request);
 
 	    if ($resultado) {
@@ -1724,12 +1726,12 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao excluir torre'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function indexGaragens($id)
-	{		
-		$empreendimento = Empreendimento::find($id);		
+	{
+		$empreendimento = Empreendimento::find($id);
 
 		$this->data['pavimento_selecionado'] = RequestFacade::input('pavimento', null);
 		$this->data['entry'] = $empreendimento;
@@ -1738,8 +1740,8 @@ class EmpreendimentoController
 
 	public function alterarGaragem(Request $request, $id)
 	{
-		$garagem = Garagem::find($id);		
-		
+		$garagem = Garagem::find($id);
+
 		$this->data['situacao'] = $request->situacao;
 		$this->data['entry'] = $garagem;
 
@@ -1747,7 +1749,7 @@ class EmpreendimentoController
 	}
 
 	public function atualizarGaragem(Request $request, $id)
-	{        	
+	{
 	    $resultado = (new Garagem())->atualizar($request, $id);
 
 	    if ($resultado) {
@@ -1760,13 +1762,13 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function alterarVendaGaragem(Request $request, $id)
 	{
-		$garagem = Garagem::find($id);		
-		
+		$garagem = Garagem::find($id);
+
 		$this->data['situacao'] = $request->situacao;
 		$this->data['entry'] = $garagem;
 
@@ -1774,7 +1776,7 @@ class EmpreendimentoController
 	}
 
 	public function atualizarVendaGaragem(Request $request, $id)
-	{        	
+	{
 	    $resultado = (new Garagem())->atualizarVendaGaragem($request, $id);
 
 	    if ($resultado) {
@@ -1787,11 +1789,11 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function atualizarSituacaoGaragem(Request $request, $id)
-	{        	
+	{
 	    $resultado = (new Garagem())->atualizar($request, $id);
 
 	    if ($resultado) {
@@ -1804,12 +1806,12 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro ao atualizar dados'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function filtrarGaragens(Request $request)
-	{			
-		$resultado = (new Garagem())->filtrarGaragens($request);		
+	{
+		$resultado = (new Garagem())->filtrarGaragens($request);
 
 		$this->data['garagens'] = $resultado;
 		$this->data['pavimento_selecionado'] = null;
@@ -1818,13 +1820,13 @@ class EmpreendimentoController
 	}
 
 	public function alteracoesEmLote(Request $request)
-	{   
+	{
 		$parametros = $request->all();
 
-		$parametros['user_id'] = Auth::user()->id;     	
+		$parametros['user_id'] = Auth::user()->id;
 
 	    $resultado = (new Unidade())->alteracoesEmLote($parametros);
-		
+
 	    if ($resultado) {
 	        return response()->json([
 	        	'sucesso' => 'true',
@@ -1835,27 +1837,27 @@ class EmpreendimentoController
 	        	'sucesso' => 'false',
 	        	'mensagem' => 'Erro, tente novamente mais tarde'
 	        ]);
-	    }	    
+	    }
 	}
 
 	public function historicoUnidades($id)
-	{		
+	{
 		$empreendimento = Empreendimento::find($id);
 		$usuario = Auth::user();
 
-		$this->data['entry'] = $empreendimento;		
+		$this->data['entry'] = $empreendimento;
 		$this->data['historico'] = $empreendimento->historicoUnidades;
-		
+
 		return view('admin.empreendimentos.desktop.empreendimento.unidade.historico_unidade', $this->data);
 	}
 
 	public function imprimirDisponibilidade($id)
-	{		
+	{
 		$empreendimento = Empreendimento::find($id);
 		$usuario = Auth::user();
 
 		$this->data['empreendimento'] = $empreendimento;
-				
+
 		if($empreendimento->tipo == "Horizontal"):
 			$this->data['unidades'] = $empreendimento->getUnidadesDisponiveisQuadra();
 		endif;
@@ -1863,8 +1865,8 @@ class EmpreendimentoController
 		if($empreendimento->tipo == "Vertical"):
 			$this->data['unidades'] = $empreendimento->getUnidadesDisponiveisTorre();
 		endif;
-		
-		
+
+
 		return view('admin.empreendimentos.desktop.empreendimento.unidade.imprimir_disponibilidade', $this->data);
 	}
 
