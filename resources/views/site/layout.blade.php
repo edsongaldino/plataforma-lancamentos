@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>   
+  <head>
     @stack('meta')
 
     <link rel="shortcut icon" href="/site/favicon.ico" type="image/x-icon">
@@ -23,9 +23,9 @@
 
       gtag('config', 'AW-791268609');
     </script>
-    
+
   </head>
-  <body>    
+  <body>
     <div class="loader-bg"></div>
     <div id="wrapper" class="wrapper-sticky-start">
       <header class="header2 list sticky-start blackmonth">
@@ -50,7 +50,7 @@
               </div>
             </div>
           </div>
-          <!-- /.top-bar -->  
+          <!-- /.top-bar -->
         </div>
         <!-- /.Page top-bar-wrapper -->
         <nav class="navbar main-menu-cont topo">
@@ -71,14 +71,14 @@
               </div>
               <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                 <div class="busca-topo">
-                  <form class="simple-search-form" method="get" id="form_busca" action="/resultado_busca.php">                  
+                  <form class="simple-search-form" method="get" id="form_busca" action="/resultado_busca.php">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                       <div class="col-lg-1 col-md-12 col-sm-1 col-xs-1 div-select-estado">
                         <select name="estado_id" id="estado_busca" class="select-uf-topo" title="UF:" data-url="{{ route('buscar-cidade-site') }}">
                           <option value="">UF:</option>
                           @foreach (get_estados() as $estado)
                             <option class="estado" value="{{ $estado->id }}">{{ $estado->uf }}</option>
-                          @endforeach                                          
+                          @endforeach
                         </select>
                       </div>
                       <div class="col-lg-2 col-md-12 col-sm-2 col-xs-2 div-select-cidade">
@@ -94,7 +94,7 @@
                           <option value="">Tipo:</option>
                           @foreach (get_subtipos() as $subtipo)
                             <option value="{{ $subtipo->id }}">{{ $subtipo->nome }}</option>
-                          @endforeach                      
+                          @endforeach
                         </select>
                       </div>
                       <div class="col-lg-5 col-md-12 col-sm-5 col-xs-5">
@@ -110,18 +110,20 @@
                   </form>
                 </div>
               </div>
-            </div>            
+            </div>
           </div>
-          
+
+          <!--
           <a href="/ofertas/1-empreendimentos-com-descontos-incriveis.html">
             <div class="banner-oferta"></div>
           </a>
-          
+          -->
+
         </nav>
       </header>
     </div>
     <div id="mensagem-envio"></div>
-    
+
     @yield('content')
 
     <!-- Modal-->
@@ -143,7 +145,7 @@
         </div>
       </div>
     </div>
-    
+
     <footer class="large-cont">
       <div class="container">
         <div class="row">
@@ -185,7 +187,7 @@
               <input type="email" class="form-control" id="exampleInputEmail2" name="email" placeholder="Cadastre seu email" required>
               <input type="hidden" class="text" name="acao" value="eVZHZDBWR2J6ZFhadTFTYnk5bVp0RW1kaEozWg==">
               <button type="submit" class="btn"><i class="fa fa-lg fa-paper-plane"></i></button>
-            </form>            
+            </form>
           </div>
         </div>
       </div>
@@ -202,7 +204,7 @@
         </div>
       </div>
     </footer>
-    </div>  
+    </div>
     <!-- Move to top button -->
     <div class="move-top">
       <div class="big-triangle-second-color"></div>
@@ -299,7 +301,7 @@
         </div>
       </div>
     </div>
-    <!--.modal -->    
+    <!--.modal -->
     <script src="/assets/javascripts/sweetalert2.8.js?v=1.5"></script>
     <script src="/assets/vendor/pnotify/pnotify.custom.js?v=1.5"></script>
     <script src="/site/js/home/newsletter.js?v=1.5"></script>
@@ -314,13 +316,13 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      
+
       gtag('config', 'UA-80336341-2');
-    </script> 
-    
+    </script>
+
     <script src="/site/ferramenta/bootstrap/bootstrap3-typeahead.min.js"></script>
 
-    <script type="text/javascript">      
+    <script type="text/javascript">
       $.ajaxSetup({
         headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -330,13 +332,13 @@
       $('.typeahead').typeahead({
         source:  function (texto, process) {
           if (texto.length > 2) {
-            return $.post('/autocomplete-geral', { texto: texto }, function (data) {                  
+            return $.post('/autocomplete-geral', { texto: texto }, function (data) {
               return process(data);
-            });  
-          }           
+            });
+          }
         }
       });
-      
+
     </script>
 
     @stack('js_footer')
