@@ -253,6 +253,12 @@ class EmpreendimentoController extends Controller
         return view('site.empreendimento.desktop.unidade_mapa', $this->data);
     }
 
+    public function GetunidadeMapa($id)
+    {        
+        $this->data['unidade'] = Unidade::find($id);
+        return view('site.empreendimento.desktop.unidade_mapa', $this->data);
+    }
+
     public function garagemMapa(Request $request)
     {        
         $this->data['garagem'] = Garagem::find($request->garagem);

@@ -1,7 +1,7 @@
 <div id="dados-unidade-reserva">
 
   @php
-    $ocultar = $unidade->empreendimento->caracteristicas->where('nome', 'ocultar_valor')->first()->pivot->valor;
+    $ocultar = $unidade->empreendimento->caracteristicas->where('nome', 'ocultar_valor')->first()->pivot->valor ?? '';
   @endphp
 
   <div class="unidade-lote">

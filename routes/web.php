@@ -102,6 +102,9 @@ Route::group(['middleware' => ['site']], function () {
 	Route::post('/carregar-oferta', 'Site\EmpreendimentoController@oferta');
 	Route::post('/enviar-proposta', 'Site\EmpreendimentoController@enviarProposta');
 	Route::post('/unidade/mapa', 'Site\EmpreendimentoController@unidadeMapa');
+
+	Route::get('/unidade/mapa/{id}', 'Site\EmpreendimentoController@GetunidadeMapa');
+
 	Route::get('/empreendimento/{id}/mapa', 'Site\EmpreendimentoController@mapa');
 	Route::get('/empreendimento/proposta/{id}', 'Site\EmpreendimentoController@proposta');
 	Route::post('/garagem/mapa', 'Site\EmpreendimentoController@garagemMapa');
