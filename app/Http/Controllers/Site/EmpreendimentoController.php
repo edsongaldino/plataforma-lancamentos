@@ -249,6 +249,7 @@ class EmpreendimentoController extends Controller
     public function unidadeMapa(Request $request)
     {        
         $this->data['unidade'] = Unidade::find($request->unidade);
+        dd($this->data['unidade']);
         return view('site.empreendimento.desktop.unidade_mapa', $this->data);
     }
 
