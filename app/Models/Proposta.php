@@ -300,14 +300,24 @@ class Proposta extends Model
     {
 
         if($proposta->empreendimento->caracteristicas->where('nome', 'email_proposta')->first()){
-            $email_proposta = $proposta->empreendimento->caracteristicas->where('nome', 'email_proposta')->first()->pivot->valor;
+            $email_proposta_array = $proposta->empreendimento->caracteristicas->where('nome', 'email_proposta')->first()->pivot->valor;
         }else{
             $email_proposta = $proposta->construtora->email;
         }
 
         //Envia proposta para a construtora
         $assunto = "Você recebeu uma proposta para o empreendimento {$proposta->empreendimento->nome}";
-        Mail::to($email_proposta)->send(new PropostaConstrutora($proposta, $assunto));
+
+        if($email_proposta_array){
+
+            foreach (explode(',', $email_proposta_array) as $email) {
+                Mail::to($email)->send(new PropostaConstrutora($proposta, $assunto));
+            }
+
+        }else{
+            Mail::to($email_proposta)->send(new PropostaConstrutora($proposta, $assunto));
+        }
+        
 
         $assunto = "Sua proposta para o empreendimento {$proposta->empreendimento->nome} foi enviada para a construtora";
 
