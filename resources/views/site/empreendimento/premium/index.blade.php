@@ -228,6 +228,16 @@
         @endif
         @endif
 
+        @if($empreendimento->arquivos->where('tipo', 'Vídeo')->count() > 0)
+        
+        <div class="video">
+            <div class="titulo-video"><i class="fab fa-youtube" aria-hidden="true"></i> Vídeo</div>
+            <iframe class="video-youtube" src="{{ $empreendimento->arquivos->where('tipo', 'Vídeo')->first()->arquivo }}" title="Vídeo - {{ $empreendimento->nome }}"></iframe>
+            <!--<div class="outros-videos"><i class="fas fa-video" aria-hidden="true"></i> + Vídeos</div>-->
+        </div>
+
+        @endif
+
         @php
         $itens_lazer = $empreendimento->itensLazer;
         $infra_estrutura = $empreendimento->caracteristicas
