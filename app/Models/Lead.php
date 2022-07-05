@@ -208,22 +208,17 @@ class Lead extends Model
     public function enviarEmailsConstrutora()
     {
 
-        /*$contatos_construtora = $this->construtora->usuarios->toArray();
-
-        if ($contatos_construtora) {
-            $destinatarios = array_column($contatos_construtora, 'email');
-            Mail::to($destinatarios)->send(new EmailConstrutora($this));
-        }*/
-
         /*Antes os leads eram enviados para todos os usuários da construtora, correção feita em 16/05/2022*/
-
         if($this->empreendimento->caracteristicas->where('nome', 'email_lead')->first()){
-            $email_lead = $this->empreendimento->caracteristicas->where('nome', 'email_lead')->first()->pivot->valor;
+
+            foreach (explode(',', $this->empreendimento->caracteristicas->where('nome', 'email_lead')->first()->pivot->valor) as $email) {
+                Mail::to($email)->send(new EmailConstrutora($this));
+            }
+
         }else{
-            $email_lead = $this->construtora->email;
+            Mail::to($this->construtora->email)->send(new EmailConstrutora($this));
         }
 
-        Mail::to($email_lead)->send(new EmailConstrutora($this));
 
         if (config('app.ambiente') == 'producao') {
             $adms = [];
