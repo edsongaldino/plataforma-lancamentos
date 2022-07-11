@@ -42,6 +42,11 @@
      height:auto !important;
      display:block !important;
    }
+
+   span.tipo-vaga{
+    font-size: 14px !important;
+    color: #333;
+   }
    @media only screen and (max-width: 800px) {
     body {
      width:auto!important;
@@ -166,7 +171,7 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="5" align="left" class="inner" id="banner4" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
                         <tr>
                           <td colspan="5" align="center" bgcolor="#00B2B2"><span style="font:bold 22px Arial, Helvetica, sans-serif; color:#FFF; font-family: Arial, Helvetica, sans-serif; font-size: 22px">{{ $proposta->empreendimento->nome }}</span></td>
-                        </tr>                        
+                        </tr>
                         @if($proposta->empreendimento->subtipo->id == 3 || $proposta->empreendimento->subtipo->id == 4)
                           <tr>
                             <td colspan="5" align="center" bgcolor="#FFFFFF">
@@ -205,10 +210,10 @@
                               @else
                                 De {{ $proposta->empreendimento->getCaracteristica("area_unidade_min") }} à {{ $proposta->empreendimento->getCaracteristica("area_unidade_max") }}m²
                               @endif
-                           
+
                             </td>
                           </tr>
-                        @else    
+                        @else
 
                           <tr>
                             <td height="20" align="center" bgcolor="#FFFFFF">
@@ -257,16 +262,16 @@
                           </tr>
 
                         @endif
-                        
+
                       @else:
 
                         @php
                           $tipo_sol = 'SP';
                           if ($proposta->unidade->getCaracteristica('tipo_sol') == 'Nascente') {
-                            $tipo_sol = 'SN';                              
+                            $tipo_sol = 'SN';
                           }
                         @endphp
-          
+
                         <tr>
                           <td width="11%" align="center" bgcolor="#FFFFFF" class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
                             <img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/img/tipo_empreendimento_{{ $proposta->empreendimento->subtipo->id }}.png" width="30" height="30">
@@ -275,7 +280,7 @@
                             Unidade:
                           </td>
                           <td colspan="3" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
-                            {{ $proposta->unidade->torre->nome }} - {{ $proposta->unidade->andar->numero }}º Andar, Unidade {{ $proposta->unidade->nome }}                            
+                            {{ $proposta->unidade->torre->nome }} - {{ $proposta->unidade->andar->numero }}º Andar, Unidade {{ $proposta->unidade->nome }}
                           </td>
                         </tr>
 
@@ -287,7 +292,7 @@
                             Orientação Solar:
                           </td>
                           <td colspan="3" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
-                            {{ $proposta->unidade->getCaracteristica('tipo_sol') ?? '' }}                            
+                            {{ $proposta->unidade->getCaracteristica('tipo_sol') ?? '' }}
                           </td>
                         </tr>
 
@@ -331,7 +336,7 @@
 
                           @endif
 
-                          
+
                         </tr>
 
                         @if($proposta->empreendimento->subtipo->id == 2)
@@ -397,9 +402,9 @@
                         </tr>
 
                         @endif
-                                                
+
                       @endif
-                        
+
                       <tr>
                         <td height="20" align="center" bgcolor="#FFFFFF">
                           <span class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
@@ -467,7 +472,7 @@
                       CPF:
                     </span>
                   </td>
-                  <td colspan="5" height="20" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">                    
+                  <td colspan="5" height="20" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                     {{ $proposta->cliente->cpf }}
                   </td>
                 </tr>
@@ -499,7 +504,7 @@
                       Email:
                     </span>
                   </td>
-                  <td height="20" colspan="3" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">                    
+                  <td height="20" colspan="3" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                     {{ $proposta->cliente->email }}
                   </td>
                 </tr>
@@ -517,9 +522,9 @@
                   <td height="20" colspan="5" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                     {{ $proposta->cliente->telefone }}
                   </td>
-                            
+
                 </tr>
-                
+
                 @if($proposta->cliente->estado_civil == 'Casado' || $proposta->cliente->estado_civil == 'União Estável' && $proposta->cliente->conjuge)
 
                   <tr>
@@ -705,7 +710,7 @@
                       </span>
                     </td>
 
-                    <td width="29%" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">                  
+                    <td width="29%" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                       @if (isset($proposta->entrada_proposta))
                       {{ converte_valor_real(calcular_percentual(valor_unidade($proposta->unidade), converte_reais_to_mysql($proposta->entrada_proposta), '', '1')) }}%%
                       @endif
@@ -742,7 +747,7 @@
                     </span>
                   </td>
                 </tr>
-                  @foreach($proposta->baloes as $balao)                    
+                  @foreach($proposta->baloes as $balao)
                     <tr>
                       <td height="10" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                         R$ {{ $balao->valor }}
@@ -780,7 +785,7 @@
                   </td>
                 </tr>
                 @endif
-                
+
                 @if($proposta->saldo_remanescente > 0)
                 <tr>
                   <td align="right" bgcolor="#FFFFFF" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
@@ -791,6 +796,27 @@
                       R$ {{ $proposta->saldo_remanescente }}
                     </span>
                     </td>
+                </tr>
+                @endif
+
+                @php $total_vaga_extra = 0; @endphp
+                @if($proposta->vaga_extra <> 'Não')
+                <tr>
+                  <td align="right" bgcolor="#F5F5F5" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
+                    Vaga Extra:
+                  </td>
+                  <td colspan="3" align="left" bgcolor="#F5F5F5" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
+                    <span style="font:600 20px Open Sans, Arial, Helvetica, sans-serif; color:#F90;">
+                        @if($proposta->vaga_extra == 'Padrão')
+                            R$ {{ converte_valor_real($proposta->tabela->valor_vaga_extra ?? '') }}
+                            @php $total_vaga_extra = $proposta->tabela->valor_vaga_extra; @endphp
+                        @else
+                            R$ {{ converte_valor_real($proposta->tabela->valor_vaga_extra_gaveta ?? '') }}
+                            @php $total_vaga_extra = $proposta->tabela->valor_vaga_extra_gaveta; @endphp
+                        @endif
+                         <span class="tipo-vaga">({{ $proposta->vaga_extra }})</span>
+                    </span>
+                  </td>
                 </tr>
                 @endif
 

@@ -5,7 +5,7 @@ $(function(){
         var neg = false;
 
         if (tmp - (Math.round(numero)) == 0) {
-            tmp = tmp + '00';        
+            tmp = tmp + '00';
         }
 
         if (tmp.indexOf(".")) {
@@ -43,21 +43,21 @@ $(function(){
 
       var empreendimento_id = $(this).val();
       var construtora_id = $(this).data('construtora');
-      
+
       if (empreendimento_id == '' && construtora_id == '') {
         window.location.href = '/admin/construtora/1/tabela-vendas/';
         return;
       }
-      
-      if (empreendimento_id == '') {      
+
+      if (empreendimento_id == '') {
         window.location.href = '/admin/construtora/' + construtora_id + '/tabela-vendas/';
-        return;      
+        return;
       }
 
       if (construtora_id == '') {
         window.location.href = '/admin/construtora/1/tabela-vendas/?empreendimento_id=' + empreendimento_id;
         return;
-      } 
+      }
 
       window.location.href = '/admin/construtora/' + construtora_id + '/tabela-vendas/?empreendimento_id=' + empreendimento_id;
     });
@@ -84,7 +84,7 @@ $(function(){
           'Informe o empreendimento',
           'error'
           );
-    
+
         return false;
       }
 
@@ -94,7 +94,7 @@ $(function(){
           'Informe o tipo da tabela',
           'error'
           );
-    
+
         return false;
       }
 
@@ -104,7 +104,7 @@ $(function(){
           'Informe o nome da tabela',
           'error'
           );
-    
+
         return false;
       }
 
@@ -114,7 +114,7 @@ $(function(){
           'Informe o desconto',
           'error'
           );
-    
+
         return false;
       }
 
@@ -124,7 +124,7 @@ $(function(){
           'Informe a renda minima para financiamento',
           'error'
           );
-    
+
         return false;
       }
 
@@ -135,7 +135,7 @@ $(function(){
             'Informe o subsídio máximo',
             'error'
             );
-      
+
           return false;
         }
       }
@@ -146,7 +146,7 @@ $(function(){
           'Informe a data de validade da tabela',
           'error'
           );
-    
+
         return false;
       }
 
@@ -170,7 +170,7 @@ $(function(){
           'Informe o empreendimento',
           'error'
           );
-    
+
         return false;
       }
 
@@ -180,7 +180,7 @@ $(function(){
           'Informe o tipo da tabela',
           'error'
           );
-    
+
         return false;
       }
 
@@ -190,7 +190,7 @@ $(function(){
           'Informe o nome da tabela',
           'error'
           );
-    
+
         return false;
       }
 
@@ -200,7 +200,7 @@ $(function(){
           'Informe o desconto',
           'error'
           );
-    
+
         return false;
       }
 
@@ -210,7 +210,7 @@ $(function(){
           'Informe a renda minima para financiamento',
           'error'
           );
-    
+
         return false;
       }
 
@@ -220,7 +220,7 @@ $(function(){
           'Informe o subsídio máximo',
           'error'
           );
-    
+
         return false;
       }
 
@@ -230,7 +230,7 @@ $(function(){
           'Informe a data de validade da tabela',
           'error'
           );
-    
+
         return false;
       }
 
@@ -248,7 +248,7 @@ $(function(){
 
 
     $(".btn-excluirTabela").on('click', function () {
-        
+
       var url = $(this).data('url');
 
       Swal.fire({
@@ -266,13 +266,13 @@ $(function(){
               method: 'POST',
               url: url,
               success: function (response) {
-                  if (response.sucesso == 'true') {   
+                  if (response.sucesso == 'true') {
                       Swal.fire(
                         'OK!',
                         'A tabela foi removida!',
                         'success'
-                      )                     
-                  
+                      )
+
                       setTimeout(function () {
                           window.location.reload();
                       }, 2000);
@@ -340,8 +340,22 @@ $(function(){
 
     $("#possuiVagaExtra").on('change', function () {
       var valor = $(this).val();
-      if (valor == 'Sim') {$("#valorVagaExtra").css("display", "block");}
-      if (valor == 'Não') {$("#valorVagaExtra").css("display", "none");}
+      if (valor == 'Sim_PG') {
+        $("#valorVagaExtraPadrao").css("display", "block");
+        $("#valorVagaExtraGaveta").css("display", "block");
+      };
+      if (valor == 'Sim_SG') {
+        $("#valorVagaExtraPadrao").css("display", "none");
+        $("#valorVagaExtraGaveta").css("display", "block");
+      };
+      if (valor == 'Sim_SP') {
+        $("#valorVagaExtraPadrao").css("display", "block");
+        $("#valorVagaExtraGaveta").css("display", "none");
+      };
+      if (valor == 'Não') {
+        $("#valorVagaExtraPadrao").css("display", "none");
+        $("#valorVagaExtraGaveta").css("display", "none");
+      };
     });
 
     $("#qtd_baloes").on('blur', function () {
@@ -354,12 +368,12 @@ $(function(){
             var remover = linhas - valor;
             for (i = 0; i < remover; i++) {
                 $('#linhaBalao').remove();
-            }  
+            }
         }
         for (i = linhas; i < valor; i++) {
             $('#linhaBalao').clone().appendTo($('#TabelaBaloes'));
         }
-        
+
     });
 
 
@@ -378,19 +392,19 @@ $(function(){
             }
         }
     });
-    
+
     $(".percentual").on('blur',function(){
         if($(this).val().length > 0)
            $(this).val( $(this).val() + '%' );
     }).on('focus',function(){
-          $(this).val( $(this).val().replace('%','') ); 
+          $(this).val( $(this).val().replace('%','') );
     });
 
 
     $("#percentual_entrada, #percentual_mensais, #percentual_baloes, #percentual_parcela_unica").on('blur',function(){
 
       percentual_remanescente = '';
-      
+
       percentual_entrada = $("#percentual_entrada").val().replace('%','').replace(".", "").replace(",", ".");
       percentual_mensais = $("#percentual_mensais").val().replace('%','').replace(".", "").replace(",", ".");
       percentual_baloes = $("#percentual_baloes").val().replace('%','').replace(".", "").replace(",", ".");
@@ -398,7 +412,7 @@ $(function(){
 
       total_tabela = parseFloat(percentual_entrada || 0) + parseFloat(percentual_mensais || 0) + parseFloat(percentual_baloes || 0) + parseFloat(percentual_parcela_unica || 0);
       percentual_remanescente = parseFloat(100) - parseFloat(total_tabela);
-      $("#percentual_remanescente").val(percentual_remanescente);   
+      $("#percentual_remanescente").val(percentual_remanescente);
 
     });
 
@@ -414,7 +428,7 @@ $(function(){
         resultado: "#selectTorresQuadras"
       })
 
-    });   
+    });
 
     $(document).on('change', '#quadra_id', function () {
       var quadra_id = $(this).val();
@@ -429,7 +443,7 @@ $(function(){
       })
 
     });
-    
+
     $(document).on('change', '#torre_id', function () {
       var torre_id = $(this).val();
       ajaxRequest({

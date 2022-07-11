@@ -22,7 +22,7 @@ class TabelaVendasController extends Controller
      */
     public function index()
     {
-        $construtora_id = get_construtora_id();  
+        $construtora_id = get_construtora_id();
         $this->data['empreendimento_id'] = RequestFacade::input('empreendimento_id', null);
 
         if($this->data['empreendimento_id']){
@@ -41,8 +41,8 @@ class TabelaVendasController extends Controller
      */
     public function create()
     {
-        
-        $construtora_id = get_construtora_id();        
+
+        $construtora_id = get_construtora_id();
 
         $this->data['construtora_id'] = $construtora_id;
 
@@ -62,14 +62,14 @@ class TabelaVendasController extends Controller
         $empreendimento = Empreendimento::find($request->empreendimento_id);
 
         if ($empreendimento->tipo == 'Vertical') {
-            $this->data['torres'] = $empreendimento->getTorresDisponiveis();  
-            $this->data['empreendimento'] = $empreendimento;  
-            return view('admin.tabela_vendas.desktop.getTorresQuadras', $this->data); 
+            $this->data['torres'] = $empreendimento->getTorresDisponiveis();
+            $this->data['empreendimento'] = $empreendimento;
+            return view('admin.tabela_vendas.desktop.getTorresQuadras', $this->data);
         } else {
-            $this->data['quadras'] = $empreendimento->getQuadrasDisponiveis();  
-            $this->data['empreendimento'] = $empreendimento; 
-            return view('admin.tabela_vendas.desktop.getTorresQuadras', $this->data); 
-        }                        
+            $this->data['quadras'] = $empreendimento->getQuadrasDisponiveis();
+            $this->data['empreendimento'] = $empreendimento;
+            return view('admin.tabela_vendas.desktop.getTorresQuadras', $this->data);
+        }
     }
 
     public function buscarPrevisaoEntrega(Request $request)
@@ -78,11 +78,11 @@ class TabelaVendasController extends Controller
             $this->data['previsao'] = Torre::find($request->torre_id);
         } elseif($request->quadra_id) {
             $this->data['previsao'] = Quadra::find($request->quadra_id);
-        }   
-        return view('admin.tabela_vendas.desktop.getPrevisao', $this->data);                     
+        }
+        return view('admin.tabela_vendas.desktop.getPrevisao', $this->data);
     }
 
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -111,7 +111,9 @@ class TabelaVendasController extends Controller
         $tabela->correcao_obra = $request->correcao_obra;
         $tabela->correcao_poschave = $request->correcao_poschave;
         $tabela->aceita_bens = $request->aceita_bens;
+        $tabela->possui_vaga_extra = $request->possui_vaga_extra;
         $tabela->valor_vaga_extra = converte_reais_to_mysql($request->valor_vaga_extra);
+        $tabela->valor_vaga_extra_gaveta = converte_reais_to_mysql($request->valor_vaga_extra_gaveta);
 
         if($request->quadra_id):
             $tabela->quadra_id = $request->quadra_id;
@@ -163,8 +165,8 @@ class TabelaVendasController extends Controller
     {
 
         $tabela = TabelaVendas::find($id);
-        $construtora_id = get_construtora_id(); 
-        
+        $construtora_id = get_construtora_id();
+
         $empreendimento = Empreendimento::find($tabela->empreendimento_id);
 
         $this->data['tabela'] = $tabela;
@@ -174,12 +176,12 @@ class TabelaVendasController extends Controller
 
         if($tabela->torre_id){
             $torre = Torre::find($tabela->torre_id);
-            $this->data['torre'] = $torre; 
+            $this->data['torre'] = $torre;
         }
 
         if($tabela->quadra_id){
             $quadra = Quadra::find($tabela->quadra_id);
-            $this->data['quadra'] = $quadra; 
+            $this->data['quadra'] = $quadra;
         }
 
         if ($construtora_id) {
@@ -189,7 +191,7 @@ class TabelaVendasController extends Controller
         $this->data['tipo_tabela'] = tipoTabela::where('construtora_id', $construtora_id)->get();
 
         return view('admin.tabela_vendas.desktop.editar-tabela', $this->data);
-        
+
     }
 
     /**
@@ -221,7 +223,9 @@ class TabelaVendasController extends Controller
         $tabela->correcao_obra = $request->correcao_obra;
         $tabela->correcao_poschave = $request->correcao_poschave;
         $tabela->aceita_bens = $request->aceita_bens;
+        $tabela->possui_vaga_extra = $request->possui_vaga_extra;
         $tabela->valor_vaga_extra = converte_reais_to_mysql($request->valor_vaga_extra);
+        $tabela->valor_vaga_extra_gaveta = converte_reais_to_mysql($request->valor_vaga_extra_gaveta);
 
         if($request->quadra_id):
             $tabela->quadra_id = $request->quadra_id;

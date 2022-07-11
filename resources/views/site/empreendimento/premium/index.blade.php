@@ -6,8 +6,8 @@
 
 @push('includes_head')
 <!-- Bootstrap -->
-<link rel="stylesheet" href="/site/ferramenta/bootstrap/bootstrap.min.css">     
-<link rel="stylesheet" href="/site/ferramenta/apartment-font/css/font-awesome.min.css">  
+<link rel="stylesheet" href="/site/ferramenta/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="/site/ferramenta/apartment-font/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="/site/css/plugins.css">
 <link rel="stylesheet" type="text/css" href="/site/css/apartment-layout.css?v=02">
 <link rel="stylesheet" type="text/css" href="/site/css/empreendimento.css">
@@ -41,21 +41,21 @@
             </div>
         </div>
     </div>
- 
+
     <!-- Additional required wrapper -->
-     
+
     <div class="swiper-wrapper">
-    
+
         @php $fotos = $empreendimento->getFotosCarrossel();@endphp
         @foreach($fotos AS $foto)
         @if(isset($foto->arquivo))
         <div class="swiper-slide swiper-lazy banner-index" onclick="location.href='/empreendimento/{{ $empreendimento->id }}/fotos';" data-background="{{ $foto->getUrl('original') }}">
             <div class="container">
-                
+
                 <div class="link-banner"></div>
-                
+
             </div>
-        </div> 
+        </div>
         @endif
         @endforeach
 
@@ -76,13 +76,13 @@
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fa fa-building" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">{{ $empreendimento->torres->count() }} Torre(s)</div>
-                    <div class="valor-caracteristica">{{ $empreendimento->unidades->count() }} Unidades</div>                    
+                    <div class="valor-caracteristica">{{ $empreendimento->unidades->count() }} Unidades</div>
                 </div>
 
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fa fa-object-group" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">{{ $empreendimento->plantas->count() }} Planta(s)</div>
-                    <div class="valor-caracteristica">{!! qtd_metragem($empreendimento) !!}m²</div>                    
+                    <div class="valor-caracteristica">{!! qtd_metragem($empreendimento) !!}m²</div>
                 </div>
 
                 @if($empreendimento->subtipo_id == 1)
@@ -90,7 +90,7 @@
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fa fa-bed" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">{!! qtd_dormitorio($empreendimento, true) !!} Quartos</div>
-                    <div class="valor-caracteristica">{!! qtd_suites($empreendimento, true) !!} Suíte(s)</div>                    
+                    <div class="valor-caracteristica">{!! qtd_suites($empreendimento, true) !!} Suíte(s)</div>
                 </div>
 
                 @endif
@@ -98,67 +98,67 @@
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fa fa-car" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">Garagem</div>
-                    <div class="valor-caracteristica">{!! vagas_empreendimento($empreendimento) !!} Vaga(s)</div>                    
-                </div> 
+                    <div class="valor-caracteristica">{!! vagas_empreendimento($empreendimento) !!} Vaga(s)</div>
+                </div>
 
                 @if($empreendimento->getCaracteristica('estacionamento_rotativo') == 'S')
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fas fa-parking" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">Estacionamento</div>
-                    <div class="valor-caracteristica">Rotativo</div>                    
+                    <div class="valor-caracteristica">Rotativo</div>
                 </div>
                 @endif
-                
+
                 <div class="item">
                     <div class="icone-caracteristica"><i class="far fa-calendar-alt" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">Previão de Entrega</div>
-                    <div class="valor-caracteristica">{{ get_previsao_entrega($empreendimento) }}</div>                    
-                </div> 
+                    <div class="valor-caracteristica">{{ get_previsao_entrega($empreendimento) }}</div>
+                </div>
 
                 <div class="item">
                     <div class="icone-caracteristica"><i class="fas fa-columns" aria-hidden="true"></i></div>
                     <div class="titulo-caracteristica">Elevadores</div>
-                    <div class="valor-caracteristica">{{ get_elevadores($empreendimento->id) }}</div>                    
-                </div> 
+                    <div class="valor-caracteristica">{{ get_elevadores($empreendimento->id) }}</div>
+                </div>
 
             @elseif($empreendimento->subtipo_id == 3 || $empreendimento->subtipo_id == 4)
-                
+
                 @if($empreendimento->variacao->nome == "Lote")
 
                     <div class="item">
                         <div class="icone-caracteristica"><i class="fas fa-columns" aria-hidden="true"></i></div>
                         <div class="titulo-caracteristica">Quadras</div>
-                        <div class="valor-caracteristica">{{ $empreendimento->quadras->count() }}</div>                    
+                        <div class="valor-caracteristica">{{ $empreendimento->quadras->count() }}</div>
                     </div>
 
                     <div class="item">
                         <div class="icone-caracteristica"><i class="fab fa-buromobelexperte" aria-hidden="true"></i></div>
                         <div class="titulo-caracteristica">Unidades</div>
-                        <div class="valor-caracteristica">{{ $empreendimento->unidades->count() }}</div>                    
+                        <div class="valor-caracteristica">{{ $empreendimento->unidades->count() }}</div>
                     </div>
 
                     <div class="item">
                         <div class="icone-caracteristica"><i class="far fa-map" aria-hidden="true"></i></div>
                         <div class="titulo-caracteristica">Lotes (Metragem)</div>
-                        <div class="valor-caracteristica">{{ converte_valor_real_semdecimal($empreendimento->getCaracteristica('area_unidade_min')) }} à {{ converte_valor_real_semdecimal($empreendimento->getCaracteristica('area_unidade_max')) }}m²</div>                    
+                        <div class="valor-caracteristica">{{ converte_valor_real_semdecimal($empreendimento->getCaracteristica('area_unidade_min')) }} à {{ converte_valor_real_semdecimal($empreendimento->getCaracteristica('area_unidade_max')) }}m²</div>
                     </div>
 
                     <div class="item">
                         <div class="icone-caracteristica"><i class="fas fa-tree" aria-hidden="true"></i></div>
                         <div class="titulo-caracteristica">Área Verde</div>
-                        <div class="valor-caracteristica">{{ converte_valor_real_semdecimal($empreendimento->getCaracteristica('area_verde')) }}m²</div>                    
+                        <div class="valor-caracteristica">{{ converte_valor_real_semdecimal($empreendimento->getCaracteristica('area_verde')) }}m²</div>
                     </div>
 
                     <div class="item">
                         <div class="icone-caracteristica"><i class="fas fa-crop-alt" aria-hidden="true"></i></div>
                         <div class="titulo-caracteristica">APP</div>
-                        <div class="valor-caracteristica">{{ converte_valor_real_semdecimal($empreendimento->getCaracteristica('area_preservacao')) }}m²</div>                    
+                        <div class="valor-caracteristica">{{ converte_valor_real_semdecimal($empreendimento->getCaracteristica('area_preservacao')) }}m²</div>
                     </div>
 
                     <div class="item">
                         <div class="icone-caracteristica"><i class="far fa-calendar-alt" aria-hidden="true"></i></div>
                         <div class="titulo-caracteristica">Previão de Entrega</div>
-                        <div class="valor-caracteristica">{{ get_previsao_entrega($empreendimento) }}</div>                    
+                        <div class="valor-caracteristica">{{ get_previsao_entrega($empreendimento) }}</div>
                     </div>
 
                 @else
@@ -166,41 +166,41 @@
                     <div class="item">
                         <div class="icone-caracteristica"><i class="fa fa-building" aria-hidden="true"></i></div>
                         <div class="titulo-caracteristica">{{ $empreendimento->quadras->count() }} Quadras(s)</div>
-                        <div class="valor-caracteristica">{{ $empreendimento->unidades->count() }} Unidades</div>                    
+                        <div class="valor-caracteristica">{{ $empreendimento->unidades->count() }} Unidades</div>
                     </div>
 
                     <div class="item">
                         <div class="icone-caracteristica"><i class="fa fa-object-group" aria-hidden="true"></i></div>
                         <div class="titulo-caracteristica">{{ $empreendimento->plantas->count() }} Planta(s)</div>
-                        <div class="valor-caracteristica">{!! qtd_metragem($empreendimento) !!}m²</div>                    
+                        <div class="valor-caracteristica">{!! qtd_metragem($empreendimento) !!}m²</div>
                     </div>
 
                     <div class="item">
                         <div class="icone-caracteristica"><i class="fa fa-car" aria-hidden="true"></i></div>
                         <div class="titulo-caracteristica">Garagem</div>
-                        <div class="valor-caracteristica">{!! vagas_empreendimento($empreendimento) !!} Vaga(s)</div>                      
-                    </div> 
-                    
+                        <div class="valor-caracteristica">{!! vagas_empreendimento($empreendimento) !!} Vaga(s)</div>
+                    </div>
+
                     <div class="item">
                         <div class="icone-caracteristica"><i class="far fa-calendar-alt" aria-hidden="true"></i></div>
                         <div class="titulo-caracteristica">Previão de Entrega</div>
-                        <div class="valor-caracteristica">{{ get_previsao_entrega($empreendimento) }}</div>                    
-                    </div> 
+                        <div class="valor-caracteristica">{{ get_previsao_entrega($empreendimento) }}</div>
+                    </div>
 
                 @endif
 
             @else
 
             @endif
-            
+
         </div>
-        
+
         <div class="descricao">{{ $empreendimento->descricao }}</div>
 
         <div id="botoes">
             <a href="/empreendimento/{{ $empreendimento->id }}/unidades"><div class="unidades-disponiveis"><i class="far fa-check-square" aria-hidden="true"></i> Unidades Disponíveis</div></a>
             @if($empreendimento->variacao->nome <> "Lote")
-            <a href="/empreendimento/{{ $empreendimento->id }}/plantas"><div class="plantas-disponiveis"><i class="fa fa-object-group" aria-hidden="true"></i> Plantas </div></a>           
+            <a href="/empreendimento/{{ $empreendimento->id }}/plantas"><div class="plantas-disponiveis"><i class="fa fa-object-group" aria-hidden="true"></i> Plantas </div></a>
             @endif
 
             @if($empreendimento->subtipo_id == 3 || $empreendimento->subtipo_id == 4)
@@ -209,7 +209,7 @@
 
             <a href="/empreendimento/{{ $empreendimento->id }}/fotos"><div class="galeria-fotos"><i class="fa fa-camera" aria-hidden="true"></i> Galeria de Fotos</div></a>
 
-            @if ($empreendimento->tour->count() > 0) 
+            @if ($empreendimento->tour->count() > 0)
             <a href="/empreendimento/{{ $empreendimento->id }}/tour360"><div class="tour-360"><i class="fas fa-circle-notch" aria-hidden="true"></i> Tour Virtual 360º</div></a>
             @endif
 
@@ -229,10 +229,10 @@
         @endif
 
         @if($empreendimento->arquivos->where('tipo', 'Vídeo')->count() > 0)
-        
+
         <div class="video">
             <div class="titulo-video"><i class="fab fa-youtube" aria-hidden="true"></i> Vídeo</div>
-            <iframe class="video-youtube" src="{{ $empreendimento->arquivos->where('tipo', 'Vídeo')->first()->arquivo }}" title="Vídeo - {{ $empreendimento->nome }}"></iframe>
+            <iframe class="video-youtube" src="{{ $empreendimento->arquivos->where('tipo', 'Vídeo')->first()->arquivo }}" title="Vídeo - {{ $empreendimento->nome }}" sandbox></iframe>
             <!--<div class="outros-videos"><i class="fas fa-video" aria-hidden="true"></i> + Vídeos</div>-->
         </div>
 
@@ -259,15 +259,15 @@
             @foreach($itens_lazer->all() as $item_lazer)
                 <div class="item"><i class="far fa-check-circle" aria-hidden="true"></i> {{ $item_lazer->nome }}</div>
             @endforeach
-            
+
         </div>
 
         <div id="infra-estrutura" style="display: none;">
-                       
-            @foreach($infra_estrutura->all() as $item_infra)  
+
+            @foreach($infra_estrutura->all() as $item_infra)
                 <div class="item"><i class="far fa-check-circle" aria-hidden="true"></i> {{ $item_infra->nome }}</div>
             @endforeach
-            
+
         </div>
 
         @if($empreendimento->arquivos->where('tipo', 'Memorial Descritivo')->first())
@@ -293,7 +293,7 @@
                 title: 'Meu marcador'
               });
             }
-            
+
           </script>
           <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-1kSaM3BsibuKoW3Dip8d7Uw2p9mLuws&callback=initMap" async defer></script>
 
@@ -317,7 +317,7 @@
 
     <script src="/assets/vendor/pnotify/pnotify.custom.js"></script>
     <script src="/assets/vendor/magnific-popup/magnific-popup.js"></script>
-    <script src="/site/painel/assets/javascripts/ui-elements/examples.modals.js"></script>  
+    <script src="/site/painel/assets/javascripts/ui-elements/examples.modals.js"></script>
     <script src="/site/painel/assets/javascripts/ui-elements/examples.lightbox.js"></script>
 
     <script>
@@ -326,16 +326,16 @@
             $("#itens-lazer").css("display", "block");
             $("#infra-estrutura").css("display", "none");
             $('#infraEstrutura').removeClass('active');
-            $('#itensLazer').addClass('active'); 
+            $('#itensLazer').addClass('active');
         });
 
         $('#infraEstrutura').click(function (){
             $("#itens-lazer").css("display", "none");
             $("#infra-estrutura").css("display", "block");
             $('#itensLazer').removeClass('active');
-            $('#infraEstrutura').addClass('active'); 
+            $('#infraEstrutura').addClass('active');
         });
 
     </script>
-    
+
 @endpush

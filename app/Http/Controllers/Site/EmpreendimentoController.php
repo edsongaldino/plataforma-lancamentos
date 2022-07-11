@@ -27,17 +27,17 @@ class EmpreendimentoController extends Controller
     public function __construct()
     {
         $this->view = isMobile() ? 'site.empreendimento.mobile.index' : 'site.empreendimento.desktop.index';
-        $this->viewPremium = isMobile() ? 'site.empreendimento.premium.index' : 'site.empreendimento.premium.desktop.index';
+        $this->viewPremium = isMobile() ? 'site.empreendimento.premium.index' : 'site.empreendimento.desktop.index';
         $this->viewProposta = isMobile() ? 'site.empreendimento.mobile.proposta' : 'site.empreendimento.desktop.proposta';
     }
 
     public function index($url, $id)
-    {              
+    {
         $empreendimento = Empreendimento::find($id);
-        
+
         if ($empreendimento->status == 'Bloqueada' or $empreendimento->construtora->status == 'Bloqueada') {
             return redirect('/');
-        }        
+        }
 
         (new Estatistica())->salvarClique($empreendimento);
         $this->data['empreendimento'] = $empreendimento;
@@ -45,10 +45,10 @@ class EmpreendimentoController extends Controller
         $this->data['tour360'] = TourVirtual::where('empreendimento_id', $id)->get();
 
 
-        if($empreendimento->tipo_visualizacao == 'Padrão'){
-            $viewEmpreendimento = $this->view;
-        }else{
+        if($empreendimento->TabelaAtiva->count() > 0){
             $viewEmpreendimento = $this->viewPremium;
+        }else{
+            $viewEmpreendimento = $this->view;
         }
 
         return view($viewEmpreendimento, $this->data);
@@ -154,7 +154,7 @@ class EmpreendimentoController extends Controller
         $this->data['empreendimento'] = Empreendimento::find($id);
         $this->data['plantas'] = Planta::where('empreendimento_id',$id)->get();
         return view('site.empreendimento.premium.mobile.tour360', $this->data);
-    }  
+    }
 
     public function contato(ContatoConstrutoraRequest $request)
     {
@@ -164,7 +164,7 @@ class EmpreendimentoController extends Controller
             return response()->json([
                 'sucesso' => 'true',
                 'retorno' => 'Recebemos seu contato e você receberá uma resposta no prazo máximo de 24 horas'
-            ]);    
+            ]);
         }
 
         return response()->json([
@@ -189,7 +189,7 @@ class EmpreendimentoController extends Controller
             return response()->json([
                 'sucesso' => 'true',
                 'retorno' => 'Recebemos seu contato e você receberá uma resposta no prazo máximo de 24 horas'
-            ]);    
+            ]);
         }
 
         return response()->json([
@@ -206,7 +206,7 @@ class EmpreendimentoController extends Controller
     }
 
     public function buscarCliente(Request $request)
-    {        
+    {
         $cpf = $request->cpf;
 
         $cliente = Cliente::where('cpf', $cpf)->get()->first();
@@ -231,7 +231,7 @@ class EmpreendimentoController extends Controller
             return response()->json([
                 'sucesso' => 'true',
                 'retorno' => 'Proposta recebida, você receberá uma resposta no prazo máximo de 24 horas'
-            ]);    
+            ]);
         }
 
         return response()->json([
@@ -247,20 +247,20 @@ class EmpreendimentoController extends Controller
     }
 
     public function unidadeMapa(Request $request)
-    {        
+    {
         $this->data['unidade'] = Unidade::find($request->unidade);
         //dd($this->data['unidade']);
         return view('site.empreendimento.desktop.unidade_mapa', $this->data);
     }
 
     public function GetunidadeMapa($id)
-    {        
+    {
         $this->data['unidade'] = Unidade::find($id);
         return view('site.empreendimento.desktop.unidade_mapa', $this->data);
     }
 
     public function garagemMapa(Request $request)
-    {        
+    {
         $this->data['garagem'] = Garagem::find($request->garagem);
         return view('site.empreendimento.desktop.garagem_mapa', $this->data);
     }
@@ -275,10 +275,10 @@ class EmpreendimentoController extends Controller
     {
         // Recupera o post pelo ID
         $foto = Foto::find($id);
-    
+
         // Restaura:
         $foto->restore();
-    
+
         // Também é possível fazer assim, em uma única linha:
         // $post = $post->find($id)->restore();
     }

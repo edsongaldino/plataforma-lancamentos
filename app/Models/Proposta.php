@@ -317,7 +317,7 @@ class Proposta extends Model
         }else{
             Mail::to($email_proposta)->send(new PropostaConstrutora($proposta, $assunto));
         }
-        
+
 
         $assunto = "Sua proposta para o empreendimento {$proposta->empreendimento->nome} foi enviada para a construtora";
 
@@ -350,6 +350,11 @@ class Proposta extends Model
      public function unidade()
      {
         return $this->belongsTo('App\Models\Unidade', 'unidade_id');
+     }
+
+     public function tabela()
+     {
+        return $this->belongsTo('App\Models\TabelaVendas', 'tabela_id');
      }
 
      public function oferta()

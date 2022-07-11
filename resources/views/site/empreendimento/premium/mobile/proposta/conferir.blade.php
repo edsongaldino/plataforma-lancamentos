@@ -58,15 +58,24 @@
                     <div class="percentual"><strong>{{ converte_valor_real(calcular_percentual(valor_unidade($unidade), converte_reais_to_mysql($total_balao), '', $tabela)) }}%</strong></div>
                 </div>
 
-                @if($proposta->vaga_extra == 'Sim')
+                @if($proposta->vaga_extra == 'Padrão')
 
                 <div class="item">
-                    <div class="titulo">Vaga Extra Selecionada</div>
+                    <div class="titulo">Vaga Extra (Padrão))</div>
                     <div class="valor">R$ {{ converte_valor_real($tabela->valor_vaga_extra) }}</div>
                     <div class="percentual"><strong><i class="fas fa-car" aria-hidden="true"></i></strong></div>
                 </div>
 
                 @php $total_vaga_extra = $tabela->valor_vaga_extra; @endphp
+                @elseif($proposta->vaga_extra == 'Gaveta Dupla')
+
+                <div class="item">
+                    <div class="titulo">Vaga Extra (Gaveta Dupla))</div>
+                    <div class="valor">R$ {{ converte_valor_real($tabela->valor_vaga_extra_gaveta) }}</div>
+                    <div class="percentual"><strong><i class="fas fa-car" aria-hidden="true"></i><i class="fas fa-car" aria-hidden="true"></i></strong></div>
+                </div>
+
+                @php $total_vaga_extra = $tabela->valor_vaga_extra_gaveta; @endphp
                 @else
                 @php $total_vaga_extra = 0; @endphp
                 @endif

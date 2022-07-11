@@ -101,16 +101,18 @@
             <input type="hidden" name="id" value="{{ $proposta->id }}">
             <select class="form-control select" name="vaga_extra" id="vaga_extra">
                 <option value="" selected>Selecione</option>
-                <option value="Sim" @if($proposta->vaga_extra == 'Sim') selected @endif>SIM</option>
+                <option value="Padrão" @if($proposta->vaga_extra == 'Padrão') selected @endif>SIM (Vaga Padrão)</option>
+                <option value="Gaveta Dupla" @if($proposta->vaga_extra == 'Gaveta Dupla') selected @endif>SIM (Vaga Gaveta Dupla)</option>
                 <option value="Não" @if($proposta->vaga_extra == 'Não') selected @endif>NÃO</option>
             </select>
             </form>
         </div>
 
-        <div class="vagas" id="boxVagasEstras" @if($proposta->vaga_extra == 'Sim') style="display: block;" @else style="display: none;"  @endif >
+        <div class="vagas" id="boxVagasEstras" @if($proposta->vaga_extra <> 'Não') style="display: block;" @else style="display: none;"  @endif>
 
             <div class="titulo-vaga-extra">
-                <div class="tit"><i class="fas fa-car" aria-hidden="true"></i> Vaga Extra: R$ {{ converte_valor_real($tabela->valor_vaga_extra) }}</div>
+                <div class="tit"><i class="fas fa-car" aria-hidden="true"></i> Vaga Extra (Padrão): R$ {{ converte_valor_real($tabela->valor_vaga_extra) }}</div>
+                <div class="tit"><i class="fas fa-car" aria-hidden="true"></i> Vaga Extra Dupla (Gaveta): R$ {{ converte_valor_real($tabela->valor_vaga_extra_gaveta) }}</div>
                 O valor da vaga extra será acrescido à sua proposta
             </div>
 

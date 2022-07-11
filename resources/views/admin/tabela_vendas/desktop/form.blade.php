@@ -87,7 +87,7 @@
                 </div>
             </div>
             @endif
-            
+
         </div>
 
 
@@ -288,7 +288,7 @@
                     <i class="fa fa-info-circle"></i>
                 </div>
 
-            </div> 
+            </div>
             @endforeach
         </div>
     </section>
@@ -322,7 +322,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!--
                 <div class="col-md-3">
                     <div class="form-group">
@@ -341,10 +341,10 @@
                     <i class="fa fa-info-circle"></i>
                 </div>
 
-            </div> 
+            </div>
 
         </div>
-    </section>    
+    </section>
 
     @endif
 
@@ -391,6 +391,7 @@
     </div>
 
     <div class="row">
+
         <div class="col-md-3">
             <div class="form-group">
                 <label>Opção de Vaga Extra?</label>
@@ -398,22 +399,36 @@
                     <span class="input-group-addon">
                         <i class="fa fa-building"></i>
                     </span>
-                    <select class="form-control select-empreendimento" name="possuiVagaExtra" id="possuiVagaExtra">
-                        <option value="Não">Não</option>
-                        <option value="Sim"@if (($tabela->valor_vaga_extra ?? '') <> null) selected="true" @endif>Sim</option>
+                    <select class="form-control select-empreendimento" name="possui_vaga_extra" id="possuiVagaExtra">
+                        <option value="Não"@if (($tabela->possui_vaga_extra == 'Não')) selected="true" @endif>Não</option>
+                        <option value="Sim_PG"@if (($tabela->possui_vaga_extra == 'Sim_PG')) selected="true" @endif>Sim (Padrão e Gaveta)</option>
+                        <option value="Sim_SP"@if (($tabela->possui_vaga_extra == 'Sim_SP')) selected="true" @endif>Sim (Somente Padrão)</option>
+                        <option value="Sim_SG"@if (($tabela->possui_vaga_extra == 'Sim_SG')) selected="true" @endif>Sim (Somente Gaveta)</option>
                     </select>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-3" id="valorVagaExtra" @if (($tabela->valor_vaga_extra ?? '') <> null) style="display: block;" @else style="display: none;" @endif>
+        <div class="col-md-3" id="valorVagaExtraPadrao" @if (($tabela->possui_vaga_extra == 'Sim_PG') || ($tabela->possui_vaga_extra == 'Sim_SP')) style="display: block;" @else style="display: none;" @endif>
             <div class="form-group">
-                <label>Qual o valor da vaga extra?</label>
+                <label>Qual o valor da vaga extra <b>(PADRÃO)</b>?</label>
                 <div class="input-group">
                     <span class="input-group-addon">
                         R$
                     </span>
                     <input class="form-control percentual-valor moeda" name="valor_vaga_extra" id="valor_vaga_extra" value="{{ converte_valor_real($tabela->valor_vaga_extra ?? '') }}" placeholder="">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3" id="valorVagaExtraGaveta" @if (($tabela->possui_vaga_extra == 'Sim_PG') || ($tabela->possui_vaga_extra == 'Sim_SG')) style="display: block;" @else style="display: none;" @endif>
+            <div class="form-group">
+                <label>Qual o valor da vaga extra <b>(GAVETA)</b>?</label>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        R$
+                    </span>
+                    <input class="form-control percentual-valor moeda" name="valor_vaga_extra_gaveta" id="valor_vaga_extra_gaveta" value="{{ converte_valor_real($tabela->valor_vaga_extra_gaveta ?? '') }}" placeholder="">
                 </div>
             </div>
         </div>
@@ -589,7 +604,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
 
     </section>
