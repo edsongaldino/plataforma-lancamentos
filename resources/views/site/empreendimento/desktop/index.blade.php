@@ -12,8 +12,8 @@
 @endif
 
 @if($empreendimento->TabelaAtiva->count() > 0)
-<meta name="twitter:image" content="https://www.lancamentosonline.com.br/uploads/empreendimento/{{ $empreendimento->id }}/original/foto-propostaonline.jpg">
-<meta property="og:image" content="https://www.lancamentosonline.com.br/uploads/empreendimento/{{ $empreendimento->id }}/original/foto-propostaonline.jpg"/>
+<meta name="twitter:image" content="https://www.lancamentosonline.com.br/site/imagens/proposta_online/foto-propostaonline-{{ $empreendimento->id }}.jpg">
+<meta property="og:image" content="https://www.lancamentosonline.com.br/site/imagens/proposta_online/foto-propostaonline-{{ $empreendimento->id }}.jpg"/>
 @else
 <meta name="twitter:image" content="{{ $empreendimento->fotoPrincipal() }}">
 <meta property="og:image" content="{{ $empreendimento->fotoPrincipal() }}"/>

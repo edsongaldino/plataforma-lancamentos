@@ -40,7 +40,7 @@ $link_tour = $link_tour->pivot->valor;
     <meta property="og:site_name" content="Portal de anúncios imobiliários especializado em lançamentos."/>
 
     @if($empreendimento->TabelaAtiva->count() > 0)
-    <meta property="og:image" content="https://www.lancamentosonline.com.br/uploads/empreendimento/{{ $empreendimento->id }}/original/foto-propostaonline.jpg"/>
+    <meta property="og:image" content="https://www.lancamentosonline.com.br/site/imagens/proposta_online/foto-propostaonline-{{ $empreendimento->id }}.jpg"/>
     @else
     <meta property="og:image" content="{{ $empreendimento->fotoPrincipal() }}"/>
     @endif

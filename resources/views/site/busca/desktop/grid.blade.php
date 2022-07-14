@@ -16,14 +16,18 @@
 		<div class="col-xs-12 col-sm-6 col-lg-4 grid-offer-col">
 			<div class="grid-offer">
 				<div class="grid-offer-front">
-					@if ($empreendimento->black_friday == 'S')
-            <div class="selo-oferta-grid"><img src="/site/images/selo_oferta_{{ $empreendimento->id_construtora }}.png" alt=""></div>
-          @elseif ($empreendimento->ofertasAtivas->count() > 0)
-            @if ($empreendimento->construtora_id == 13)
-            <div class="selo-oferta-grid"><a href="/imoveis/{{ url_amigavel($empreendimento->subtipo->nome)}}-{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html"><img src="/site/images/selo_oferta_13.png" alt=""></a></div>
-            @else
-            <div class="selo-oferta-grid"><a href="/imoveis/{{ url_amigavel($empreendimento->subtipo->nome)}}-{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html"><img src="/site/images/selo-black-friday-list.png" alt=""></a></div>
-            @endif
+                @if($empreendimento->TabelaAtiva->count() > 0)
+            <div class="selo-oferta">
+                <img src="/site/images/selo_proposta_online.png" alt="">
+            </div>
+            @elseif ($empreendimento->black_friday == 'S')
+                <div class="selo-oferta-grid"><img src="/site/images/selo_oferta_{{ $empreendimento->id_construtora }}.png" alt=""></div>
+            @elseif ($empreendimento->ofertasAtivas->count() > 0)
+                @if ($empreendimento->construtora_id == 13)
+                <div class="selo-oferta-grid"><a href="/imoveis/{{ url_amigavel($empreendimento->subtipo->nome)}}-{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html"><img src="/site/images/selo_oferta_13.png" alt=""></a></div>
+                @else
+                <div class="selo-oferta-grid"><a href="/imoveis/{{ url_amigavel($empreendimento->subtipo->nome)}}-{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html"><img src="/site/images/selo-black-friday-list.png" alt=""></a></div>
+                @endif
           @endif
 
           <div class="grid-offer-photo">
@@ -46,8 +50,8 @@
               @else
                 <div class="transaction-type mude-ja" title="Pronto para Morar">P</div>
               @endif
-           </div>            
-              
+           </div>
+
             @php
               $previsao =  get_previsao_entrega($empreendimento);
             @endphp
@@ -56,8 +60,8 @@
               <div class="grid-entrega"><i class="fa fa-key" aria-hidden="true"></i> PRONTO</div>
             @else
               <div class="grid-entrega aguardando">
-                <i class="fa fa-calendar" aria-hidden="true"></i>                 
-                {{ $previsao }}                
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                {{ $previsao }}
               </div>
             @endif
           </div>
@@ -67,12 +71,12 @@
               <h4 class="grid-offer-title">{{ $empreendimento->nome }}</h4>
             </div>
             <div class="list-offer-localization">
-              <i class="fa fa-map-marker" aria-hidden="true"></i> 
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
               @if ($empreendimento->endereco)
                 {{ $empreendimento->endereco->bairro->nome }},
-              @endif 
+              @endif
               @if ($empreendimento->endereco)
-                {{ $empreendimento->endereco->cidade->nome }} - 
+                {{ $empreendimento->endereco->cidade->nome }} -
               @endif
               @if ($empreendimento->endereco)
                 {{ $empreendimento->endereco->cidade->estado->nome }}
@@ -86,24 +90,24 @@
               <div class="grid-price blackfriday pull-left" title="À partir de:">
                 De <span class="valor-de">{{ $empreendimento->ofertaPrincipal('valor-de') }}</span> por <span class="valor-por">{{ $empreendimento->ofertaPrincipal('valor-por') }}*</span>
               </div>
-            
+
               @else
 
               @if($empreendimento->caracteristicas->where('nome', 'ocultar_valor')->first() && $empreendimento->caracteristicas->where('nome', 'ocultar_valor')->first()->pivot->valor == 'S')
                 <div class="grid-price pull-left">
-                  <i class="fa fa-angle-double-up" aria-hidden="true" title="À partir de:"></i> 
+                  <i class="fa fa-angle-double-up" aria-hidden="true" title="À partir de:"></i>
                   Consultar
                 </div>
               @else
                 <div class="grid-price pull-left">
-                  <i class="fa fa-angle-double-up" aria-hidden="true" title="À partir de:"></i> 
+                  <i class="fa fa-angle-double-up" aria-hidden="true" title="À partir de:"></i>
                   R$ {{ $empreendimento->valor_inicial }}
                 </div>
               @endif
 
             @endif
-            
-            
+
+
             <div class="grid-construtora pull-right">
               <img class="logo-right" src="{{ $empreendimento->construtora->getLogoUrl('125x95') }}" width="60" alt=""></div>
             <div class="clearfix"></div>
@@ -122,7 +126,7 @@
              <div class="grid-baths">
                <img src="/site/images/bathrooms-icon.png" alt="" />
                {!! qtd_suites($empreendimento) !!}
-             </div>							
+             </div>
            </div>
           @elseif ($empreendimento->subtipo_id == 2)
             <div class="grid-offer-params">
@@ -144,7 +148,7 @@
                     Não possui estacionamento rotativo
                   @endif
                   " />
-              </div>						
+              </div>
             </div>
           @elseif ($empreendimento->subtipo_id == 3)
             @php
@@ -159,7 +163,7 @@
                 <div class="grid-area-lotes">
                   <img src="/site/images/area-icon.png" alt="" />
                   Lotes de {{ $area_unidade_min }} à {{ $area_unidade_max }} m<sup>2</sup>
-                </div>						
+                </div>
               </div>
             @else
               <div class="grid-offer-params">
@@ -183,7 +187,7 @@
               <div class="grid-offer-params">
                 <div class="grid-area-lotes">
                   <img src="/site/images/area-icon.png" alt="" />Lotes de {{ $area_unidade_min }} à {{ $area_unidade_max }} m<sup>2</sup>
-                </div>            
+                </div>
               </div>
             @else
               <div class="grid-offer-params">
@@ -198,9 +202,9 @@
                <div class="grid-baths">
                  <img src="/site/images/bathrooms-icon.png" alt="" />
                  {!! qtd_suites($empreendimento) !!}
-               </div>             
+               </div>
               </div>
-            @endif          
+            @endif
           @else
             <div class="grid-offer-params">
               <div class="grid-area">
@@ -214,11 +218,11 @@
              <div class="grid-baths">
                <img src="/site/images/bathrooms-icon.png" alt="" />
                {!! qtd_suites($empreendimento) !!}
-             </div>							
+             </div>
             </div>
           @endif
-        </div>									
-      </div>							
+        </div>
+      </div>
     </div>
   @endforeach
 </div>

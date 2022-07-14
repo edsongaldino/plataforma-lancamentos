@@ -18,7 +18,7 @@
   </div>
   <div style="clear: both;"></div>
 
-  @foreach($empreendimentos AS $empreendimento)              
+  @foreach($empreendimentos AS $empreendimento)
     @php
     $area_unidade_min = 0;
     $area_unidade_max = 0;
@@ -35,7 +35,11 @@
     <div class="list-offer">
       <div class="list-offer-left">
         <div class="list-offer-front">
-          @if ($empreendimento->black_friday == 'S')
+          @if($empreendimento->TabelaAtiva->count() > 0)
+            <div class="selo-oferta">
+                <img src="/site/images/selo_proposta_online.png" alt="">
+            </div>
+          @elseif ($empreendimento->black_friday == 'S')
             <div class="selo-oferta"><img src="/site/images/selo_oferta_{{ $empreendimento->construtora_id }}.png" alt=""></div>
           @elseif ($empreendimento->ofertasAtivas->count() > 0)
             @if ($empreendimento->construtora_id == 13)
@@ -45,7 +49,7 @@
             @endif
           @endif
 
-          <div class="list-offer-photo">          
+          <div class="list-offer-photo">
             <a href="/imoveis/{{ url_amigavel($empreendimento->subtipo->nome)}}-{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html">
               <img src="{{ $empreendimento->fotoPrincipal() }}" alt="" />
             </a>
@@ -84,12 +88,12 @@
                 <img src="/site/images/rooms-icon.png" alt="" title="Quantidade de Dormitórios" />
                 {!! qtd_dormitorio($empreendimento, true) !!}
               </div>
-                            
+
               @if (qtd_suites($empreendimento) > 0)
                 <div class="list-baths" data-suite="{{ $suites }}">
                   <img src="/site/images/bathrooms-icon.png" alt="" title="Quantidade de Suítes" />
                   {!! qtd_suites($empreendimento) !!}
-                </div>              
+                </div>
               @endif
             </div>
 
@@ -113,14 +117,14 @@
                     Não possui estacionamento rotativo
                   @endif
                   "/>
-              </div>              
+              </div>
             </div>
           @elseif ($empreendimento->subtipo_id == 3)
             @if ($empreendimento->variacao_id == 6)
               <div class="list-offer-params">
                 <div class="list-area-lotes">
                   <img src="/site/images/area-icon.png" alt="" />Lotes de {{ $area_unidade_min }} à {{ $area_unidade_max }} m<sup>2</sup>
-                </div>            
+                </div>
               </div>
             @else
               <div class="list-offer-params">
@@ -136,16 +140,16 @@
                   <div class="list-baths">
                     <img src="/site/images/bathrooms-icon.png" alt="" />
                     {{ $suites }}
-                  </div>              
+                  </div>
                 @endif
               </div>
-            @endif                      
+            @endif
           @elseif ($empreendimento->subtipo_id == 4)
             @if ($empreendimento->variacao_id == 10)
               <div class="list-offer-params">
                 <div class="list-area-lotes">
                   <img src="/site/images/area-icon.png" alt="" />Lotes de {{ $area_unidade_min }} à {{ $area_unidade_max }} m<sup>2</sup>
-                </div>            
+                </div>
               </div>
             @else
               <div class="list-offer-params">
@@ -161,7 +165,7 @@
                   <div class="list-baths">
                     <img src="/site/images/bathrooms-icon.png" alt="" />
                     {{ $suites }}
-                  </div>              
+                  </div>
                 @endif
               </div>
             @endif
@@ -180,7 +184,7 @@
                 <div class="list-baths">
                   <img src="/site/images/bathrooms-icon.png" alt="" />
                   {{ $suites }}
-                </div>              
+                </div>
               @endif
             </div>
           @endif
@@ -207,18 +211,18 @@
               <h4 class="list-offer-title">{{ $empreendimento->nome }}</h4>
             </div>
             <div class="list-offer-localization">
-              <i class="fa fa-map-marker" aria-hidden="true"></i> 
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
               @if ($empreendimento->endereco)
               {{ $empreendimento->endereco->bairro->nome }},
-              @endif 
+              @endif
               @if ($empreendimento->endereco)
-              {{ $empreendimento->endereco->cidade->nome }} - 
+              {{ $empreendimento->endereco->cidade->nome }} -
               @endif
               @if ($empreendimento->endereco)
               {{ $empreendimento->endereco->cidade->estado->nome }}
               @endif
             </div>
-          
+
           <div class="list-offer-resumo">
             <a href="/imoveis/{{ url_amigavel($empreendimento->subtipo->nome)}}-{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html">{{ substr($empreendimento->descricao, 0, 200)}}</a>
           </div>
@@ -226,7 +230,7 @@
           <div class="list-offer-construtora">
             <img src="{{ $empreendimento->construtora->getLogoUrl('125x95') }}" width="80" alt="">
           </div>
-          
+
           <div class="clearfix"></div>
         </div>
         <div class="profile-list-footer">
@@ -244,30 +248,30 @@
             @endif
           </div>
           @endif
-          
-          @php 
+
+          @php
             $previsao = get_previsao_entrega($empreendimento);
           @endphp
-          
+
           @if ($previsao == 'Pronto')
             <a href="/imoveis/{{ url_amigavel($empreendimento->subtipo->nome)}}-{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html" class="profile-list-entrega" title="Previsão de entrega">
-            <i class="fa fa-key" aria-hidden="true"></i> 
+            <i class="fa fa-key" aria-hidden="true"></i>
             PRONTO
           @else
             <a href="/imoveis/{{ url_amigavel($empreendimento->subtipo->nome)}}-{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html" class="profile-list-entrega aguardando" title="Previsão de entrega">
-            <i class="fa fa-calendar" aria-hidden="true"></i>            
+            <i class="fa fa-calendar" aria-hidden="true"></i>
             {{ $previsao }}
           @endif
           </a>
           <div class="profile-list-info hidden-xs">
-          
+
           </div>
           <div class="profile-list-info hidden-xs hidden-sm hidden-md">
-          
+
           </div>
         </div>
       </div>
       <div class="clearfix"></div>
-    </div>        
+    </div>
   @endforeach
 </div>
