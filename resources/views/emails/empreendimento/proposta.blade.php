@@ -570,6 +570,7 @@
                 </tr>
 
                 <tr>
+
                   <td height="20" align="center" bgcolor="#FFFFFF">
                     <span class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
                         <img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/images/icon-chat.png" alt="" width="30" height="30">
@@ -583,6 +584,7 @@
                   <td height="20" colspan="3" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                     {{ $proposta->preferencia_contato ?? ''}}
                   </td>
+
                 </tr>
 
                 <tr>

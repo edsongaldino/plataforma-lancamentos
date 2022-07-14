@@ -4,13 +4,13 @@ ini_set('memory_limit','-1');
 $mostra_mapa = $empreendimento->caracteristicas->where('nome', 'mostra_mapa')->first();
 
 if ($mostra_mapa) {
-$mostra_mapa = $mostra_mapa->pivot->valor;  
+$mostra_mapa = $mostra_mapa->pivot->valor;
 }
 
 $link_tour = $empreendimento->caracteristicas->where('nome', 'link_tour')->first();
 
 if ($link_tour) {
-$link_tour = $link_tour->pivot->valor;  
+$link_tour = $link_tour->pivot->valor;
 }
 
 @endphp
@@ -25,8 +25,8 @@ $link_tour = $link_tour->pivot->valor;
   @if ($empreendimento->seo)
     <title>{{ $empreendimento->nome }}</title>
     <meta name="description" content="{{ $empreendimento->seo->descricao ?? null }}">
-    <meta name="keywords" content="{{ $empreendimento->seo->palavra_chave ?? null }}"> 
-    <meta name="author" content="Lançamentos Online"> 
+    <meta name="keywords" content="{{ $empreendimento->seo->palavra_chave ?? null }}">
+    <meta name="author" content="Lançamentos Online">
     <link rel="shortcut icon" href="/site/m/images/favicon.ico">
     <!-- Resolution Screen -->
     <meta content="IE=edge" http-equiv="x-ua-compatible">
@@ -38,14 +38,20 @@ $link_tour = $link_tour->pivot->valor;
     <meta property="og:description" content="{{ $empreendimento->seo->descricao }}">
     <meta property="og:type" content="Portal Imobiliário"/>
     <meta property="og:site_name" content="Portal de anúncios imobiliários especializado em lançamentos."/>
+
+    @if($empreendimento->TabelaAtiva->count() > 0)
+    <meta property="og:image" content="https://www.lancamentosonline.com.br/uploads/empreendimento/{{ $empreendimento->id }}/original/foto-propostaonline.jpg"/>
+    @else
     <meta property="og:image" content="{{ $empreendimento->fotoPrincipal() }}"/>
+    @endif
+
     <meta property="og:url" content="https://www.lancamentosonline.com.br/imoveis/{{ url_amigavel($empreendimento->subtipo->nome)}}-{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html"/>
     <!-- /SEO -->
   @else
     <title>@yield('title', 'Portal Lançamentos Online - Exclusivo para Construtoras e Incorporadoras')</title>
     <meta name="description" content="O seu novo lar está aqui!">
-    <meta name="keywords" content="lançamentos online, lançamentos imobiliários, apartamento em cuiabá, apartamento novo, imoveis mt, imoveis novos cuiabá"> 
-    <meta name="author" content="Lançamentos Online"> 
+    <meta name="keywords" content="lançamentos online, lançamentos imobiliários, apartamento em cuiabá, apartamento novo, imoveis mt, imoveis novos cuiabá">
+    <meta name="author" content="Lançamentos Online">
     <link rel="shortcut icon" href="/site/m/images/favicon.ico">
     <!-- Resolution Screen -->
     <meta content="IE=edge" http-equiv="x-ua-compatible">
@@ -116,15 +122,15 @@ $link_tour = $link_tour->pivot->valor;
 <script type="text/javascript" src="/site/m/js/jquery-ui.min.js"></script>
 @endpush
 
-@section('content')   
+@section('content')
   <input type="hidden" id="latitude" value="{{ $empreendimento->endereco->latitude }}">
   <input type="hidden" id="longitude" value="{{ $empreendimento->endereco->longitude }}">
 
-  @include('site/empreendimento/mobile/topo')    
+  @include('site/empreendimento/mobile/topo')
   <div class="content-container animated fadeInUp content-container-detalhe" style="margin-bottom: 40px;padding-top: 0;">
-    <div class="tab_container">          
-      @include('site/empreendimento/mobile/cabecalho')    
-      @include('site/empreendimento/mobile/selo')    
+    <div class="tab_container">
+      @include('site/empreendimento/mobile/cabecalho')
+      @include('site/empreendimento/mobile/selo')
       @include('site/empreendimento/mobile/foto')
       @include('site/empreendimento/mobile/oferta')
       @include('site/empreendimento/mobile/detalhe')
@@ -133,10 +139,10 @@ $link_tour = $link_tour->pivot->valor;
       @include('site/empreendimento/mobile/itens')
       @include('site/empreendimento/mobile/mapa')
       @include('site/empreendimento/mobile/localizacao')
-      @include('site/empreendimento/mobile/formulario')      
-    </div>    
-    <div class="clear"></div>    
-  </div>  
+      @include('site/empreendimento/mobile/formulario')
+    </div>
+    <div class="clear"></div>
+  </div>
 
   @include('site/empreendimento/mobile/modalChatDados')
 

@@ -1,6 +1,6 @@
 @foreach ($empreendimentos as $empreendimento)
   @php
-    $icone_tipo = '';    
+    $icone_tipo = '';
     switch($empreendimento->subtipo_id):
       case 1:
         $icone_tipo = '<i class="fa fa-building"></i>';
@@ -47,7 +47,7 @@
             <i class="fa fa-share-alt"></i>
           </div>
         </a>
-        
+
         @if(false)
           @if(in_array($empreendimento->id, $array_empreendimentos_favoritos))
             <div class="icone-favoritar active" onclick="removeFavorito('{{ $empreendimento->id }}');">
@@ -65,23 +65,27 @@
           </a>
         @endif
       </div>
-      
-      @if($empreendimento->black_friday == 'S')
+
+      @if($empreendimento->TabelaAtiva->count() > 0)
+      <div class="selo-oferta">
+          <img src="/site/images/selo_proposta_online.png" alt="">
+      </div>
+      @elseif($empreendimento->black_friday == 'S')
         <div class="selo-oferta">
           <img src="/site/images/selo_oferta_{{ $empreendimento->construtora->id }}.png" alt="">
         </div>
-      @elseif($empreendimento->ofertasAtivas->count()) 
+      @elseif($empreendimento->ofertasAtivas->count())
         <div class="selo-oferta">
           @if ($empreendimento->construtora_id == 13)
           <img src="/site/images/selo_oferta_13.png" alt="">
           @else
           <img src="/site/images/selo-black-friday.png" alt="">
           @endif
-        </div>        
+        </div>
       @else
         @if($empreendimento->subtipo_id == 3)
-          <div class="tipo_empreendimento_{{ $classe }}">             
-            Condomínio 
+          <div class="tipo_empreendimento_{{ $classe }}">
+            Condomínio
             @if($empreendimento->getCaracteristica('tipo_condominio'))
               ({{ $empreendimento->getCaracteristica('tipo_condominio') }})
             @endif
@@ -114,17 +118,17 @@
             <span>
               Unidades
             </span>
-            <p>                            
+            <p>
               {{ $empreendimento->unidades->count() }}
             </p>
           </div>
           <div class="meio">
             <span>
               Área (m²)
-            </span>            
+            </span>
             <p>
-              {{ qtd_metragem($empreendimento)}} m<sup>2</sup>  
-            </p>            
+              {{ qtd_metragem($empreendimento)}} m<sup>2</sup>
+            </p>
           </div>
         @elseif($empreendimento->subtipo->id == 3)
           <div class="esquerda">
@@ -132,7 +136,7 @@
               Unidades
             </span>
             <p>
-              {{ $empreendimento->unidades->count() }}              
+              {{ $empreendimento->unidades->count() }}
             </p>
           </div>
           <div class="meio">
@@ -150,7 +154,7 @@
                 Unidades
               </span>
               <p>
-                {{ $empreendimento->unidades->count() }}              
+                {{ $empreendimento->unidades->count() }}
               </p>
             </div>
             <div class="meio">
@@ -160,14 +164,14 @@
               <p>
                 {{ $empreendimento->getCaracteristica("area_unidade_min") }} à {{ $empreendimento->getCaracteristica("area_unidade_max") }} m<sup>2</sup>
               </p>
-            </div>          
+            </div>
           @else
             <div class="esquerda">
               <span>
                 Unidades
               </span>
               <p>
-                {{ $empreendimento->unidades->count() }}              
+                {{ $empreendimento->unidades->count() }}
               </p>
             </div>
             <div class="meio">
@@ -185,7 +189,7 @@
               Quartos
             </span>
             <p>
-              {{ qtd_dormitorio($empreendimento, false, false) }}  
+              {{ qtd_dormitorio($empreendimento, false, false) }}
             </p>
           </div>
           <div class="meio">
@@ -193,9 +197,9 @@
               Área (m²)
             </span>
             <p>
-              {!! qtd_metragem($empreendimento)!!} m<sup>2</sup>  
+              {!! qtd_metragem($empreendimento)!!} m<sup>2</sup>
             </p>
-            
+
           </div>
         @endif
 
@@ -216,7 +220,7 @@
       </div>
       <!-- /Detalhes -->
     </div>
-    
+
     <div class="entry-main01">
       <div class="entry-meta">
         <span class="local-01"></span>
@@ -224,12 +228,12 @@
         <span class="author">
           @if ($empreendimento->endereco)
             {{ $empreendimento->endereco->bairro->nome }},
-          @endif 
-          
-          @if ($empreendimento->endereco)
-            {{ $empreendimento->endereco->cidade->nome }} - 
           @endif
-          
+
+          @if ($empreendimento->endereco)
+            {{ $empreendimento->endereco->cidade->nome }} -
+          @endif
+
           @if ($empreendimento->endereco)
             {{ $empreendimento->endereco->cidade->estado->nome }}
           @endif
@@ -243,7 +247,7 @@
       </div>
     </div>
 
-    @if($empreendimento->ofertasAtivas->count() > 0) 
+    @if($empreendimento->ofertasAtivas->count() > 0)
     <div class="info-oferta-site">
       De <span class="valor-de">{{ $empreendimento->ofertaPrincipal('valor-de') }}</span> por <span class="valor-por">{{ $empreendimento->ofertaPrincipal('valor-por') }}*</span>
     </div>
