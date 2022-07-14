@@ -17,7 +17,7 @@
 			<div class="grid-offer">
 				<div class="grid-offer-front">
                 @if($empreendimento->TabelaAtiva->count() > 0)
-            <div class="selo-oferta">
+            <div class="selo-oferta-grid">
                 <img src="/site/images/selo_proposta_online.png" alt="">
             </div>
             @elseif ($empreendimento->black_friday == 'S')

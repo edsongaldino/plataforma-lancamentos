@@ -9791,6 +9791,11 @@ ul.busca-popular{
 	z-index: 9999;
 }
 
+.selo-oferta-list img{
+	width: 100%;
+    margin-top: 2px;
+}
+
 .observacoes-oferta{
 	width: 100%;
 	height: auto;
@@ -9813,6 +9818,11 @@ ul.busca-popular{
     right: 30px;
 	top: -12px;
 	z-index: 9999;
+}
+
+.selo-oferta-grid img{
+	width: 100%;
+    margin-top: 2px;
 }
 
 .selo-oferta-detalhe{

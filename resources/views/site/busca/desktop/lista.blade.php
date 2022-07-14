@@ -36,11 +36,11 @@
       <div class="list-offer-left">
         <div class="list-offer-front">
           @if($empreendimento->TabelaAtiva->count() > 0)
-            <div class="selo-oferta">
+            <div class="selo-oferta-list">
                 <img src="/site/images/selo_proposta_online.png" alt="">
             </div>
           @elseif ($empreendimento->black_friday == 'S')
-            <div class="selo-oferta"><img src="/site/images/selo_oferta_{{ $empreendimento->construtora_id }}.png" alt=""></div>
+            <div class="selo-oferta-list"><img src="/site/images/selo_oferta_{{ $empreendimento->construtora_id }}.png" alt=""></div>
           @elseif ($empreendimento->ofertasAtivas->count() > 0)
             @if ($empreendimento->construtora_id == 13)
             <div class="selo-oferta-list"><a href="/imoveis/{{ url_amigavel($empreendimento->subtipo->nome)}}-{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html"><img src="/site/images/selo_oferta_13.png" alt=""></a></div>
