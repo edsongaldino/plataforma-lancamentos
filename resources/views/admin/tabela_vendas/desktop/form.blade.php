@@ -400,16 +400,16 @@
                         <i class="fa fa-building"></i>
                     </span>
                     <select class="form-control select-empreendimento" name="possui_vaga_extra" id="possuiVagaExtra">
-                        <option value="Não"@if (($tabela->possui_vaga_extra == 'Não')) selected="true" @endif>Não</option>
-                        <option value="Sim_PG"@if (($tabela->possui_vaga_extra == 'Sim_PG')) selected="true" @endif>Sim (Padrão e Gaveta)</option>
-                        <option value="Sim_SP"@if (($tabela->possui_vaga_extra == 'Sim_SP')) selected="true" @endif>Sim (Somente Padrão)</option>
-                        <option value="Sim_SG"@if (($tabela->possui_vaga_extra == 'Sim_SG')) selected="true" @endif>Sim (Somente Gaveta)</option>
+                        <option value="Não"@if (($tabela->possui_vaga_extra ?? '') == 'Não') selected="true" @endif>Não</option>
+                        <option value="Sim_PG"@if (($tabela->possui_vaga_extra ?? '') == 'Sim_PG') selected="true" @endif>Sim (Padrão e Gaveta)</option>
+                        <option value="Sim_SP"@if (($tabela->possui_vaga_extra ?? '') == 'Sim_SP') selected="true" @endif>Sim (Somente Padrão)</option>
+                        <option value="Sim_SG"@if (($tabela->possui_vaga_extra ?? '') == 'Sim_SG') selected="true" @endif>Sim (Somente Gaveta)</option>
                     </select>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-3" id="valorVagaExtraPadrao" @if (($tabela->possui_vaga_extra == 'Sim_PG') || ($tabela->possui_vaga_extra == 'Sim_SP')) style="display: block;" @else style="display: none;" @endif>
+        <div class="col-md-3" id="valorVagaExtraPadrao" @if ((($tabela->possui_vaga_extra ?? '') == 'Sim_PG') || (($tabela->possui_vaga_extra ?? '') == 'Sim_SP')) style="display: block;" @else style="display: none;" @endif>
             <div class="form-group">
                 <label>Qual o valor da vaga extra <b>(PADRÃO)</b>?</label>
                 <div class="input-group">
@@ -421,7 +421,7 @@
             </div>
         </div>
 
-        <div class="col-md-3" id="valorVagaExtraGaveta" @if (($tabela->possui_vaga_extra == 'Sim_PG') || ($tabela->possui_vaga_extra == 'Sim_SG')) style="display: block;" @else style="display: none;" @endif>
+        <div class="col-md-3" id="valorVagaExtraGaveta" @if ((($tabela->possui_vaga_extra ?? '') == 'Sim_PG') || (($tabela->possui_vaga_extra ?? '') == 'Sim_SG')) style="display: block;" @else style="display: none;" @endif>
             <div class="form-group">
                 <label>Qual o valor da vaga extra <b>(GAVETA)</b>?</label>
                 <div class="input-group">

@@ -182,8 +182,8 @@ table td[class=template-img] img {
                   <tr>
                     <td height="50" align="center" style="width:100px !important; font:18px Arial, Helvetica, sans-serif; color:#FFFFFF; height:50px !important; background: #16c4a9; line-height:50px;">
                       <a style="text-decoration: none; color: white" href="{{ $lancamento->url }}" target="_blank">
-                        FAZER O PAGAMENTO DA MENSALIDADE  
-                      </a>                      
+                        FAZER O PAGAMENTO DA MENSALIDADE
+                      </a>
                     </td>
                   </tr>
                   <tr>
