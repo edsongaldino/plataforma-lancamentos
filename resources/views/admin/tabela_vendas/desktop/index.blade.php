@@ -65,7 +65,7 @@
 <div class="col-sm-12">
     <div class="row m-b-10">
         <div class="col-sm-3 hidden-print with-border">
-          
+
         </div>
     </div>
 
@@ -78,15 +78,15 @@
             <div class="col-lg-4 col-sm-6">
                 <div class="plan most-popular">
 
-                    <h3 class="nome-empreendimento"><i class="fa fa-briefcase"></i> Tabela {{ $tabela->tipo->nome }}</h3>
-                    <div class="nome-tabela"><i class="fa fa-building"></i> {{ $tabela->empreendimento->nome }} </div>
+                    <h3 class="nome-empreendimento"><i class="fa fa-briefcase"></i> Tabela {{ $tabela->tipo->nome ?? '' }}</h3>
+                    <div class="nome-tabela"><i class="fa fa-building"></i> {{ $tabela->empreendimento->nome ?? '' }} </div>
                     <ul class="itens-tabela">
                         <li><span class="item">Entrada:</span><span class="valor">{{ $tabela->percentual_entrada }}%</span></li>
                         <li><span class="item">Mensais:</span><span class="valor"><b>{{ $tabela->qtd_mensais }}</b> ({{ $tabela->percentual_mensais }}%)</span></li>
                         <li><span class="item">Balões:</span><span class="valor"><i data-toggle="tooltip" data-placement="top" data-html="true"
-                        
+
                         title='
-                            @php 
+                            @php
                             $i = 1;
                             @endphp
                             @foreach($tabela->baloes as $balao)
@@ -94,7 +94,7 @@
                             @php $i = $i+1; @endphp
                             @endforeach
                         ' class="fa fa-plus-circle baloes"></i> <b>{{ $tabela->qtd_baloes }}</b> ({{ $tabela->percentual_baloes }}%)</span>
-                        
+
                         </li>
                         <li><span class="item">Financiamento:</span><span class="valor">{{ $tabela->percentual_remanescente }}%</span></li>
                         <li><span class="item-desconto">Desconto á vista:</span><span class="valor">{{ $tabela->desconto_avista }}%</span></li>
@@ -104,13 +104,13 @@
                     <div class="botoes-acao-tabela">
                         <a class="btn btn-lg btn-editarTabela btn-warning" href="{{ route('editar-tabela', $tabela->id) }}"><i class="fa fa-edit"></i> Editar</a>
                         <a class="btn btn-lg btn-excluirTabela btn-danger" data-id="{{ $tabela->id }}" data-url="{{ route('excluir-tabela', $tabela->id) }}"><i class="fa fa-close"></i> Excluir</a>
-                    </div>                   
+                    </div>
 
                 </div>
             </div>
             @endforeach
-           
-            
+
+
         </div>
 
     </div>
