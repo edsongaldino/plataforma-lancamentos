@@ -40,10 +40,24 @@ $("#vaga_extra").on('change', function () {
 
   var vaga_extra = $(this).val();
 
-  if (vaga_extra == 'Sim') {
-      $("#boxVagasEstras").css("display", "block");
+  alert(vaga_extra);
+
+  if (vaga_extra != 'Não') {
+
+      $("#boxVagasExtras").css("display", "block");
+
+      if (vaga_extra == 'Padrão') {
+        $("#ExtraPadrao").css("display", "block");
+        $("#ExtraDupla").css("display", "none");
+      }
+
+      if (vaga_extra == 'Gaveta Dupla') {
+        $("#ExtraPadrao").css("display", "none");
+        $("#ExtraDupla").css("display", "block");
+      }
+
   }else{
-      $("#boxVagasEstras").css("display", "none");
+      $("#boxVagasExtras").css("display", "none");
   }
 
 });
