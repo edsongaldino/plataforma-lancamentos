@@ -1673,8 +1673,8 @@ if (!function_exists('calcular_valor')) {
 
 		if($tipo == 'Saldo'){
 			//var_dump($valor_cheio);
-			$valor_entrada = floatval($valor_cheio) * (floatval($percentual) / 100);
-			return $valor_cheio - $valor_entrada;
+			$saldo = floatval($valor_cheio) * (floatval($percentual) / 100);
+			return $saldo;
 		}
 
     }

@@ -92,7 +92,7 @@
 
         </div>
 
-        @if($unidade->garagem->count() > 0)
+        @if($unidade->garagem->count() > 0 || $garagens->count() > 0)
 
         <div class="vaga-extra-select">
             <label for="nome">Deseja incluir vagas extras na proposta?</label>
