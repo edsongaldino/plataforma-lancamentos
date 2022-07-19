@@ -221,21 +221,11 @@
         @if($video)
         @if ($video->pivot->valor != null)
         <div class="video">
-            <div class="titulo-video"><i class="fab fa-youtube" aria-hidden="true"></i> Vídeo</div>
+            <div class="titulo-video"><i class="fab fa-youtube" aria-hidden="true"></i> Vídeo do Empreendimento</div>
             <iframe class="video-youtube" src="{{ $empreendimento->caracteristicas->where('nome', 'video')->first()->pivot->valor }}" title="Vídeo - {{ $empreendimento->nome }}"></iframe>
             <!--<div class="outros-videos"><i class="fas fa-video" aria-hidden="true"></i> + Vídeos</div>-->
         </div>
         @endif
-        @endif
-
-        @if($empreendimento->arquivos->where('tipo', 'Vídeo')->count() > 0)
-
-        <div class="video">
-            <div class="titulo-video"><i class="fab fa-youtube" aria-hidden="true"></i> Vídeo</div>
-            <iframe class="video-youtube" src="{{ $empreendimento->arquivos->where('tipo', 'Vídeo')->first()->arquivo }}" title="Vídeo - {{ $empreendimento->nome }}" sandbox></iframe>
-            <!--<div class="outros-videos"><i class="fas fa-video" aria-hidden="true"></i> + Vídeos</div>-->
-        </div>
-
         @endif
 
         @php
