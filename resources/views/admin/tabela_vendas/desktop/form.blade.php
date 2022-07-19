@@ -30,7 +30,7 @@
 
         <div class="col-md-3" id="selectTorresQuadras">
 
-            @if(isset($tabela) && $tabela->empreendimento->tipo == 'Vertical')
+            @if(isset($tabela) && $tabela->empreendimento->tipo ?? '' == 'Vertical')
             <div class="form-group">
                 <label>Torre</label>
                 <div class="input-group">
@@ -66,7 +66,7 @@
 
         <div class="col-md-2" id="previsaoEntrega">
 
-            @if(isset($tabela) && $tabela->empreendimento->tipo == 'Vertical')
+            @if(isset($tabela) && $tabela->empreendimento->tipo ?? '' == 'Vertical')
             <div class="form-group">
                 <label>Previsão de entrega</label>
                 <div class="input-group">
