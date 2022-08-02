@@ -21,22 +21,22 @@
     <meta property="og:image:height" content="600">
     <meta property="og:type" content="website">
 
-    @stack('meta')   
+    @stack('meta')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Google font -->
 	<link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.css" />
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="/assets/premium/bootstrap-4.6.0-dist/css/bootstrap.min.css">
-    
+
     <link href="/assets/premium/fontawesome/css/all.css" rel="stylesheet">
-    
+
 	<!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="/assets/premium/css/custom.css?v={{ filemtime('assets/premium/css/custom.css') }}" />
 	<link type="text/css" rel="stylesheet" href="/assets/premium/css/style.css?v={{ filemtime('assets/premium/css/style.css') }}" />
     <link href="/assets/premium/js/lightbox/ekko-lightbox.css" rel="stylesheet">
 
     <script src="/site/ferramenta/js/jQuery/jquery.min.js"></script>
-    <script src="/site/ferramenta/js/jQuery/jquery-ui.min.js"></script> 
+    <script src="/site/ferramenta/js/jQuery/jquery-ui.min.js"></script>
 
     @stack('includes_head')
 
@@ -58,18 +58,18 @@
     <div class="topo">
         <a href="/empreendimento/{{ $empreendimento->id }}/premium"><div class="logo"><img src="{{ url($empreendimento->construtora->getLogoPremium()) }}" alt="" class="img-responsive center-block d-block mx-auto"></div></a>
         <div class="logo-empreendimento"><img src="{{ url($empreendimento->getLogo()) }}" class="img-responsive center-block d-block mx-auto" alt="" width="100" height="76"></div>
-        
+
         <a href="#openModal" id="ModalChat">
             <div class="chat"><i class="fab fa-whatsapp" aria-hidden="true"></i><br/><span class="corretor-on">Corretor <strong>ON</strong></span></div>
         </a>
-        
+
     </div>
 
     <div id="loader" class="loader"></div>
 
     @yield('content')
 
-    @stack('rodape') 
+    @stack('rodape')
     @include('site/empreendimento/mobile/modalChatDados')
     @include('site.empreendimento.premium.mobile.fotos_empreendimento')
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
@@ -102,7 +102,7 @@
     <script src="{{ asset('/assets/javascripts/mascaras/jquery.mask.js') }}"></script>
     <script src="{{ asset('/assets/javascripts/mascaras/jquery.maskMoney.js') }}"></script>
     <script type="text/javascript">
-        $(function () {	
+        $(function () {
             $('.date').mask('00/00/0000');
             $('.cpf').mask('000.000.000-00', {reverse: false});
             $('.moeda').maskMoney({thousands: '.', decimal: ','});
@@ -118,16 +118,16 @@
             };
 
             $('.telefone').mask('(00) 0000-00000', options);
-        }); 
+        });
 
-        $(".marcarVaga").on('click', function () { 
+        $(".marcarVaga").on('click', function () {
             Swal.fire(
                 'Por favor, selecione no mínimo uma vaga!',
                 '',
                 'error'
             )
         });
-                
+
         jQuery(document).ready(function($) {
             // Set initial zoom level
             var zoom_level = 100;
@@ -178,14 +178,13 @@
             $(".loader").delay(1500).fadeOut("slow");
         });
 
-        
+
         $('.linha-unidade').click(function() {
             $(".loader").show("fast");
         });
-        
 
     </script>
-    
+
 
 </body>
 </html>

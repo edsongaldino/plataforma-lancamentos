@@ -77,6 +77,7 @@
 @section('content')
   @include('site/empreendimento/desktop/modal')
   @include('site/empreendimento/desktop/carrossel')
+
   <section class="section-light no-bottom-padding">
     <div class="container">
       <div class="col-xs-12">
@@ -140,6 +141,14 @@
 
       <!-- google maps initialization -->
       <script type="text/javascript">
+
+        @if ($empreendimento->subtipo->id == 1)
+        $(window).load(function() {
+            $('#popupModal').modal('show');
+        });
+        @endif
+
+
               google.maps.event.addDomListener(window, 'load', init);
         function init() {
           @if ($empreendimento->endereco->latitude && $empreendimento->endereco->longitude)
@@ -151,6 +160,7 @@
           @endif
         }
       </script>
+
     </div>
   </section>
 @endsection

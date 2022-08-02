@@ -6,7 +6,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h4 class="modal-title">{{ $empreendimento->nome }}</h4>
       </div>
-      <div class="modal-body">        
+      <div class="modal-body">
         <iframe id="cartoonVideo" width="800" height="451" src="{{ $empreendimento->caracteristicas->where('nome', 'video')->first()->pivot->valor }}?rel=0&amp;arp;autoplay=1" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
@@ -22,6 +22,22 @@
     </div>
     <div class="modal-content">
       <div class="modal-body-mapa"></div>
+    </div>
+  </div>
+</div>
+
+<div id="popupModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog popup">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    </div>
+
+    <div class="modal-content">
+        <div class="modal-body banner-popup">
+            <a href="https://www.lancamentosonline.com.br/imoveis/apartamento-edificio-residencial-valentina-252.html" target="_blank">
+                <img src="/site/images/slides/popup-gms.jpg" class="img-responsive">
+            </a>
+        </div>
     </div>
   </div>
 </div>
