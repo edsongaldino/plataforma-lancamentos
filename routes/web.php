@@ -607,3 +607,8 @@ Route::get('integracao-mrv-new', 'Admin\LeadController@integracaoMrvNew');
 Route::get('atualiza-reservas', 'Admin\CronController@BaixaReserva');
 Route::get('testar-envio/{lead}', 'Admin\LeadController@TestarEnvio');
 Route::get('reenviar-leads', 'Admin\LeadController@ReenviarLeads');
+
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    return "Cache is cleared";
+});
