@@ -13,6 +13,8 @@
 
 // Rotas de login
 
+use Illuminate\Support\Facades\Artisan;
+
 Route::group(
 [
     'middleware' => 'web',
