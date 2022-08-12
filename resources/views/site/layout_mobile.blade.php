@@ -223,14 +223,14 @@
     @stack('modal')
 
     <!-- FIM FOOTER -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YCTDBT0Y6"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S0SXNSHLBM"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-        gtag('config', 'G-2YCTDBT0Y6');
+    gtag('config', 'G-S0SXNSHLBM');
     </script>
     <script type="text/javascript" src="/site/m/js/materialize.min.js"></script>
     <script type="text/javascript" src="/site/m/js/slick.min.js"></script>
