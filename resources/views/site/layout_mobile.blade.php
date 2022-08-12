@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  @stack('meta')  
-  <!--  NEW-->  
+  @stack('meta')
+  <!--  NEW-->
   <!-- Resolution Screen -->
   <meta content="IE=edge" http-equiv="x-ua-compatible">
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
   <meta content="yes" name="apple-mobile-web-app-capable">
   <meta content="yes" name="apple-touch-fullscreen">
-  <!-- /Resolution Screen -->    
+  <!-- /Resolution Screen -->
   <script type="text/javascript" src="/site/m/js/jquery.js"></script>
 
   @stack('css')
@@ -19,8 +19,8 @@
   <script src="/site/ferramenta/js/maskbrphone/maskbrphone.js?v=1.5" type="text/javascript"></script>
 
   @stack('js_header')
-  <meta name="csrf-token" content="{{ csrf_token() }}"> 
-  
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   <!--
   <script type="text/javascript" src="/site/m/js/jquery.js"></script>-->
@@ -42,7 +42,7 @@
 
     gtag('config', 'AW-791268609');
   </script>
-  
+
 </head>
 <body>
   <div id="main">
@@ -50,7 +50,7 @@
     <div id="slide-out-left" class="side-nav">
       <!-- App/Site Menu -->
       <ul class="collapsible" data-collapsible="accordion">
-        
+
         @if(false)
         <div class="dados-usuario-menu" style="display:none">
           <img src="" alt="" class="foto-usuario-logado">
@@ -58,7 +58,7 @@
           <div class="email-usuario-logado"></div>
         </div>
         @endif
-        
+
         <li>
           <a href="/">
             <i class="fa fa-reply-all"></i>
@@ -120,7 +120,7 @@
             </ul>
           </div>
         </li>
-        
+
         <li>
           <a href="/ofertas/black-friday-empreendimentos-com-descontos-incriveis.html" class="oferta-black">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -134,7 +134,7 @@
             Acesso Construtora
           </a>
         </li>
-        
+
         @if(false)
         <li>
           <a href="/minha_conta.php">
@@ -142,20 +142,20 @@
             Meu perfil
           </a>
         </li>
-        
+
         <li>
           <a href="/favoritos.php">
             <i class="fa fa-heart"></i>
             Favoritos
           </a>
-        </li>          
+        </li>
         <li>
           <a href="/logout.php">
             <i class="fa fa-file-text-o"></i>
             Sair
           </a>
-        </li>          
-        @else          
+        </li>
+        @else
         <li style="display:none">
           <a href="/login.php">
             <i class="fa fa-user"></i>
@@ -167,9 +167,9 @@
       <!-- End Site/App Menu -->
     </div>
     <!-- END LEFT SIDEBAR -->
-    
+
     <!-- MAIN PAGE -->
-    <div id="page">      
+    <div id="page">
       <!-- FIXED Top Navbar -->
       <div class="top-navbar">
         <div class="top-navbar-right">
@@ -183,13 +183,13 @@
           </a>
         </div>
       </div>
-      <!-- End FIXED Top Navbar -->   
-      
+      <!-- End FIXED Top Navbar -->
+
       @yield('content')
     </div>
     <!-- #main -->
 
-    <!-- INICIO FOOTER -->        
+    <!-- INICIO FOOTER -->
     <div class="footer">
       <div class="social-footer">
         <a href="https://www.facebook.com/Lancamentosonline" target="_blank" class="facebook">
@@ -212,7 +212,7 @@
       </div>
     </div>
     <!-- End FOOTER -->
-        
+
     <!-- Back to top Link -->
     <div id="to-top" class="main-bg">
       <i class="fa fa-long-arrow-up"></i>
@@ -221,43 +221,43 @@
     <div class="spinner-loading" style="display: none"></div>
 
     @stack('modal')
-        
+
     <!-- FIM FOOTER -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80336341-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YCTDBT0Y6"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-      gtag('config', 'UA-80336341-1');
+        gtag('config', 'G-2YCTDBT0Y6');
     </script>
     <script type="text/javascript" src="/site/m/js/materialize.min.js"></script>
     <script type="text/javascript" src="/site/m/js/slick.min.js"></script>
     <script type="text/javascript" src="/site/m/js/jquery.swipebox.min.js"></script>
     <script type="text/javascript" src="/site/m/js/custom.js"></script>
-    <script type="text/javascript" src="/site/m/js/jquery-ui.min.js"></script>      
-    <script type="text/javascript">      
+    <script type="text/javascript" src="/site/m/js/jquery-ui.min.js"></script>
+    <script type="text/javascript">
       function mostraCampo() {
         var tipo_busca = $('#tipo_busca').val();
-        
+
         if(tipo_busca == '1'){
-          $("#busca-bairro").css("display","block"); 
+          $("#busca-bairro").css("display","block");
           $("#busca-empreendimento").css("display","none");
           $("#busca-construtora").css("display","none");
-          $("#busca-geral").css("display","none");    
+          $("#busca-geral").css("display","none");
         }else if(tipo_busca == '2'){
-          $("#busca-bairro").css("display","none"); 
+          $("#busca-bairro").css("display","none");
           $("#busca-empreendimento").css("display","block");
           $("#busca-construtora").css("display","none");
-          $("#busca-geral").css("display","none");           
+          $("#busca-geral").css("display","none");
         }else if(tipo_busca == '3'){
-          $("#busca-bairro").css("display","none"); 
+          $("#busca-bairro").css("display","none");
           $("#busca-empreendimento").css("display","none");
-          $("#busca-construtora").css("display","block"); 
-          $("#busca-geral").css("display","none");     
-        }         
-      }      
+          $("#busca-construtora").css("display","block");
+          $("#busca-geral").css("display","none");
+        }
+      }
     </script>
     @stack('js_footer')
 
