@@ -16,7 +16,7 @@
 
             <div class="container margin-top-80">
                 <div class="row">
-                    <iframe src="{{ $empreendimento->caracteristicas->where('nome', 'video')->first()->pivot->valor }}" class="video"></iframe>
+                    <iframe src="{{ $empreendimento->caracteristicas->where('nome', 'video')->first()->pivot->valor }}" class="video-empreendimento"></iframe>
                 </div>
             </div>
 
