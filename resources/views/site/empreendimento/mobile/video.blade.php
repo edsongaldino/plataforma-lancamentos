@@ -1,3 +1,4 @@
+<!-- Vídeo do Empreendimento -->
 @if ($empreendimento->caracteristicas->where('nome', 'video')->first())
   @if($empreendimento->caracteristicas->where('nome', 'video')->first()->pivot->valor)
     <section id="conteudo-video">
