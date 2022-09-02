@@ -34,7 +34,7 @@ class HomeController extends Controller
     }
 
     public function construtora(Request $request, $construtora, $id)
-    {        
+    {
         $request->request->set('construtora_id', $id);
         $this->data = (new BuscaController())->getDadosBusca($request, [
             'url' => "/construtora/{$construtora}-{$id}.html"
@@ -54,8 +54,12 @@ class HomeController extends Controller
         return view('site.politica_privacidade.index');
     }
 
+    public function PaginaComercial(){
+        return view('site.pagina-comercial.index');
+    }
+
     public function newsletter(NewsletterRequest $request)
-    {        
+    {
         $resultado = (new Newsletter())->salvar($request);
 
         $sucesso = 'false';
@@ -73,7 +77,7 @@ class HomeController extends Controller
     public function SiteMap()
 	{
        $empreendimentos = Empreendimento::latest()->where('status', 'Liberada')->get()->all();
-	 
+
 	  return response()->view('site.sitemap.index', [
 	      'empreendimentos' => $empreendimentos,
 	  ])->header('Content-Type', 'text/xml');

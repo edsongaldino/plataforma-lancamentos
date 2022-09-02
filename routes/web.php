@@ -31,6 +31,7 @@ function () {
 	Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 	Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('backpack.auth.password.reset.token');
 	Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('backpack.auth.password.email');
+
 });
 
 Route::group(['middleware' => ['site']], function () {
@@ -38,6 +39,9 @@ Route::group(['middleware' => ['site']], function () {
 	Route::get('/', function () {
 		return redirect('pagina-inicial.html');
 	});
+
+    //Rotas Página Comercial
+    Route::get('plataforma-lancamentos-online.html', 'Site\HomeController@PaginaComercial')->name('comercial');
 
 	// Home
 	Route::get('pagina-inicial.html', 'Site\HomeController@index')->name('homepage');
