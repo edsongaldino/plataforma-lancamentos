@@ -18,7 +18,7 @@
 	<meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
 
     <!-- Webpage Title -->
-    <title>Revo</title>
+    <title>Plataforma Lançamentos Online</title>
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@
             <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Revo</a> -->
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.html"><img src="/site/pagina-comercial/images/logo.svg" alt="alternative"></a>
+            <a class="navbar-brand logo-image" href="plataforma-lancamentos-online.html"><img src="/site/pagina-comercial/images/logo.png" alt="alternative"></a>
 
             <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
                 <span class="navbar-toggler-icon"></span>
@@ -53,26 +53,16 @@
                         <a class="nav-link page-scroll" href="#header">HOME <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#registration">TRIAL</a>
+                        <a class="nav-link page-scroll" href="#features">DIFERENCIAIS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#features">FEATURES</a>
+                        <a class="nav-link page-scroll" href="#plataforma">A PLATAFORMA</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#details">DETAILS</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DROP</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item page-scroll" href="article.html">ARTICLE DETAILS</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item page-scroll" href="terms.html">TERMS CONDITIONS</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item page-scroll" href="privacy.html">PRIVACY POLICY</a>
-                        </div>
+                        <a class="nav-link page-scroll" href="#details">PROPOSTA ONLINE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#purchase">PURCHASE</a>
+                        <a class="nav-link page-scroll" href="#registration">QUEER SER MEMBRO</a>
                     </li>
                 </ul>
                 <span class="nav-item social-icons">
@@ -111,15 +101,16 @@
                                     <div class="row">
                                         <div class="col-lg-6 col-xl-7">
                                             <div class="image-container">
-                                                <img class="img-fluid" src="/site/pagina-comercial/images/header-slide-1.jpg" alt="alternative">
+                                                <img class="img-fluid" src="/site/pagina-comercial/images/header-slide-1.png" alt="alternative">
                                             </div> <!-- end of image-container -->
                                         </div> <!-- end of col -->
                                         <div class="col-lg-6 col-xl-5">
                                             <div class="text-container">
-                                                <h1 class="h1-large">Desktop App Landing Page</h1>
-                                                <p class="p-large">The first desktop app for web designers. Create beautiful websites with minimum HTML/CSS</p>
-                                                <a class="btn-solid-lg page-scroll" href="#registration">FREE TRIAL</a>
-                                                <a class="btn-outline-lg page-scroll" href="#features">DISCOVER</a>
+                                                <h2 class="h2-large">PLATAFORMA LANÇAMENTOS ONLINE</h2>
+                                                <p class="p-large">PUBLICAÇÕES EXCLUSIVAS DE LANÇAMENTOS, EM OBRA E PRONTOS PARA MORAR</p>
+                                                <p class="p-small">PLANTAS, PREVISÃO DE ENTREGA, VÍDEOS, MAPA INTERATIVO, FOTOS, FICHA TÉCNICA E PROPOSTA ONLINE</p>
+                                                <a class="btn-solid-lg page-scroll" href="#registration">SEJA MEMBRO</a>
+                                                <a class="btn-outline-lg page-scroll" href="#features">SAIBA MAIS</a>
                                             </div> <!-- end of text-container -->
                                         </div> <!-- end of col -->
                                     </div> <!-- end of row -->
@@ -131,15 +122,16 @@
                                     <div class="row">
                                         <div class="col-lg-6 col-xl-7">
                                             <div class="image-container">
-                                                <img class="img-fluid" src="/site/pagina-comercial/images/header-slide-2.jpg" alt="alternative">
+                                                <img class="img-fluid" src="/site/pagina-comercial/images/header-slide-2.png" alt="alternative">
                                             </div> <!-- end of image-container -->
                                         </div> <!-- end of col -->
                                         <div class="col-lg-6 col-xl-5">
                                             <div class="text-container">
-                                                <h1 class="h1-large">Web Design Desktop App</h1>
-                                                <p class="p-large">Sketch your layout, mockup the prototye and create the actual design using Revo web design app</p>
-                                                <a class="btn-solid-lg page-scroll" href="#registration">FREE TRIAL</a>
-                                                <a class="btn-outline-lg page-scroll" href="#features">DISCOVER</a>
+                                                <h1 class="h1-large">PROPOSTA ONLINE</h1>
+                                                <p class="p-large">UMA NOVA REALIDADE DO MERCADO IMOBILIÁRIO</p>
+                                                <p class="p-small">O CLIENTE NAVEGA, SELECIONA A UNIDADE, CONSULTA VALORES E ENVIA PROPOSTA DIRETO PARA A CONSTRUTORA</p>
+                                                <a class="btn-solid-lg page-scroll" href="#registration">SEJA MEMBRO</a>
+                                                <a class="btn-outline-lg page-scroll" href="#features">+ INFORMAÇÕES</a>
                                             </div> <!-- end of text-container -->
                                         </div> <!-- end of col -->
                                     </div> <!-- end of row -->
@@ -151,15 +143,15 @@
                                     <div class="row">
                                         <div class="col-lg-6 col-xl-7">
                                             <div class="image-container">
-                                                <img class="img-fluid" src="/site/pagina-comercial/images/header-slide-3.jpg" alt="alternative">
+                                                <img class="img-fluid" src="/site/pagina-comercial/images/header-slide-3.png" alt="alternative">
                                             </div> <!-- end of image-container -->
                                         </div> <!-- end of col -->
                                         <div class="col-lg-6 col-xl-5">
                                             <div class="text-container">
-                                                <h1 class="h1-large">Prototype And Create Designs</h1>
-                                                <p class="p-large">With Revo it's a breeze to turn your designs intro code. Use the visual builder and export as HTML</p>
-                                                <a class="btn-solid-lg page-scroll" href="#registration">FREE TRIAL</a>
-                                                <a class="btn-outline-lg page-scroll" href="#features">DISCOVER</a>
+                                                <h1 class="h1-large">MAPA INTERATIVO</h1>
+                                                <p class="p-large">INFORMAÇÕES COMPLETAS DO SEU LOTEAMENTO OU CONDOMÍNIO</p>
+                                                <a class="btn-solid-lg page-scroll" href="#registration">SEJA MEMBRO</a>
+                                                <a class="btn-outline-lg page-scroll" href="#features">SAIBA MAIS</a>
                                             </div> <!-- end of text-container -->
                                         </div> <!-- end of col -->
                                     </div> <!-- end of row -->
@@ -182,7 +174,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="partner-container">
-                        <p class="p-small">Featured in</p>
+                        <p class="p-small">Integrado aos maiores CRM's do Mercado</p>
                         <img class="img-fluid" src="/site/pagina-comercial/images/partner-logo-1.png" alt="alternative">
                         <img class="img-fluid" src="/site/pagina-comercial/images/partner-logo-2.png" alt="alternative">
                         <img class="img-fluid" src="/site/pagina-comercial/images/partner-logo-3.png" alt="alternative">
@@ -195,66 +187,12 @@
     </header> <!-- end of header -->
     <!-- end of header -->
 
-
-    <!-- Registration -->
-    <div id="registration" class="form-1 bg-dark-blue">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="text-container">
-                        <h2>Register For The Free Trial</h2>
-                        <p>You are just a few clicks away from using the first desktop app dedicated to web designers and developers. Fill out the form to get the 30-day trial and you will receive the download link</p>
-                        <ul class="list-unstyled li-space-lg">
-                            <li class="media">
-                                <i class="fas fa-square"></i><div class="media-body"><strong>Prototype easier</strong> using intuitive features and design tools</div>
-                            </li>
-                            <li class="media">
-                                <i class="fas fa-square"></i><div class="media-body"><strong>Design layouts</strong> with faster with efficient components</div>
-                            </li>
-                            <li class="media">
-                                <i class="fas fa-square"></i><div class="media-body"><strong>Export to code</strong> and effortlessly upload your projects online</div>
-                            </li>
-                        </ul>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-6">
-
-                    <!-- Registration Form -->
-                    <form id="registrationForm">
-                        <div class="form-group">
-                            <input type="text" class="form-control-input" id="rname" required>
-                            <label class="label-control" for="rname">Name</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control-input" id="roccupation" required>
-                            <label class="label-control" for="roccupation">Occupation</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control-input" id="remail" required>
-                            <label class="label-control" for="remail">Email</label>
-                        </div>
-                        <div class="form-group checkbox">
-                            <input type="checkbox" id="rterms" value="Agreed-to-Terms" required>I agree with the website's <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms & Conditions</a>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="form-control-submit-button">SIGN UP</button>
-                        </div>
-                    </form>
-                    <!-- end of registration form -->
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of form-1 -->
-    <!-- end of registration -->
-
-
     <!-- Features -->
-    <div id="features" class="cards-1 bg-dark-blue">
+    <div id="features" class="cards-1 bg-diferenciais">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="h2-heading">Revo's Features</h2>
+                    <h2 class="h2-heading">Diferenciais</h2>
                     <p class="p-heading">Revo is the first desktop app which helps web designers and developers create beautiful and efficient layouts for their online projects</p>
                 </div> <!-- end of div -->
             </div> <!-- end of row -->
@@ -267,8 +205,8 @@
                             <i class="fas fa-rocket"></i>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Prototype Faster</h5>
-                            <p>Cutting edge tools that will help you sketch your ideas in record time and prepare the design</p>
+                            <h5 class="card-title">Exclusivo</h5>
+                            <p>Seus empreendimentos não concorrem com anúncios particulares.</p>
                         </div>
                     </div>
                     <!-- end of card -->
@@ -279,8 +217,8 @@
                             <i class="fas fa-tv"></i>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Design Layouts</h5>
-                            <p>Turn your prototypes into final designs using established and well-known features</p>
+                            <h5 class="card-title">Completo</h5>
+                            <p>Todas as informações do seu empreendimento organizadas para melhor visualização</p>
                         </div>
                     </div>
                     <!-- end of card -->
@@ -291,8 +229,8 @@
                             <i class="fas fa-user-tag"></i>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Export To Code</h5>
-                            <p>When you're done designing export your layouts quickly to editable HTML/CSS code</p>
+                            <h5 class="card-title">Qualificado</h5>
+                            <p>Os leads gerados passam por um processo de qualificação, sendo assim mais assertivos.</p>
                         </div>
                     </div>
                     <!-- end of card -->
@@ -304,82 +242,15 @@
     <!-- end of features -->
 
 
-    <!-- Details 1 -->
-    <div id="details" class="basic-1 bg-dark-blue">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-xl-7">
-                    <div class="image-container">
-                        <img class="img-fluid" src="/site/pagina-comercial/images/details-1.jpg" alt="alternative">
-                    </div> <!-- end of image-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-6 col-xl-5">
-                    <div class="text-container">
-                        <h2>Prototype With Revo</h2>
-                        <p>Our experienced designers and developers have implemented cutting edge tools that will help you sketch your ideas in record time and prepare the design</p>
-                        <ul class="list-unstyled li-space-lg">
-                            <li class="media">
-                                <i class="fas fa-square"></i>
-                                <div class="media-body"><strong>Use a single app</strong> to get from sketch to actual code</div>
-                            </li>
-                            <li class="media">
-                                <i class="fas fa-square"></i>
-                                <div class="media-body"><strong>Bundled templates</strong> to help you get inspired faster</div>
-                            </li>
-                        </ul>
-                        <a class="btn-solid-reg popup-with-move-anim" href="#details-lightbox">LIGHTBOX</a>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-1 -->
-    <!-- end of details 1 -->
-
-
-    <!-- Details Lightbox -->
-    <!-- Lightbox -->
-	<div id="details-lightbox" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-			<div class="col-lg-8">
-                <div class="image-container">
-                    <img class="img-fluid" src="/site/pagina-comercial/images/details-lightbox.jpg" alt="alternative">
-                </div> <!-- end of image-container -->
-			</div> <!-- end of col -->
-			<div class="col-lg-4">
-                <h3>Goals Setting</h3>
-				<hr>
-                <p>The app can easily help you track your personal development evolution if you take the time to set it up.</p>
-                <h4>User Feedback</h4>
-                <p>This is a great app which can help you save time and make your live easier. And it will help improve your productivity.</p>
-                <ul class="list-unstyled li-space-lg">
-                    <li class="media">
-                        <i class="fas fa-square"></i><div class="media-body">Splash screen panel</div>
-                    </li>
-                    <li class="media">
-                        <i class="fas fa-square"></i><div class="media-body">Statistics graph report</div>
-                    </li>
-                    <li class="media">
-                        <i class="fas fa-square"></i><div class="media-body">Events calendar layout</div>
-                    </li>
-                    <li class="media">
-                        <i class="fas fa-square"></i><div class="media-body">Location details screen</div>
-                    </li>
-                    <li class="media">
-                        <i class="fas fa-square"></i><div class="media-body">Onboarding steps interface</div>
-                    </li>
-                </ul>
-                <a class="btn-solid-reg mfp-close page-scroll" href="#registration">FREE TRIAL</a> <button class="btn-outline-reg mfp-close as-button" type="button">BACK</button>
-			</div> <!-- end of col -->
-		</div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of lightbox -->
-    <!-- end of details lightbox -->
-
-
     <!-- Details 2 -->
-    <div class="tabs">
+    <div class="tabs" id="plataforma">
         <div class="container">
+            <div class="row t-center">
+                <div class="col-lg-12">
+                    <h2 class="h2-heading">LANÇAMENTOS ONLINE</h2>
+                    <p class="p-heading">Exclusiva para construtoras e incorporadoras, somente para publicação de empreendimentos novos (Lançamentos, Em Obra e Prontos para Morar)</p>
+                </div> <!-- end of div -->
+            </div> <!-- end of row -->
             <div class="row">
                 <div class="col-lg-6 col-xl-5">
                     <div class="tabs-container">
@@ -387,13 +258,13 @@
                         <!-- Tabs Links -->
                         <ul class="nav nav-tabs" id="revoTabs" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">PROTOTYPE</a>
+                                <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">EMPREENDIMENTO</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">DESIGN</a>
+                                <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">UNIDADES</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="nav-tab-3" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false">EXPORT</a>
+                                <a class="nav-link" id="nav-tab-3" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false">COMPARTILHAMENTO</a>
                             </li>
                         </ul>
                         <!-- end of tabs links -->
@@ -403,20 +274,20 @@
 
                             <!-- Tab -->
                             <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
-                                <h4>Prototype Easier With Revo</h4>
-                                <p>It's now easier than ever to get your ideas into completed designs with Revo desktop app. Our <a class="turquoise page-scroll" href="#features">features</a> section shows how we are able to achieve all this.</p>
+                                <h4>CADASTRO COMPLETO</h4>
+                                <p>Gerencie todas as informações do seu empreendimento, informações básicas, itens de lazer, ficha técnica, tour virtual e muito mais.</p>
                                 <ul class="list-unstyled li-space-lg">
                                     <li class="media">
                                         <i class="fas fa-square"></i>
-                                        <div class="media-body"><strong>Experienced teams</strong> of top designers and developers</div>
+                                        <div class="media-body"><strong>Quadras/Torres</strong>- unidades e disponibilidade</div>
                                     </li>
                                     <li class="media">
                                         <i class="fas fa-square"></i>
-                                        <div class="media-body"><strong>Enthusiastic passion</strong> for all things web design related</div>
+                                        <div class="media-body"><strong>Canais de atendimento</strong>- direto com seu cliente</div>
                                     </li>
                                     <li class="media">
                                         <i class="fas fa-square"></i>
-                                        <div class="media-body"><strong>Focus on simplicity</strong> when it comes to the user interface</div>
+                                        <div class="media-body"><strong>Tabela de Vendas</strong>- Proposta Online</div>
                                     </li>
                                 </ul>
                             </div> <!-- end of tab-pane -->
@@ -424,22 +295,19 @@
 
                             <!-- Tab -->
                             <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
+                                <p>Gerencie todas as informações do seu empreendimento, informações básicas, itens de lazer, ficha técnica, tour virtual e muito mais.</p>
                                 <ul class="list-unstyled li-space-lg">
                                     <li class="media">
-                                        <div class="media-bullet">1.</div>
-                                        <div class="media-body"><strong>Speed</strong> is important for our users so we invest a lot of time and resources to make everything work faster</div>
+                                        <i class="fas fa-square"></i>
+                                        <div class="media-body"><strong>Quadras/Torres</strong>- unidades e disponibilidade</div>
                                     </li>
                                     <li class="media">
-                                        <div class="media-bullet">2.</div>
-                                        <div class="media-body"><strong>Reliability</strong> is what we're focused on achieving besides speed because we want our app to work all the time</div>
+                                        <i class="fas fa-square"></i>
+                                        <div class="media-body"><strong>Canais de atendimento</strong>- direto com seu cliente</div>
                                     </li>
                                     <li class="media">
-                                        <div class="media-bullet">3.</div>
-                                        <div class="media-body"><strong>Standards</strong> are another factor that we take into consideration when developing our tools</div>
-                                    </li>
-                                    <li class="media">
-                                        <div class="media-bullet">4.</div>
-                                        <div class="media-body"><strong>Performance</strong> is a key factor for our desktop apps</div>
+                                        <i class="fas fa-square"></i>
+                                        <div class="media-body"><strong>Tabela de Vendas</strong>- Proposta Online</div>
                                     </li>
                                 </ul>
                             </div> <!-- end of tab-pane -->
@@ -447,16 +315,19 @@
 
                             <!-- Tab -->
                             <div class="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
-                                <p><strong>Our goal is to empower</strong> web designers and developers reach their full potential and help them get their designs from layouts to code in the shortest amount of time.</p>
-                                <p><strong>Design and layouts</strong> are the main focus of our apps but we also work on export-to-code functionalities.</p>
+                                <p>Compartilhe as informações do seu produto com sua equipe de vendas e corretores externos de forma simples e rápida</p>
                                 <ul class="list-unstyled li-space-lg">
                                     <li class="media">
                                         <i class="fas fa-square"></i>
-                                        <div class="media-body">It's a fun and captivating endeavour that we love</div>
+                                        <div class="media-body"><strong>Quadras/Torres</strong>- unidades e disponibilidade</div>
                                     </li>
                                     <li class="media">
                                         <i class="fas fa-square"></i>
-                                        <div class="media-body">We're passionate about our work and it shows</div>
+                                        <div class="media-body"><strong>Canais de atendimento</strong>- direto com seu cliente</div>
+                                    </li>
+                                    <li class="media">
+                                        <i class="fas fa-square"></i>
+                                        <div class="media-body"><strong>Tabela de Vendas</strong>- Proposta Online</div>
                                     </li>
                                 </ul>
                             </div> <!-- end of tab-pane -->
@@ -469,7 +340,7 @@
                 </div> <!-- end of col -->
                 <div class="col-lg-6 col-xl-7">
                     <div class="image-container">
-                        <img class="img-fluid" src="/site/pagina-comercial/images/details-2.jpg" alt="alternative">
+                        <img class="img-fluid" src="/site/pagina-comercial/images/details-2.png" alt="alternative">
                     </div> <!-- end of image-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -478,19 +349,131 @@
     <!-- end of details 2 -->
 
 
-    <!-- Video -->
-    <div class="basic-2 bg-dark-blue">
+    <!-- Details 1 -->
+    <div id="details" class="basic-1 bg-dark-blue">
         <div class="container">
             <div class="row">
+                <div class="col-lg-6 col-xl-7">
+                    <div class="image-container">
+                        <img class="img-fluid" src="/site/pagina-comercial/images/details-1.png" alt="alternative">
+                    </div> <!-- end of image-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-6 col-xl-5">
+                    <div class="text-container">
+                        <h2>PROPOSTA ONLINE</h2>
+                        <p>UMA NOVA REALIDADE DO MERCADO IMOBILIÁRIO</p>
+                        <p>Ao acessar seu empreendimento o cliente tem acesso às todas as informações:</p>
+                        <ul class="list-unstyled li-space-lg">
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">Visualiza as <strong>Unidades Disponííveis</strong></div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">Consulta <strong>valores</strong> e condições de pagamento</div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">Formula <strong>PROPOSTA</strong> e envia para a construtora</div>
+                            </li>
+                        </ul>
+                        <a class="btn-solid-reg popup-with-move-anim" href="#details-lightbox">CONHEÇA</a>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-1 -->
+    <!-- end of details 1 -->
+
+    <!-- Details 2 -->
+    <div class="tabs map basic-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-xl-5">
+                    <div class="text-container">
+                        <h2>MAPA INTERATIVO</h2>
+                        <p>Disponibilize informações completas para sua equipe de vendas ou diretamente para o seu cliente final.</p>
+                        <ul class="list-unstyled li-space-lg">
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">Disponibilidade e <strong>valores</strong> atualizados</div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">Imagens, <strong>vídeos</strong>, chat e tour virtual</div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">Link personalizado para cada <strong>PARCEIRO/CORRETOR</strong></div>
+                            </li>
+                        </ul>
+                        <a class="btn-solid-reg popup-with-move-anim" href="#details-lightbox">SAIBA MAIS</a>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-6 col-xl-7">
+                    <div class="image-container">
+                        <img class="img-fluid" src="/site/pagina-comercial/images/details-mapa.png" alt="alternative">
+                    </div> <!-- end of image-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of tabs -->
+    <!-- end of details 2 -->
+
+
+    <!-- Details Lightbox -->
+    <!-- Lightbox -->
+	<div id="details-lightbox" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+			<div class="col-lg-8">
+                <div class="image-container">
+                    <img class="img-fluid" src="/site/pagina-comercial/images/details-lightbox.png" alt="alternative">
+                </div> <!-- end of image-container -->
+			</div> <!-- end of col -->
+			<div class="col-lg-4">
+                <h3>PROPOSTA ONLINE</h3>
+				<hr>
+                <p>UMA NOVA REALIDADE DO MERCADO IMOBILIÁRIO</p>
+                <p>Ao acessar seu empreendimento o cliente tem acesso às todas as informações:</p>
+                <ul class="list-unstyled li-space-lg">
+                    <li class="media">
+                        <i class="fas fa-square"></i><div class="media-body">Visualiza as <strong>Unidades Disponííveis</strong></div>
+                    </li>
+                    <li class="media">
+                        <i class="fas fa-square"></i><div class="media-body">Consulta <strong>valores</strong> e condições de pagamento</div>
+                    </li>
+                    <li class="media">
+                        <i class="fas fa-square"></i><div class="media-body">Formula <strong>PROPOSTA</strong> e envia para a construtora</div>
+                    </li>
+                    <li class="media">
+                        <i class="fas fa-square"></i><div class="media-body">Disponibilidade e <strong>valores</strong> atualizados</div>
+                    </li>
+                    <li class="media">
+                        <i class="fas fa-square"></i><div class="media-body">Link personalizado para cada <strong>PARCEIRO/CORRETOR</strong></div>
+                    </li>
+                </ul>
+                <a class="btn-solid-reg mfp-close page-scroll" href="#registration">QUERO ASSINAR</a> <button class="btn-outline-reg mfp-close as-button" type="button">FECHAR</button>
+			</div> <!-- end of col -->
+		</div> <!-- end of row -->
+    </div> <!-- end of lightbox-basic -->
+    <!-- end of lightbox -->
+    <!-- end of details lightbox -->
+
+
+    <!-- Video -->
+    <div class="basic-2 bg-dark-blue">
+        <div class="container video">
+            <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="h2-heading">Video Presentation</h2>
-                    <p class="p-heading">Check out our video presentation for Revo desktop app. It will take you through an entire design project from the initial sketch to the final code</p>
+                    <h2 class="h2-heading">Video</h2>
+                    <p class="p-heading">Conheça um pouco mais a proposta de nossa plataforma</p>
 
                     <!-- Video Preview -->
                     <div class="image-container">
                         <div class="video-wrapper">
                             <a class="popup-youtube" href="https://www.youtube.com/watch?v=fLCjQJCekTs" data-effect="fadeIn">
-                                <img class="img-fluid" src="images/video-preview.jpg" alt="alternative">
+                                <img class="img-fluid" src="/site/pagina-comercial/images/video-preview.jpg" alt="alternative">
                                 <span class="video-play-button">
                                     <span></span>
                                 </span>
@@ -505,147 +488,124 @@
     </div> <!-- end of basic-2 -->
     <!-- end of video -->
 
+    
 
-    <!-- Testimonials -->
-    <div class="slider-1">
+    <!-- Features -->
+    <div id="features" class="cards-1 planos basic-1">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+                    <h2 class="h2-heading">Planos</h2>
+                    <p class="p-heading">Temos planos que se adaptam à sua necessidade, com ferramentas que te auxiliam no gerenciamento das unidades do seu empreendimento</p>
+                </div> <!-- end of div -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
 
-                    <!-- Card Slider -->
-                    <div class="slider-container">
-                        <div class="swiper-container card-slider">
-                            <div class="swiper-wrapper">
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Plano Uno</h5>
+                            <h5 class="card-valor">R$ 189,00</h5>
+                            <p>Ideal para construtoras pequenas com até 1 empreendimento e que estão iniciando no mundo digital</p>
+                            <a class="btn-assinar-lg" href="#your-link">Assinar</a> 
+                        </div>
+                    </div>
+                    <!-- end of card -->
 
-                                <!-- Slide -->
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="/site/pagina-comercial/images/testimonial-1.jpg" alt="alternative">
-                                        <div class="card-body">
-                                            <p class="testimonial-text">I just finished my trial period and was so amazed with the support and results that I quickly purchased the app</p>
-                                            <p class="testimonial-author">Jude Thorn - Designer</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- end of swiper-slide -->
-                                <!-- end of slide -->
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Plano Duo</h5>
+                            <h5 class="card-valor">R$ 299,00</h5>
+                            <p>Plano para cadastro e gerenciamento de até 2 empreendimentos simultâneos.</p>
+                            <a class="btn-assinar-lg" href="#your-link">Assinar</a> 
+                        </div>
+                    </div>
+                    <!-- end of card -->
 
-                                <!-- Slide -->
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="/site/pagina-comercial/images/testimonial-2.jpg" alt="alternative">
-                                        <div class="card-body">
-                                            <p class="testimonial-text">I don't know how I managed to get work done without Revo. The speed of this application is amazing!</p>
-                                            <p class="testimonial-author">Roy Smith - Developer</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- end of swiper-slide -->
-                                <!-- end of slide -->
-
-                                <!-- Slide -->
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="/site/pagina-comercial/images/testimonial-3.jpg" alt="alternative">
-                                        <div class="card-body">
-                                            <p class="testimonial-text">This app has the potential of becoming a mandatory tool in every developer's day to day regular operations</p>
-                                            <p class="testimonial-author">Marsha Singer - Marketer</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- end of swiper-slide -->
-                                <!-- end of slide -->
-
-                                <!-- Slide -->
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="/site/pagina-comercial/images/testimonial-4.jpg" alt="alternative">
-                                        <div class="card-body">
-                                            <p class="testimonial-text">Searching for a great prototyping and layout design app was difficult but thankfully I found Revo suite</p>
-                                            <p class="testimonial-author">Tim Shaw - Designer</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- end of swiper-slide -->
-                                <!-- end of slide -->
-
-                                <!-- Slide -->
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="/site/pagina-comercial/images/testimonial-5.jpg" alt="alternative">
-                                        <div class="card-body">
-                                            <p class="testimonial-text">Revo's support team is amazing. They've helped me with some issues and I am so grateful to the entire team</p>
-                                            <p class="testimonial-author">Lindsay Spice - Designer</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- end of swiper-slide -->
-                                <!-- end of slide -->
-
-                                <!-- Slide -->
-                                <div class="swiper-slide">
-                                    <div class="card">
-                                        <img class="card-image" src="/site/pagina-comercial/images/testimonial-6.jpg" alt="alternative">
-                                        <div class="card-body">
-                                            <p class="testimonial-text">Who would have thought that Revo can provide such amazing results in just a few weeks of normal basic use</p>
-                                            <p class="testimonial-author">Ann Black - Developer</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- end of swiper-slide -->
-                                <!-- end of slide -->
-
-                            </div> <!-- end of swiper-wrapper -->
-
-                            <!-- Add Arrows -->
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                            <!-- end of add arrows -->
-
-                        </div> <!-- end of swiper-container -->
-                    </div> <!-- end of slider-container -->
-                    <!-- end of card slider -->
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Plano Duo +</h5>
+                            <h5 class="card-valor">R$ 389,00</h5>
+                            <p>Cadastro, publicação e gerenciamento completo de até 3 empreendimentos simultâneos</p>
+                            <a class="btn-assinar-lg" href="#your-link">Assinar</a> 
+                        </div>
+                    </div>
+                    <!-- end of card -->
 
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
-    </div> <!-- end of slider-1 -->
-    <!-- end of testimonials -->
+    </div> <!-- end of cards-1 -->
+    <!-- end of features -->
 
-
-    <!-- Purchase -->
-    <div id="purchase" class="basic-3 bg-dark-blue">
+    <!-- Registration -->
+    <div id="registration" class="form-1 bg-dark-blue">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="h2-heading">Get Revo And Start Designing</h2>
-                    <p class="p-heading p-large">The first desktop app for web designers and developers which helps them get their ideas from initial sketch to finalized code easier. Revo brings to the table cutting-edge technologies to help you get projects online faster.</p>
-                    <a class="btn-solid-lg" href="#your-link">$89 BUY</a> <a class="btn-outline-lg page-scroll" href="#registration">FREE TRIAL</a>
+                <div class="col-lg-6">
+                    <div class="text-container">
+                        <h2>Cadastre sua Construtora</h2>
+                        <p>Envie suas informações básicas, em breve um de nossos consultores entrará em contato</p>
+                        <ul class="list-unstyled li-space-lg">
+                            <li class="media">
+                                <i class="fas fa-square"></i><div class="media-body"><strong>Planos personalizados</strong> para atender sua real necessidade</div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-square"></i><div class="media-body">Alta <strong>taxa de conversão</strong> de leads</div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-square"></i><div class="media-body">Mais de 20 anos de <strong>experiência</strong> no mercado de lançamentos imobiliários</div>
+                            </li>
+                        </ul>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-6">
+
+                    <!-- Registration Form -->
+                    <form id="registrationForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control-input" id="rname" required>
+                            <label class="label-control" for="rname">Nome Completo</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control-input" id="roccupation" required>
+                            <label class="label-control" for="roccupation">Nome da Construtora</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control-input" id="roccupation" required>
+                            <label class="label-control" for="roccupation">Cidade</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control-input" id="roccupation" required>
+                            <label class="label-control" for="roccupation">Telefone</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control-input" id="remail" required>
+                            <label class="label-control" for="remail">Email</label>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="form-control-submit-button">QUERO SER MEMBRO</button>
+                        </div>
+                    </form>
+                    <!-- end of registration form -->
+
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
-    </div> <!-- end of basic-3 -->
-    <!-- end of purchase -->
-
-
-    <!-- Resources -->
-    <div class="basic-4 bg-dark-blue">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="resource-container">
-                        <img class="img-fluid" src="/site/pagina-comercial/images/resources-1.jpg" alt="alternative">
-                        <div class="text-container">
-                            <h4>User Showcases</h4>
-                            <p>Check out these awesome customer showcases to convince you to give Revo and try right away</p>
-                        </div> <!-- end of text-container -->
-                    </div> <!-- end of resource-container -->
-                    <div class="resource-container">
-                        <img class="img-fluid" src="/site/pagina-comercial/images/resources-2.jpg" alt="alternative">
-                        <div class="text-container">
-                            <h4>Knowledge Center</h4>
-                            <p>We've gathered some great resources to help you learn how to use Revo and overcome issues</p>
-                        </div> <!-- end of text-container -->
-                    </div> <!-- end of resource-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-4 -->
-    <!-- end of resources -->
+    </div> <!-- end of form-1 -->
+    <!-- end of registration -->
 
 
     <!-- Footer -->
@@ -654,16 +614,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer-col first">
-                        <h6>About Revo</h6>
-                        <p class="p-small">Revo is a desktop app website Bootstrap HTML template created for desktop applications, to present their features and control panel options</p>
+                        <h6>Lançamentos Online</h6>
+                        <p class="p-small">UMA PLATAFORMA PARA CONSTRUTORAS E INCORPORADORAS COM PUBLICAÇÕES EXCLUSIVAS DE LANÇAMENTOS, EM OBRA E PRONTOS PARA MORAR</p>
                     </div> <!-- end of footer-col -->
                     <div class="footer-col second">
-                        <h6>Links</h6>
-                        <ul class="list-unstyled li-space-lg p-small">
-                            <li>Important: <a href="terms.html">Terms & Conditions</a>, <a href="privacy.html">Privacy Policy</a></li>
-                            <li>Useful: <a href="#">Colorpicker</a>, <a href="#">Icon Library</a>, <a href="#">Illustrations</a></li>
-                            <li>Menu: <a class="page-scroll" href="#header">Home</a>, <a class="page-scroll" href="#registration">Trial</a>, <a class="page-scroll" href="#features">Features</a>, <a class="page-scroll" href="#details">Details</a></li>
-                        </ul>
+                       
                     </div> <!-- end of footer-col -->
                     <div class="footer-col third">
                         <span class="fa-stack">
@@ -690,7 +645,7 @@
                                 <i class="fab fa-instagram fa-stack-1x"></i>
                             </a>
                         </span>
-                        <p class="p-small">We would love to hear from you <a href="mailto:contact@website.com"><strong>contact@website.com</strong></a></p>
+                        <p class="p-small">Ou entre em contato pelo nosso e-mail comercial <a href="mailto:comercial@lancamentosonline.com.br"><strong>comercial@</br>lancamentosonline.com.br</strong></a></p>
                     </div> <!-- end of footer-col -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -704,10 +659,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="p-small">Copyright © <a href="#your-link">Name</a></p>
-                </div> <!-- end of col -->
-                <div class="col-lg-12">
-                    <p class="p-small">Distributed By: <a href="https://themewagon.com/" target="_blank">ThemeWagon</a></p>
+                    <p class="p-small">Copyright © <a href="#your-link">Plataforma Lançamentos Online</a></p>
                 </div> <!-- end of col -->
             </div> <!-- enf of row -->
         </div> <!-- end of container -->

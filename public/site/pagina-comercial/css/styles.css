@@ -94,6 +94,10 @@ h6 {
 	line-height: 1.5rem;
 }
 
+.t-center{
+	text-align: center;
+}
+
 .testimonial-text {
 	font-style: italic;
 }
@@ -138,6 +142,11 @@ a.white:hover {
 	color: #ffffff;
 }
 
+.bg-diferenciais {
+    background-color: #17a2b8;
+}
+
+
 .bg-dark-blue {
 	background-color: #0b0433;
 }
@@ -180,6 +189,27 @@ a.white:hover {
 	background-color: transparent;
 	color: #3dcac8; /* needs to stay here because of the color property of a tag */
 	text-decoration: none;
+}
+
+.btn-assinar-lg {
+	display: inline-block;
+	padding: 1.625rem 2.625rem 1.625rem 2.625rem;
+	border: 1px solid #100936;
+	border-radius: 32px;
+	background-color: #322676;
+	color: #ffffff;
+	font-weight: 600;
+	font-size: 0.875rem;
+	line-height: 0;
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+.btn-assinar-lg:hover {
+	background-color: #0c062e;
+	color: #0c062e; /* needs to stay here because of the color property of a tag */
+	text-decoration: none;
+	color: #FFF;
 }
 
 .btn-outline-reg {
@@ -411,7 +441,7 @@ input[type='checkbox'] {
 /*     Navigation     */
 /**********************/
 .navbar {
-	background-color: #3a3458;
+	background-color: #006699;
 	font-weight: 600;
 	font-size: 0.875rem;
 	line-height: 0.875rem;
@@ -428,8 +458,9 @@ input[type='checkbox'] {
 }
 
 .navbar .logo-image img {
-    width: 126px;
-	height: 30px;
+    width: 100%;
+	height: auto;
+	
 }
 
 .navbar .logo-text {
@@ -697,7 +728,7 @@ input[type='checkbox'] {
 	padding: 3.25rem 1.5rem 2.125rem 1.5rem;
 	border: none;
 	border-radius: 6px;
-	background-color: #3a3458;
+	background-color: #097e91;
 }
 
 .cards-1 .card-image {
@@ -714,6 +745,27 @@ input[type='checkbox'] {
 }
 
 .cards-1 .card-title {
+	margin-bottom: 0.5rem;
+	color: #3dcac8;
+}
+
+
+
+
+.cards-1.planos .card {
+	margin-bottom: 4rem;
+	padding: 3.25rem 1.5rem 2.125rem 1.5rem;
+	border: none;
+	border-radius: 6px;
+	background-color: #095b9161;
+}
+
+.cards-1.planos .fas {
+	color: #3dcac8;
+	font-size: 4rem;
+}
+
+.cards-1.planos .card-title {
 	margin-bottom: 0.5rem;
 	color: #3dcac8;
 }
@@ -865,10 +917,16 @@ input[type='checkbox'] {
 /*********************/
 /*     Details 2     */
 /*********************/
+
 .tabs {
 	padding-top: 3.25rem;
 	padding-bottom: 6rem;
 	background: url('../images/details-2-background.jpg') center center no-repeat;
+	background-size: cover;
+}
+
+.tabs.map {
+	background: url('../images/details-map-background.jpg') center center no-repeat !important;
 	background-size: cover;
 }
 
@@ -885,7 +943,6 @@ input[type='checkbox'] {
 .tabs .nav-link {
 	margin-right: 0.75rem;
 	margin-bottom: 0.875rem;
-	padding: 1rem 1.375rem;
 	border: none;
 	border-radius: 2px;
 	background-color: #3a3458;
@@ -913,25 +970,17 @@ input[type='checkbox'] {
 	margin-left: 0.5rem;
 }
 
-.tabs #tab-2 .list-unstyled {
-	margin-top: 1.75rem;
-	margin-bottom: 0;
-	vertical-align: top;
-}
-
-.tabs #tab-2 .li-space-lg li {
-	margin-bottom: 0.5rem;
-}
-
-.tabs #tab-2 .list-unstyled .media-bullet {
-	font-weight: 700;
+.tabs #tab-1 .list-unstyled .fas {
+	color: #3dcac8;
+	font-size: 0.375rem;
+	line-height: 1.625rem;
 }
 
 .tabs #tab-2 .list-unstyled .media-body {
 	margin-left: 0.5rem;
 }
 
-.tabs #tab-3 .list-unstyled .fas {
+.tabs #tab-2 .list-unstyled .fas {
 	color: #3dcac8;
 	font-size: 0.375rem;
 	line-height: 1.625rem;
@@ -939,6 +988,16 @@ input[type='checkbox'] {
 
 .tabs #tab-3 .list-unstyled .media-body {
 	margin-left: 0.5rem;
+}
+
+.container.video{
+	padding-bottom: 80px;
+}
+
+.tabs #tab-3 .list-unstyled .fas {
+	color: #3dcac8;
+	font-size: 0.375rem;
+	line-height: 1.625rem;
 }
 
 .tabs .image-container img {
@@ -1170,8 +1229,8 @@ input[type='checkbox'] {
 .footer {
 	padding-top: 6rem;
 	padding-bottom: 2rem;
-	border-top: 1px solid #3c3758;
-	background-color: #06021f;
+	border-top: 1px solid #052a4a;
+    background-color: rgb(5 50 98);
 }
 
 .footer a {
