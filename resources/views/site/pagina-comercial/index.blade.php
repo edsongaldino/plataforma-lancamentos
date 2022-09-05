@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,13 +9,15 @@
     <meta name="author" content="Author">
 
     <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
-	<meta property="og:site_name" content="" /> <!-- website name -->
-	<meta property="og:site" content="" /> <!-- website link -->
-	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
-	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
-	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
-	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
-	<meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
+	<meta name="twitter:image" content="https://www.lancamentosonline.com.br/site/m/images/logo/lancamentos-online.jpg">
+    <meta property="og:url" content="https://www.lancamentosonline.com.br/plataforma-lancamentos-online.html" />
+    <meta property="og:title" content="Portal Lançamentos Online - O seu novo lar está aqui!" />
+    <meta property="og:description" content="Um portal único e exclusivo para construtoras e incorporadoras." />
+    <meta property="og:image" content="https://www.lancamentosonline.com.br/site/m/images/logo/lancamentos-online.jpg" />
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1067">
+    <meta property="og:image:height" content="600">
+    <meta property="og:type" content="website">
 
     <!-- Webpage Title -->
     <title>Plataforma Lançamentos Online</title>
