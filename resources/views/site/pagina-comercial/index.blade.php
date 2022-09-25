@@ -55,16 +55,16 @@
                         <a class="nav-link page-scroll" href="#header">HOME <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#features">DIFERENCIAIS</a>
+                        <a class="nav-link page-scroll" href="#plataforma">A PLATAFORMA</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#plataforma">A PLATAFORMA</a>
+                        <a class="nav-link page-scroll" href="#features">DIFERENCIAIS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="#details">PROPOSTA ONLINE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#registration">QUEER SER MEMBRO</a>
+                        <a class="nav-link page-scroll" href="#registration">QUERO SER MEMBRO</a>
                     </li>
                 </ul>
                 <span class="nav-item social-icons">
@@ -110,7 +110,7 @@
                                             <div class="text-container">
                                                 <h2 class="h2-large">PLATAFORMA LANÇAMENTOS ONLINE</h2>
                                                 <p class="p-large">PUBLICAÇÕES EXCLUSIVAS DE LANÇAMENTOS, EM OBRA E PRONTOS PARA MORAR</p>
-                                                <p class="p-small">PLANTAS, PREVISÃO DE ENTREGA, VÍDEOS, MAPA INTERATIVO, FOTOS, FICHA TÉCNICA E PROPOSTA ONLINE</p>
+                                                <p class="p-small">PLANTAS, PREVISÃO DE ENTREGA, VÍDEOS, MAPA INTERATIVO, FOTOS, FICHA TÉCNICA, PROPOSTA ONLINE E DISPONIBILIDADE</p>
                                                 <a class="btn-solid-lg page-scroll" href="#registration">SEJA MEMBRO</a>
                                                 <a class="btn-outline-lg page-scroll" href="#features">SAIBA MAIS</a>
                                             </div> <!-- end of text-container -->
@@ -151,7 +151,7 @@
                                         <div class="col-lg-6 col-xl-5">
                                             <div class="text-container">
                                                 <h1 class="h1-large">MAPA INTERATIVO</h1>
-                                                <p class="p-large">INFORMAÇÕES COMPLETAS DO SEU LOTEAMENTO OU CONDOMÍNIO</p>
+                                                <p class="p-large">INFORMAÇÕES COMPLETAS DO SEU LOTEAMENTO OU CONDOMÍNIO FECHADO</p>
                                                 <a class="btn-solid-lg page-scroll" href="#registration">SEJA MEMBRO</a>
                                                 <a class="btn-outline-lg page-scroll" href="#features">SAIBA MAIS</a>
                                             </div> <!-- end of text-container -->
@@ -176,11 +176,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="partner-container">
-                        <p class="p-small">Integrado aos maiores CRM's do Mercado</p>
+                        <p class="p-small">Integração completa com os maiores CRM's para construtoras e incorporadoras</p>
                         <img class="img-fluid" src="/site/pagina-comercial/images/partner-logo-1.png" alt="alternative">
                         <img class="img-fluid" src="/site/pagina-comercial/images/partner-logo-2.png" alt="alternative">
                         <img class="img-fluid" src="/site/pagina-comercial/images/partner-logo-3.png" alt="alternative">
-                        <img class="img-fluid" src="/site/pagina-comercial/images/partner-logo-4.png" alt="alternative">
                         <img class="img-fluid" src="/site/pagina-comercial/images/partner-logo-5.png" alt="alternative">
                     </div> <!-- end of partner-container -->
                 </div> <!-- end of col -->
@@ -189,68 +188,14 @@
     </header> <!-- end of header -->
     <!-- end of header -->
 
-    <!-- Features -->
-    <div id="features" class="cards-1 bg-diferenciais">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="h2-heading">Diferenciais</h2>
-                    <p class="p-heading">Revo is the first desktop app which helps web designers and developers create beautiful and efficient layouts for their online projects</p>
-                </div> <!-- end of div -->
-            </div> <!-- end of row -->
-            <div class="row">
-                <div class="col-lg-12">
-
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="card-image">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Exclusivo</h5>
-                            <p>Seus empreendimentos não concorrem com anúncios particulares.</p>
-                        </div>
-                    </div>
-                    <!-- end of card -->
-
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="card-image">
-                            <i class="fas fa-tv"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Completo</h5>
-                            <p>Todas as informações do seu empreendimento organizadas para melhor visualização</p>
-                        </div>
-                    </div>
-                    <!-- end of card -->
-
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="card-image">
-                            <i class="fas fa-user-tag"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Qualificado</h5>
-                            <p>Os leads gerados passam por um processo de qualificação, sendo assim mais assertivos.</p>
-                        </div>
-                    </div>
-                    <!-- end of card -->
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of cards-1 -->
-    <!-- end of features -->
-
-
+    
     <!-- Details 2 -->
     <div class="tabs" id="plataforma">
         <div class="container">
             <div class="row t-center">
                 <div class="col-lg-12">
                     <h2 class="h2-heading">LANÇAMENTOS ONLINE</h2>
-                    <p class="p-heading">Exclusiva para construtoras e incorporadoras, somente para publicação de empreendimentos novos (Lançamentos, Em Obra e Prontos para Morar)</p>
+                    <p class="p-heading">Conheça o <b>1º</b> e exclusivo portal de lançamentos imobiliários do Brasil</p>
                 </div> <!-- end of div -->
             </div> <!-- end of row -->
             <div class="row">
@@ -260,7 +205,7 @@
                         <!-- Tabs Links -->
                         <ul class="nav nav-tabs" id="revoTabs" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">EMPREENDIMENTO</a>
+                                <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">O PORTAL</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">UNIDADES</a>
@@ -276,22 +221,23 @@
 
                             <!-- Tab -->
                             <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
-                                <h4>CADASTRO COMPLETO</h4>
-                                <p>Gerencie todas as informações do seu empreendimento, informações básicas, itens de lazer, ficha técnica, tour virtual e muito mais.</p>
+                                <h4>CONSULTE - COMPARE - COMPRE</h4>
+                                <p>Lançamentos, imóveis na planta, em obra e prontos para morar, todas as ofertas à venda de <span class="cor-amarelo">CONSTRUTORAS E INCORPORADORAS</span> do Brasil.</p>
                                 <ul class="list-unstyled li-space-lg">
                                     <li class="media">
                                         <i class="fas fa-square"></i>
-                                        <div class="media-body"><strong>Quadras/Torres</strong>- unidades e disponibilidade</div>
+                                        <div class="media-body">Imagens, videos, plantas, mapas, valores e<strong> muito mais</strong></div>
                                     </li>
                                     <li class="media">
                                         <i class="fas fa-square"></i>
-                                        <div class="media-body"><strong>Canais de atendimento</strong>- direto com seu cliente</div>
+                                        <div class="media-body"><strong>Integração</strong> com os melhores CRM's</div>
                                     </li>
                                     <li class="media">
                                         <i class="fas fa-square"></i>
-                                        <div class="media-body"><strong>Tabela de Vendas</strong>- Proposta Online</div>
+                                        <div class="media-body">Buscas por apartamentos, condomínios, loteamentos e salas comerciais na planta</div>
                                     </li>
                                 </ul>
+                                <a class="btn-solid-reg" href="https://www.lancamentosonline.com.br" target="_blank">Acesse o Portal</a>
                             </div> <!-- end of tab-pane -->
                             <!-- end of tab -->
 
@@ -317,19 +263,23 @@
 
                             <!-- Tab -->
                             <div class="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
-                                <p>Compartilhe as informações do seu produto com sua equipe de vendas e corretores externos de forma simples e rápida</p>
+                                <p>Integramos via API com os maiores CRM's do mercado imobiliário, possibilitando mais praticidade no gerenciamento dos seus anúncios.</p>
                                 <ul class="list-unstyled li-space-lg">
                                     <li class="media">
                                         <i class="fas fa-square"></i>
-                                        <div class="media-body"><strong>Quadras/Torres</strong>- unidades e disponibilidade</div>
+                                        <div class="media-body"><strong>Integração</strong> completa do seu empreendimento</div>
                                     </li>
                                     <li class="media">
                                         <i class="fas fa-square"></i>
-                                        <div class="media-body"><strong>Canais de atendimento</strong>- direto com seu cliente</div>
+                                        <div class="media-body"><strong>Atualizações automáticas</strong>- unidades e disponibilidade</div>
                                     </li>
                                     <li class="media">
                                         <i class="fas fa-square"></i>
-                                        <div class="media-body"><strong>Tabela de Vendas</strong>- Proposta Online</div>
+                                        <div class="media-body"><strong>Envio de Leads</strong> direto para o seu CRM</div>
+                                    </li>
+                                    <li class="media">
+                                        <i class="fas fa-square"></i>
+                                        <div class="media-body"><strong>Tabela de Vendas</strong> e valores das unidades</div>
                                     </li>
                                 </ul>
                             </div> <!-- end of tab-pane -->
@@ -349,6 +299,60 @@
         </div> <!-- end of container -->
     </div> <!-- end of tabs -->
     <!-- end of details 2 -->
+
+    <!-- Features -->
+    <div id="features" class="cards-1 bg-diferenciais">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="h2-heading">Diferenciais</h2>
+                    <p class="p-heading">Uma plataforma diferencianda, exclusiva e completa</p>
+                </div> <!-- end of div -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Exclusivo</h5>
+                            <p>Seus empreendimentos não concorrem com anúncios particulares.</p>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Completo</h5>
+                            <p>Todas as informações do seu empreendimento organizadas para melhor visualização</p>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Qualificado</h5>
+                            <p>Os leads gerados passam por um processo de qualificação, sendo assim mais assertivos.</p>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of cards-1 -->
+    <!-- end of features -->
 
 
     <!-- Details 1 -->
@@ -394,19 +398,23 @@
                 <div class="col-lg-6 col-xl-5">
                     <div class="text-container">
                         <h2>MAPA INTERATIVO</h2>
-                        <p>Disponibilize informações completas para sua equipe de vendas ou diretamente para o seu cliente final.</p>
+                        <p>Compartilhe o mapa interativo em tempo real com seus clientes e corretores.</p>
                         <ul class="list-unstyled li-space-lg">
                             <li class="media">
                                 <i class="fas fa-square"></i>
-                                <div class="media-body">Disponibilidade e <strong>valores</strong> atualizados</div>
+                                <div class="media-body"><strong>Mapa humanizados</strong> com disponibilidade</div>
                             </li>
                             <li class="media">
                                 <i class="fas fa-square"></i>
-                                <div class="media-body">Imagens, <strong>vídeos</strong>, chat e tour virtual</div>
+                                <div class="media-body"><strong>Canais de atendimento</strong>, chat e fotos</div>
                             </li>
                             <li class="media">
                                 <i class="fas fa-square"></i>
                                 <div class="media-body">Link personalizado para cada <strong>PARCEIRO/CORRETOR</strong></div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">Compartilhamento <strong>WHATSAPP</strong> com foto e informações personalizadas</div>
                             </li>
                         </ul>
                         <a class="btn-solid-reg popup-with-move-anim" href="#details-lightbox">SAIBA MAIS</a>
@@ -463,7 +471,7 @@
     <!-- end of details lightbox -->
 
 
-    <!-- Video -->
+    <!-- Video 
     <div class="basic-2 bg-dark-blue">
         <div class="container video">
             <div class="row">
@@ -471,7 +479,7 @@
                     <h2 class="h2-heading">Video</h2>
                     <p class="p-heading">Conheça um pouco mais a proposta de nossa plataforma</p>
 
-                    <!-- Video Preview -->
+
                     <div class="image-container">
                         <div class="video-wrapper">
                             <a class="popup-youtube" href="https://www.youtube.com/watch?v=fLCjQJCekTs" data-effect="fadeIn">
@@ -480,15 +488,14 @@
                                     <span></span>
                                 </span>
                             </a>
-                        </div> <!-- end of video-wrapper -->
-                    </div> <!-- end of image-container -->
-                    <!-- end of video preview -->
+                        </div> 
+                    </div>
 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-2 -->
-    <!-- end of video -->
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+    end of video -->
 
     
 
@@ -498,7 +505,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h2 class="h2-heading">Planos</h2>
-                    <p class="p-heading">Temos planos que se adaptam à sua necessidade, com ferramentas que te auxiliam no gerenciamento das unidades do seu empreendimento</p>
+                    <p class="p-heading">Temos planos que se adaptam à sua necessidade, ferramentas que te auxiliam na gestão, publicação e integração do seu empreendimento ao mercado imobiliário.</p>
                 </div> <!-- end of div -->
             </div> <!-- end of row -->
             <div class="row">
@@ -512,7 +519,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Plano Uno</h5>
                             <h5 class="card-valor">R$ 189,00</h5>
-                            <p>Ideal para construtoras pequenas com até 1 empreendimento e que estão iniciando no mundo digital</p>
+                            <p>Ideal para construtoras pequenas com 1 empreendimento e que estão iniciando no mundo digital</p>
                             <a class="btn-assinar-lg" href="#your-link">Assinar</a> 
                         </div>
                     </div>
@@ -526,7 +533,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Plano Duo</h5>
                             <h5 class="card-valor">R$ 299,00</h5>
-                            <p>Plano para cadastro e gerenciamento de até 2 empreendimentos simultâneos.</p>
+                            <p>Plano para cadastro e gerenciamento e publicação de até 2 empreendimentos simultâneos.</p>
                             <a class="btn-assinar-lg" href="#your-link">Assinar</a> 
                         </div>
                     </div>
@@ -540,7 +547,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Plano Duo +</h5>
                             <h5 class="card-valor">R$ 389,00</h5>
-                            <p>Cadastro, publicação e gerenciamento completo de até 3 empreendimentos simultâneos</p>
+                            <p>Cadastro, publicação e gerenciamento completo de até 3 empreendimentos simultaneamente</p>
                             <a class="btn-assinar-lg" href="#your-link">Assinar</a> 
                         </div>
                     </div>

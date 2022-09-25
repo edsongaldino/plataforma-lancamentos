@@ -740,6 +740,21 @@ input[type='checkbox'] {
 	font-size: 4rem;
 }
 
+.cor-amarelo{
+	color: #f8cb00;
+}
+
+.cards-1 .fad {
+	color: #3dcac8;
+	font-size: 4rem;
+}
+
+.cards-1 .far {
+	color: #3dcac8;
+	font-size: 4rem;
+}
+
+
 .cards-1 .card-body {
 	padding: 0;
 }
