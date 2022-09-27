@@ -1715,6 +1715,18 @@ a:hover.back-to-top {
 		margin-left: 1rem;
 	}
 	/* end of extra pages */
+
+	.tab-pane .texto-aba{
+		float: left;
+		width: 50%;
+		height: auto;
+	}
+	
+	.tab-pane .imagem-aba{
+		float: right;
+		width: 50%;
+		height: auto;
+	}
 }
 /* end of min-width 992px */
 
@@ -1877,5 +1889,32 @@ a:hover.back-to-top {
 		margin-left: 2.875rem;
 	}
 	/* end of extra pages */
+
+	.tab-pane .texto-aba{
+		float: left;
+		width: 50%;
+		height: auto;
+	}
+	
+	.tab-pane .imagem-aba{
+		float: right;
+		width: 50%;
+		height: auto;
+	}
 }
 /* end of min-width 1200px */
+
+
+@media (max-width: 600px) {
+	.tab-pane .texto-aba{
+		float: left;
+		width: 100%;
+		height: auto;
+	}
+	
+	.tab-pane .imagem-aba{
+		float: right;
+		width: 100%;
+		height: auto;
+	}
+}

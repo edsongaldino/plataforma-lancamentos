@@ -199,7 +199,7 @@
                 </div> <!-- end of div -->
             </div> <!-- end of row -->
             <div class="row">
-                <div class="col-lg-6 col-xl-5">
+                <div class="col-lg-12 col-xl-12">
                     <div class="tabs-container">
 
                         <!-- Tabs Links -->
@@ -217,71 +217,99 @@
                         <!-- end of tabs links -->
 
                         <!-- Tabs Content -->
-                        <div class="tab-content" id="revoTabsContent">
+                        <div class="tab-content row" id="revoTabsContent">
 
                             <!-- Tab -->
-                            <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
-                                <h4>CONSULTE - COMPARE - COMPRE</h4>
-                                <p>Lançamentos, imóveis na planta, em obra e prontos para morar, todas as ofertas à venda de <span class="cor-amarelo">CONSTRUTORAS E INCORPORADORAS</span> do Brasil.</p>
-                                <ul class="list-unstyled li-space-lg">
-                                    <li class="media">
-                                        <i class="fas fa-square"></i>
-                                        <div class="media-body">Imagens, videos, plantas, mapas, valores e<strong> muito mais</strong></div>
-                                    </li>
-                                    <li class="media">
-                                        <i class="fas fa-square"></i>
-                                        <div class="media-body"><strong>Integração</strong> com os melhores CRM's</div>
-                                    </li>
-                                    <li class="media">
-                                        <i class="fas fa-square"></i>
-                                        <div class="media-body">Buscas por apartamentos, condomínios, loteamentos e salas comerciais na planta</div>
-                                    </li>
-                                </ul>
-                                <a class="btn-solid-reg" href="https://www.lancamentosonline.com.br" target="_blank">Acesse o Portal</a>
+                            <div class="tab-pane fade show active container" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
+
+                                <div class="texto-aba">
+                                    <h4>CONSULTE - COMPARE - COMPRE</h4>
+                                    <p>Lançamentos, imóveis na planta, em obra e prontos para morar, todas as ofertas à venda de <span class="cor-amarelo">CONSTRUTORAS E INCORPORADORAS</span> do Brasil.</p>
+                                    <ul class="list-unstyled li-space-lg">
+                                        <li class="media">
+                                            <i class="fas fa-square"></i>
+                                            <div class="media-body">Imagens, videos, plantas, mapas, valores e<strong> muito mais</strong></div>
+                                        </li>
+                                        <li class="media">
+                                            <i class="fas fa-square"></i>
+                                            <div class="media-body"><strong>Integração</strong> com os melhores CRM's</div>
+                                        </li>
+                                        <li class="media">
+                                            <i class="fas fa-square"></i>
+                                            <div class="media-body">Buscas por apartamentos, condomínios, loteamentos e salas comerciais na planta</div>
+                                        </li>
+                                    </ul>
+                                    <a class="btn-solid-reg" href="https://www.lancamentosonline.com.br" target="_blank">Acesse o Portal</a>
+                                </div> <!-- end of col -->
+
+                                <div class="imagem-aba">
+                                    <div class="image-container">
+                                        <img class="img-fluid" src="/site/pagina-comercial/images/details-2.png" alt="alternative">
+                                    </div> <!-- end of image-container -->
+                                </div> <!-- end of col -->
+                                
                             </div> <!-- end of tab-pane -->
                             <!-- end of tab -->
 
                             <!-- Tab -->
-                            <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
-                                <p>Gerencie todas as informações do seu empreendimento, informações básicas, itens de lazer, ficha técnica, tour virtual e muito mais.</p>
-                                <ul class="list-unstyled li-space-lg">
-                                    <li class="media">
-                                        <i class="fas fa-square"></i>
-                                        <div class="media-body"><strong>Quadras/Torres</strong>- unidades e disponibilidade</div>
-                                    </li>
-                                    <li class="media">
-                                        <i class="fas fa-square"></i>
-                                        <div class="media-body"><strong>Canais de atendimento</strong>- direto com seu cliente</div>
-                                    </li>
-                                    <li class="media">
-                                        <i class="fas fa-square"></i>
-                                        <div class="media-body"><strong>Tabela de Vendas</strong>- Proposta Online</div>
-                                    </li>
-                                </ul>
+                            <div class="tab-pane fade container" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
+                                <div class="texto-aba">
+                                    <p>Gerencie todas as informações do seu empreendimento, informações básicas, itens de lazer, ficha técnica, tour virtual e muito mais.</p>
+                                    <ul class="list-unstyled li-space-lg">
+                                        <li class="media">
+                                            <i class="fas fa-square"></i>
+                                            <div class="media-body"><strong>Quadras/Torres</strong>- unidades e disponibilidade</div>
+                                        </li>
+                                        <li class="media">
+                                            <i class="fas fa-square"></i>
+                                            <div class="media-body"><strong>Canais de atendimento</strong>- direto com seu cliente</div>
+                                        </li>
+                                        <li class="media">
+                                            <i class="fas fa-square"></i>
+                                            <div class="media-body"><strong>Tabela de Vendas</strong>- Proposta Online</div>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end of col -->
+
+                                <div class="imagem-aba">
+                                    <div class="image-container">
+                                        <img class="img-fluid" src="/site/pagina-comercial/images/details-2.png" alt="alternative">
+                                    </div> <!-- end of image-container -->
+                                </div> <!-- end of col -->
+
                             </div> <!-- end of tab-pane -->
                             <!-- end of tab -->
 
                             <!-- Tab -->
-                            <div class="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
-                                <p>Integramos via API com os maiores CRM's do mercado imobiliário, possibilitando mais praticidade no gerenciamento dos seus anúncios.</p>
-                                <ul class="list-unstyled li-space-lg">
-                                    <li class="media">
-                                        <i class="fas fa-square"></i>
-                                        <div class="media-body"><strong>Integração</strong> completa do seu empreendimento</div>
-                                    </li>
-                                    <li class="media">
-                                        <i class="fas fa-square"></i>
-                                        <div class="media-body"><strong>Atualizações automáticas</strong>- unidades e disponibilidade</div>
-                                    </li>
-                                    <li class="media">
-                                        <i class="fas fa-square"></i>
-                                        <div class="media-body"><strong>Envio de Leads</strong> direto para o seu CRM</div>
-                                    </li>
-                                    <li class="media">
-                                        <i class="fas fa-square"></i>
-                                        <div class="media-body"><strong>Tabela de Vendas</strong> e valores das unidades</div>
-                                    </li>
-                                </ul>
+                            <div class="tab-pane fade container" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
+                                <div class="texto-aba">
+                                    <p>Integramos via API com os maiores CRM's do mercado imobiliário, possibilitando mais praticidade no gerenciamento dos seus anúncios.</p>
+                                    <ul class="list-unstyled li-space-lg">
+                                        <li class="media">
+                                            <i class="fas fa-square"></i>
+                                            <div class="media-body"><strong>Integração</strong> completa do seu empreendimento</div>
+                                        </li>
+                                        <li class="media">
+                                            <i class="fas fa-square"></i>
+                                            <div class="media-body"><strong>Atualizações automáticas</strong>- unidades e disponibilidade</div>
+                                        </li>
+                                        <li class="media">
+                                            <i class="fas fa-square"></i>
+                                            <div class="media-body"><strong>Envio de Leads</strong> direto para o seu CRM</div>
+                                        </li>
+                                        <li class="media">
+                                            <i class="fas fa-square"></i>
+                                            <div class="media-body"><strong>Tabela de Vendas</strong> e valores das unidades</div>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end of col -->
+
+                                <div class="imagem-aba">
+                                    <div class="image-container">
+                                        <img class="img-fluid" src="/site/pagina-comercial/images/details-2.png" alt="alternative">
+                                    </div> <!-- end of image-container -->
+                                </div> <!-- end of col -->
+
                             </div> <!-- end of tab-pane -->
                             <!-- end of tab -->
 
@@ -289,11 +317,6 @@
                         <!-- end of tabs content -->
 
                     </div> <!-- end of tabs-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-6 col-xl-7">
-                    <div class="image-container">
-                        <img class="img-fluid" src="/site/pagina-comercial/images/details-2.png" alt="alternative">
-                    </div> <!-- end of image-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
