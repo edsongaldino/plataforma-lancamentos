@@ -34,7 +34,7 @@
 
     <div class="modal-content">
         <div class="modal-body banner-popup">
-            <a href="https://www.lancamentosonline.com.br/imoveis/apartamento-edificio-residencial-valentina-252.html" target="_blank">
+            <a href="https://www.lancamentosonline.com.br/construtora/gms-9.html" target="_blank">
                 <img src="/site/images/slides/popup-gms.jpg" class="img-responsive">
             </a>
         </div>

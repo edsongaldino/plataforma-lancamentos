@@ -17,7 +17,6 @@
 
    <div class="swiper-wrapper">
 
-
     <!-- Slides -->
 
     <!--<div class="swiper-slide swiper-lazy banner-index" data-background="/site/images/slides/banner-villabela.jpg">
@@ -32,7 +31,7 @@
 
     <div class="swiper-slide swiper-lazy banner-index" data-background="/site/images/slides/gms.jpg">
       <div class="container">
-          <a href="https://www.lancamentosonline.com.br/imoveis/apartamento-edificio-residencial-valentina-252.html" target="_blank">
+          <a href="https://www.lancamentosonline.com.br/construtora/gms-9.html" target="_blank">
           <div class="link-banner"></div>
           </a>
       </div>
