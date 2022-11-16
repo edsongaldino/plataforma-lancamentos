@@ -1,17 +1,18 @@
 <div class="content-container animated fadeInUp teste-bg" style="padding: 0;">
   <div class="entry-main" style="padding: 0;">
     <div class="thumb-featured teste001" style="margin-bottom: 0;">
-    <!--
+      <!--
       <a href="ofertas/black-friday-empreendimentos-com-descontos-incriveis.html">
         <div class="banner-oferta"><img src="/assets/images/black-friday/banner-mobile-black-friday.png" alt=""></div>
       </a>
--->
+      -->
       <section class="site-main__search-property search-property">
         <div class="site-content-wrapper">
           <form class="js-searchForm index" id="form_busca" name="form_busca" method="get" action="/resultado_busca.php">
             <fieldset class="js-searchByLocation">
               <div class="search-property__search-box search-box">
                 <div class="box-check-busca" id="busca-geral" style="display:block">
+
                   <div class="item-checkbox">
                     <label for="tipo_busca_apartamento">
                       <input type="checkbox" class="item-check" name="subtipo_id_multiplo[]" id="tipo_busca_apartamento" value="1">
@@ -37,6 +38,7 @@
                     </label>
                   </div>
                 </div>
+
                 <div class="search-box__full search-box--where campo-select">
                   <span class="icon animated icon-geolocation-on js-findGeolocation hide"></span>
                   <select name="cidade_busca" id="cidade_busca" class="search-box-select">
@@ -53,6 +55,7 @@
                 <div class="search-box__full search-box--now">
                   <input type="submit" name="buscar" id="buscar" class="icon-search search-property__button js-searchBoxButtonLocation index" value="Buscar">
                 </div>
+                
               </div>
             </fieldset>
           </form>

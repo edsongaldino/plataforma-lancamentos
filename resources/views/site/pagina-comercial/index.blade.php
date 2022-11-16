@@ -232,7 +232,7 @@
                                         </li>
                                         <li class="media">
                                             <i class="fas fa-square"></i>
-                                            <div class="media-body"><strong>Integração</strong> com os melhores CRM's</div>
+                                            <div class="media-body"><strong>Integração</strong> com os melhores CRM's do mercado imobiliário</div>
                                         </li>
                                         <li class="media">
                                             <i class="fas fa-square"></i>

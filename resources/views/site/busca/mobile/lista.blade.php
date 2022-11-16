@@ -70,9 +70,9 @@
       <div class="selo-oferta">
           <img src="/site/images/selo_proposta_online.png" alt="">
       </div>
-      @elseif($empreendimento->black_friday == 'S')
+      @elseif($empreendimento->selo_oferta)
         <div class="selo-oferta">
-          <img src="/site/images/selo_oferta_{{ $empreendimento->construtora->id }}.png" alt="">
+          <img src="/site/images/selos/{{ $empreendimento->selo_oferta }}" alt="">
         </div>
       @elseif($empreendimento->ofertasAtivas->count())
         <div class="selo-oferta">
