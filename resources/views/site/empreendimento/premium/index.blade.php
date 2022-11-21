@@ -198,7 +198,7 @@
         <div class="descricao">{{ $empreendimento->descricao }}</div>
 
         <div id="botoes">
-            <a href="/empreendimento/{{ $empreendimento->id }}/unidades"><div class="unidades-disponiveis"><i class="far fa-check-square" aria-hidden="true"></i> Unidades Disponíveis</div></a>
+            <a href="/empreendimento/{{ $empreendimento->id }}/unidades"><div class="unidades-disponiveis"><i class="far fa-check-square" aria-hidden="true"></i> Escolha sua Unidade</div></a>
             @if($empreendimento->variacao->nome <> "Lote")
             <a href="/empreendimento/{{ $empreendimento->id }}/plantas"><div class="plantas-disponiveis"><i class="fa fa-object-group" aria-hidden="true"></i> Plantas </div></a>
             @endif
