@@ -3033,3 +3033,86 @@ html.no-pointerevents.no-touchevents .gallery-grid-item:hover span  {
 .fancybox__content{
 	padding: 0px !important;
 }
+
+.modal-header .close.modal-form {
+    margin-top: -2px;
+    background-color: #337ab7;
+    margin-right: 10px;
+    height: 40px;
+    line-height: 10px !important;
+}
+
+/*FORMULÁRIO MODAL*/
+.input-field {
+	border:1px solid #ddd;
+	padding: 10px 0px 10px 15px;
+	margin-bottom:15px;
+	background-color: #FFF;
+	font-size: 14px !important;
+}
+.input-field.no-border {
+	border: 1px solid #ddd;
+    padding: 10px 0px 10px 15px;
+    margin-bottom: 15px;
+    background-color: #FFF;
+}
+.input-field .icons {
+	margin: 0px 5px 0 0;
+    color: rgba(24, 71, 118, 0.46);
+	float:left;
+}
+.input-field .icons.icone_campo {
+	margin: 7px 5px 0 0;
+    color: rgba(24, 71, 118, 0.46);
+	float:left;
+}
+.input-field .input-form {
+	border:none;
+	width:100%;
+	margin:0;
+	padding:0;
+}
+
+.input-field.no-border select {
+	border: none;
+    width: 90%;
+    padding: 0;
+    margin-bottom: 0px !important;
+    height: 40px !important;
+    margin-top: -3px;
+	color: #333;
+    font-weight: initial;
+}
+.input-field .input-form:focus {
+}
+.input-field .input-form.with-icons {
+	/*width:calc(100% - 30px);*/
+	display: inline-block;
+    width: 80%;
+    height: 35px;
+    color: #333;
+}
+
+.modal-header.form {
+    min-height: 16.43px;
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #343a40;
+    color: #FFF;
+    font-size: 16px;
+}
+
+.textarea{
+	width: 95% !important;
+	height: 80px !important;
+}
+
+.button-field .button-form {
+	width: 100%;
+    margin-bottom: 15px;
+    height: 60px;
+    border: 0px;
+    background-color: #337ab7;
+    color: #FFF;
+    font-size: 18px;
+}
