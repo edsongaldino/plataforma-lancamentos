@@ -22,6 +22,7 @@
 <script src="/site/ferramenta/zoom/src/panzoom.js"></script>
 <script src="/site/ferramenta/zoom/test/libs/jquery.mousewheel.js"></script>
 <link href="/assets/premium/fontawesome/css/all.css" rel="stylesheet">
+
 @endpush
 
 @section('content')
@@ -321,7 +322,7 @@
             </button>
             </div>
             <div class="modal-body">
-                <form id="form-contato-construtora-rodape">
+                <form name="FormContatoConstrutora" id="FormContatoConstrutora" method="POST">
                     <div class="input-field">
                       <span class="icons icone_campo">
                         <i class="fa fa-user"></i>
@@ -396,7 +397,7 @@
                     <div class="loadingImg_Mobile" style="display:none;"><img src="/site/imagens/loader2.gif" alt=""></div>
           
                     <div class="button-field btn-enviar-mobile" style="display:block;">
-                      <button type="button" data-form="#form-contato-construtora-rodape" class="button-form envia-form botao-enviar"><i class="fa fa-send"></i> Enviar para Construtora</button>
+                      <button type="button" data-form="#form-contato-proposta" class="button-form botao-enviar" onclick="EnviarContatoConstrutora();"><i class="fa fa-send"></i> Enviar para Construtora</button>
                     </div>
           
                     <input type="hidden" placeholder="" name="empreendimento_id" value="{{ $empreendimento->id }}">  

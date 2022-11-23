@@ -158,7 +158,34 @@ class EmpreendimentoController extends Controller
 
     public function contato(ContatoConstrutoraRequest $request)
     {
+
+        return redirect()->back()->with('warning', 'Este CNPJ já consta em nosso banco de dados! Verifique.');
+
         $resultado = (new Lead())->contato($request);
+
+        dd($resultado);
+
+        if ($resultado) {
+            return response()->json([
+                'sucesso' => 'true',
+                'retorno' => 'Recebemos seu contato e você receberá uma resposta no prazo máximo de 24 horas'
+            ]);
+        }
+
+        return response()->json([
+            'sucesso' => 'erro',
+            'retorno' => 'Ocorreu um erro, tente novamente mais tarde'
+        ]);
+    }
+
+    public function ContatoConstrutora(Request $request)
+    {
+
+        return redirect()->back()->with('warning', 'Este CNPJ já consta em nosso banco de dados! Verifique.');
+        
+        $resultado = (new Lead())->contato($request);
+
+        dd($resultado);
 
         if ($resultado) {
             return response()->json([

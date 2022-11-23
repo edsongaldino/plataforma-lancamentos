@@ -127,6 +127,8 @@ Route::group(['middleware' => ['site']], function () {
 	Route::get('/unidade/{id}/conferir-proposta', 'Site\EmpreendimentoController@conferirProposta');
 	Route::get('/empreendimento/foto/{id}/restore', 'Site\EmpreendimentoController@RestoreFoto');
 
+	Route::post('/empreendimento/enviar-contato-cliente', 'Site\EmpreendimentoController@ContatoConstrutora');
+
 	Route::post('/proposta/gravar-dados-cliente', 'Site\PropostaController@GravarDadosCliente');
 	Route::post('/proposta/gravar-dados-proposta', 'Site\PropostaController@GravarDadosProposta');
 	Route::post('/proposta/atualizar-dados-proposta', 'Site\PropostaController@AtualizarDadosProposta');

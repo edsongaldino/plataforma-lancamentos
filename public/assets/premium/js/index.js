@@ -180,6 +180,76 @@ function EnviarFormCliente() {
     document.getElementById('FormCliente').submit();
 }
 
+
+function EnviarContatoConstrutora() {
+
+  var nome = FormContatoConstrutora.nome.value;
+  var email = FormContatoConstrutora.email.value;
+  var telefone = FormContatoConstrutora.telefone.value;
+  var previsao = FormContatoConstrutora.previsao.value;
+  var interesse = FormContatoConstrutora.interesse.value;
+  var renda = FormContatoConstrutora.renda.value;
+  var mensagem = FormContatoConstrutora.mensagem.value;
+
+  if (nome == "") {
+      Swal.fire('Ops','O campo nome deve ser preenchico','error');
+      FormContatoConstrutora.nome.focus();
+      return false;
+  }
+
+  if (email == "") {
+      Swal.fire('Ops','O campo email não pode ser vazio!','error');
+      FormContatoConstrutora.email.focus();
+      return false;
+  }
+
+  if (telefone == "") {
+      Swal.fire('Ops','O campo telefone deve ser preenchido!','error');
+      FormContatoConstrutora.telefone.focus();
+      return false;
+  }
+
+  if (previsao == "") {
+      Swal.fire('Ops','A previsao é obrigatória!','error');
+      FormContatoConstrutora.previsao.focus();
+      return false;
+  }
+
+  if (interesse == "") {
+    Swal.fire('Ops','O campo interesse é obrigatório!','error');
+    FormContatoConstrutora.interesse.focus();
+    return false;
+  }
+
+  if (renda == "") {
+    Swal.fire('Ops','A renda é obrigatória!','error');
+    FormContatoConstrutora.renda.focus();
+    return false;
+  }
+
+  $.ajax({
+    url: "/empreendimento/enviar-contato-cliente",
+    type:"POST",
+    data:{
+      "_token": "{{ csrf_token() }}",
+      nome:nome,
+      email:email,
+      telefone:telefone,
+      previsao:previsao,
+      interesse:interesse,
+      renda:renda,
+      mensagem:mensagem,
+    },
+    success:function(response){
+      $('#successMsg').show();
+      console.log(response);
+    },
+    error: function(response) {
+      console.log(response);
+    },
+    });
+}
+
 function ConferirProposta() {
 
     document.getElementById('FormGravarVagaExtra').submit();

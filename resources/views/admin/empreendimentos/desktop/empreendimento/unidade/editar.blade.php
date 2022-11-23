@@ -45,8 +45,8 @@
 						@if (isset($entry))
 							@if ($entry->caracteristicas->where('nome', 'valor_unidade')->first() && $entry->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '' && $entry->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '0' && $entry->caracteristicas->where('nome', 'metragem_total')->first() && $entry->caracteristicas->where('nome', 'metragem_total')->first()->pivot->valor <> '' && $entry->caracteristicas->where('nome', 'metragem_total')->first()->pivot->valor <> '0')
 								@php
-									$metragem = $entry->caracteristicas->where('nome', 'metragem_total')->first()->pivot->valor;
-									$valor_unidade = $entry->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor;
+									$metragem = (double) $entry->caracteristicas->where('nome', 'metragem_total')->first()->pivot->valor;
+									$valor_unidade = (double) $entry->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor;
 									$valor_m2 = $valor_unidade/$metragem;
 								@endphp
 
