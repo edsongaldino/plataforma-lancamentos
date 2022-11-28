@@ -322,7 +322,8 @@
             </button>
             </div>
             <div class="modal-body">
-                <form name="FormContatoConstrutora" id="FormContatoConstrutora" method="POST">
+                <form action="/empreendimento/enviar-contato-cliente" name="FormContatoConstrutora" id="FormContatoConstrutora" method="POST">
+                    @csrf
                     <div class="input-field">
                       <span class="icons icone_campo">
                         <i class="fa fa-user"></i>
@@ -397,7 +398,7 @@
                     <div class="loadingImg_Mobile" style="display:none;"><img src="/site/imagens/loader2.gif" alt=""></div>
           
                     <div class="button-field btn-enviar-mobile" style="display:block;">
-                      <button type="button" data-form="#form-contato-proposta" class="button-form botao-enviar" onclick="EnviarContatoConstrutora();"><i class="fa fa-send"></i> Enviar para Construtora</button>
+                      <button type="button" data-form="#form-contato-proposta" class="button-form" onclick="EnviarContatoConstrutora();"><i class="fa fa-send"></i> Enviar para Construtora</button>
                     </div>
           
                     <input type="hidden" placeholder="" name="empreendimento_id" value="{{ $empreendimento->id }}">  
@@ -411,6 +412,8 @@
     <script src="/assets/vendor/magnific-popup/magnific-popup.js"></script>
     <script src="/site/painel/assets/javascripts/ui-elements/examples.modals.js"></script>
     <script src="/site/painel/assets/javascripts/ui-elements/examples.lightbox.js"></script>
+
+    <script type="text/javascript" src="{{ asset('assets/javascripts/sweetalert2.8.js') }}" ></script>
 
     <script>
 

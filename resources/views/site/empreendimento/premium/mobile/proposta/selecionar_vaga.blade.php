@@ -10,31 +10,31 @@
 
         @if($unidade->garagem->count() < 1 && $garagens->count() < 1)
         <script type="text/javascript">
-        $(window).load(function() {
-            Swal.fire({
-            title: 'Não existe vaga definida para esta unidade.',
-            text: 'Por favor, selecione sua vaga antes de continuar',
-            imageUrl: '{{ asset("assets/premium/img/img-vaga.png") }}',
-            imageWidth: 400,
-            imageHeight: 200,
-            imageAlt: 'Custom image',
-            })
-        });
+            $(window).load(function() {
+                Swal.fire({
+                title: 'Não existe vaga definida para esta unidade.',
+                text: 'Por favor, selecione sua vaga antes de continuar',
+                imageUrl: '{{ asset("assets/premium/img/img-vaga.png") }}',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+                })
+            });
         </script>
         @endif
 
         @if(isset($vagaExiste))
         <script type="text/javascript">
-        $(window).load(function() {
-            Swal.fire({
-                title: 'Esta vaga ja está adcionada na proposta!',
-                text: 'Por favor, selecione outra vaga ou clique em continuar',
-                imageUrl: '{{ asset("assets/premium/img/img-ops.png") }}',
-                imageWidth: 400,
-                imageHeight: 200,
-                imageAlt: 'Custom image'
-            })
-        });
+            $(window).load(function() {
+                Swal.fire({
+                    title: 'Esta vaga ja está adcionada na proposta!',
+                    text: 'Por favor, selecione outra vaga ou clique em continuar',
+                    imageUrl: '{{ asset("assets/premium/img/img-ops.png") }}',
+                    imageWidth: 400,
+                    imageHeight: 200,
+                    imageAlt: 'Custom image'
+                })
+            });
         </script>
         @endif
 

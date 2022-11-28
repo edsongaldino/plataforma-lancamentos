@@ -227,27 +227,8 @@ function EnviarContatoConstrutora() {
     return false;
   }
 
-  $.ajax({
-    url: "/empreendimento/enviar-contato-cliente",
-    type:"POST",
-    data:{
-      "_token": "{{ csrf_token() }}",
-      nome:nome,
-      email:email,
-      telefone:telefone,
-      previsao:previsao,
-      interesse:interesse,
-      renda:renda,
-      mensagem:mensagem,
-    },
-    success:function(response){
-      $('#successMsg').show();
-      console.log(response);
-    },
-    error: function(response) {
-      console.log(response);
-    },
-    });
+  document.getElementById('FormContatoConstrutora').submit();
+
 }
 
 function ConferirProposta() {
