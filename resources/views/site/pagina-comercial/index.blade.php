@@ -69,15 +69,15 @@
                 </ul>
                 <span class="nav-item social-icons">
                     <span class="fa-stack">
-                        <a href="#your-link">
+                        <a target="_blank" href="https://facebook.com/Lancamentosonline">
                             <i class="fas fa-circle fa-stack-2x"></i>
                             <i class="fab fa-facebook-f fa-stack-1x"></i>
                         </a>
                     </span>
                     <span class="fa-stack">
-                        <a href="#your-link">
+                        <a target="_blank" href="https://www.instagram.com/lancamentosonline">
                             <i class="fas fa-circle fa-stack-2x"></i>
-                            <i class="fab fa-twitter fa-stack-1x"></i>
+                            <i class="fab fa-instagram fa-stack-1x"></i>
                         </a>
                     </span>
                 </span>
@@ -687,13 +687,13 @@
                     </div> <!-- end of footer-col -->
                     <div class="footer-col third">
                         <span class="fa-stack">
-                            <a href="https://facebook.com/Lancamentosonline">
+                            <a target="_blank" href="https://facebook.com/Lancamentosonline">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-facebook-f fa-stack-1x"></i>
                             </a>
                         </span>
                         <span class="fa-stack">
-                            <a href="https://www.instagram.com/lancamentosonline">
+                            <a target="_blank" href="https://www.instagram.com/lancamentosonline">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-instagram fa-stack-1x"></i>
                             </a>
@@ -712,7 +712,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="p-small">Copyright © <a href="https://lancamentosonline.com.br">Plataforma Lançamentos Online</a></p>
+                    <p class="p-small">Copyright © <?php echo date('Y');?> <a href="https://lancamentosonline.com.br">Plataforma Lançamentos Online</a></p>
                 </div> <!-- end of col -->
             </div> <!-- enf of row -->
         </div> <!-- end of container -->
