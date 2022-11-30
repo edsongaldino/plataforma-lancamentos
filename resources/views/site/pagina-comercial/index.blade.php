@@ -645,16 +645,16 @@
                     <!-- Registration Form -->
                     <form id="registrationForm">
                         <div class="form-group">
-                            <input type="text" class="form-control-input" id="rname" required>
-                            <label class="label-control" for="rname">Nome Completo</label>
-                        </div>
-                        <div class="form-group">
                             <input type="text" class="form-control-input" id="roccupation" required>
                             <label class="label-control" for="roccupation">Nome da Construtora</label>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control-input" id="roccupation" required>
                             <label class="label-control" for="roccupation">Cidade</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control-input" id="rname" required>
+                            <label class="label-control" for="rname">Nome Completo (Responsável)</label>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control-input" id="roccupation" required>
@@ -691,25 +691,13 @@
                     </div> <!-- end of footer-col -->
                     <div class="footer-col third">
                         <span class="fa-stack">
-                            <a href="#your-link">
+                            <a href="https://facebook.com/Lancamentosonline">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-facebook-f fa-stack-1x"></i>
                             </a>
                         </span>
                         <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-twitter fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-pinterest-p fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
+                            <a href="https://www.instagram.com/lancamentosonline">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-instagram fa-stack-1x"></i>
                             </a>
@@ -728,7 +716,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="p-small">Copyright © <a href="#your-link">Plataforma Lançamentos Online</a></p>
+                    <p class="p-small">Copyright © <a href="https://lancamentosonline.com.br">Plataforma Lançamentos Online</a></p>
                 </div> <!-- end of col -->
             </div> <!-- enf of row -->
         </div> <!-- end of container -->
