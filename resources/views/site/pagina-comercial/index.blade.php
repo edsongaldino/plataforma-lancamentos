@@ -646,7 +646,7 @@
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control-input" id="roccupation" required>
-                            <label class="label-control" for="roccupation">Cidade</label>
+                            <label class="label-control" for="roccupation">Cidade - MT</label>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control-input" id="rname" required>
@@ -661,7 +661,7 @@
                             <label class="label-control" for="remail">Email</label>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="form-control-submit-button">QUERO SER MEMBRO</button>
+                            <button type="submit" class="form-control-submit-button">ENVIAR DADOS</button>
                         </div>
                     </form>
                     <!-- end of registration form -->
