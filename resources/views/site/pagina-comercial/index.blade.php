@@ -506,23 +506,19 @@
 			<div class="col-lg-4">
                 <h3>MAPA INTERATIVO</h3>
 				<hr>
-                <p>UMA NOVA REALIDADE DO MERCADO IMOBILIÁRIO</p>
                 <p>Compartilhe o mapa interativo em tempo real com seus clientes e corretores:</p>
                 <ul class="list-unstyled li-space-lg">
                     <li class="media">
-                        <i class="fas fa-square"></i><div class="media-body">Mapas humanizados com disponibilidade <strong>Unidades Disponííveis</strong></div>
+                        <i class="fas fa-square"></i><div class="media-body"><strong>Mapas humanizados</strong> com disponibilidade e valores atualizados</div>
                     </li>
                     <li class="media">
-                        <i class="fas fa-square"></i><div class="media-body">Consulta <strong>valores</strong> e condições de pagamento</div>
+                        <i class="fas fa-square"></i><div class="media-body">Canais de atendimento, chat e fotos</div>
                     </li>
                     <li class="media">
-                        <i class="fas fa-square"></i><div class="media-body">Formula <strong>PROPOSTA</strong> e envia para a construtora</div>
+                        <i class="fas fa-square"></i><div class="media-body">Link personalizado para cada <strong>PARCEIRO/CORRETOR</strong> com atendimento individualizado</div>
                     </li>
                     <li class="media">
-                        <i class="fas fa-square"></i><div class="media-body">Disponibilidade e <strong>valores</strong> atualizados</div>
-                    </li>
-                    <li class="media">
-                        <i class="fas fa-square"></i><div class="media-body">Link personalizado para cada <strong>PARCEIRO/CORRETOR</strong></div>
+                        <i class="fas fa-square"></i><div class="media-body">Compartilhamento WHATSAPP com foto e <strong>informações personalizadas</strong></div>
                     </li>
                 </ul>
                 <a class="btn-solid-reg mfp-close page-scroll" href="#registration">QUERO ASSINAR</a> <button class="btn-outline-reg mfp-close as-button" type="button">FECHAR</button>
