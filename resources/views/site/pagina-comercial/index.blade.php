@@ -425,7 +425,7 @@
                         <ul class="list-unstyled li-space-lg">
                             <li class="media">
                                 <i class="fas fa-square"></i>
-                                <div class="media-body"><strong>Mapa humanizados</strong> com disponibilidade</div>
+                                <div class="media-body"><strong>Mapas humanizados</strong> com disponibilidade</div>
                             </li>
                             <li class="media">
                                 <i class="fas fa-square"></i>
@@ -440,7 +440,7 @@
                                 <div class="media-body">Compartilhamento <strong>WHATSAPP</strong> com foto e informações personalizadas</div>
                             </li>
                         </ul>
-                        <a class="btn-solid-reg popup-with-move-anim" href="#details-lightbox">SAIBA MAIS</a>
+                        <a class="btn-solid-reg popup-with-move-anim" href="#details-lightbox-mapa">SAIBA MAIS</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-6 col-xl-7">
@@ -472,6 +472,45 @@
                 <ul class="list-unstyled li-space-lg">
                     <li class="media">
                         <i class="fas fa-square"></i><div class="media-body">Visualiza as <strong>Unidades Disponííveis</strong></div>
+                    </li>
+                    <li class="media">
+                        <i class="fas fa-square"></i><div class="media-body">Consulta <strong>valores</strong> e condições de pagamento</div>
+                    </li>
+                    <li class="media">
+                        <i class="fas fa-square"></i><div class="media-body">Formula <strong>PROPOSTA</strong> e envia para a construtora</div>
+                    </li>
+                    <li class="media">
+                        <i class="fas fa-square"></i><div class="media-body">Disponibilidade e <strong>valores</strong> atualizados</div>
+                    </li>
+                    <li class="media">
+                        <i class="fas fa-square"></i><div class="media-body">Link personalizado para cada <strong>PARCEIRO/CORRETOR</strong></div>
+                    </li>
+                </ul>
+                <a class="btn-solid-reg mfp-close page-scroll" href="#registration">QUERO ASSINAR</a> <button class="btn-outline-reg mfp-close as-button" type="button">FECHAR</button>
+			</div> <!-- end of col -->
+		</div> <!-- end of row -->
+    </div> <!-- end of lightbox-basic -->
+    <!-- end of lightbox -->
+    <!-- end of details lightbox -->
+
+    <!-- Details Lightbox -->
+    <!-- Lightbox -->
+	<div id="details-lightbox-mapa" class="lightbox-basic zoom-anim-dialog mfp-hide mapa">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+			<div class="col-lg-8">
+                <div class="image-container">
+                    <img class="img-fluid" src="/site/pagina-comercial/images/details-mapa.png" alt="alternative">
+                </div> <!-- end of image-container -->
+			</div> <!-- end of col -->
+			<div class="col-lg-4">
+                <h3>MAPA INTERATIVO</h3>
+				<hr>
+                <p>UMA NOVA REALIDADE DO MERCADO IMOBILIÁRIO</p>
+                <p>Compartilhe o mapa interativo em tempo real com seus clientes e corretores:</p>
+                <ul class="list-unstyled li-space-lg">
+                    <li class="media">
+                        <i class="fas fa-square"></i><div class="media-body">Mapas humanizados com disponibilidade <strong>Unidades Disponííveis</strong></div>
                     </li>
                     <li class="media">
                         <i class="fas fa-square"></i><div class="media-body">Consulta <strong>valores</strong> e condições de pagamento</div>

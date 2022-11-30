@@ -835,6 +835,10 @@ input[type='checkbox'] {
 	text-align: left;
 }
 
+.lightbox-basic.mapa {
+	background: #00A4A5;
+}
+
 .lightbox-basic .image-container {
 	margin-bottom: 3rem;
 	text-align: center;
