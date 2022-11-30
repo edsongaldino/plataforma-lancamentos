@@ -520,10 +520,8 @@
     </div> 
     end of video -->
 
-    
-
-    <!-- Features -->
-    <div id="features" class="cards-1 planos basic-1">
+    <!-- Features - Bloqueado Item - Pedido Simon/davide -->
+    <div id="features" class="cards-1 planos basic-1" style="display:none;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
