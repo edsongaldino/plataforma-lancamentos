@@ -301,7 +301,8 @@ class EmpreendimentoController extends Controller
     public function RestoreFoto($id)
     {
         // Recupera o post pelo ID
-        $foto = Foto::find($id);
+        //$foto = Foto::find($id);
+        $foto = Foto::withTrashed()->findOrFail($id);
 
         // Restaura:
         $foto->restore();
