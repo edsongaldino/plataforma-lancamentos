@@ -9549,10 +9549,11 @@ header2.sticky > .busca-topo{
     height: 200px;
     padding: 30px 10px 10px 10px;
     /* bottom: -160px; */
-    /* position: absolute; */
+    position: absolute;
     z-index: 150;
     /* margin-left: -15px; */
-    background-color: #F9F9F9;
+    background-color: #f9f9f9e0;
+    top: -240px;
 }
 
 header2.index{

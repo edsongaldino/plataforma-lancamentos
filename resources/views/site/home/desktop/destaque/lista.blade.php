@@ -19,6 +19,25 @@
 
     <!-- Slides -->
 
+      <!-- Slides -->
+      <div class="swiper-slide swiper-lazy banner-index" data-background="/site/images/slides/slide_apartamento.jpg">
+        <div class="container">
+
+        </div>
+      </div>
+
+      <div class="swiper-slide swiper-lazy banner-index" data-background="/site/images/slides/slide_horizontais.jpg">
+        <div class="container">
+
+        </div>
+      </div>
+
+      <div class="swiper-slide swiper-lazy banner-index" data-background="/site/images/slides/slide_comerciais.jpg">
+        <div class="container">
+
+        </div>
+      </div>
+
     <!--<div class="swiper-slide swiper-lazy banner-index" data-background="/site/images/slides/banner-villabela.jpg">
 
       <div class="container">
@@ -27,17 +46,16 @@
          </a>
       </div>
 
-    </div>-->
+    </div>
 
-    <div class="swiper-slide swiper-lazy banner-index" data-background="/site/images/slides/gms.jpg">
+    <div class="swiper-slide swiper-lazy banner-index" data-background="/site/images/slides/slide_apartamento.jpg">
       <div class="container">
-          <a href="https://www.lancamentosonline.com.br/construtora/gms-9.html" target="_blank">
+          <a href="https://www.lancamentosonline.com.br/1-apartamentos.html" target="_blank">
           <div class="link-banner"></div>
           </a>
       </div>
     </div>
 
-    <!--
     <div class="swiper-slide swiper-lazy banner-index" data-background="/site/images/slides/Authentique.jpg">
 
       <div class="container">
