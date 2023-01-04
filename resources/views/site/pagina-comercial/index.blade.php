@@ -211,7 +211,7 @@
                                 <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">UNIDADES</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="nav-tab-3" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false">COMPARTILHAMENTO</a>
+                                <a class="nav-link" id="nav-tab-3" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false">INTEGRAÇÃO</a>
                             </li>
                         </ul>
                         <!-- end of tabs links -->
@@ -283,31 +283,52 @@
                             <!-- Tab -->
                             <div class="tab-pane fade container" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
                                 <div class="texto-aba">
-                                    <p>Integramos via API com os maiores CRM's do mercado imobiliário, possibilitando mais praticidade no gerenciamento dos seus anúncios.</p>
+                                    <p>Estamos desenvolvendo a maior e mais completa integração de conteúdo para Construtoras e Incorporadoras.</p>
                                     <ul class="list-unstyled li-space-lg">
                                         <li class="media">
                                             <i class="fas fa-square"></i>
-                                            <div class="media-body"><strong>Integração</strong> completa do seu empreendimento</div>
+                                            <div class="media-body"><strong class="color-yellow">OS PRINCIPAIS CRM(S) DO MERCADO IMOBILIÁRIO</strong> com
+                                                integrações e atualizações em tempo real de mapas interativos,
+                                                imagens, plantas, leads, disponibilidade, valores e condições de
+                                                pagamento.</div>
                                         </li>
-                                        <li class="media">
-                                            <i class="fas fa-square"></i>
-                                            <div class="media-body"><strong>Atualizações automáticas</strong>- unidades e disponibilidade</div>
-                                        </li>
-                                        <li class="media">
-                                            <i class="fas fa-square"></i>
-                                            <div class="media-body"><strong>Envio de Leads</strong> direto para o seu CRM</div>
-                                        </li>
-                                        <li class="media">
-                                            <i class="fas fa-square"></i>
-                                            <div class="media-body"><strong>Tabela de Vendas</strong> e valores das unidades</div>
-                                        </li>
+                                        
                                     </ul>
                                 </div> <!-- end of col -->
 
                                 <div class="imagem-aba">
                                     <div class="image-container">
-                                        <img class="img-fluid" src="/site/pagina-comercial/images/details-2.png" alt="alternative">
-                                    </div> <!-- end of image-container -->
+                                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                            <ol class="carousel-indicators indicador-slides-parceiros">
+                                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                                            </ol>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img class="img-fluid" src="/site/pagina-comercial/images/facilita.png" alt="alternative">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img class="img-fluid" src="/site/pagina-comercial/images/anapro.png" alt="alternative">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img class="img-fluid" src="/site/pagina-comercial/images/capys.png" alt="alternative">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img class="img-fluid" src="/site/pagina-comercial/images/vista.png" alt="alternative">
+                                                </div>
+                                            </div>
+                                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </div>
+                                    </div> 
                                 </div> <!-- end of col -->
 
                             </div> <!-- end of tab-pane -->

@@ -1922,3 +1922,11 @@ a:hover.back-to-top {
 		height: auto;
 	}
 }
+
+.indicador-slides-parceiros{
+	bottom: -50px;
+}
+
+.color-yellow{
+	color: #f8cb00 !important;
+}
