@@ -69,6 +69,12 @@
                 </ul>
                 <span class="nav-item social-icons">
                     <span class="fa-stack">
+                        <a target="_blank" href="https://api.whatsapp.com/send?phone=5565999859700&text=Ol%C3%A1%2C%20quero%20ser%20parceiro!">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-whatsapp fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack">
                         <a target="_blank" href="https://facebook.com/Lancamentosonline">
                             <i class="fas fa-circle fa-stack-2x"></i>
                             <i class="fab fa-facebook-f fa-stack-1x"></i>
@@ -660,29 +666,29 @@
                 <div class="col-lg-6">
 
                     <!-- Registration Form -->
-                    <form id="registrationForm">
+                    <form id="FormCaptacao" name="FormCaptacao" method="POST" action="/pagina-comercial/captar-dados-cliente">
                         <div class="form-group">
-                            <input type="text" class="form-control-input" id="roccupation" required>
+                            <input type="text" name="construtora" class="form-control-input" id="roccupation" required>
                             <label class="label-control" for="roccupation">Nome da Construtora</label>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control-input" id="roccupation" required>
+                            <input type="text" name="cidade" class="form-control-input" id="roccupation" required>
                             <label class="label-control" for="roccupation">Cidade - MT</label>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control-input" id="rname" required>
+                            <input type="text" name="nome" class="form-control-input" id="rname" required>
                             <label class="label-control" for="rname">Nome Completo (Responsável)</label>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control-input" id="roccupation" required>
+                            <input type="text" name="telefone" class="form-control-input" id="roccupation" required>
                             <label class="label-control" for="roccupation">Telefone</label>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control-input" id="remail" required>
+                            <input type="email" name="email" class="form-control-input" id="remail" required>
                             <label class="label-control" for="remail">Email</label>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="form-control-submit-button">ENVIAR DADOS</button>
+                            <button type="button" onclick="EnviarFormCliente();" class="form-control-submit-button">ENVIAR DADOS</button>
                         </div>
                     </form>
                     <!-- end of registration form -->
@@ -707,6 +713,12 @@
                        
                     </div> <!-- end of footer-col -->
                     <div class="footer-col third">
+                        <span class="fa-stack">
+                            <a target="_blank" href="https://api.whatsapp.com/send?phone=5565999859700&text=Ol%C3%A1%2C%20quero%20ser%20parceiro!">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-whatsapp fa-stack-1x"></i>
+                            </a>
+                        </span>
                         <span class="fa-stack">
                             <a target="_blank" href="https://facebook.com/Lancamentosonline">
                                 <i class="fas fa-circle fa-stack-2x"></i>

@@ -42,6 +42,7 @@ Route::group(['middleware' => ['site']], function () {
 
     //Rotas Página Comercial
     Route::get('plataforma-lancamentos-online.html', 'Site\HomeController@PaginaComercial')->name('comercial');
+	Route::post('/pagina-comercial/captar-dados-cliente', 'Site\HomeController@ContatoComercial');
 
 	// Home
 	Route::get('pagina-inicial.html', 'Site\HomeController@index')->name('homepage');

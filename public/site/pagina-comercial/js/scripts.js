@@ -164,3 +164,45 @@
 	});
 
 })(jQuery);
+
+
+function EnviarFormCaptacao() {
+
+    var nome = FormCaptacao.nome.value;
+    var cpf = FormCaptacao.cpf.value;
+    var email = FormCaptacao.email.value;
+    var telefone = FormCaptacao.telefone.value;
+    var renda = FormCaptacao.renda.value;
+
+    if (nome == "") {
+        Swal.fire('Ops','O campo nome deve ser preenchico','error');
+        FormCaptacao.nome.focus();
+        return false;
+    }
+
+    if (cpf == "") {
+        Swal.fire('Ops','O campo cpf deve ser preenchido!','error');
+        FormCaptacao.cpf.focus();
+        return false;
+    }
+
+    if (email == "") {
+        Swal.fire('Ops','O campo email não pode ser vazio!','error');
+        FormCaptacao.email.focus();
+        return false;
+    }
+
+    if (telefone == "") {
+        Swal.fire('Ops','O campo telefone deve ser preenchido!','error');
+        FormCaptacao.telefone.focus();
+        return false;
+    }
+
+    if (renda == "") {
+        Swal.fire('Ops','A renda é obrigatória!','error');
+        FormCaptacao.renda.focus();
+        return false;
+    }
+
+    document.getElementById('FormCaptacao').submit();
+}

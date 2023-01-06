@@ -82,4 +82,20 @@ class HomeController extends Controller
 	      'empreendimentos' => $empreendimentos,
 	  ])->header('Content-Type', 'text/xml');
 	}
+
+    public function ContatoComercial(Request $request){
+
+        //$resultado = (new Newsletter())->salvar($request);
+
+        $sucesso = 'false';
+
+        if ($resultado) {
+            $sucesso = 'true';
+        }
+
+        return response()->json([
+            'sucesso' => $sucesso,
+            'retorno' => 'E-mail salvo com sucesso'
+        ]);
+    }
 }
