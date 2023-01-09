@@ -9,6 +9,7 @@ use App\Models\Empreendimento;
 use App\Models\Newsletter;
 use App\Models\Publicacao;
 use App\Http\Requests\NewsletterRequest;
+use App\Models\ContatoComercial;
 
 class HomeController extends Controller
 {
@@ -85,17 +86,19 @@ class HomeController extends Controller
 
     public function ContatoComercial(Request $request){
 
-        $resultado = (new Newsletter())->salvar($request);
+        $contato = (new ContatoComercial())->salvar($request);
 
-        $sucesso = 'false';
-
-        if ($resultado) {
-            $sucesso = 'true';
+        if ($contato) {
+            return response()->json([
+                'sucesso' => 'true',
+                'retorno' => 'Recebemos seu contato e você receberá uma resposta no prazo máximo de 24 horas'
+            ]);
         }
 
         return response()->json([
-            'sucesso' => $sucesso,
-            'retorno' => 'E-mail recebido com sucesso! Aguarde nosso retorno.'
+            'sucesso' => 'erro',
+            'retorno' => 'Ocorreu um erro, tente novamente mais tarde'
         ]);
+
     }
 }

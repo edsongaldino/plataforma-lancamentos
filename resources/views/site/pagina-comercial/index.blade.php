@@ -18,6 +18,7 @@
     <meta property="og:image:width" content="1067">
     <meta property="og:image:height" content="600">
     <meta property="og:type" content="website">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Webpage Title -->
     <title>Plataforma Lançamentos Online</title>
@@ -667,7 +668,8 @@
                 <div class="col-lg-6">
 
                     <!-- Registration Form -->
-                    <form id="FormCaptacao" name="FormCaptacao" method="POST" action="/pagina-comercial/captar-dados-cliente">
+                    <form id="FormCaptacao" name="FormCaptacao" method="POST">
+                        @csrf
                         <div class="form-group">
                             <input type="text" name="construtora" class="form-control-input" id="roccupation" required>
                             <label class="label-control" for="roccupation">Nome da Construtora</label>
@@ -763,6 +765,6 @@
     <script src="/site/pagina-comercial/js/scripts.js"></script> <!-- Custom scripts -->
 
     <script type="text/javascript" src="{{ asset('assets/javascripts/sweetalert2.8.js') }}" ></script>
-    
+
 </body>
 </html>

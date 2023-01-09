@@ -204,5 +204,27 @@ function EnviarFormCaptacao() {
         return false;
     }
 
-    document.getElementById('FormCaptacao').submit();
+    $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url: "/pagina-comercial/captar-dados-cliente",
+        type:"POST",
+        data:{
+            construtora:construtora,
+            nome:nome,
+            cidade:cidade,
+            email:email,
+            telefone:telefone
+        },
+        success:function(response){
+            Swal.fire('Ok','Seu contato foi recebido com sucesso!','success');
+        },
+        error: function(response) {
+            Swal.fire('Ops','Seu contato não foi enviado, tente novamente!','error');
+        },
+    });
 }
