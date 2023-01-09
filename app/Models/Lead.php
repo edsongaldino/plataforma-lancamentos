@@ -238,7 +238,7 @@ class Lead extends Model
 
     public function integracoes()
     {
-        $this->integracaoMrv();
+        //$this->integracaoMrv();
         $this->integracaoFacilita();
         $this->integracaoAnapro();
         $this->integracaoCapys();

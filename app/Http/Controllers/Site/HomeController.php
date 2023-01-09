@@ -85,7 +85,7 @@ class HomeController extends Controller
 
     public function ContatoComercial(Request $request){
 
-        //$resultado = (new Newsletter())->salvar($request);
+        $resultado = (new Newsletter())->salvar($request);
 
         $sucesso = 'false';
 
@@ -95,7 +95,7 @@ class HomeController extends Controller
 
         return response()->json([
             'sucesso' => $sucesso,
-            'retorno' => 'E-mail salvo com sucesso'
+            'retorno' => 'E-mail recebido com sucesso! Aguarde nosso retorno.'
         ]);
     }
 }

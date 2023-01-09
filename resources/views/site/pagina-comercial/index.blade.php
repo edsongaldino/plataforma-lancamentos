@@ -29,6 +29,7 @@
     <link href="/site/pagina-comercial/css/swiper.css" rel="stylesheet">
 	<link href="/site/pagina-comercial/css/magnific-popup.css" rel="stylesheet">
 	<link href="/site/pagina-comercial/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/sweetalert/dist/sweetalert.css">
 
 	<!-- Favicon  -->
     <link rel="icon" href="/site/pagina-comercial/images/favicon.png">
@@ -214,7 +215,7 @@
                                 <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">O PORTAL</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">UNIDADES</a>
+                                <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">GERENCIAMENTO</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="nav-tab-3" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false">INTEGRAÇÃO</a>
@@ -513,7 +514,7 @@
                         <i class="fas fa-square"></i><div class="media-body">Link personalizado para cada <strong>PARCEIRO/CORRETOR</strong></div>
                     </li>
                 </ul>
-                <a class="btn-solid-reg mfp-close page-scroll" href="#registration">QUERO ASSINAR</a> <button class="btn-outline-reg mfp-close as-button" type="button">FECHAR</button>
+                <a class="btn-solid-reg mfp-close page-scroll" href="#registration">SEJA MEMBRO</a> <button class="btn-outline-reg mfp-close as-button" type="button">FECHAR</button>
 			</div> <!-- end of col -->
 		</div> <!-- end of row -->
     </div> <!-- end of lightbox-basic -->
@@ -688,7 +689,7 @@
                             <label class="label-control" for="remail">Email</label>
                         </div>
                         <div class="form-group">
-                            <button type="button" onclick="EnviarFormCliente();" class="form-control-submit-button">ENVIAR DADOS</button>
+                            <button type="button" onclick="EnviarFormCaptacao();" class="form-control-submit-button">ENVIAR DADOS</button>
                         </div>
                     </form>
                     <!-- end of registration form -->
@@ -760,5 +761,8 @@
     <script src="/site/pagina-comercial/js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
     <script src="/site/pagina-comercial/js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
     <script src="/site/pagina-comercial/js/scripts.js"></script> <!-- Custom scripts -->
+
+    <script type="text/javascript" src="{{ asset('assets/javascripts/sweetalert2.8.js') }}" ></script>
+    
 </body>
 </html>

@@ -168,39 +168,39 @@
 
 function EnviarFormCaptacao() {
 
+    var construtora = FormCaptacao.construtora.value;
     var nome = FormCaptacao.nome.value;
-    var cpf = FormCaptacao.cpf.value;
+    var cidade = FormCaptacao.cidade.value;
     var email = FormCaptacao.email.value;
     var telefone = FormCaptacao.telefone.value;
-    var renda = FormCaptacao.renda.value;
+
+    if (construtora == "") {
+        Swal.fire('Ops','O nome da construtora é obrigatório!','warning');
+        FormCaptacao.construtora.focus();
+        return false;
+    }
 
     if (nome == "") {
-        Swal.fire('Ops','O campo nome deve ser preenchico','error');
+        Swal.fire('Ops','O campo nome deve ser preenchico','warning');
         FormCaptacao.nome.focus();
         return false;
     }
 
-    if (cpf == "") {
-        Swal.fire('Ops','O campo cpf deve ser preenchido!','error');
-        FormCaptacao.cpf.focus();
+    if (cidade == "") {
+        Swal.fire('Ops','O campo cidade deve ser preenchido!','warning');
+        FormCaptacao.cidade.focus();
         return false;
     }
 
     if (email == "") {
-        Swal.fire('Ops','O campo email não pode ser vazio!','error');
+        Swal.fire('Ops','O campo email não pode ser vazio!','warning');
         FormCaptacao.email.focus();
         return false;
     }
 
     if (telefone == "") {
-        Swal.fire('Ops','O campo telefone deve ser preenchido!','error');
+        Swal.fire('Ops','O campo telefone deve ser preenchido!','warning');
         FormCaptacao.telefone.focus();
-        return false;
-    }
-
-    if (renda == "") {
-        Swal.fire('Ops','A renda é obrigatória!','error');
-        FormCaptacao.renda.focus();
         return false;
     }
 
