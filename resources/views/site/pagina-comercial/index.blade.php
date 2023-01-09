@@ -18,6 +18,7 @@
     <meta property="og:image:width" content="1067">
     <meta property="og:image:height" content="600">
     <meta property="og:type" content="website">
+    <!-- Codificação para Formulários -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Webpage Title -->
