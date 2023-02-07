@@ -26,7 +26,6 @@
         "mobiledetect/mobiledetectlib": "^2.8",
         "potelo/gu-payment": "^2.11",
         "robersonfaria/cepaberto": "^2.0",
-        "safe2pay/sdk": "dev-master",
         "spatie/laravel-sitemap": "^5.8",
         "symfony/translation": "^4.4",
         "symfony/translation-contracts": "2.0.1"

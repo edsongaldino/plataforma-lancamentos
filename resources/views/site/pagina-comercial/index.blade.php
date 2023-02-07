@@ -248,7 +248,7 @@
                                             <div class="media-body">Buscas por apartamentos, condomínios, loteamentos e salas comerciais na planta</div>
                                         </li>
                                     </ul>
-                                    <a class="btn-solid-reg" href="https://www.lancamentosonline.com.br" target="_blank">Acesse o Portal</a>
+                                    <a class="btn-solid-reg" href="https://www.lancamentosonline.com.br/pagina-inicial.html" target="_blank">Acesse o Portal</a>
                                 </div> <!-- end of col -->
 
                                 <div class="imagem-aba">
@@ -257,35 +257,6 @@
                                     </div> <!-- end of image-container -->
                                 </div> <!-- end of col -->
                                 
-                            </div> <!-- end of tab-pane -->
-                            <!-- end of tab -->
-
-                            <!-- Tab -->
-                            <div class="tab-pane fade container" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
-                                <div class="texto-aba">
-                                    <p>Gerencie todas as informações do seu empreendimento, informações básicas, itens de lazer, ficha técnica, tour virtual e muito mais.</p>
-                                    <ul class="list-unstyled li-space-lg">
-                                        <li class="media">
-                                            <i class="fas fa-square"></i>
-                                            <div class="media-body"><strong>Quadras/Torres</strong>- unidades e disponibilidade</div>
-                                        </li>
-                                        <li class="media">
-                                            <i class="fas fa-square"></i>
-                                            <div class="media-body"><strong>Canais de atendimento</strong>- direto com seu cliente</div>
-                                        </li>
-                                        <li class="media">
-                                            <i class="fas fa-square"></i>
-                                            <div class="media-body"><strong>Tabela de Vendas</strong>- Proposta Online</div>
-                                        </li>
-                                    </ul>
-                                </div> <!-- end of col -->
-
-                                <div class="imagem-aba">
-                                    <div class="image-container">
-                                        <img class="img-fluid" src="/site/pagina-comercial/images/details-2.png" alt="alternative">
-                                    </div> <!-- end of image-container -->
-                                </div> <!-- end of col -->
-
                             </div> <!-- end of tab-pane -->
                             <!-- end of tab -->
 
@@ -341,6 +312,36 @@
                                 </div> <!-- end of col -->
 
                             </div> <!-- end of tab-pane -->
+
+                            <!-- Tab -->
+                            <div class="tab-pane fade container" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
+                                <div class="texto-aba">
+                                    <p>Gerencie todas as informações do seu empreendimento, informações básicas, itens de lazer, ficha técnica, tour virtual e muito mais.</p>
+                                    <ul class="list-unstyled li-space-lg">
+                                        <li class="media">
+                                            <i class="fas fa-square"></i>
+                                            <div class="media-body"><strong>Quadras/Torres</strong>- unidades e disponibilidade</div>
+                                        </li>
+                                        <li class="media">
+                                            <i class="fas fa-square"></i>
+                                            <div class="media-body"><strong>Canais de atendimento</strong>- direto com seu cliente</div>
+                                        </li>
+                                        <li class="media">
+                                            <i class="fas fa-square"></i>
+                                            <div class="media-body"><strong>Tabela de Vendas</strong>- Proposta Online</div>
+                                        </li>
+                                    </ul>
+                                </div> <!-- end of col -->
+
+                                <div class="imagem-aba">
+                                    <div class="image-container">
+                                        <img class="img-fluid" src="/site/pagina-comercial/images/details-2.png" alt="alternative">
+                                    </div> <!-- end of image-container -->
+                                </div> <!-- end of col -->
+
+                            </div> <!-- end of tab-pane -->
+                            <!-- end of tab -->
+                            
                             <!-- end of tab -->
 
                         </div> <!-- end of tab-content -->
@@ -425,7 +426,7 @@
                         <ul class="list-unstyled li-space-lg">
                             <li class="media">
                                 <i class="fas fa-square"></i>
-                                <div class="media-body">Visualiza as <strong>Unidades Disponííveis</strong></div>
+                                <div class="media-body">Visualiza as <strong>Unidades Disponíveis</strong></div>
                             </li>
                             <li class="media">
                                 <i class="fas fa-square"></i>
@@ -436,7 +437,7 @@
                                 <div class="media-body">Formula <strong>PROPOSTA</strong> e envia para a construtora</div>
                             </li>
                         </ul>
-                        <a class="btn-solid-reg popup-with-move-anim" href="#details-lightbox">CONHEÇA</a>
+                        <a class="btn-solid-reg popup-with-move-anim" href="#details-lightbox">SAIBA MAIS</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -501,7 +502,7 @@
                 <p>Ao acessar seu empreendimento o cliente tem acesso às todas as informações:</p>
                 <ul class="list-unstyled li-space-lg">
                     <li class="media">
-                        <i class="fas fa-square"></i><div class="media-body">Visualiza as <strong>Unidades Disponííveis</strong></div>
+                        <i class="fas fa-square"></i><div class="media-body">Visualiza as <strong>Unidades Disponíveis</strong></div>
                     </li>
                     <li class="media">
                         <i class="fas fa-square"></i><div class="media-body">Consulta <strong>valores</strong> e condições de pagamento</div>
@@ -516,7 +517,7 @@
                         <i class="fas fa-square"></i><div class="media-body">Link personalizado para cada <strong>PARCEIRO/CORRETOR</strong></div>
                     </li>
                 </ul>
-                <a class="btn-solid-reg mfp-close page-scroll" href="#registration">SEJA MEMBRO</a> <button class="btn-outline-reg mfp-close as-button" type="button">FECHAR</button>
+                <a class="btn-solid-reg mfp-close page-scroll abrir-proposta" href="#registration">ABRIR PROPOSTA ONLINE</a>
 			</div> <!-- end of col -->
 		</div> <!-- end of row -->
     </div> <!-- end of lightbox-basic -->
@@ -551,7 +552,7 @@
                         <i class="fas fa-square"></i><div class="media-body">Compartilhamento WHATSAPP com foto e <strong>informações personalizadas</strong></div>
                     </li>
                 </ul>
-                <a class="btn-solid-reg mfp-close page-scroll" href="#registration">QUERO ASSINAR</a> <button class="btn-outline-reg mfp-close as-button" type="button">FECHAR</button>
+                <a class="btn-solid-reg mfp-close page-scroll" href="#registration">VISUALIZAR MAPA INTERATIVO</a>
 			</div> <!-- end of col -->
 		</div> <!-- end of row -->
     </div> <!-- end of lightbox-basic -->
