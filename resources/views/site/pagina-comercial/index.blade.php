@@ -142,7 +142,7 @@
                                                 <p class="p-large">UMA NOVA REALIDADE DO MERCADO IMOBILIÁRIO</p>
                                                 <p class="p-small">O CLIENTE NAVEGA, SELECIONA A UNIDADE, CONSULTA VALORES E ENVIA PROPOSTA DIRETO PARA A CONSTRUTORA</p>
                                                 <a class="btn-solid-lg page-scroll" href="#registration">SEJA MEMBRO</a>
-                                                <a class="btn-outline-lg page-scroll" href="#features">+ INFORMAÇÕES</a>
+                                                <a class="btn-outline-lg popup-with-move-anim" href="#details-proposta">+ INFORMAÇÕES</a>
                                             </div> <!-- end of text-container -->
                                         </div> <!-- end of col -->
                                     </div> <!-- end of row -->
@@ -162,7 +162,7 @@
                                                 <h1 class="h1-large">MAPA INTERATIVO</h1>
                                                 <p class="p-large">INFORMAÇÕES COMPLETAS DO SEU LOTEAMENTO OU CONDOMÍNIO FECHADO</p>
                                                 <a class="btn-solid-lg page-scroll" href="#registration">SEJA MEMBRO</a>
-                                                <a class="btn-outline-lg page-scroll" href="#features">SAIBA MAIS</a>
+                                                <a class="btn-outline-lg popup-with-move-anim" href="#details-lightbox-mapa">SAIBA MAIS</a>
                                             </div> <!-- end of text-container -->
                                         </div> <!-- end of col -->
                                     </div> <!-- end of row -->
@@ -217,11 +217,12 @@
                                 <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">O PORTAL</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">GERENCIAMENTO</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" id="nav-tab-3" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false">INTEGRAÇÃO</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">GERENCIAMENTO</a>
+                            </li>
+                            
                         </ul>
                         <!-- end of tabs links -->
 
@@ -253,7 +254,30 @@
 
                                 <div class="imagem-aba">
                                     <div class="image-container">
-                                        <img class="img-fluid" src="/site/pagina-comercial/images/details-2.png" alt="alternative">
+                                    <div class="image-container">
+                                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                            <ol class="carousel-indicators indicador-slides-parceiros">
+                                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                            </ol>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img class="img-fluid" src="/site/pagina-comercial/images/home.png" alt="alternative">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img class="img-fluid" src="/site/pagina-comercial/images/detalhe.png" alt="alternative">
+                                                </div>
+                                            </div>
+                                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </div>
+                                    </div> 
                                     </div> <!-- end of image-container -->
                                 </div> <!-- end of col -->
                                 
@@ -278,12 +302,12 @@
 
                                 <div class="imagem-aba">
                                     <div class="image-container">
-                                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                        <div id="carouselExamplePortal" class="carousel slide" data-ride="carousel">
                                             <ol class="carousel-indicators indicador-slides-parceiros">
-                                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                                                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                                                <li data-target="#carouselExamplePortal" data-slide-to="0" class="active"></li>
+                                                <li data-target="#carouselExamplePortal" data-slide-to="1"></li>
+                                                <li data-target="#carouselExamplePortal" data-slide-to="2"></li>
+                                                <li data-target="#carouselExamplePortal" data-slide-to="3"></li>
                                             </ol>
                                             <div class="carousel-inner">
                                                 <div class="carousel-item active">
@@ -299,11 +323,11 @@
                                                     <img class="img-fluid" src="/site/pagina-comercial/images/vista.png" alt="alternative">
                                                 </div>
                                             </div>
-                                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                            <a class="carousel-control-prev" href="#carouselExamplePortal" role="button" data-slide="prev">
                                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                 <span class="sr-only">Previous</span>
                                             </a>
-                                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                            <a class="carousel-control-next" href="#carouselExamplePortal" role="button" data-slide="next">
                                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                 <span class="sr-only">Next</span>
                                             </a>
@@ -517,7 +541,11 @@
                         <i class="fas fa-square"></i><div class="media-body">Link personalizado para cada <strong>PARCEIRO/CORRETOR</strong></div>
                     </li>
                 </ul>
-                <a class="btn-solid-reg mfp-close page-scroll abrir-proposta" href="#registration">ABRIR PROPOSTA ONLINE</a>
+                @if(isMobile())
+                <a class="btn-solid-reg mfp-close page-scroll abrir-proposta" href="https://lancamentosonline.com.br/empreendimento/244/premium" target="_blank">ABRIR PROPOSTA ONLINE</a>
+                @else
+                <a class="btn-solid-reg popup-with-move-anim" href="#details-proposta">SAIBA MAIS</a>
+                @endif
 			</div> <!-- end of col -->
 		</div> <!-- end of row -->
     </div> <!-- end of lightbox-basic -->
@@ -552,7 +580,24 @@
                         <i class="fas fa-square"></i><div class="media-body">Compartilhamento WHATSAPP com foto e <strong>informações personalizadas</strong></div>
                     </li>
                 </ul>
-                <a class="btn-solid-reg mfp-close page-scroll" href="#registration">VISUALIZAR MAPA INTERATIVO</a>
+                <a class="btn-solid-reg mfp-close page-scroll" href="https://lancamentosonline.com.br/empreendimento/228/8436/visualizar-mapa/construtora" target="_blank" >VISUALIZAR MAPA INTERATIVO</a>
+			</div> <!-- end of col -->
+		</div> <!-- end of row -->
+    </div> <!-- end of lightbox-basic -->
+    <!-- end of lightbox -->
+    <!-- end of details lightbox -->
+
+
+    <!-- Details Lightbox -->
+    <!-- Lightbox -->
+	<div id="details-proposta" class="lightbox-basic zoom-anim-dialog mfp-hide proposta">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+			<div class="col-lg-12">
+                <h3>Para abrir a proposta online, leia o QRCode pelo seu smartphone</h3>
+                <div class="image-container">
+                    <img class="img-fluid" src="/site/pagina-comercial/images/proposta-qrcode.png" alt="alternative">
+                </div> <!-- end of image-container -->
 			</div> <!-- end of col -->
 		</div> <!-- end of row -->
     </div> <!-- end of lightbox-basic -->

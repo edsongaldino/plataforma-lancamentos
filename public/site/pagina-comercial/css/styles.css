@@ -839,6 +839,12 @@ input[type='checkbox'] {
 	background: #00A4A5;
 }
 
+.lightbox-basic.proposta {
+	background: #17a2b8;
+	width: 800px !important;
+	text-align: center !important;
+}
+
 .lightbox-basic .image-container {
 	margin-bottom: 3rem;
 	text-align: center;
