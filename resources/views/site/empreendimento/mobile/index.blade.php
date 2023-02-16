@@ -114,7 +114,7 @@ $link_tour = $link_tour->pivot->valor;
 <script type="text/javascript" src="/site/m/js/materialize.min.js"></script>
 <script type="text/javascript" src="/site/m/js/jquery-ui.min.js"></script>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-1kSaM3BsibuKoW3Dip8d7Uw2p9mLuws&callback=inicializar"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzzfaZRQcQvaSDOtK3hyLoeY9YVUKedjQ&callback=inicializar"></script>
 
 
 <script type="text/javascript" src="/site/m/js/slick.min.js"></script>

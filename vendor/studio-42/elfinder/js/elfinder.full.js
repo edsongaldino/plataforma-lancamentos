@@ -10975,7 +10975,7 @@ elFinder.prototype._options = {
 			// media auto play when docked
 			dockAutoplay : false,
 			// Google Maps API key (Require Maps JavaScript API)
-			googleMapsApiKey : '',
+			googleMapsApiKey : 'AIzaSyDzzfaZRQcQvaSDOtK3hyLoeY9YVUKedjQ',
 			// Google Maps API Options
 			googleMapsOpts : {
 				maps : {},

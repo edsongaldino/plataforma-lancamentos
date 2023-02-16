@@ -1243,9 +1243,6 @@ jQuery(window).smartresize(function(){
 
 
 /********** GOOGLE MAPS **********/		
-
-
-
 function mapInit(lat,lng,id, pinicon, ui, offset) {
 	if( ui == false ) {
 		ui= true;
