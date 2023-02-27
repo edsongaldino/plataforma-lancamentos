@@ -142,7 +142,13 @@
                                                 <p class="p-large">UMA NOVA REALIDADE DO MERCADO IMOBILIÁRIO</p>
                                                 <p class="p-small">O CLIENTE NAVEGA, SELECIONA A UNIDADE, CONSULTA VALORES E ENVIA PROPOSTA DIRETO PARA A CONSTRUTORA</p>
                                                 <a class="btn-solid-lg page-scroll" href="#registration">SEJA MEMBRO</a>
+                                                
+                                                @if(isMobile())
+                                                <a class="btn-outline-lg popup-with-move-anim" href="#details-lightbox">+ INFORMAÇÕES</a>
+                                                @else
                                                 <a class="btn-outline-lg popup-with-move-anim" href="#details-proposta">+ INFORMAÇÕES</a>
+                                                @endif
+                                                
                                             </div> <!-- end of text-container -->
                                         </div> <!-- end of col -->
                                     </div> <!-- end of row -->
@@ -542,7 +548,7 @@
                     </li>
                 </ul>
                 @if(isMobile())
-                <a class="btn-solid-reg mfp-close page-scroll abrir-proposta" href="https://lancamentosonline.com.br/empreendimento/244/premium" target="_blank">ABRIR PROPOSTA ONLINE</a>
+                <a class="btn-solid-reg mfp-close page-scroll abrir-proposta" href="https://lancamentosonline.com.br/empreendimento/293/premium" target="_blank">ABRIR PROPOSTA ONLINE</a>
                 @else
                 <a class="btn-solid-reg popup-with-move-anim" href="#details-proposta">SAIBA MAIS</a>
                 @endif
