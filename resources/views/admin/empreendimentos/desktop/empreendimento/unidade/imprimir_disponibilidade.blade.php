@@ -42,6 +42,10 @@
       border-collapse: separate !important;
     }
 
+    @media print {
+      .pagebreak { page-break-after: always; }
+    }
+
   </style>
 </head>
 <body>
