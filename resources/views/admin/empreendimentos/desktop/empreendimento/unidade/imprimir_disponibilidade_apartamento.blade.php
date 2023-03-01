@@ -134,7 +134,7 @@
     @php 
       $contator += 1;
       if($contator > 20){
-        echo '<div class="pagebreaK"></div>';
+        echo '<div style="break-after:page"></div>';
         $contador = 0;
       }
     @endphp
