@@ -619,6 +619,10 @@
             <a class="btn btn-primary btn-acao-pdf" href="{{ route('imprimir-disponibilidade-pdf', $entry->id) }}" target="_blank" rel="tooltip" data-original-title="Gerar PDF das Unidades">
                 <i class="fa fa-file-pdf-o"></i>
             </a>
+
+            <a class="btn btn-primary btn-acao-print mg-r-10" href="{{ route('imprimir-disponibilidade', $entry->id) }}" target="_blank" rel="tooltip" data-original-title="Gerar Impressão das Unidades">
+                <i class="fa fa-print"></i>
+            </a>
                 
         </div>
 

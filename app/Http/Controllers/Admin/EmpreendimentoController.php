@@ -1874,7 +1874,8 @@ class EmpreendimentoController
 	{
 		$empreendimento = Empreendimento::find($id);
 		$response = (new Pdf())->gerarPDFUnidade($empreendimento->getUrlDisponibilidade());
-		$filename = "Disponibilidade_{$empreendimento->nome}.pdf";
+		$data = date('Ymd');
+		$filename = "Disponibilidade_{$empreendimento->nome}_{$data}.pdf";
 
         file_put_contents("uploads/pdf/$filename", $response);
 

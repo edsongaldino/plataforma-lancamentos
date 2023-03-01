@@ -46,6 +46,7 @@
 </head>
 <body>
   <table class="report-container" width="100%">
+     
      <thead class="report-header">
        <tr>
           <th class="report-header-cell">
@@ -85,10 +86,10 @@
                 Documento Gerado em {{ date('d/m/Y') }}  
               </span>          
             </h3>              
-            
           </td>          
         </tr>    
       </thead>
+      
       <tbody class="report-content">
         <tr>
            <td class="report-content-cell">

@@ -1152,6 +1152,10 @@ input.valor-alteracao{
     border: 1px solid #00B2B2 !important;
 }
 
+.mg-r-10{
+    margin-right: 10px !important;
+}
+
 .btn-acao-mapa {
     float: left;
     width: 60px;

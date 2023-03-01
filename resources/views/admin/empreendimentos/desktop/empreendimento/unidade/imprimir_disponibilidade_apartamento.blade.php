@@ -27,7 +27,7 @@
       <i class="fa fa-money"></i>
     </td>
   </tr>
-  
+  @php $contator = 0;@endphp
   @foreach($unidades as $un)
     <tr class="item">
       <td align="center">
@@ -130,6 +130,15 @@
         <b>R$ {{ $valor }}</b>    
       </td>
     </tr>
+
+    @php 
+      $contator += 1;
+      if($contator > 20){
+        echo '<div class="pagebreaK"></div>';
+        $contador = 0;
+      }
+    @endphp
+
   @endforeach
 
 </table>
