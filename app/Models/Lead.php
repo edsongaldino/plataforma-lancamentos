@@ -73,7 +73,6 @@ class Lead extends Model
             }else{
                 $this->enviarEmails();
             }
-            $this->integracoes();
         endif;
 
         DB::commit();
@@ -191,6 +190,7 @@ class Lead extends Model
 
         if($this->construtora->envio_lead == 'Ativo'){
 
+            $this->integracoes();
             $contatos_construtora = $this->construtora->usuarios->toArray();
 
             if ($contatos_construtora) {
@@ -222,7 +222,7 @@ class Lead extends Model
 
         /*Antes os leads eram enviados para todos os usuários da construtora, correção feita em 16/05/2022*/
         if($this->construtora->envio_lead == 'Ativo'){
-
+            $this->integracoes();
             if($this->empreendimento->caracteristicas->where('nome', 'email_lead')->first()){
 
                 foreach (explode(',', $this->empreendimento->caracteristicas->where('nome', 'email_lead')->first()->pivot->valor) as $email) {
