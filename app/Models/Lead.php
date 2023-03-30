@@ -188,12 +188,24 @@ class Lead extends Model
 
     public function enviarEmails()
     {
-        $contatos_construtora = $this->construtora->usuarios->toArray();
 
-        if ($contatos_construtora) {
-            $destinatarios = array_column($contatos_construtora, 'email');
-            Mail::to($destinatarios)->send(new EmailConstrutora($this));
+        if($this->construtora->envio_lead == 'Ativo'){
+
+            $contatos_construtora = $this->construtora->usuarios->toArray();
+
+            if ($contatos_construtora) {
+                $destinatarios = array_column($contatos_construtora, 'email');
+                Mail::to($destinatarios)->send(new EmailConstrutora($this));
+            }
+
+        }else{
+
+            foreach ($this->construtora->parceiros as $parceiro) {
+                Mail::to($parceiro->email)->send(new EmailConstrutora($this));
+            }
+
         }
+        
 
         Mail::to($this->email)->send(new EmailCliente($this));
 
@@ -209,16 +221,26 @@ class Lead extends Model
     {
 
         /*Antes os leads eram enviados para todos os usuários da construtora, correção feita em 16/05/2022*/
-        if($this->empreendimento->caracteristicas->where('nome', 'email_lead')->first()){
+        if($this->construtora->envio_lead == 'Ativo'){
 
-            foreach (explode(',', $this->empreendimento->caracteristicas->where('nome', 'email_lead')->first()->pivot->valor) as $email) {
-                Mail::to($email)->send(new EmailConstrutora($this));
+            if($this->empreendimento->caracteristicas->where('nome', 'email_lead')->first()){
+
+                foreach (explode(',', $this->empreendimento->caracteristicas->where('nome', 'email_lead')->first()->pivot->valor) as $email) {
+                    Mail::to($email)->send(new EmailConstrutora($this));
+                }
+    
+            }else{
+                Mail::to($this->construtora->email)->send(new EmailConstrutora($this));
             }
 
         }else{
-            Mail::to($this->construtora->email)->send(new EmailConstrutora($this));
-        }
 
+            foreach ($this->construtora->parceiros as $parceiro) {
+                Mail::to($parceiro->email)->send(new EmailConstrutora($this));
+            }
+
+        }
+        
 
         if (config('app.ambiente') == 'producao') {
             $adms = [];

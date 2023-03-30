@@ -457,6 +457,11 @@ class Construtora extends Model
         return $this->hasMany('App\Models\TabelaVendas');
     }
 
+    public function parceiros()
+    {
+        return $this->hasMany('App\Models\Parceiro');
+    }
+
     public function emails()
     {
         return $this->hasMany('App\Models\Email');
