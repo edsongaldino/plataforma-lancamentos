@@ -199,7 +199,7 @@ class Lead extends Model
             }
 
         }else{
-
+            dd($this->construtora->parceiros);
             foreach ($this->construtora->parceiros as $parceiro) {
                 Mail::to($parceiro->email)->send(new EmailConstrutora($this));
             }
@@ -234,7 +234,7 @@ class Lead extends Model
             }
 
         }else{
-
+            dd($this->construtora->parceiros);
             foreach ($this->construtora->parceiros as $parceiro) {
                 Mail::to($parceiro->email)->send(new EmailConstrutora($this));
             }
