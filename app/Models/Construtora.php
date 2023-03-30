@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Image;
 use \DB;
+use Illuminate\Support\Facades\DB as FacadesDB;
 use Illuminate\Support\Facades\Storage;
 
 class Construtora extends Model
@@ -130,7 +131,7 @@ class Construtora extends Model
     {                   
         $construtora = $this;
 
-        DB::beginTransaction();
+        FacadesDB::beginTransaction();
 
         $this->uploadLogoCortada($construtora, $request->logo);
 
@@ -164,7 +165,7 @@ class Construtora extends Model
             (new ContatoConstrutora())->cadastrar($request, $construtora);
         }
 
-        DB::commit();
+        FacadesDB::commit();
     }
 
     public function salvarPerfilConstrutora($request, $id)

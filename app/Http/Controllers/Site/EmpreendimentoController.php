@@ -163,8 +163,6 @@ class EmpreendimentoController extends Controller
 
         $resultado = (new Lead())->contato($request);
 
-        dd($resultado);
-
         if ($resultado) {
             return response()->json([
                 'sucesso' => 'true',
@@ -184,8 +182,6 @@ class EmpreendimentoController extends Controller
         return redirect()->back()->with('warning', 'Este CNPJ já consta em nosso banco de dados! Verifique.');
         
         $resultado = (new Lead())->contato($request);
-
-        dd($resultado);
 
         if ($resultado) {
             return response()->json([
