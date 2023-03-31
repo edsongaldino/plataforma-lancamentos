@@ -67,7 +67,7 @@
           <div class="link-telefone-mobile" style="display: none;">
 
             <a href="tel:{{ $empreendimento->costrutora->parceiros->telefone->first() }}" onclick="GravarCliquetel(); return true;">
-              <button type="button" class="btn btn-primary btn-ligar"><i class="fa fa-phone" aria-hidden="true"></i> Ligar para a construtora</button>
+              <button type="button" class="btn btn-primary btn-ligar"><i class="fa fa-phone" aria-hidden="true"></i> Ligar para o corretor</button>
             </a>
 
           </div>
