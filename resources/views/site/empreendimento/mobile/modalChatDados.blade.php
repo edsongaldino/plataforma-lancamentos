@@ -14,48 +14,65 @@
 
       </form>
 
-
-      <div class="link-whatsapp-mobile" style="display: none;">
-      @if($empreendimento->getCaracteristica('whatsapp_atendimento'))
-      <a href="https://api.whatsapp.com/send?phone=55{{ limpa_campo($empreendimento->getCaracteristica('whatsapp_atendimento')) }}&text=Ol%C3%A1%2C%20vi%20o%20an%C3%BAncio%20do%20empreendimento%20({{ $empreendimento->nome }})%20no%20Portal%20Lan%C3%A7amentos%20Online%20e%20gostaria%20de%20obter%20maiores%20informa%C3%A7%C3%B5es" target="_blank">
-        <button type="button" class="btn btn-primary btn-whatsapp"><i class="fa fa-whatsapp" aria-hidden="true"></i> Atendimento Whatsapp</button>
-      </a>
-      @elseif($empreendimento->construtora->whatsapp)
-      <a href="https://api.whatsapp.com/send?phone=55{{ limpa_campo($empreendimento->construtora->whatsapp) }}&text=Ol%C3%A1%2C%20vi%20o%20an%C3%BAncio%20do%20empreendimento%20({{ $empreendimento->nome }})%20no%20Portal%20Lan%C3%A7amentos%20Online%20e%20gostaria%20de%20obter%20maiores%20informa%C3%A7%C3%B5es" target="_blank">
-        <button type="button" class="btn btn-primary btn-whatsapp"><i class="fa fa-whatsapp" aria-hidden="true"></i> Atendimento Whatsapp</button>
-      </a>
-      @else
-      <a href="https://api.whatsapp.com/send?phone=5565999859238&text=Ol%C3%A1%2C%20vi%20o%20an%C3%BAncio%20do%20empreendimento%20({{ $empreendimento->nome }})%20no%20Portal%20Lan%C3%A7amentos%20Online%20e%20gostaria%20de%20obter%20maiores%20informa%C3%A7%C3%B5es" target="_blank">
-        <button type="button" class="btn btn-primary btn-whatsapp"><i class="fa fa-whatsapp" aria-hidden="true"></i> Atendimento Whatsapp</button>
-      </a>
-      @endif
-      </div>
-
-      <div class="link-telefone-mobile" style="display: none;">
-
-        @if($empreendimento->getCaracteristica('telefone_central'))
-        <a href="tel:{{ $empreendimento->getCaracteristica('telefone_central') }}" onclick="GravarCliquetel(); return true;">
-          <button type="button" class="btn btn-primary btn-ligar"><i class="fa fa-phone" aria-hidden="true"></i> Ligar para a construtora</button>
+      @if($empreendimento->construtora->envio_lead == 'Ativo')
+        <div class="link-whatsapp-mobile" style="display: none;">
+        @if($empreendimento->getCaracteristica('whatsapp_atendimento'))
+        <a href="https://api.whatsapp.com/send?phone=55{{ limpa_campo($empreendimento->getCaracteristica('whatsapp_atendimento')) }}&text=Ol%C3%A1%2C%20vi%20o%20an%C3%BAncio%20do%20empreendimento%20({{ $empreendimento->nome }})%20no%20Portal%20Lan%C3%A7amentos%20Online%20e%20gostaria%20de%20obter%20maiores%20informa%C3%A7%C3%B5es" target="_blank">
+          <button type="button" class="btn btn-primary btn-whatsapp"><i class="fa fa-whatsapp" aria-hidden="true"></i> Atendimento Whatsapp</button>
         </a>
-        @elseif($empreendimento->construtora->telefone_nun)
-        <a href="tel:{{ $empreendimento->getCaracteristica('telefone_central') }}" onclick="GravarCliquetel(); return true;">
-          <button type="button" class="btn btn-primary btn-ligar"><i class="fa fa-phone" aria-hidden="true"></i> Ligar para a construtora</button>
-        </a>
-        @elseif($empreendimento->construtora->celular_atendimento)
-        <a href="tel:{{ $empreendimento->construtora->telefone_nun }}" onclick="GravarCliquetel(); return true;">
-          <button type="button" class="btn btn-primary btn-ligar"><i class="fa fa-phone" aria-hidden="true"></i> Ligar para a construtora</button>
-        </a>
-        @elseif($empreendimento->construtora->telefone)
-        <a href="tel:{{ $empreendimento->construtora->telefone }}" onclick="GravarCliquetel(); return true;">
-          <button type="button" class="btn btn-primary btn-ligar"><i class="fa fa-phone" aria-hidden="true"></i> Ligar para a construtora</button>
+        @elseif($empreendimento->construtora->whatsapp)
+        <a href="https://api.whatsapp.com/send?phone=55{{ limpa_campo($empreendimento->construtora->whatsapp) }}&text=Ol%C3%A1%2C%20vi%20o%20an%C3%BAncio%20do%20empreendimento%20({{ $empreendimento->nome }})%20no%20Portal%20Lan%C3%A7amentos%20Online%20e%20gostaria%20de%20obter%20maiores%20informa%C3%A7%C3%B5es" target="_blank">
+          <button type="button" class="btn btn-primary btn-whatsapp"><i class="fa fa-whatsapp" aria-hidden="true"></i> Atendimento Whatsapp</button>
         </a>
         @else
-        <a href="tel:65999859238" onclick="GravarCliquetel(); return true;">
-          <button type="button" class="btn btn-primary btn-ligar-off"><i class="fa fa-phone" aria-hidden="true"></i> Ligar para a construtora</button>
+        <a href="https://api.whatsapp.com/send?phone=5565999859238&text=Ol%C3%A1%2C%20vi%20o%20an%C3%BAncio%20do%20empreendimento%20({{ $empreendimento->nome }})%20no%20Portal%20Lan%C3%A7amentos%20Online%20e%20gostaria%20de%20obter%20maiores%20informa%C3%A7%C3%B5es" target="_blank">
+          <button type="button" class="btn btn-primary btn-whatsapp"><i class="fa fa-whatsapp" aria-hidden="true"></i> Atendimento Whatsapp</button>
         </a>
         @endif
+        </div>
 
-      </div>
+        <div class="link-telefone-mobile" style="display: none;">
+
+          @if($empreendimento->getCaracteristica('telefone_central'))
+          <a href="tel:{{ $empreendimento->getCaracteristica('telefone_central') }}" onclick="GravarCliquetel(); return true;">
+            <button type="button" class="btn btn-primary btn-ligar"><i class="fa fa-phone" aria-hidden="true"></i> Ligar para a construtora</button>
+          </a>
+          @elseif($empreendimento->construtora->telefone_nun)
+          <a href="tel:{{ $empreendimento->getCaracteristica('telefone_central') }}" onclick="GravarCliquetel(); return true;">
+            <button type="button" class="btn btn-primary btn-ligar"><i class="fa fa-phone" aria-hidden="true"></i> Ligar para a construtora</button>
+          </a>
+          @elseif($empreendimento->construtora->celular_atendimento)
+          <a href="tel:{{ $empreendimento->construtora->telefone_nun }}" onclick="GravarCliquetel(); return true;">
+            <button type="button" class="btn btn-primary btn-ligar"><i class="fa fa-phone" aria-hidden="true"></i> Ligar para a construtora</button>
+          </a>
+          @elseif($empreendimento->construtora->telefone)
+          <a href="tel:{{ $empreendimento->construtora->telefone }}" onclick="GravarCliquetel(); return true;">
+            <button type="button" class="btn btn-primary btn-ligar"><i class="fa fa-phone" aria-hidden="true"></i> Ligar para a construtora</button>
+          </a>
+          @else
+          <a href="tel:65999859238" onclick="GravarCliquetel(); return true;">
+            <button type="button" class="btn btn-primary btn-ligar-off"><i class="fa fa-phone" aria-hidden="true"></i> Ligar para a construtora</button>
+          </a>
+          @endif
+
+        </div>
+      @else
+
+          <div class="link-whatsapp-mobile" style="display: none;">
+            <a href="https://api.whatsapp.com/send?phone=55{{ limpa_campo($empreendimento->costrutora->parceiros->telefone->first()) }}&text=Ol%C3%A1%2C%20vi%20o%20an%C3%BAncio%20do%20empreendimento%20({{ $empreendimento->nome }})%20no%20Portal%20Lan%C3%A7amentos%20Online%20e%20gostaria%20de%20obter%20maiores%20informa%C3%A7%C3%B5es" target="_blank">
+              <button type="button" class="btn btn-primary btn-whatsapp"><i class="fa fa-whatsapp" aria-hidden="true"></i> Atendimento Whatsapp</button>
+            </a>
+          </div>
+
+          <div class="link-telefone-mobile" style="display: none;">
+
+            <a href="tel:{{ $empreendimento->costrutora->parceiros->telefone->first() }}" onclick="GravarCliquetel(); return true;">
+              <button type="button" class="btn btn-primary btn-ligar"><i class="fa fa-phone" aria-hidden="true"></i> Ligar para o corretor</button>
+            </a>
+
+          </div>
+
+      @endif
 
 
 
