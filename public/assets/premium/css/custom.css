@@ -1200,8 +1200,9 @@ img {
     font-size: 14px;
     color: #FFF;
     text-align: center;
-    margin-top: 50%;
     line-height: 40px;
+	position: relative;
+    bottom: -40px;
 }
 
 .conteudo .detalhe-unidade .fotos-decorado{
@@ -1225,8 +1226,9 @@ img {
     font-size: 14px;
     color: #FFF;
     text-align: center;
-    margin-top: 50%;
     line-height: 40px;
+	position: relative;
+    bottom: -40px;
 }
 
 
