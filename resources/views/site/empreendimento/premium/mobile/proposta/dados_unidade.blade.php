@@ -87,7 +87,7 @@
             $foto_planta = $unidade->planta->getFotoDestaque();
             @endphp
             @if(isset($foto_planta))
-            <a data-toggle="modal" data-target="#exampleModal">
+            <a data-toggle="modal" data-target="#ModalPlanta">
 
                 <div class="planta-unidade" style="background-image: url({{ $foto_planta->getUrl('400x300') ?? '' }});">
                     <div class="titulo-planta">Detalhes da Planta</div>

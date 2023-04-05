@@ -131,9 +131,9 @@
     <div class="btn-voltar" onclick='history.go(-1)'><i class="fa fa-reply-all" aria-hidden="true"></i></div>
         
     @if(isset($proposta))
-    <div class="btn-gravar-dados" onclick="EnviarFormProposta();"><i class="fa fa-edit" aria-hidden="true"></i> Atualizar Proposta</div>
+        <div class="btn-gravar-dados" onclick="EnviarFormProposta();"><i class="fa fa-edit" aria-hidden="true"></i> Atualizar Proposta</div>
     @else
-    <div class="btn-gravar-dados" onclick="EnviarFormProposta();"><i class="fa fa-paper-plane" aria-hidden="true"></i> Próxima Etapa</div>
+        <div class="btn-gravar-dados" onclick="EnviarFormProposta();"><i class="fa fa-paper-plane" aria-hidden="true"></i> Próxima Etapa</div>
     @endif
 </div>
 
