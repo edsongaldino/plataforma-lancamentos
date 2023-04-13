@@ -307,7 +307,7 @@
         @if($empreendimento->TabelaAtiva->count() > 0)
         <a href="/empreendimento/{{ $empreendimento->id }}/unidades"><div class="negociar"><i class="fas fa-cart-plus" aria-hidden="true"></i> Negociar Unidade</div></a>
         @else
-        <a data-toggle="modal" data-target="#exampleModalCenter"><div class="negociar"><i class="fas fa-cart-plus" aria-hidden="true"></i> Negociar Unidade</div></a>
+        <a data-toggle="modal" data-target="#exampleModalCenter"><div class="negociar"><i class="fas fa-cart-plus" aria-hidden="true"></i> Falar com a Construtora</div></a>
         @endif
     </div>
 
