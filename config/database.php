@@ -54,10 +54,10 @@ return [
             'prefix_indexes' => true,
             'strict' => false,
             'engine' => null,
-            'options' => array_filter([
+            /*'options' => array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-            ]),
-        ],        
+            ]),*/
+        ],
         'banco_lancamentos' => [
             'driver' => 'mysql',
             'host' => 'lanca_bkp.mysql.dbaas.com.br',
@@ -72,9 +72,9 @@ return [
             'prefix_indexes' => true,
             'strict' => false,
             'engine' => null,
-            'options' => array_filter([
+            /*'options' => array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-            ]),
+            ]),*/
         ],
         'pgsql' => [
             'driver' => 'pgsql',
