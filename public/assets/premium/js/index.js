@@ -227,7 +227,31 @@ function EnviarContatoConstrutora() {
     return false;
   }
 
-  document.getElementById('FormContatoConstrutora').submit();
+  var formData = {
+    nome : FormContatoConstrutora.nome.value,
+    email : FormContatoConstrutora.email.value,
+    telefone : FormContatoConstrutora.telefone.value,
+    previsao : FormContatoConstrutora.previsao.value,
+    interesse : FormContatoConstrutora.interesse.value,
+    renda : FormContatoConstrutora.renda.value,
+    mensagem : FormContatoConstrutora.mensagem.value
+  };
+
+  $.ajax({
+    type: "POST",
+    url: "/empreendimento/enviar-contato-cliente",
+    data: formData,
+    dataType: "json",
+    encode: true,
+  }).done(function (data) {
+    if (!data.success) {
+        Swal.fire('Ops','Houve algum erro no envio','error');
+        console.log(data);
+    } else {
+        Swal.fire('OK','Obrigado pelo seu contato. Logo entraremos em contato!','success');
+    }
+
+  });
 
 }
 
