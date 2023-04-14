@@ -246,11 +246,11 @@ function EnviarContatoConstrutora() {
     dataType: "json",
     encode: true,
   }).done(function (data) {
-    if (!data.success) {
-        Swal.fire('Ops','Houve algum erro no envio','error');
-        console.log(data);
+    if (data.sucesso) {
+        Swal.fire('OK',data.retorno,'success');
     } else {
-        Swal.fire('OK','Obrigado pelo seu contato. Logo entraremos em contato!','success');
+      Swal.fire('Ops','Houve algum erro no envio','error');
+      console.log(data);
     }
 
   });
