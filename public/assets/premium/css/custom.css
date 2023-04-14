@@ -2590,6 +2590,16 @@ html.no-pointerevents.no-touchevents .gallery-grid-item:hover span  {
     font-size: 14px;
 }
 
+.btn-condicoes-pagamento.fale-com-a-construtora{
+    background-color: #f50 !important;
+}
+
+.rodape.detalhes .negociar.fale-com-a-construtora{
+	width: 45%;
+    font-size: 12px;
+}
+
+
 .conteudo #tour{
 	width: 100%;
     height: auto;

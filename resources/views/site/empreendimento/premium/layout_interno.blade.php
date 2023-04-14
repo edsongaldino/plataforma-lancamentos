@@ -27,6 +27,9 @@
     <script src="/site/ferramenta/js/jQuery/jquery.min.js"></script>
     <script src="/site/ferramenta/js/jQuery/jquery-ui.min.js"></script>
 
+    <!-- Bootstrap-->
+    <script src="/assets/premium/bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
+
     <!-- Google font -->
 	<link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.css" />
 	<!-- Bootstrap -->
@@ -94,8 +97,7 @@
     <script src="/global/js/loader/index.js"></script>
     <script src="/global/js/ajax/index.js"></script>
     <script src="/assets/premium/js/index.js?v={{ filemtime('assets/premium/js/index.js') }}"></script>
-    <!-- Bootstrap-->
-    <script src="/assets/premium/bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
+
     <script src="/assets/javascripts/sweetalert2.8.js"></script>
 
     <script src="{{ asset('/assets/javascripts/mascaras/jquery.mask.js') }}"></script>

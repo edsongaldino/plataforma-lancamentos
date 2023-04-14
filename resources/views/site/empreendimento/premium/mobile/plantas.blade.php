@@ -38,7 +38,7 @@
         <div class="modal fade" id="plantaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" id="detalhe-planta-modal">
-                
+
             </div>
             </div>
         </div>
@@ -48,11 +48,19 @@
     </div>
 </div>
 
+@include('site.empreendimento.premium.modal_contato')
+
 @endsection
 
 @push('rodape')
 <div class="rodape">
     <div class="btn-voltar" onclick='history.go(-1)'><i class="fa fa-reply-all" aria-hidden="true"></i></div>
-    <a href="/empreendimento/{{ $empreendimento->id }}/unidades"><div class="btn-condicoes-pagamento"><i class="fa fa-check" aria-hidden="true"></i> Unidades Disponíveis</div></a>
+
+    @if($empreendimento->TabelaAtiva->count() > 0)
+    <a href="/empreendimento/{{ $empreendimento->id }}/unidades"><div class="btn-condicoes-pagamento"><i class="fas fa-cart-plus" aria-hidden="true"></i> Negociar Unidade</div></div></a>
+    @else
+    <a data-toggle="modal" data-target="#ModalContatoConstrutora"><div class="btn-condicoes-pagamento fale-com-a-construtora"><i class="fas fa-envelope" aria-hidden="true"></i> Fale com a Construtora</div></a>
+    @endif
+
 </div>
 @endpush
