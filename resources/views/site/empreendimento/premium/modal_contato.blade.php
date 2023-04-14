@@ -10,7 +10,7 @@
         </div>
         <div class="modal-body">
             <form action="/empreendimento/enviar-contato-cliente" name="FormContatoConstrutora" id="FormContatoConstrutora" method="POST">
-                @csrf
+                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                 <div class="input-field">
                   <span class="icons icone_campo">
                     <i class="fa fa-user"></i>
