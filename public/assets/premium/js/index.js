@@ -246,7 +246,7 @@ function EnviarContatoConstrutora() {
     dataType: "json",
     encode: true,
   }).done(function (data) {
-    if (data.sucesso) {
+    if (data.sucesso == true) {
         Swal.fire('OK',data.retorno,'success');
     } else {
       Swal.fire('Ops','Houve algum erro no envio','error');
