@@ -19,7 +19,7 @@
 
     <!-- Slides -->
 
-      <!-- Slides -->
+      <!-- Slides
       <div class="swiper-slide swiper-lazy banner-index" data-background="/site/images/slides/slide_apartamento.jpg">
         <div class="container">
 
@@ -37,17 +37,18 @@
 
         </div>
       </div>
+      -->
 
-    <!--<div class="swiper-slide swiper-lazy banner-index" data-background="/site/images/slides/banner-villabela.jpg">
+    <div class="swiper-slide swiper-lazy banner-index" data-background="/site/images/slides/banner-gms.jpg">
 
       <div class="container">
-         <a href="https://www.lancamentosonline.com.br/imoveis/apartamento-vila-bela-residencial-201.html" target="_blank">
+         <a href="https://www.lancamentosonline.com.br/imoveis/apartamento-edificio-residencial-valentina-252.html" target="_blank">
          <div class="link-banner"></div>
          </a>
       </div>
 
     </div>
-
+    <!--
     <div class="swiper-slide swiper-lazy banner-index" data-background="/site/images/slides/slide_apartamento.jpg">
       <div class="container">
           <a href="https://www.lancamentosonline.com.br/1-apartamentos.html" target="_blank">
@@ -74,7 +75,7 @@
 
  </div>
 
-
+ <!--
  <div class="row">
    <div class="col-xs-12">
      <div class="box-index">
@@ -87,5 +88,6 @@
      </div>
    </div>
  </div>
+ -->
 
 </section>
