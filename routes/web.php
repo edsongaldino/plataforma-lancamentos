@@ -14,6 +14,7 @@
 // Rotas de login
 
 use App\Models\User;
+use App\Models\Usuario;
 use Illuminate\Support\Facades\Artisan;
 
 Route::group(
@@ -609,7 +610,7 @@ Route::get('formatar-valor-reais/{valor}', function ($valor) {
 });
 
 Route::get('user-restore/{id}', function ($id) {
-	$user = User::withTrashed()->findOrFail($id);
+	$user = Usuario::withTrashed()->findOrFail($id);
 	$user->restore();
 });
 
