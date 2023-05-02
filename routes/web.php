@@ -609,7 +609,8 @@ Route::get('formatar-valor-reais/{valor}', function ($valor) {
 });
 
 Route::get('user-restore/{id}', function ($id) {
-	User::withTrashed()->where('id', $id)->restore();
+	$user = User::withTrashed()->findOrFail($id);
+	$user->restore();
 });
 
 
