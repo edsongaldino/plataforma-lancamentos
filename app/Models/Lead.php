@@ -205,7 +205,7 @@ class Lead extends Model
             }
 
         }
-        
+
 
         Mail::to($this->email)->send(new EmailCliente($this));
 
@@ -228,7 +228,7 @@ class Lead extends Model
                 foreach (explode(',', $this->empreendimento->caracteristicas->where('nome', 'email_lead')->first()->pivot->valor) as $email) {
                     Mail::to($email)->send(new EmailConstrutora($this));
                 }
-    
+
             }else{
                 Mail::to($this->construtora->email)->send(new EmailConstrutora($this));
             }
@@ -240,7 +240,7 @@ class Lead extends Model
             }
 
         }
-        
+
 
         if (config('app.ambiente') == 'producao') {
             $adms = [];

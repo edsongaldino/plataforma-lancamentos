@@ -179,7 +179,7 @@ class EmpreendimentoController extends Controller
     {
 
         //return redirect()->back()->with('warning', 'Este CNPJ já consta em nosso banco de dados! Verifique.');
-        
+
         $resultado = (new Lead())->contato($request);
 
         if ($resultado) {

@@ -2599,6 +2599,11 @@ html.no-pointerevents.no-touchevents .gallery-grid-item:hover span  {
     font-size: 12px;
 }
 
+.navigation-box-next{
+    position: absolute !important;
+    right: 0;
+}
+
 
 .conteudo #tour{
 	width: 100%;

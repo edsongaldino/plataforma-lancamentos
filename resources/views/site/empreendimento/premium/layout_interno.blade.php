@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Proposta Online - {{ $empreendimento->nome }}</title>
+    <title>{{ $empreendimento->nome }}</title>
 
     @if ($empreendimento->seo)
     <meta name='description' content="{{ $empreendimento->seo->descricao }}"/>
@@ -13,7 +13,12 @@
     @endif
 
     <meta name="twitter:image" content="{{ $empreendimento->fotoPrincipal() }}">
+    @if($empreendimento->TabelaAtiva->count() > 0)
     <meta property="og:url" content="https://www.lancamentosonline.com.br/proposta-online/{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html" />
+    @else
+    <meta property="og:url" content="https://www.lancamentosonline.com.br/imoveis/{{ url_amigavel($empreendimento->subtipo->nome)}}-{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html"/>
+    @endif
+
     <meta property="og:title" content="{{ $empreendimento->nome }}" />
     <meta property="og:image" content="{{ $empreendimento->fotoPrincipal() }}" />
     <meta property="og:image:type" content="image/jpeg">

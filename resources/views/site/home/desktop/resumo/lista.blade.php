@@ -4,7 +4,7 @@
 			<a href="empreendimentos/1-apartamentos.html">
 				<div class="col-xs-6 col-lg-3">
 					<div class="number" id="number1">
-						<div class="number-img">  
+						<div class="number-img">
 							<i class="fa fa-building fa-10x"></i>
 						</div>
 						<span class="number-label text-color2">APARTAMENTOS</span>
@@ -15,8 +15,8 @@
 			<a href="empreendimentos/3-condominiofechado.html">
 				<div class="col-xs-6 col-lg-3 number_border">
 					<div class="number" id="number2">
-						<div class="number-img">  
-							<i class="fa fa-home fa-10x"></i> 
+						<div class="number-img">
+							<i class="fa fa-home fa-10x"></i>
 						</div>
 						<span class="number-label text-color2">CONDOMÍNIO FECHADO</span>
 						<span class="number-big text-color3 count" data-from="0" data-to="{{ $condominios }}" data-speed="2000"></span>
@@ -26,7 +26,7 @@
 			<a href="empreendimentos/2-salascomerciais.html">
 				<div class="col-xs-6 col-lg-3 number_border3">
 					<div class="number" id="number3">
-						<div class="number-img">  
+						<div class="number-img">
 							<i class="fa fa-briefcase fa-10x"></i>
 						</div>
 						<span class="number-label text-color2">SALAS COMERCIAIS</span>
