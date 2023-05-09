@@ -56,7 +56,7 @@
           @endif
 
         </div>
-      @elseif($empreendimento->costrutora->parceiros->count() > 0)
+      @elseif(isset($empreendimento->costrutora->parceiros))
 
           <div class="link-whatsapp-mobile" style="display: none;">
             <a href="https://api.whatsapp.com/send?phone=55{{ limpa_campo($empreendimento->costrutora->parceiros->telefone->first() ?? '65999859700') }}&text=Ol%C3%A1%2C%20vi%20o%20an%C3%BAncio%20do%20empreendimento%20({{ $empreendimento->nome }})%20no%20Portal%20Lan%C3%A7amentos%20Online%20e%20gostaria%20de%20obter%20maiores%20informa%C3%A7%C3%B5es" target="_blank">

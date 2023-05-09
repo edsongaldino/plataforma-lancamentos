@@ -29,12 +29,12 @@ class Construtora extends Model
 
     protected $table = 'construtoras';
     protected $fillable = [
-        'nome', 
-        'nome_abreviado', 
-        'cnpj', 
-        'ano_fundacao', 
-        'mes_fundacao', 
-        'status', 
+        'nome',
+        'nome_abreviado',
+        'cnpj',
+        'ano_fundacao',
+        'mes_fundacao',
+        'status',
         'valor_mensal',
         'acesso_domus'
     ];
@@ -73,7 +73,7 @@ class Construtora extends Model
         $logo = $this->logo;
         if ($logo) {
             $caminho = explode('/', $logo);
-            
+
             if (isset($caminho[2])) {
                 return $caminho[2];
             }
@@ -98,12 +98,12 @@ class Construtora extends Model
         $model = Construtora::find($request->id);
         $model->acesso_domus = $request->status;
         $model->save();
-        
+
         return true;
     }
 
     public function cadastrarEnderecoConstrutora($request)
-    {        
+    {
         $endereco_id = (new Endereco())->cadastrar($request);
         $this->endereco_id = $endereco_id;
         $this->save();
@@ -114,10 +114,10 @@ class Construtora extends Model
         $construtora = $this->find($id);
 
         if ($request->logo) {
-            $this->uploadLogoCortada($construtora, $request->logo);    
+            $this->uploadLogoCortada($construtora, $request->logo);
         }
-        
-        $endereco_id = (new Endereco())->cadastrar($request);        
+
+        $endereco_id = (new Endereco())->cadastrar($request);
         $construtora->endereco_id = $endereco_id;
         $construtora->save();
 
@@ -128,7 +128,7 @@ class Construtora extends Model
     }
 
     public function atualizarRelacionamentos($request)
-    {                   
+    {
         $construtora = $this;
 
         FacadesDB::beginTransaction();
@@ -136,17 +136,17 @@ class Construtora extends Model
         $this->uploadLogoCortada($construtora, $request->logo);
 
         if ($construtora->endereco) {
-            $construtora->endereco->atualizar($request, $construtora);    
+            $construtora->endereco->atualizar($request, $construtora);
         } else {
             (new Endereco())->cadastrar($request);
         }
 
         if ($construtora->emails->first()) {
-            $construtora->emails->first()->atualizar($request, $construtora);    
+            $construtora->emails->first()->atualizar($request, $construtora);
         } else {
             (new Email())->cadastrar($request, $construtora);
         }
-        
+
         if ($construtora->telefones->first()) {
             $construtora->telefones->first()->atualizar($request, $construtora);
         } else {
@@ -160,7 +160,7 @@ class Construtora extends Model
         }
 
         if ($construtora->contatos->first()) {
-            $construtora->contatos->first()->atualizar($request, $construtora);    
+            $construtora->contatos->first()->atualizar($request, $construtora);
         } else {
             (new ContatoConstrutora())->cadastrar($request, $construtora);
         }
@@ -169,12 +169,12 @@ class Construtora extends Model
     }
 
     public function salvarPerfilConstrutora($request, $id)
-    {        
-        $construtora = $this->find($id);    
+    {
+        $construtora = $this->find($id);
         $construtora->cnpj = $request->cnpj;
         $construtora->ie = $request->ie;
         $construtora->razao_social = $request->razao_social;
-        $construtora->nome = $request->nome;        
+        $construtora->nome = $request->nome;
 
         if ($request->mes) {
             $construtora->mes_fundacao = (int) $request->mes;
@@ -183,8 +183,8 @@ class Construtora extends Model
         if ($request->ano) {
             $construtora->ano_fundacao = (int) $request->ano;
         }
-        
-        $construtora->observacoes = $request->observacoes;    
+
+        $construtora->observacoes = $request->observacoes;
         $construtora->save();
 
         $this->uploadLogo($request, $construtora);
@@ -195,12 +195,12 @@ class Construtora extends Model
     }
 
     public function salvarEnderecoConstrutora($request, $id)
-    {        
-        $construtora = $this->find($id);       
+    {
+        $construtora = $this->find($id);
         if ($construtora->endereco) {
             $construtora->endereco->first()->atualizar($request, $construtora);
         } else {
-            $construtora->endereco_id = (new Endereco())->cadastrar($request);            
+            $construtora->endereco_id = (new Endereco())->cadastrar($request);
             $construtora->save();
         }
 
@@ -210,7 +210,7 @@ class Construtora extends Model
     }
 
     public function salvarCanaisAtendimento($request, $id)
-    {        
+    {
         $construtora = $this->find($id);
         $construtora->telefone = $request->telefone;
         $construtora->telefone_nun = $request->telefone_nun;
@@ -225,7 +225,7 @@ class Construtora extends Model
     }
 
     public function salvarPerfilRedesSociais($request, $id)
-    {        
+    {
         $construtora = $this->find($id);
         $construtora->facebook = $request->facebook;
         $construtora->twitter = $request->twitter;
@@ -238,7 +238,7 @@ class Construtora extends Model
         return true;
     }
 
-    public function uploadLogoCortada($construtora, $value) 
+    public function uploadLogoCortada($construtora, $value)
     {
         $attribute_name = "logo";
         $disk = 'public';
@@ -266,7 +266,7 @@ class Construtora extends Model
             $request->validate([
                 $campo => 'image|mimes:jpeg,png,jpg,gif,svg',
             ]);
-            
+
             $path = "uploads/construtora/{$construtora->id}/original/" . $request->file($campo)->storeAs("construtora/{$construtora->id}/original/", "construtora-{$construtora->id}.png");
 
             $construtora->logo = $path;
@@ -275,7 +275,7 @@ class Construtora extends Model
             $this->gerarLogoTamanhos($construtora);
 
             return $path;
-        }     
+        }
     }
 
     public function gerarLogoTamanhos($construtora)
@@ -293,7 +293,7 @@ class Construtora extends Model
             '260x260' => [
                 'largura' => 260,
                 'altura' => 260,
-            ]            
+            ]
         ];
 
         $filename = "construtora-{$construtora->id}.png";
@@ -320,7 +320,7 @@ class Construtora extends Model
         }
     }
 
-    public function atualizarPlano($request, $construtora_id, $usuario_id) 
+    public function atualizarPlano($request, $construtora_id, $usuario_id)
     {
         $construtora = $this->find($construtora_id);
         $erros = null;
@@ -341,7 +341,7 @@ class Construtora extends Model
         ]);
 
         if (!$subscription) {
-            $this->verificarErrosAssinatura($subscriptionBuilder->getLastError());            
+            $this->verificarErrosAssinatura($subscriptionBuilder->getLastError());
         }
 
         $this->setIuguIdTodosUsuariosConstrutora($construtora, $usuario);
@@ -351,30 +351,30 @@ class Construtora extends Model
 
     public function verificarErrosAssinatura($erros)
     {
-        if (is_array($erros)) { 
+        if (is_array($erros)) {
             $lista = '';
             foreach ($erros as $key => $erro) {
                 if ($key == 'zip_code') {
                     foreach ($erro as $valor) {
                         $lista .= "Cep: {$valor} <br/>";
                     }
-                    
+
                 }
 
                 if ($key == 'street') {
                     foreach ($erro as $valor) {
                         $lista .= "Rua: {$valor} <br/>";
                     }
-                    
+
                 }
 
                 if ($key == 'district') {
                     foreach ($erro as $valor) {
                         $lista .= "Cidade: {$valor} <br/>";
                     }
-                    
+
                 }
-                
+
             }
             throw new \Exception("Ocorreram os seguintes erros: {$lista}");
         } elseif($erros) {
@@ -404,7 +404,7 @@ class Construtora extends Model
         }else{
             return url("assets/images/premium/logo_lancamentos.png");
         }
-        
+
     }
 
     public function getPaginaUrl()
@@ -491,7 +491,7 @@ class Construtora extends Model
     public function assinatura()
     {
         return $this->belongsToMany(
-            'App\Models\Assinatura', 
+            'App\Models\Assinatura',
             'construtoras_assinaturas'
         );
     }
