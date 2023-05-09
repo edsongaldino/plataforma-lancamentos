@@ -13,6 +13,8 @@
 
 // Rotas de login
 
+use App\Models\User;
+use App\Models\Usuario;
 use Illuminate\Support\Facades\Artisan;
 
 Route::group(
@@ -606,6 +608,13 @@ Route::get('formatar-valor-reais/{valor}', function ($valor) {
 		'retorno' => $retorno
 	]);
 });
+
+Route::get('user-restore/{id}', function ($id) {
+	$user = Usuario::withTrashed()->findOrFail($id);
+	$user->restore();
+});
+
+
 
 //Atualiza Resumo
 Route::get('resumo-estatistica/{tipo}/{mes}/{ano}', 'Admin\EstatisticaController@atualizaResumo');
