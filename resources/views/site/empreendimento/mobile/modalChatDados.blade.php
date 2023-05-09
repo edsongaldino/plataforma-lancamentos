@@ -50,28 +50,41 @@
             <button type="button" class="btn btn-primary btn-ligar"><i class="fa fa-phone" aria-hidden="true"></i> Ligar para a construtora</button>
           </a>
           @else
-          <a href="tel:65999859238" onclick="GravarCliquetel(); return true;">
+          <a href="tel:65999859700" onclick="GravarCliquetel(); return true;">
             <button type="button" class="btn btn-primary btn-ligar-off"><i class="fa fa-phone" aria-hidden="true"></i> Ligar para a construtora</button>
           </a>
           @endif
 
         </div>
-      @else
+      @elseif($empreendimento->costrutora->parceiros->count() > 0)
 
           <div class="link-whatsapp-mobile" style="display: none;">
-            <a href="https://api.whatsapp.com/send?phone=55{{ limpa_campo($empreendimento->costrutora->parceiros->telefone->first()) }}&text=Ol%C3%A1%2C%20vi%20o%20an%C3%BAncio%20do%20empreendimento%20({{ $empreendimento->nome }})%20no%20Portal%20Lan%C3%A7amentos%20Online%20e%20gostaria%20de%20obter%20maiores%20informa%C3%A7%C3%B5es" target="_blank">
+            <a href="https://api.whatsapp.com/send?phone=55{{ limpa_campo($empreendimento->costrutora->parceiros->telefone->first() ?? '65999859700') }}&text=Ol%C3%A1%2C%20vi%20o%20an%C3%BAncio%20do%20empreendimento%20({{ $empreendimento->nome }})%20no%20Portal%20Lan%C3%A7amentos%20Online%20e%20gostaria%20de%20obter%20maiores%20informa%C3%A7%C3%B5es" target="_blank">
               <button type="button" class="btn btn-primary btn-whatsapp"><i class="fa fa-whatsapp" aria-hidden="true"></i> Atendimento Whatsapp</button>
             </a>
           </div>
 
           <div class="link-telefone-mobile" style="display: none;">
 
-            <a href="tel:{{ $empreendimento->costrutora->parceiros->telefone->first() }}" onclick="GravarCliquetel(); return true;">
+            <a href="tel:{{ $empreendimento->costrutora->parceiros->telefone->first() ?? '65999859700' }}" onclick="GravarCliquetel(); return true;">
               <button type="button" class="btn btn-primary btn-ligar"><i class="fa fa-phone" aria-hidden="true"></i> Ligar para o corretor</button>
             </a>
 
           </div>
+      @else
+        <div class="link-whatsapp-mobile" style="display: none;">
+            <a href="https://api.whatsapp.com/send?phone=5565999859700&text=Ol%C3%A1%2C%20vi%20o%20an%C3%BAncio%20do%20empreendimento%20({{ $empreendimento->nome }})%20no%20Portal%20Lan%C3%A7amentos%20Online%20e%20gostaria%20de%20obter%20maiores%20informa%C3%A7%C3%B5es" target="_blank">
+            <button type="button" class="btn btn-primary btn-whatsapp"><i class="fa fa-whatsapp" aria-hidden="true"></i> Atendimento Whatsapp</button>
+            </a>
+        </div>
 
+        <div class="link-telefone-mobile" style="display: none;">
+
+            <a href="tel:65999859700" onclick="GravarCliquetel(); return true;">
+            <button type="button" class="btn btn-primary btn-ligar"><i class="fa fa-phone" aria-hidden="true"></i> Ligar para o corretor</button>
+            </a>
+
+        </div>
       @endif
 
 
