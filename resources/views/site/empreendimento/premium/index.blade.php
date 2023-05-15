@@ -206,8 +206,12 @@
             <a href="/empreendimento/{{ $empreendimento->id }}/plantas"><div class="plantas-disponiveis"><i class="fa fa-object-group" aria-hidden="true"></i> Plantas </div></a>
             @endif
 
-            @if($empreendimento->subtipo_id == 3 || $empreendimento->subtipo_id == 4)
-                <div class="vagas-disponiveis"><i class="fa fa-check" aria-hidden="true"></i> Mapa de Vendas</div>
+            @if ($empreendimento->tipo == 'Horizontal' && $empreendimento->getFotoTipo('Implantação') && $empreendimento->unidades->count() > 0)
+            <a href="{{ URL::to('/') }}/empreendimento/{{ $empreendimento->id }}/{{ $empreendimento->id*37 }}/visualizar-mapa/construtora" target="_blank"><div class="vagas-disponiveis"><i class="fa fa-check" aria-hidden="true"></i> Mapa de Vendas</div></a>
+            @endif
+
+            @if ($empreendimento->getFotoTipo('Mapa de Vagas') && $empreendimento->garagens->count() > 0)
+            <a href="{{ URL::to('/') }}/empreendimento/{{ $empreendimento->id }}/{{ $empreendimento->id*37 }}/visualizar-garagens/view" target="_blank"><div class="vagas-disponiveis"><i class="fa fa-car" aria-hidden="true"></i> Mapa de Garagens</div></a>
             @endif
 
             <a href="/empreendimento/{{ $empreendimento->id }}/fotos"><div class="galeria-fotos"><i class="fa fa-camera" aria-hidden="true"></i> Galeria de Fotos</div></a>
