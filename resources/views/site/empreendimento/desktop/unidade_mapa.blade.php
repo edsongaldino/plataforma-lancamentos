@@ -129,12 +129,12 @@
           </div>
           <div class="valor-item">
             @if($unidade->caracteristicas->where('nome', 'valor_unidade')->first() && $unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '' && $unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '0')
-                R$ {{ converte_valor_real($unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor) }}
+                R$ {{ converte_valor_real($unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor ?? '') }}
             @else
                 @if($unidade->caracteristicas->where('nome', 'valor_m2')->first() && $unidade->caracteristicas->where('nome', 'metragem_total')->first())
                     @php
-                        $valor_m2 = $unidade->caracteristicas->where('nome', 'valor_m2')->first()->pivot->valor;
-                        $metragem = $unidade->caracteristicas->where('nome', 'metragem_total')->first()->pivot->valor;
+                        $valor_m2 = $unidade->caracteristicas->where('nome', 'valor_m2')->first()->pivot->valor ?? '';
+                        $metragem = $unidade->caracteristicas->where('nome', 'metragem_total')->first()->pivot->valor ?? '';
                         $valor_unidade = $valor_m2 * $metragem;
                     @endphp
 
