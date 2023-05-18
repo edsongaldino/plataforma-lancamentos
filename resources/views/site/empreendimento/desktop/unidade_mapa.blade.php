@@ -19,7 +19,7 @@
             {{ $unidade->getCaracteristica('metragem_total') ?? '' }}m²
           </div>
       </div>
-      
+
 
       @if(isset($ocultar))
 
@@ -61,7 +61,7 @@
             @endif
 
           @else
-          
+
             <div class="terreno">
               <div class="titulo">Valor (M²)</div>
               <div class="valor">
@@ -70,7 +70,7 @@
             </div>
 
           @endif
-        
+
         @endif
 
       @endif
@@ -95,27 +95,27 @@
       <div class="quartos">
           <div class="titulo"><img src="/site/imagem/icone/icone_dormitorios.png" title="Quartos" width="40" alt=""></div>
           <div class="valor">
-            {{  $unidade->planta->caracteristicas->where('nome', 'qtd_dormitorio')->first()->pivot->valor }}
+            {{  $unidade->planta->caracteristicas->where('nome', 'qtd_dormitorio')->first()->pivot->valor ?? ''}}
           </div>
       </div>
 
       <div class="suites">
           <div class="titulo"><img src="/site/imagem/icone/icone_suites_40x40.png" title="Suítes" width="40" alt=""></div>
           <div class="valor">
-            {{ $unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor }}
+            {{ $unidade->planta->caracteristicas->where('nome', 'qtd_suite')->first()->pivot->valor ?? ''}}
           </div>
       </div>
 
       <div class="garagem">
           <div class="titulo"><img src="/site/imagem/icone/icone_garagem2_40x40.png" title="Vagas de garagem" width="40" alt=""></div>
           <div class="valor">
-            {{ $unidade->planta->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor }}
+            {{ $unidade->planta->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor ?? ''}}
           </div>
       </div>
 
     </div>
     @endif
-    
+
     @if(isset($ocultar))
     @if($ocultar <> 'S' && $ocultar <> 'OD')
     @if($unidade->situacao == 'Disponível')
@@ -127,9 +127,9 @@
           <div class="info-valor">
             Valor desta unidade:
           </div>
-          <div class="valor-item"> 
+          <div class="valor-item">
             @if($unidade->caracteristicas->where('nome', 'valor_unidade')->first() && $unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '' && $unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '0')
-                R$ {{ converte_valor_real($unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor) }} 
+                R$ {{ converte_valor_real($unidade->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor) }}
             @else
                 @if($unidade->caracteristicas->where('nome', 'valor_m2')->first() && $unidade->caracteristicas->where('nome', 'metragem_total')->first())
                     @php
@@ -142,9 +142,9 @@
                     R$ {{ converte_valor_real($valor_unidade) }}
                     @else
                     Consulte
-                    @endif 
+                    @endif
                 @else
-                Consulte                  
+                Consulte
                 @endif
             @endif
           </div>
@@ -158,5 +158,5 @@
 
 
     <div class="info">*Valores e disponibilidade podem sofrer alterações sem aviso prévio.</div>
-  </div>                
+  </div>
 </div>
