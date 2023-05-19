@@ -598,12 +598,17 @@ if(!function_exists('getImplantacaoUnidade')){
 					mkdir("uploads/unidade/".$id."/", 0755);
 				}
 
-				$imgurl = $obj->Files[0]->Url;
-				$imagename = basename($imgurl);
-				if(!file_exists($diretorio.$imagename)){
-					$image = getimg($imgurl);
-					file_put_contents($diretorio.$imagename,$image);
-				}
+                if(isset($obj->Files[0]->Url)){
+                    $imgurl = $obj->Files[0]->Url;
+                    $imagename = basename($imgurl);
+                    if(!file_exists($diretorio.$imagename)){
+                        $image = getimg($imgurl);
+                        file_put_contents($diretorio.$imagename,$image);
+                    }
+                }else{
+                    return url("assets/images/erro-carregamento-unidade.jpg");
+                }
+
 
 			}
 
