@@ -475,35 +475,34 @@
 
             </div>
 
+
+            <div class="modal fade" id="ModalMapaUnidades" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Implantação</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <iframe class="conteudo-mapa" zooming="true" id="iframe" src="{{ env('APP_URL') }}/unidade/{{ $unidade->id }}/{{ $unidade->id*37 }}/visualizar-mapa/mobile" title="Mapa"></iframe>
+                        <!-- Trigger -->
+                        <ul id="zoom_triggers">
+                            <li><a id="zoom_in"><i class="fas fa-plus-square" aria-hidden="true"></i></a></li>
+                            <li><a id="zoom_out"><i class="fas fa-minus-square" aria-hidden="true"></i></a></li>
+                            <li><a id="zoom_reset"><i class="fas fa-sync-alt" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
         @endif
 
     </div>
 
     @include('site.empreendimento.premium.mobile.proposta.modal_unidade')
-
-
-
-    <div class="modal fade" id="ModalMapaUnidades" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Implantação</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <iframe class="conteudo-mapa" zooming="true" id="iframe" src="{{ env('APP_URL') }}/unidade/{{ $unidade->id }}/{{ $unidade->id*37 }}/visualizar-mapa/mobile" title="Mapa"></iframe>
-            <!-- Trigger -->
-            <ul id="zoom_triggers">
-                <li><a id="zoom_in"><i class="fas fa-plus-square" aria-hidden="true"></i></a></li>
-                <li><a id="zoom_out"><i class="fas fa-minus-square" aria-hidden="true"></i></a></li>
-                <li><a id="zoom_reset"><i class="fas fa-sync-alt" aria-hidden="true"></i></a></li>
-            </ul>
-        </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
 
 @endsection
 
