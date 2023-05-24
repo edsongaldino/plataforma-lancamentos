@@ -803,7 +803,7 @@ function gMapHome () {
         {"visibility": "on"} ] } ];
 
       if ($(this).hasClass('skin1')) {
-        var iconPath = 'images/resource/map-marker.png';
+        var iconPath = 'assets/site-2023/images/resource/map-marker.png';
         var styles = [
         {"featureType": "all", "elementType": "labels.text", "stylers": [{"visibility": "off"} ] },
         {"featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{"color": "#444444"} ] },
@@ -817,7 +817,7 @@ function gMapHome () {
         {"featureType": "water", "elementType": "all", "stylers": [{"color": "#ffe807"}, {"visibility": "on"} ] } ];
       }
       if ($(this).hasClass('skin2')) {
-        var iconPath = 'images/resource/map-marker.png';
+        var iconPath = 'assets/site-2023/images/resource/map-marker.png';
         var styles = [
         {"featureType": "all", "elementType": "labels", "stylers": [{"visibility": "on"} ] },
         {"featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{"color": "#222222"} ] },
@@ -830,7 +830,7 @@ function gMapHome () {
         {"featureType": "water", "elementType": "all", "stylers": [{"color": "blue"}, {"visibility": "on"}]}];
       }
       if ($(this).hasClass('skin3')) {
-        var iconPath = 'images/resource/map-marker.png';
+        var iconPath = 'assets/site-2023/images/resource/map-marker.png';
         var styles = [{"featureType": "all", "elementType": "labels", "stylers": [{"visibility": "off"} ] },
         {"featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{"color": "#444444"} ] },
         {"featureType": "landscape", "elementType": "all", "stylers": [{"color": "#f2f2f2"} ] },
@@ -842,7 +842,7 @@ function gMapHome () {
         {"featureType": "water", "elementType": "all", "stylers": [{"color": "#13a0b2"}, {"visibility": "on"} ] } ];
       }
       if ($(this).hasClass('skin4')) {
-        var iconPath = 'images/resource/map-marker.png';
+        var iconPath = 'assets/site-2023/images/resource/map-marker.png';
         var styles = [{"featureType": "all", "elementType": "labels", "stylers": [{"visibility": "off"} ] },
         {"featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{"color": "#444444"} ] },
         {"featureType": "landscape", "elementType": "all", "stylers": [{"color": "#f2f2f2"} ] },
