@@ -711,6 +711,10 @@
 
 								</ul>
 							</div>
+
+
+							{{ $empreendimentos->links() }}
+
 							<div class="col-lg-12 mb30">
 								<div class="mbp_pagination">
 									<ul class="page_navigation">
