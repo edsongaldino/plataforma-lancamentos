@@ -59,6 +59,11 @@ class HomeController extends Controller
         return view('site.pagina-comercial.index');
     }
 
+    public function BuscaMapa(){
+        $empreendimentos = Empreendimento::latest()->where('status', 'Liberada')->get()->all();
+        return view('site-2023.busca-mapa', compact('empreendimentos'));
+    }
+
     public function newsletter(NewsletterRequest $request)
     {
         $resultado = (new Newsletter())->salvar($request);

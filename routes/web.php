@@ -630,3 +630,6 @@ Route::get('/clear-cache', function() {
     Artisan::call('cache:clear');
     return "Cache is cleared";
 });
+
+/*SITE 2023*/
+Route::get('busca-mapa.html', 'Site\HomeController@BuscaMapa');
