@@ -873,8 +873,8 @@ function gMapHome () {
 		@foreach ($empreendimentos as $empreendimento)
         map.addMarker({
             icon: iconPath,
-            lat: {{ $empreendimento->latitude }},
-            lng: {{ $empreendimento->longitude }},
+            lat: {{ $empreendimento->endereco->latitude }},
+            lng: {{ $empreendimento->endereco->longitude }},
             title: 'Tenby ',
             infoWindow: {
             content:
