@@ -60,7 +60,7 @@ class HomeController extends Controller
     }
 
     public function BuscaMapa(){
-        $empreendimentos = Empreendimento::latest()->where('status', 'Liberada')->get()->all();
+        $empreendimentos = Empreendimento::latest()->where('status', 'Liberada')->paginate(10);;
         return view('site-2023.busca-mapa', compact('empreendimentos'));
     }
 
