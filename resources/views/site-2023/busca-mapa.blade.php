@@ -652,7 +652,6 @@
 												</div>
 												<div class="thmb_cntnt style3">
 													<ul class="icon mb0">
-														<li class="list-inline-item"><a href="#"><span class="flaticon-transfer-1"></span></a></li>
 														<li class="list-inline-item"><a href="#"><span class="flaticon-heart"></span></a></li>
 													</ul>
 													<a class="fp_price" href="#">R$ {{ $empreendimento->valor_inicial }}</a>

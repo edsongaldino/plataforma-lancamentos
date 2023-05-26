@@ -4427,6 +4427,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .feat_property.list .dtls_headr ul.tag li:last-child{
   background-color: #00A3D9;
   margin-right: 0;
+  width: 100px;
 }
 .feat_property .thumb .thmb_cntnt ul.tag li a,
 .feat_property .thumb .thmb_cntnt ul.tag li span,
