@@ -663,9 +663,9 @@
 													<h4>{{ $empreendimento->nome }}</h4>
 													<p><span class="flaticon-placeholder"></span> {{ $empreendimento->endereco->cidade->nome }} - {{ $empreendimento->endereco->estado->uf }}</p>
 													<ul class="prop_details mb0">
-														<li class="list-inline-item"><span class="fa fa-bed"></span> 3</li>
-														<li class="list-inline-item"><span class="fa fa-car"></span> 2</li>
-														<li class="list-inline-item"><span class="fa fa-object-group"></span> 48,32m²</li>
+														<li class="list-inline-item"><span class="fa fa-bed"></span> {!! qtd_dormitorio($empreendimento, true) !!}</li>
+														<li class="list-inline-item"><span class="fa fa-car"></span> {!! vagas_empreendimento($empreendimento) !!}</li>
+														<li class="list-inline-item"><span class="fa fa-object-group"></span> {!! qtd_metragem($empreendimento) !!}m²</li>
 													</ul>
 												</div>
 												<div class="fp_footer">
@@ -837,7 +837,7 @@ function gMapHome () {
             title: 'Tenby ',
             infoWindow: {
             content:
-            '<img src="{{ $empreendimento->fotoPrincipal() }}" alt="fp1.jpg"/> <h5>{{ $empreendimento->nome }}</h5> <h4>{{ $empreendimento->subtipo->nome }}</h4> <p>{{ $empreendimento->endereco->bairro->nome }}, {{ $empreendimento->endereco->cidade->nome }} - {{ $empreendimento->endereco->estado->uf }}</p> <p><span><span class="fa fa-bed"></span> 3</span> <span><span class="fa fa-car"></span> 3</span> <span><span class="fa fa-object-group"></span> 48,32m²</span></p>'
+            '<img src="{{ $empreendimento->fotoPrincipal() }}" alt="fp1.jpg"/> <h5>{{ $empreendimento->nome }}</h5> <h4>{{ $empreendimento->subtipo->nome }}</h4> <p>{{ $empreendimento->endereco->bairro->nome }}, {{ $empreendimento->endereco->cidade->nome }} - {{ $empreendimento->endereco->estado->uf }}</p> <p><span><span class="fa fa-bed"></span> {!! qtd_dormitorio($empreendimento, true) !!}</span> <span><span class="fa fa-car"></span> {!! vagas_empreendimento($empreendimento) !!}</span> <span><span class="fa fa-object-group"></span> {!! qtd_metragem($empreendimento) !!}m²</span></p>'
           }
         });
         @endforeach
