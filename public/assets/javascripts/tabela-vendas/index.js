@@ -128,7 +128,7 @@ $(function(){
         return false;
       }
 
-      if ($("#programa_habitacional").val() != 'Não') {
+      if ($("#programaHabitacional").val() != 'Não') {
         if ($("#subsidio_maximo").val() === '') {
           Swal.fire(
             'Desculpe',
