@@ -6,21 +6,6 @@
 
 @push('includes_head')
 <!-- Bootstrap -->
-
-@if($empreendimento->TabelaAtiva->count() > 0)
-<meta name="twitter:image" content="https://www.lancamentosonline.com.br/site/imagens/proposta_online/foto-propostaonline-{{ $empreendimento->id }}.jpg">
-<meta property="og:image" content="https://www.lancamentosonline.com.br/site/imagens/proposta_online/foto-propostaonline-{{ $empreendimento->id }}.jpg"/>
-@else
-<meta name="twitter:image" content="{{ $empreendimento->fotoPrincipal() }}">
-<meta property="og:image" content="{{ $empreendimento->fotoPrincipal() }}"/>
-@endif
-<meta property="og:url" content="https://www.lancamentosonline.com.br/imoveis/{{ url_amigavel($empreendimento->subtipo->nome)}}-{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html" />
-<meta property="og:title" content="{{ $empreendimento->nome }}" />
-<meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1067">
-<meta property="og:image:height" content="600">
-<meta property="og:type" content="website">
-
 <link rel="stylesheet" href="/site/ferramenta/apartment-font/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="/site/css/plugins.css">
 <link rel="stylesheet" type="text/css" href="/site/css/apartment-layout.css?v=02">

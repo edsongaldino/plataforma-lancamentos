@@ -12,7 +12,6 @@
     <meta property="og:description" content="{{ $empreendimento->seo->descricao }}" />
     @endif
 
-    <meta name="twitter:image" content="{{ $empreendimento->fotoPrincipal() }}">
     @if($empreendimento->TabelaAtiva->count() > 0)
     <meta property="og:url" content="https://www.lancamentosonline.com.br/proposta-online/{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html" />
     @else
@@ -20,7 +19,15 @@
     @endif
 
     <meta property="og:title" content="{{ $empreendimento->nome }}" />
-    <meta property="og:image" content="{{ $empreendimento->fotoPrincipal() }}" />
+
+    @if($empreendimento->TabelaAtiva->count() > 0)
+    <meta name="twitter:image" content="https://www.lancamentosonline.com.br/site/imagens/proposta_online/foto-propostaonline-{{ $empreendimento->id }}.jpg">
+    <meta property="og:image" content="https://www.lancamentosonline.com.br/site/imagens/proposta_online/foto-propostaonline-{{ $empreendimento->id }}.jpg"/>
+    @else
+    <meta name="twitter:image" content="{{ $empreendimento->fotoPrincipal() }}">
+    <meta property="og:image" content="{{ $empreendimento->fotoPrincipal() }}"/>
+    @endif
+
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1067">
     <meta property="og:image:height" content="600">
