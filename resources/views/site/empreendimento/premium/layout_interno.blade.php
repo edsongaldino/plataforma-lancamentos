@@ -57,7 +57,6 @@
     @stack('includes_head')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"/>
     <style>
-
         a[data-fancybox] img {
             cursor: zoom-in;
         }
