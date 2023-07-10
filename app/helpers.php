@@ -503,9 +503,8 @@ if(!function_exists('getMapaUnidade')){
                         file_put_contents($diretorio.$imagename,$image);
                     }
                 }else{
-                    return url("assets/images/erro-carregamento-unidade.jpg");
+                    return url("assets/images/erro-carregamento-unidade-hor.jpg");
                 }
-
 
 			}
 			return url($diretorio.$imagename);
