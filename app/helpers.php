@@ -438,7 +438,7 @@ if(!function_exists('getMapaUnidade')){
 				$imagename = "www_lancamentosonline_com_br.png";
 			}else{
                 //KJUVlR0CjjyZU4YG
-				$url = "https://v2.convertapi.com/convert/web/to/png?Secret=3AjOFxiBuJBIpNsq";
+				$url = "https://v2.convertapi.com/convert/web/to/png?Secret=pTNlaIZ27h8akJv7";
 
 				$unidade = Unidade::find($id);
 
@@ -529,7 +529,7 @@ if(!function_exists('getImplantacaoUnidade')){
 				$diretorio = "uploads/unidade/".$id."/";
 				$imagename = "www_lancamentosonline_com_br.png";
 			}else{
-				$url = "https://v2.convertapi.com/convert/web/to/png?Secret=3AjOFxiBuJBIpNsq";
+				$url = "https://v2.convertapi.com/convert/web/to/png?Secret=pTNlaIZ27h8akJv7";
 
 				$unidade = Unidade::find($id);
 
