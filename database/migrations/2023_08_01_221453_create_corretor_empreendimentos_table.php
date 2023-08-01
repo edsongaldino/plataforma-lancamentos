@@ -15,6 +15,11 @@ class CreateCorretorEmpreendimentosTable extends Migration
     {
         Schema::create('corretor_empreendimentos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('corretor_id')->unsigned();
+            $table->foreign('corretor_id')->references('id')->on('corretor');
+            $table->integer('empreendimento_id')->unsigned();
+            $table->foreign('empreendimento_id')->references('id')->on('empreendimentos');
+            $table->date('data_vencimento')->nullable();
             $table->timestamps();
         });
     }

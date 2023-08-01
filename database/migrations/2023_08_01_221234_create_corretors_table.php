@@ -13,8 +13,16 @@ class CreateCorretorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('corretors', function (Blueprint $table) {
+        Schema::create('corretor', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nome');
+            $table->string('cnpj');
+            $table->string('creci');
+            $table->string('email');
+            $table->string('telefone');
+            $table->string('whatsapp');
+            $table->string('password');
+            $table->string('foto');
             $table->timestamps();
         });
     }

@@ -15,6 +15,10 @@ class CreateCorretorPropostasTable extends Migration
     {
         Schema::create('corretor_propostas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('corretor_id')->unsigned();
+            $table->foreign('corretor_id')->references('id')->on('corretor');
+            $table->integer('proposta_id')->unsigned();
+            $table->foreign('proposta_id')->references('id')->on('propostas');
             $table->timestamps();
         });
     }
