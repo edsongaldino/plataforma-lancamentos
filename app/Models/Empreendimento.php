@@ -688,6 +688,18 @@ class Empreendimento extends Model
             ->get();
     }
 
+    public function getFotosCarrosselMapa()
+    {
+        return Foto::where('empreendimento_id', $this->id)
+            ->where('destaque_carrossel', 'Sim')
+            ->where(function ($q) {
+                $q->orWhere('planta_id', null)
+                  ->orWhere('planta_id', 0);
+            })
+            ->where('status', 'Liberada')
+            ->limit(3)->get();
+    }
+
     public function getFotosMapa()
     {
         return Foto::where('empreendimento_id', $this->id)

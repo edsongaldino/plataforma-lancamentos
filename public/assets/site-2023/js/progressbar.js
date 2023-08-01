@@ -106,8 +106,8 @@ function makesvg(percentage, inner_text=""){
      + '   <text class="circle-chart__percent" x="17.9" y="15.5">'+percentage_str+'%</text>';
   if(inner_text){
     svg += '<text class="circle-chart__subline" x="16.91549431" y="22">'+inner_text+'</text>'
-  }  
-  svg += ' </g></svg>';  
+  }
+  svg += ' </g></svg>';
   return svg
 }
 (function( $ ) {
@@ -126,13 +126,13 @@ $(document).on('ready', function() {
 
 
 /* ----- Job List V3 Page On Click SIdebar ----- */
-function openNav() {  
+function openNav() {
 document.getElementById("mySidenav").style.width = "300px";
-    document.getElementById("mySidenav").style.marginLeft = "0px";  
-    document.getElementById("main").style.marginLeft = "0";  
+    document.getElementById("mySidenav").style.marginLeft = "0px";
+    document.getElementById("main").style.marginLeft = "0";
     document.body.style.backgroundColor = "rgba(250,250,250,0.4)";
 }
-function closeNav() {  
+function closeNav() {
 document.getElementById("mySidenav").style.width = "0";
     document.getElementById("mySidenav").style.marginLeft= "-30px";
     document.getElementById("main").style.marginLeft= "0";
@@ -144,33 +144,33 @@ $(document).on('ready', function() {
         shadow : false,
         percentage : false,
         animation : true,
-        barColor : "#ff5a5f",
+        barColor : "#00A3D9",
     });
     $('.progressbar2').progressBar({
         shadow : false,
         percentage : false,
         animation : true,
-        barColor : "#ff5a5f",
+        barColor : "#00A3D9",
     });
     $('.progressbar3').progressBar({
         shadow : false,
         percentage : false,
         animation : true,
         animateTarget : true,
-        barColor : "#ff5a5f",
+        barColor : "#00A3D9",
     });
     $('.progressbar4').progressBar({
         shadow : false,
         percentage : false,
         animation : true,
         animateTarget : true,
-        barColor : "#ff5a5f",
+        barColor : "#00A3D9",
     });
     $('.progressbar5').progressBar({
         shadow : false,
         percentage : false,
         animation : true,
         animateTarget : true,
-        barColor : "#ff5a5f",
+        barColor : "#00A3D9",
     });
 });

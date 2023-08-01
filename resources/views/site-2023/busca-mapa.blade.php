@@ -47,22 +47,15 @@
 		                <a href="#"><span class="title">Home</span></a>
 		            </li>
 		            <li>
-		                <a href="#"><span class="title">Listing</span></a>
+		                <a href="#"><span class="title">Lançamentos</span></a>
 		            </li>
 		            <li>
-		                <a href="#"><span class="title">Property</span></a>
+		                <a href="#"><span class="title">Prontos pra Morar</span></a>
 		            </li>
 		            <li>
-		                <a href="#"><span class="title">Pages</span></a>
+		                <a href="#"><span class="title">Financiamento</span></a>
 		            </li>
-		            <li>
-		                <a href="#"><span class="title">Blog</span></a>
-		            </li>
-		            <li class="last">
-		                <a href="page-contact.html"><span class="title">Contact</span></a>
-		            </li>
-	                <li class="list-inline-item list_s"><a href="#" class="btn flaticon-user" data-toggle="modal" data-target=".bd-example-modal-lg"> <span class="dn-lg">Login/Register</span></a></li>
-	                <li class="list-inline-item add_listing"><a href="page-add-new-property.html"><span class="flaticon-plus"></span><span class="dn-lg"> Create Listing</span></a></li>
+	                <li class="list-inline-item add_listing"><a href="page-add-new-property.html"><span class="flaticon-plus"></span><span class="dn-lg"> Proposta Online</span></a></li>
 		        </ul>
 		    </nav>
 		</div>
@@ -84,16 +77,12 @@
 			<ul>
 				<li><span>Home</span>
 				</li>
-				<li><span>Listing</span>
+				<li><span>Lançamentos</span>
 				</li>
-				<li><span>Property</span>
+				<li><span>Prontos pra Morar</span>
 				</li>
-				<li><span>Blog</span></li>
-				<li><span>Pages</span></li>
-				<li><a href="page-contact.html">Contact</a></li>
-				<li><a href="page-login.html"><span class="flaticon-user"></span> Login</a></li>
-				<li><a href="page-register.html"><span class="flaticon-edit"></span> Register</a></li>
-				<li class="cl_btn"><a class="btn btn-block btn-lg btn-thm circle" href="#"><span class="flaticon-plus"></span> Create Listing</a></li>
+				<li><span>Financiamento</span></li>
+				<li class="cl_btn"><a class="btn btn-block btn-lg btn-thm circle" href="#"><span class="flaticon-building"></span> Proposta Online</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -108,17 +97,11 @@
 							<!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
 							<div class="sidebar_listing_list style2 mobile_sytle_sidebar mb0">
 								<div class="sidebar_advanced_search_widget">
-									<h4 class="mb25">Advanced Search <a class="filter_closed_btn float-right" href="#"><small>Hide Filter</small> <span class="flaticon-close"></span></a></h4>
+									<h4 class="mb25">Filtrar Resultado <a class="filter_closed_btn float-right" href="#"><small>Fechar Filtro</small> <span class="flaticon-close"></span></a></h4>
 									<ul class="sasw_list style2 mb0">
 										<li class="search_area">
 										    <div class="form-group">
-										    	<input type="text" class="form-control" id="exampleInputName1" placeholder="keyword">
-										    	<label for="exampleInputEmail"><span class="flaticon-magnifying-glass"></span></label>
-										    </div>
-										</li>
-										<li class="search_area">
-										    <div class="form-group">
-										    	<input type="text" class="form-control" id="exampleInputEmail" placeholder="Location">
+										    	<input type="text" class="form-control" id="exampleInputEmail" placeholder="Localização">
 										    	<label for="exampleInputEmail"><span class="flaticon-maps-and-flags"></span></label>
 										    </div>
 										</li>
@@ -126,7 +109,7 @@
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
-														<option>Status</option>
+														<option>Tipo</option>
 														<option>Apartment</option>
 														<option>Bungalow</option>
 														<option>Condo</option>
@@ -137,7 +120,7 @@
 												</div>
 											</div>
 										</li>
-										<li>
+										<li style="display:none;">
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
@@ -152,7 +135,7 @@
 												</div>
 											</div>
 										</li>
-										<li>
+										<li style="display:none;">
 											<div class="small_dropdown2">
 											    <div id="prncgs" class="btn dd_btn">
 											    	<span>Price</span>
@@ -170,7 +153,7 @@
 											  	</div>
 											</div>
 										</li>
-										<li>
+										<li style="display:none;">
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
@@ -185,7 +168,7 @@
 												</div>
 											</div>
 										</li>
-										<li>
+										<li style="display:none;">
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
@@ -200,7 +183,7 @@
 												</div>
 											</div>
 										</li>
-										<li>
+										<li style="display:none;">
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
@@ -216,7 +199,7 @@
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
-														<option>Year built</option>
+														<option>Entrega</option>
 														<option>2013</option>
 														<option>2014</option>
 														<option>2015</option>
@@ -244,7 +227,7 @@
 											    <div class="panel">
 											      	<div class="panel-heading">
 												      	<h4 class="panel-title">
-												        	<a href="#panelBodyRating" class="accordion-toggle link" data-toggle="collapse" data-parent="#accordion"><i class="flaticon-more"></i> Advanced features</a>
+												        	<a href="#panelBodyRating" class="accordion-toggle link" data-toggle="collapse" data-parent="#accordion"><i class="flaticon-more"></i> Características</a>
 												        </h4>
 											      	</div>
 												    <div id="panelBodyRating" class="panel-collapse collapse">
@@ -352,7 +335,7 @@
 										</li>
 										<li>
 											<div class="search_option_button">
-											    <button type="submit" class="btn btn-block btn-thm">Search</button>
+											    <button type="submit" class="btn btn-block btn-thm">Filtrar</button>
 											</div>
 										</li>
 									</ul>
@@ -369,21 +352,15 @@
 							<!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
 							<div class="sidebar_listing_list style2 mb0">
 								<div class="sidebar_advanced_search_widget">
-									<h4 class="mb25">Advanced Search</h4>
+									<h4 class="mb25">Busca Avançada</h4>
 									<ul class="sasw_list style2 mb0">
 										<li class="search_area">
 										    <div class="form-group">
-										    	<input type="text" class="form-control" id="exampleInputName1" placeholder="keyword">
-										    	<label for="exampleInputEmail"><span class="flaticon-magnifying-glass"></span></label>
-										    </div>
-										</li>
-										<li class="search_area">
-										    <div class="form-group">
-										    	<input type="text" class="form-control" id="exampleInputEmail" placeholder="Location">
+										    	<input type="text" class="form-control" id="exampleInputEmail" placeholder="Localização">
 										    	<label for="exampleInputEmail"><span class="flaticon-maps-and-flags"></span></label>
 										    </div>
 										</li>
-										<li>
+										<li style="display:none;">
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
@@ -402,7 +379,7 @@
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
-														<option>Property Type</option>
+														<option>Tipo</option>
 														<option>Apartment</option>
 														<option>Bungalow</option>
 														<option>Condo</option>
@@ -413,22 +390,22 @@
 												</div>
 											</div>
 										</li>
-										<li>
+										<li style="display:none;">
 											<div class="small_dropdown2">
 											    <div id="prncgs2" class="btn dd_btn">
-											    	<span>Price</span>
+											    	<span>Preço</span>
 											    	<label for="exampleInputEmail2"><span class="fa fa-angle-down"></span></label>
 											    </div>
 											  	<div class="dd_content2">
 												    <div class="pricing_acontent">
-														<input type="text" class="amount" placeholder="$52,239">
-														<input type="text" class="amount2" placeholder="$985,14">
+														<input type="text" class="amount" placeholder="R$15.000">
+														<input type="text" class="amount2" placeholder="R$3.000.000">
 														<div class="slider-range"></div>
 												    </div>
 											  	</div>
 											</div>
 										</li>
-										<li>
+										<li style="display:none;">
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
@@ -443,7 +420,7 @@
 												</div>
 											</div>
 										</li>
-										<li>
+										<li style="display:none;">
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
@@ -458,11 +435,11 @@
 												</div>
 											</div>
 										</li>
-										<li>
+										<li style="display:none;">
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
-														<option>Garages</option>
+														<option>Garagem</option>
 														<option>Yes</option>
 														<option>No</option>
 														<option>Others</option>
@@ -474,7 +451,7 @@
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
-														<option>Year built</option>
+														<option>Previsão de Entrega</option>
 														<option>2013</option>
 														<option>2014</option>
 														<option>2015</option>
@@ -502,7 +479,7 @@
 											    <div class="panel">
 											      	<div class="panel-heading">
 												      	<h4 class="panel-title">
-												        	<a href="#panelBodyRating" class="accordion-toggle link" data-toggle="collapse" data-parent="#accordion"><i class="flaticon-more"></i> Advanced features</a>
+												        	<a href="#panelBodyRating" class="accordion-toggle link" data-toggle="collapse" data-parent="#accordion"><i class="flaticon-more"></i> Características</a>
 												        </h4>
 											      	</div>
 												    <div id="panelBodyRating" class="panel-collapse collapse">
@@ -610,7 +587,7 @@
 										</li>
 										<li>
 											<div class="search_option_button">
-											    <button type="submit" class="btn btn-block btn-thm">Search</button>
+											    <button type="submit" class="btn btn-block btn-thm">Filtrar</button>
 											</div>
 										</li>
 									</ul>
@@ -624,7 +601,7 @@
 				<div class="col-lg-12">
 					<div class="sidebar_switch mobile_style dn db-991 mt30 mt0-767 mb0">
 						<div id="main2">
-							<span id="open2" class="flaticon-filter-results-button filter_open_btn"> Show Filter</span>
+							<span id="open2" class="flaticon-filter-results-button filter_open_btn"> Ocultar Filtro</span>
 						</div>
 					</div>
 				</div>
@@ -632,26 +609,22 @@
 					<div class="half_map_area_content mt30">
 						<div class="row">
 							<div class="grid_list_search_result">
-								<div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
 									<div class="left_area tac-xsd">
-										<p>9 Search results</p>
+										<p>{{ $empreendimentos->count() }} empreendimentos encontratos</p>
 									</div>
 								</div>
-								<div class="col-sm-12 col-md-8 col-lg-8 col-xl-8 pl0 pr0">
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 pl0 pr0">
 									<div class="half_map_advsrch_navg style2 text-right tac-xsd">
 										<ul>
-											<li class="list-inline-item"><span class="stts">Sort by:</span>
+											<li class="list-inline-item"><span class="flaticon-more"></span>
 												<select class="selectpicker show-tick">
-													<option>Featured First</option>
-													<option>Featured 2nd</option>
-													<option>Featured 3rd</option>
-													<option>Featured 4th</option>
-													<option>Featured 5th</option>
+													<option>Menor valor</option>
+													<option>Menor metragem</option>
+													<option>Maior valor</option>
+													<option>Maior metragem</option>
 												</select>
 											</li>
-											<li class="list-inline-item"><a class="hvr-text-thm" href="#"><span class="fa fa-th-large"></span></a></li>
-											<li class="list-inline-item"><a class="hvr-text-thm" href="#"><span class="fa fa-th-list"></span></a></li>
-											<li class="list-inline-item"><a class="hvr-text-thm" href="#"><span class="flaticon-more"></span></a></li>
 										</ul>
 									</div>
 								</div>
@@ -666,7 +639,7 @@
 										<div class="feat_property home7 style4">
 											<div class="thumb">
 												<div class="fp_single_item_slider">
-                                                    @foreach($empreendimento->getFotosCarrossel() as $foto)
+                                                    @foreach($empreendimento->getFotosCarrosselMapa() as $foto)
 													<div class="item">
 														<img class="img-whp" src="{{ $foto->getUrl() }}" alt="{{ $foto->nome }}">
 													</div>
@@ -674,35 +647,32 @@
 												</div>
 												<div class="thmb_cntnt style2">
 													<ul class="tag mb0">
-														<li class="list-inline-item"><a href="#">For Rent</a></li>
-														<li class="list-inline-item"><a href="#">Featured</a></li>
+														<li class="list-inline-item"><a href="#">{{ $empreendimento->modalidade }}</a></li>
 													</ul>
 												</div>
 												<div class="thmb_cntnt style3">
 													<ul class="icon mb0">
-														<li class="list-inline-item"><a href="#"><span class="flaticon-transfer-1"></span></a></li>
 														<li class="list-inline-item"><a href="#"><span class="flaticon-heart"></span></a></li>
 													</ul>
-													<a class="fp_price" href="#">$13,000<small>/mo</small></a>
+													<a class="fp_price" href="#">R$ {{ $empreendimento->valor_inicial }}</a>
 												</div>
 											</div>
 											<div class="details">
 												<div class="tc_content">
-													<p class="text-thm">Apartment</p>
-													<h4>Renovated Apartment</h4>
-													<p><span class="flaticon-placeholder"></span> 1421 San Pedro St, Los Angeles, CA 90015</p>
+													<p class="text-thm"><span class="fa fa-building"></span> {{ $empreendimento->subtipo->nome }}</p>
+													<h4>{{ $empreendimento->nome }}</h4>
+													<p><span class="flaticon-placeholder"></span> {{ $empreendimento->endereco->cidade->nome }} - {{ $empreendimento->endereco->estado->uf }}</p>
 													<ul class="prop_details mb0">
-														<li class="list-inline-item"><a href="#">Beds: 4</a></li>
-														<li class="list-inline-item"><a href="#">Baths: 2</a></li>
-														<li class="list-inline-item"><a href="#">Sq Ft: 5280</a></li>
+														<li class="list-inline-item"><span class="fa fa-bed"></span> 3</li>
+														<li class="list-inline-item"><span class="fa fa-car"></span> 2</li>
+														<li class="list-inline-item"><span class="fa fa-object-group"></span> 48,32m²</li>
 													</ul>
 												</div>
 												<div class="fp_footer">
 													<ul class="fp_meta float-left mb0">
-														<li class="list-inline-item"><a href="#"><img src="images/property/pposter1.png" alt="pposter1.png"></a></li>
-														<li class="list-inline-item"><a href="#">Ali Tufan</a></li>
+														<li class="list-inline-item" title="{{ $empreendimento->construtora->nome_abreviado }}"><a href="#"><img src="{{ $empreendimento->construtora->getLogoUrl('260x260') }}" width="50" alt="pposter1.png"></a></li>
 													</ul>
-													<div class="fp_pdate float-right">4 years ago</div>
+													<div class="fp_pdate float-right">{{ get_previsao_entrega($empreendimento) }}</div>
 												</div>
 											</div>
 										</div>
@@ -712,25 +682,10 @@
 								</ul>
 							</div>
 
-
-							{{ $empreendimentos->links() }}
-
-							<div class="col-lg-12 mb30">
+                            <div class="col-lg-12 mb30">
 								<div class="mbp_pagination">
 									<ul class="page_navigation">
-									    <li class="page-item disabled">
-									    	<a class="page-link" href="#" tabindex="-1" aria-disabled="true"> <span class="flaticon-left-arrow"></span> Prev</a>
-									    </li>
-									    <li class="page-item"><a class="page-link" href="#">1</a></li>
-									    <li class="page-item active" aria-current="page">
-									    	<a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-									    </li>
-									    <li class="page-item"><a class="page-link" href="#">3</a></li>
-									    <li class="page-item"><a class="page-link" href="#">...</a></li>
-									    <li class="page-item"><a class="page-link" href="#">29</a></li>
-									    <li class="page-item">
-									    	<a class="page-link" href="#"><span class="flaticon-right-arrow"></span></a>
-									    </li>
+							            {{ $empreendimentos->links() }}
 									</ul>
 								</div>
 							</div>
@@ -740,7 +695,7 @@
 				<div class="col-xl-7">
 					<div class="sidebar_switch style2 text-right dn-991">
 						<div id="main2">
-							<span id="open2" class="flaticon-filter-results-button sidebarClosed2 filteropen2 showBtns"> Show Filter</span>
+							<span id="open2" class="flaticon-filter-results-button sidebarClosed2 filteropen2 showBtns"> Mostrar Filtro</span>
 						</div>
 					</div>
 					<div class="half_map_area">
@@ -877,12 +832,12 @@ function gMapHome () {
 		@foreach ($empreendimentos as $empreendimento)
         map.addMarker({
             icon: iconPath,
-            lat: {{ $empreendimento->endereco->latitude }},
-            lng: {{ $empreendimento->endereco->longitude }},
+            lat: {{ $empreendimento->endereco->latitude ?? '-15.595626' }},
+            lng: {{ $empreendimento->endereco->longitude ?? '-56.099996' }},
             title: 'Tenby ',
             infoWindow: {
             content:
-            '<img src="{{ $empreendimento->fotoPrincipal() }}" alt="fp1.jpg"/> <h5>{{ $empreendimento->nome }}</h5> <h4>{{ $empreendimento->subtipo->nome }}</h4> <p>1421 San Pedro St, Los Angeles, CA</p> <p><span>Beds: 4</span> <span>Baths: 2</span> <span>Sq Ft: 5280</span></p>'
+            '<img src="{{ $empreendimento->fotoPrincipal() }}" alt="fp1.jpg"/> <h5>{{ $empreendimento->nome }}</h5> <h4>{{ $empreendimento->subtipo->nome }}</h4> <p>{{ $empreendimento->endereco->bairro->nome }}, {{ $empreendimento->endereco->cidade->nome }} - {{ $empreendimento->endereco->estado->uf }}</p> <p><span><span class="fa fa-bed"></span> 3</span> <span><span class="fa fa-car"></span> 3</span> <span><span class="fa fa-object-group"></span> 48,32m²</span></p>'
           }
         });
         @endforeach

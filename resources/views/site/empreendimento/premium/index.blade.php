@@ -6,7 +6,6 @@
 
 @push('includes_head')
 <!-- Bootstrap -->
-
 <link rel="stylesheet" href="/site/ferramenta/apartment-font/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="/site/css/plugins.css">
 <link rel="stylesheet" type="text/css" href="/site/css/apartment-layout.css?v=02">

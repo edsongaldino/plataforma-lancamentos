@@ -438,7 +438,7 @@ if(!function_exists('getMapaUnidade')){
 				$imagename = "www_lancamentosonline_com_br.png";
 			}else{
                 //KJUVlR0CjjyZU4YG
-				$url = "https://v2.convertapi.com/convert/web/to/png?Secret=3AjOFxiBuJBIpNsq";
+				$url = "https://v2.convertapi.com/convert/web/to/png?Secret=pTNlaIZ27h8akJv7";
 
 				$unidade = Unidade::find($id);
 
@@ -495,12 +495,17 @@ if(!function_exists('getMapaUnidade')){
 					mkdir("uploads/unidade/".$id."/", 0755);
 				}
 
-				$imgurl = $obj->Files[0]->Url;
-				$imagename = basename($imgurl);
-				if(!file_exists($diretorio.$imagename)){
-					$image = getimg($imgurl);
-					file_put_contents($diretorio.$imagename,$image);
-				}
+                if(isset($obj->Files[0]->Url)){
+                    $imgurl = $obj->Files[0]->Url;
+                    $imagename = basename($imgurl);
+                    if(!file_exists($diretorio.$imagename)){
+                        $image = getimg($imgurl);
+                        file_put_contents($diretorio.$imagename,$image);
+                    }
+                }else{
+                    return url("assets/images/erro-carregamento-unidade-hor.jpg");
+                }
+
 			}
 			return url($diretorio.$imagename);
 		}
@@ -523,7 +528,7 @@ if(!function_exists('getImplantacaoUnidade')){
 				$diretorio = "uploads/unidade/".$id."/";
 				$imagename = "www_lancamentosonline_com_br.png";
 			}else{
-				$url = "https://v2.convertapi.com/convert/web/to/png?Secret=3AjOFxiBuJBIpNsq";
+				$url = "https://v2.convertapi.com/convert/web/to/png?Secret=pTNlaIZ27h8akJv7";
 
 				$unidade = Unidade::find($id);
 

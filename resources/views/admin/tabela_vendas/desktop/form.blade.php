@@ -73,7 +73,7 @@
                     <span class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </span>
-                    <input type="text" class="form-control previsao-entrega" value="@if(isset($tabela)) {{ mes_extenso_abreviado($tabela->torre->previsao_entrega_mes) ?? '' }}/{{ $tabela->torre->previsao_entrega_ano ?? '' }} @endif" readonly>
+                    <input type="text" class="form-control previsao-entrega" value="@if(isset($tabela)) {{ mes_extenso_abreviado($tabela->torre->previsao_entrega_mes ?? '') }}/{{ $tabela->torre->previsao_entrega_ano ?? '' }} @endif" readonly>
                 </div>
             </div>
             @else
@@ -83,7 +83,7 @@
                     <span class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </span>
-                    <input type="text" class="form-control previsao-entrega" value="@if(isset($tabela)) {{ mes_extenso_abreviado($tabela->quadra->previsao_entrega_mes) ?? '' }}/{{ $tabela->quadra->previsao_entrega_ano ?? '' }} @endif" readonly>
+                    <input type="text" class="form-control previsao-entrega" value="@if(isset($tabela)) {{ mes_extenso_abreviado($tabela->quadra->previsao_entrega_mes ?? '') }}/{{ $tabela->quadra->previsao_entrega_ano ?? '' }} @endif" readonly>
                 </div>
             </div>
             @endif
