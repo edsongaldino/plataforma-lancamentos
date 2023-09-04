@@ -46,6 +46,10 @@ return [
             'provider' => 'users',
             'hash' => true,
         ],
+        'corretores' => [
+            'driver' => 'session',
+            'provider' => 'corretor',
+        ],
     ],
 
     /*
@@ -70,7 +74,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
+        'corretores' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Corretor\Corretor::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
