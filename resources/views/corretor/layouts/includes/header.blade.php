@@ -67,25 +67,15 @@
                         @else
                         <img class="img-circle border-effect" src="{{ asset('corretor/app-assets/images/userFoto.png') }}" alt=" ">
                         @endif
-						<h3>{{ Session::get('usuario.nome') }}</h3>
-						<p>{{ Session::get('usuario')->perfil->nome }}</p>
+						<h3>{{ Session::get('usuario.name') }}</h3>
+						<p>Corretor</p>
 						<div class="pro-menu">
 							<div class="logo">
-								<li><a class="link link--yaku active" href="{{ route('home') }}"><span>H</span><span>o</span><span>m</span><span>e</span></a></li>
-                                @if(Session::get('usuario.perfil_id') == '1')
-                                <li><a class="link link--yaku" href="{{ url('gerenciar/tipos') }}"><span>T</span><span>i</span><span>p</span><span>o</span><span>s</span><span>-</span><span>C</span><span>C</span><span>T</span></li>
-                                <li><a class="link link--yaku" href="{{ url('gerenciar/avaliacoes') }}"><span>A</span><span>v</span><span>a</span><span>l</span><span>i</span><span>a</span><span>ç</span><span>õ</span><span>e</span><span>s</span></li>
-                                @endif
-								<li><a class="link link--yaku" href="{{ route('sobre') }}"><span>S</span><span>o</span><span>b</span><span>r</span><span>e</span></a></li>
-								<li><a class="link link--yaku" href="{{ route('convencoes') }}"><span>C</span><span>o</span><span>n</span><span>v</span><span>e</span><span>n</span><span>ç</span><span>õ</span><span>e</span><span>s</span></a></li>
-
-                                @if(Session::get('usuario.perfil_id') == '2')
-                                <li><a class="link link--yaku" href="{{ route('avaliar.empresa') }}"><span>A</span><span>v</span><span>a</span><span>l</span><span>i</span><span>a</span><span>r</span> <span>E</span><span>m</span><span>p</span><span>r</span><span>e</span><span>s</span><span>a</span></a></li>
-								@endif
-
-                                <li><a class="link link--yaku" href="{{ route('perfil') }}"><span>M</span><span>i</span><span>n</span><span>h</span><span>a</span> <span>C</span><span>o</span><span>n</span><span>t</span><span>a</span></a></li>
-								<li><a class="link link--yaku" href="{{ route('mensagens') }}"><span>M</span><span>e</span><span>n</span><span>s</span><span>a</span><span>g</span><span>e</span><span>n</span><span>s</span></a></li>
-                                <li><a class="link link--yaku" href="{{ route('logout') }}"><span>S</span><span>a</span><span>i</span><span>r</span></a></li>
+								<li><a class="link link--yaku active" href="{{ route('home-corretor') }}"><span>H</span><span>o</span><span>m</span><span>e</span></a></li>
+                                <li><a class="link link--yaku" href="{{ route('corretor.empreendimentos') }}"><span>E</span><span>M</span><span>P</span><span>R</span><span>E</span> <span>E</span><span>N</span><span>D</span><span>I</span><span>M</span><span>E</span><span>N</span><span>T</span><span>O</span><span>S</span></a></li>
+								<li><a class="link link--yaku" href="{{ route('corretor.perfil') }}"><span>P</span><span>R</span><span>O</span><span>P</span><span>O</span><span>S</span><span>T</span><span>A</span><span>S</span></a></li>
+                                <li><a class="link link--yaku" href="{{ route('corretor.leads') }}"><span>L</span><span>E</span><span>A</span><span>D</span><span>S</span></a></li>
+                                <li><a class="link link--yaku" href="{{ route('corretor.logout') }}"><span>S</span><span>a</span><span>i</span><span>r</span></a></li>
                             </div>
 						</div>
 				</div>

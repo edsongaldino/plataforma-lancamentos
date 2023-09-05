@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('corretor.layouts.app')
 @section('conteudo')
 <div class="details-grid">
     <div class="details-shade">
@@ -13,21 +13,48 @@
 <div class="parker" id="service">
     <div class="services">
 
-        @foreach ($tipos ?? '' as $tipo)
+
         <div class="col-sm-6 goal-icons">
             <div class="goal">
                 <div class=" hi-icon-effect-6">
-                    <a href="{{ url("/convencao/tipo/$tipo->id") }}" class="hi-icon glyphicon glyphicon-eye-open"></a>
-                    <h4>{{ $tipo->nome }}</h4>
+                    <a href="#" class="hi-icon glyphicon glyphicon-eye-open"></a>
+                    <h4>Empreendimentos</h4>
                 </div>
             </div>
         </div>
-        @endforeach
-        
+
+        <div class="col-sm-6 goal-icons">
+            <div class="goal">
+                <div class=" hi-icon-effect-6">
+                    <a href="#" class="hi-icon glyphicon glyphicon-eye-open"></a>
+                    <h4>Empreendimentos</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 goal-icons">
+            <div class="goal">
+                <div class=" hi-icon-effect-6">
+                    <a href="#" class="hi-icon glyphicon glyphicon-eye-open"></a>
+                    <h4>Empreendimentos</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 goal-icons">
+            <div class="goal">
+                <div class=" hi-icon-effect-6">
+                    <a href="#" class="hi-icon glyphicon glyphicon-eye-open"></a>
+                    <h4>Empreendimentos</h4>
+                </div>
+            </div>
+        </div>
+
+
         <div class="clearfix"></div>
     </div>
 
 </div>
 
-@include('layouts.includes.menu-rodape')
+@include('corretor.layouts.includes.menu-rodape')
 @endsection

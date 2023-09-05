@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Empreendimento;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -39,11 +40,10 @@ class AuthController extends Controller
             'password' => $request->senha
         ];
 
-        if(Auth::guard('corretores')->attempt($credencials)){
-            $usuario = Auth::corretor();
-            $empreendimentos = Empreendimento::where('destaque','Sim')->get();
+        if(Auth::attempt($credencials)){
+            $usuario = Auth::user();
             Session::put('usuario', $usuario);
-            return view('home', compact('empreendimentos'));
+            return view('corretor.home');
         }
         return redirect()->back()->with('warning', 'Os dados informados estão incorretos!');
     }

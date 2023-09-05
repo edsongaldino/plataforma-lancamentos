@@ -640,3 +640,7 @@ Route::post('/corretor/login', 'Corretor\AuthController@Login')->name('login-cor
 Route::get('/corretor/lembrar-senha', 'Corretor\AuthController@LembrarSenha')->name('corretor.lembrar-senha');
 Route::get('/corretor/cadastro', 'Corretor\HomeController@cadastro')->name('corretor.cadastro');
 Route::get('/login', 'Corretor\HomeController@login')->name('login');
+Route::get('/corretor/empreendimentos', 'Corretor\HomeController@login')->name('corretor.empreendimentos');
+Route::get('/corretor/perfil', 'Corretor\HomeController@login')->name('corretor.perfil');
+Route::get('/corretor/leads', 'Corretor\HomeController@login')->name('corretor.leads');
+Route::get('/corretor/logout', 'Corretor\AuthController@Logout')->name('corretor.logout');
