@@ -11,28 +11,28 @@
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
         <!--font-awsome-css-->
-            <link rel="stylesheet" href="{{ asset('app-assets/css/font-awesome.min.css') }}"> 
+            <link rel="stylesheet" href="{{ asset('corretor/app-assets/css/font-awesome.min.css') }}">
         <!--bootstrap-->
-            <link href="{{ asset('app-assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+            <link href="{{ asset('corretor/app-assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
         <!--custom css-->
-            <link href="{{ asset('app-assets/css/style.css') }}" rel="stylesheet" type="text/css"/>
-            <link rel="stylesheet" href="{{ asset('app-assets/css/percircle.css') }}">
+            <link href="{{ asset('corretor/app-assets/css/style.css') }}" rel="stylesheet" type="text/css"/>
+            <link rel="stylesheet" href="{{ asset('corretor/app-assets/css/percircle.css') }}">
         <!--component-css-->
-            <script src="{{ asset('app-assets/js/jquery-2.1.4.min.js') }}"></script>
-            <script src="{{ asset('app-assets/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('corretor/app-assets/js/jquery-2.1.4.min.js') }}"></script>
+            <script src="{{ asset('corretor/app-assets/js/bootstrap.min.js') }}"></script>
                 <!--script-->
-                <script src="{{ asset('app-assets/js/modernizr.custom.js') }}"></script>
-            <script src="{{ asset('app-assets/js/bigSlide.js') }}"></script>
+                <script src="{{ asset('corretor/app-assets/js/modernizr.custom.js') }}"></script>
+            <script src="{{ asset('corretor/app-assets/js/bigSlide.js') }}"></script>
             <script>
                 $(document).ready(function() {
                 $('.menu-link').bigSlide();
                 });
             </script>
-            <script type="text/javascript" src="{{ asset('app-assets/js/move-top.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('app-assets/js/easing.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('corretor/app-assets/js/move-top.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('corretor/app-assets/js/easing.js') }}"></script>
             <script type="text/javascript">
                         jQuery(document).ready(function($) {
-                            $(".scroll").click(function(event){		
+                            $(".scroll").click(function(event){
                                 event.preventDefault();
                                 $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
                             });
@@ -41,8 +41,8 @@
 
             <!--script-->
             <!-- swipe box js -->
-            <link rel="stylesheet" href="{{ asset('app-assets/css/swipebox.css') }}">
-            <script src="{{ asset('app-assets/js/jquery.swipebox.min.js') }}"></script> 
+            <link rel="stylesheet" href="{{ asset('corretor/app-assets/css/swipebox.css') }}">
+            <script src="{{ asset('corretor/app-assets/js/jquery.swipebox.min.js') }}"></script>
                 <script type="text/javascript">
                     jQuery(function($) {
                         $(".swipebox").swipebox();
@@ -56,7 +56,7 @@
 
 <div class="body-back">
 	<div class="masthead pdng-stn1">
-		
+
 		<div class="phone-box wrap push" id="home">
 			<div class="menu-notify">
 				<div class="Profile-mid">
@@ -73,7 +73,7 @@
                     {{ session('success_message') }}
                 </div>
                 @endif
-                <form action="{{ route('usuario.salvar') }}" method="POST" class="cadastro-usuario">
+                <form action="{{ route('corretor.salvar') }}" method="POST" class="cadastro-usuario">
                     @csrf
                     <label for="cpf_usuario">CPF</label>
                     <input type="text" class="form-control" name="cpf" id="cpf" placeholder="" onblur="$(this).mask('000.000.000-00')" onkeypress="$(this).mask('000.000.000-00')" required>
@@ -88,15 +88,14 @@
                     <label for="nome_usuario">SENHA</label>
                     <input type="password" class="form-control" name="senha" id="senha" placeholder="" maxlength="8" required>
                     <input type="password" class="form-control" name="confirmar_senha" id="confirmar_senha" placeholder="CONFIRME SUA SENHA" maxlength="8" required>
-                    
+
                     <button class="gravar-dados-usuario" type="submit"><i class="fa fa-save"></i> Gravar Informações</button>
                 </form>
 
             </div>
         </div>
     </div>
-<script src="{{ asset('app-assets/js/jquery.nicescroll.js') }}"></script>
-<script src="{{ asset('app-assets/js/scripts.js') }}"></script>
-@include('sweetalert::alert')
+<script src="{{ asset('corretor/app-assets/js/jquery.nicescroll.js') }}"></script>
+<script src="{{ asset('corretor/app-assets/js/scripts.js') }}"></script>
 </body>
 </html>

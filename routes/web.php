@@ -637,6 +637,8 @@ Route::get('busca-mapa.html', 'Site\HomeController@BuscaMapa');
 /* Rotas Corretor */
 Route::get('/home-corretor', 'Corretor\HomeController@login')->name('home-corretor');
 Route::post('/corretor/login', 'Corretor\AuthController@Login')->name('login-corretor');
+Route::post('/corretor/salvar', 'Corretor\CorretorController@store')->name('corretor.salvar');
+Route::post('/corretor/reenviar-senha', 'Corretor\AuthController@ReenviarSenha')->name('corretor.reenviar-senha');
 Route::get('/corretor/lembrar-senha', 'Corretor\AuthController@LembrarSenha')->name('corretor.lembrar-senha');
 Route::get('/corretor/cadastro', 'Corretor\HomeController@cadastro')->name('corretor.cadastro');
 Route::get('/login', 'Corretor\HomeController@login')->name('login');

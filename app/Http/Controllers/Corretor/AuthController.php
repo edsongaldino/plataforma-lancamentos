@@ -25,7 +25,7 @@ class AuthController extends Controller
 
     public function LembrarSenha(){
 
-        return view('lembrar');
+        return view('corretor.lembrar');
 
     }
 
