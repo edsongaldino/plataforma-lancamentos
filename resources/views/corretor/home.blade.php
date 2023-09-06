@@ -17,7 +17,7 @@
         <div class="col-sm-6 goal-icons">
             <div class="goal">
                 <div class=" hi-icon-effect-6">
-                    <a href="#" class="hi-icon glyphicon glyphicon-home"></a>
+                    <a href="{{ route('corretor.empreendimentos') }}" class="hi-icon glyphicon glyphicon-home"></a>
                     <h4>Empreendimentos</h4>
                 </div>
             </div>
@@ -26,7 +26,7 @@
         <div class="col-sm-6 goal-icons">
             <div class="goal">
                 <div class=" hi-icon-effect-6">
-                    <a href="#" class="hi-icon glyphicon glyphicon-briefcase"></a>
+                    <a href="{{ route('corretor.propostas') }}" class="hi-icon glyphicon glyphicon-briefcase"></a>
                     <h4>Propostas</h4>
                 </div>
             </div>
@@ -35,7 +35,7 @@
         <div class="col-sm-6 goal-icons">
             <div class="goal">
                 <div class=" hi-icon-effect-6">
-                    <a href="#" class="hi-icon glyphicon glyphicon-envelope"></a>
+                    <a href="{{ route('corretor.leads') }}" class="hi-icon glyphicon glyphicon-envelope"></a>
                     <h4>Leads</h4>
                 </div>
             </div>
@@ -44,7 +44,7 @@
         <div class="col-sm-6 goal-icons">
             <div class="goal">
                 <div class=" hi-icon-effect-6">
-                    <a href="#" class="hi-icon glyphicon glyphicon-user"></a>
+                    <a href="{{ route('corretor.perfil') }}" class="hi-icon glyphicon glyphicon-user"></a>
                     <h4>Meu Perfil</h4>
                 </div>
             </div>

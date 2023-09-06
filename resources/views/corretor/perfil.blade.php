@@ -2,7 +2,7 @@
 @section('conteudo')
 <div class="conteudo">
     <h3 class="perfil"><i class="fa fa-user"></i> Minha conta</h3>
-    <form action="{{ route('corretor/usuario-update') }}" method="POST" class="cadastro-usuario" enctype="multipart/form-data">
+    <form action="{{ route('corretor.update') }}" method="POST" class="cadastro-usuario" enctype="multipart/form-data">
         @csrf
         <div id="profile-container" class="profile-container">
             @if($usuario->foto):
@@ -17,7 +17,7 @@
         <label for="nome_usuario">NOME COMPLETO</label>
         <input type="text" class="form-control" name="nome" id="nome" placeholder="" value="{{ $usuario->nome }}" required>
         <label for="nome_usuario">DATA DE NASCIMENTO</label>
-        <input type="text" class="form-control" name="data_nascimento" id="data_nascimento" placeholder="" onblur="$(this).mask('00/00/0000')" onkeypress="$(this).mask('00/00/0000')" value="{{ Helper::data_br($usuario->data_nascimento) }}" required>
+        <input type="text" class="form-control" name="data_nascimento" id="data_nascimento" placeholder="" onblur="$(this).mask('00/00/0000')" onkeypress="$(this).mask('00/00/0000')" value="{{ data_br($usuario->data_nascimento) }}" required>
         <label for="nome_usuario">TELEFONE</label>
         <input type="text" class="form-control" name="telefone" id="telefone" placeholder="" value="{{ $usuario->telefone }}" onblur="$(this).mask('(00) 00009-0000')" onkeypress="$(this).mask('(00) 00009-0000')" required>
         <label for="nome_usuario">EMAIL (LOGIN)</label>

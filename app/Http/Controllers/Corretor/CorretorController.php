@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use App\Corretor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Dompdf\Helpers;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+use Symfony\Component\Console\Helper\Helper;
+use Symfony\Component\Console\Helper\HelperSet;
 
 class CorretorController extends Controller
 {
@@ -68,9 +74,31 @@ class CorretorController extends Controller
      * @param  \App\Corretor  $corretor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Corretor $corretor)
+    public function update(Request $request)
     {
-        //
+        $User = User::findOrFail(Session::get('usuario.id'));
+
+        if($request->email <> $User->email){
+            if($this->verificaDuplicidade('email', $request->email)){
+                return redirect()->back()->with('warning', 'Você não pode alterar seu cadastro para este e-mail, pois ele já consta em nosso banco de dados! Verifique.');
+            }
+        }
+
+        $User->nome = $request->nome;
+        $User->email = $request->email;
+        $User->data_nascimento = data_mysql($request->data_nascimento);
+        $User->telefone = limpa_campo($request->telefone);
+
+        if ($request->file('imageUpload')) {
+        $User->foto = $request->file('imageUpload')->store('user');
+        }
+
+        if($request->senha){
+            $User->password = Hash::make($request->senha);
+        }
+        $User->save();
+
+        return redirect()->route('perfil')->with('success', 'Dados atualizados!');
     }
 
     /**

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-        <title>Explicaí - Tudo que você precisa saber sobre CCT</title>
+        <title>Lançamentos Online - Plataforma do Corretor</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="keywords" content="Clean Recipe App Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android  Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+        <meta name="description" content="Um canal direto onde você poderá buscar os melhores negócios e ofertas dos lançamentos imobiliários à venda no Brasil">
+        <meta name="keywords" content="" />
         <script type="application/x-javascript"> addEventListener("load", function() {setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
         <meta charset utf="8">
 
@@ -73,8 +74,9 @@
 							<div class="logo">
 								<li><a class="link link--yaku active" href="{{ route('home-corretor') }}"><span>H</span><span>o</span><span>m</span><span>e</span></a></li>
                                 <li><a class="link link--yaku" href="{{ route('corretor.empreendimentos') }}"><span>E</span><span>m</span><span>p</span><span>r</span><span>e</span> <span>e</span><span>n</span><span>d</span><span>i</span><span>m</span><span>e</span><span>n</span><span>t</span><span>o</span><span>s</span></a></li>
-								<li><a class="link link--yaku" href="{{ route('corretor.perfil') }}"><span>P</span><span>r</span><span>o</span><span>p</span><span>o</span><span>s</span><span>t</span><span>a</span><span>s</span></a></li>
+								<li><a class="link link--yaku" href="{{ route('corretor.propostas') }}"><span>P</span><span>r</span><span>o</span><span>p</span><span>o</span><span>s</span><span>t</span><span>a</span><span>s</span></a></li>
                                 <li><a class="link link--yaku" href="{{ route('corretor.leads') }}"><span>L</span><span>e</span><span>a</span><span>d</span><span>s</span></a></li>
+                                <li><a class="link link--yaku" href="{{ route('corretor.perfil') }}"><span>P</span><span>e</span><span>r</span><span>f</span><span>i</span><span>l</span></a></li>
                                 <li><a class="link link--yaku" href="{{ route('corretor.logout') }}"><span>S</span><span>a</span><span>i</span><span>r</span></a></li>
                             </div>
 						</div>
@@ -87,7 +89,7 @@
                 <a href="#menu" class="menu-link"><i class="fa fa-list-ul"></i></a>
             </div>
             <div class="Profile-mid">
-                <h5 class="pro-link">APP ExplicaÍ</h5>
+                <h5 class="pro-link">APP Corretor</h5>
             </div>
             <div class="voltar"><a href="javascript:void(0)" onClick="history.go(-1); return false;"><button><i class="fa fa-angle-double-left" aria-hidden="true"></i></button></a></div>
             <div class="clearfix"></div>

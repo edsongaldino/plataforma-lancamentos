@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Corretor;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -38,4 +39,34 @@ class HomeController extends Controller
     public function avaliarEmpresa(){
         return view('avaliar-empresa');
     }
+
+    public function Leads(){
+        return view('corretor.leads.lista');
+    }
+
+    public function ListaPropostas(){
+        return view('corretor.propostas.lista');
+    }
+
+    public function Proposta(){
+        return view('corretor.propostas.proposta');
+    }
+
+    public function ListaEmpreendimentos(){
+        return view('corretor.empreedimentos.lista');
+    }
+
+    public function EmpreendimentoDetalhes(){
+        return view('corretor.empreedimentos.detalhes');
+    }
+
+    public function Perfil()
+    {
+        $usuario = Auth::user();
+        return view('corretor.perfil')->with(compact('usuario'));
+    }
+
+
+
+
 }

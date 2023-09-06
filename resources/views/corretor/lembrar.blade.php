@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Explicaí - Tudo que você precisa saber sobre CCT</title>
+    <title>Lançamentos Online - Plataforma do Corretor</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -9,16 +9,16 @@
     <!-- Author Meta -->
     <meta name="author" content="Datapix Tecnologia">
     <!-- Meta Description -->
-    <meta name="description" content="O Cartão SAS permite, você e sua família, realizar consultas médicas e exames laboratoriais e de imagens de qualidade a preços baixos.">
+    <meta name="description" content="Um canal direto onde você poderá buscar os melhores negócios e ofertas dos lançamentos imobiliários à venda no Brasil">
     <!-- Meta Keyword -->
-    <meta name="keywords" content="convenio medico, plano de saude barato">
+    <meta name="keywords" content="lancamentos imobiliarios, imóveis novos, na planta">
 
-    <meta name="twitter:image" content="{{ asset('corretor/app-assets//img/app-sas.png') }}">
+    <meta name="twitter:image" content="{{ asset('corretor/app-assets//img/app-corretor.png') }}">
 
     <meta property="og:url" content="" />
-    <meta property="og:title" content="SAS Convênios - Sistema de Assistência Social" />
-    <meta property="og:description" content="O Cartão SAS permite, você e sua família, realizar consultas médicas e exames laboratoriais e de imagens de qualidade a preços baixos. " />
-    <meta property="og:image" content="{{ asset('corretor/app-assets/img/app-sas.png') }}" />
+    <meta property="og:title" content="Lançamentos Online - Plataforma do Corretor" />
+    <meta property="og:description" content="Um canal direto onde você poderá buscar os melhores negócios e ofertas dos lançamentos imobiliários à venda no Brasil" />
+    <meta property="og:image" content="{{ asset('corretor/app-assets/img/app-corretor.png') }}" />
 
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1067">

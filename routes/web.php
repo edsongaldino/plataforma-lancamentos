@@ -642,7 +642,11 @@ Route::post('/corretor/reenviar-senha', 'Corretor\AuthController@ReenviarSenha')
 Route::get('/corretor/lembrar-senha', 'Corretor\AuthController@LembrarSenha')->name('corretor.lembrar-senha');
 Route::get('/corretor/cadastro', 'Corretor\HomeController@cadastro')->name('corretor.cadastro');
 Route::get('/login', 'Corretor\HomeController@login')->name('login');
-Route::get('/corretor/empreendimentos', 'Corretor\HomeController@login')->name('corretor.empreendimentos');
-Route::get('/corretor/perfil', 'Corretor\HomeController@login')->name('corretor.perfil');
-Route::get('/corretor/leads', 'Corretor\HomeController@login')->name('corretor.leads');
+Route::get('/corretor/empreendimentos', 'Corretor\HomeController@ListaEmpreendimentos')->name('corretor.empreendimentos');
+Route::get('/corretor/empreendimento/{id}', 'Corretor\HomeController@EmpreendimentoDetalhes')->name('corretor.empreendimento.detalhes');
+Route::get('/corretor/propostas', 'Corretor\HomeController@ListaPropostas')->name('corretor.propostas');
+Route::get('/corretor/proposta/{id}', 'Corretor\HomeController@Proposta')->name('corretor.proposta.detalhes');
+Route::get('/corretor/perfil', 'Corretor\HomeController@Perfil')->name('corretor.perfil');
+Route::get('/corretor/leads', 'Corretor\HomeController@Leads')->name('corretor.leads');
 Route::get('/corretor/logout', 'Corretor\AuthController@Logout')->name('corretor.logout');
+Route::post('/corretor/update', 'Corretor\CorretorController@update')->name('corretor.update');

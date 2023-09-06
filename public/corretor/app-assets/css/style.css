@@ -333,7 +333,7 @@ h5.pro-link {
     border: none;
 }
 .wrapper-dropdown-1 .dropdown li a:hover, .wrapper-dropdown-2 .dropdown li a:hover, .wrapper-dropdown-3 .dropdown li a:hover, .wrapper-dropdown-4 .dropdown li a:hover, .wrapper-dropdown-5 .dropdown li a:hover{
-	    color: #5b85e5;
+	    color: #337ab7;
 }
 /* Active state */
 .wrapper-dropdown-1.active:after,.wrapper-dropdown-2.active:after,.wrapper-dropdown-3.active:after,.wrapper-dropdown-4.active:after,.wrapper-dropdown-5.active:after{
@@ -350,7 +350,7 @@ h5.pro-link {
 }
 .menu-notify {
     padding: 6px 0;
-    background:#5b85e5 !important;
+    background:#337ab7 !important;
 }
 
 .panel {
@@ -453,7 +453,7 @@ h5.pro-link {
 }
 
 .logo .link--yaku:hover span {
-	color:#5b85e5;
+	color:#337ab7;
 	-webkit-transform: perspective(1000px) rotate3d(0,1,0,360deg);
 	transform: perspective(1000px) rotate3d(0,1,0,360deg);
 }
@@ -485,10 +485,10 @@ h5.pro-link {
 	color:#fff;
 }
 .link--ilin span:last-of-type{
-color:#5b85e5;
+color:#337ab7;
 }
 .logo a.active{
-	color:#5b85e5;
+	color:#337ab7;
 }
 .logo li {
     list-style: none;
@@ -500,7 +500,7 @@ color:#5b85e5;
     text-align: center;
 }
 .border-effect {
-    border: 2px solid #5b85e5;
+    border: 2px solid #337ab7;
     padding: 9px;
     border-left: 2px solid #fff;
     border-bottom: 2px solid #fff;
@@ -579,7 +579,7 @@ color:#5b85e5;
 }
 .bottom-text {
         float: left;
-    background: #5b85e5;
+    background: #337ab7;
     width: 58%;
     padding: 15px 10px;
 }
@@ -606,7 +606,7 @@ color:#5b85e5;
     text-align: center;
 }
 .welcome h3 {
-    color: #5b85e5!important;
+    color: #337ab7!important;
     font-size: 1.3em;
     font-size: 21px;
     line-height: 1.5em;
@@ -622,7 +622,7 @@ color:#5b85e5;
 .more a {
     font-size: 1em;
     color: #fff;
-    background:#5b85e5;
+    background:#337ab7;
        padding: 0.8em 1.8em;
     display: inline-block;
     margin-top: 1em;
@@ -732,7 +732,7 @@ color:#5b85e5;
 .recipes h3,.services h3 {
     text-align: center;
        margin: 1.2em 0 0.8em 0;
-    color: #5b85e5!important;
+    color: #337ab7!important;
 }
 .goal-img img {
     width: 100%;
@@ -1098,10 +1098,10 @@ padding:8px 0;
     list-style: none;
     margin: 0 0em 0;
     padding: 0;
-    border: 1px solid #5b85e5;
+    border: 1px solid #337ab7;
     width: 55%;
     margin: 0 auto;
-	background:#5b85e5;
+	background:#337ab7;
 }
 .resp-tab-item{
 	color:#fff;
@@ -1120,7 +1120,7 @@ padding:8px 0;
 	-o-transition: all 0.3s ease-out;
 	transition: all 0.3s ease-out;
 	margin: 0 0em 0;
-	border-left:1px solid #D95D51;
+	border-left:1px solid #097cc1;
     width: 32.7%;
 }
 .resp-tab-item:nth-child(1){
@@ -1211,7 +1211,7 @@ p.tit-two:before{
 .about-gd-left h5 {
     color: #fff;
     font-size: 1.5em;
-       background: #5b85e5;
+       background: #337ab7;
     padding: 31px 0;
     width: 80px;
     height: 80px;
@@ -1246,7 +1246,7 @@ div#service {
     text-align: center;
     font-size: 25px;
        margin: 24px 0 20px 0;
-    color: #5b85e5!important;
+    color: #337ab7!important;
 }
 /* CSS3 Hover Effects */
 .img-box, .gallery-text-box {
@@ -1560,7 +1560,7 @@ h3.tittle.reserve {
 }
 .book-reservation label {
         font-size: 1em;
-    color: #5b85e5;
+    color: #337ab7;
     margin-bottom: 0.5em;
     text-align: left;
     display: block;
@@ -1582,7 +1582,7 @@ h3.tittle.reserve {
     outline: none;
     font-size:0.9em;
     padding:0.8em 0.8em;
-   border: 2px solid #5b85e5;
+   border: 2px solid #337ab7;
     -webkit-appearance: none;
     margin-bottom: 1.5em;
 	line-height: 1.8em;
@@ -1596,7 +1596,7 @@ h3.tittle.reserve {
     height: 45px;
     background: none;
     color: #777;
-    border: 2px solid #5b85e5;
+    border: 2px solid #337ab7;
 }
 .make {
     margin:0em auto 0;
@@ -1607,9 +1607,9 @@ h3.tittle.reserve {
     padding: 1em 2em;
     font-size: 1em;
     cursor: pointer;
-    border: 2px solid#5b85e5;
+    border: 2px solid#337ab7;
     outline: none;
-    background: #5b85e5;
+    background: #337ab7;
 }
 .make input[type=submit]:hover {
     background: none;
@@ -1618,7 +1618,7 @@ h3.tittle.reserve {
     -moz-transition: 0.5s all ease;
     -o-transition: 0.5s all ease;
     -ms-transition: 0.5s all ease;
-	color: #5b85e5;
+	color: #337ab7;
 }
 .form-right {
     margin-top: 16px;
@@ -1660,7 +1660,7 @@ p.your-para {
 
 input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
 	 font-size:1.1em;
-	 color:#5b85e5;
+	 color:#337ab7;
 	 top:-2em;
 	 -webkit-transition: all 0.125s ease;
 	 transition: all 0.125s ease;
@@ -1703,7 +1703,7 @@ input ~ span,
   display: block;
   width: 0;
   height:2px;
-  background:#5b85e5;
+  background:#337ab7;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1733,7 +1733,7 @@ form {
     padding: 0 1em;
 }.send input[type="submit"] {
     border: none;
-    background:#5b85e5;
+    background:#337ab7;
     cursor: pointer;
     border-radius: 0px;
     width: 140px;
@@ -2299,12 +2299,12 @@ input[type="file"] {
 .conteudo h3{
 	height: 40px;
     line-height: 40px;
-    color: #D95D51;
+    color: #097cc1;
     font-size: 14px;
     font-weight: bold;
     text-align: left;
     margin-bottom: 20px;
-    border-bottom: 3px solid #D95D51;
+    border-bottom: 3px solid #097cc1;
 }
 
 .conteudo h3.perfil{
@@ -2655,7 +2655,7 @@ select.destaque{
 	  line-height: 35px;
 	  font-size: 16px;
 	  text-align: center;
-	  background-color: #D95D51;
+	  background-color: #097cc1;
 	  color: #FFF;
 	  margin-bottom: 10px;
   }
@@ -2684,7 +2684,7 @@ select.destaque{
   form.add-convencao input.ano{
 	height: 60px;
 	font-size: 14px;
-	color: #D95D51;
+	color: #097cc1;
 }
 
 form.add-convencao .gravar-convencao{
@@ -2709,7 +2709,7 @@ form.cadastro-usuario{
 
 form.cadastro-usuario label{
     font-size: 1.1em;
-    color: #5b85e5;
+    color: #337ab7;
     top: -2em;
     -webkit-transition: all 0.125s ease;
     transition: all 0.125s ease;
@@ -2748,7 +2748,7 @@ form.cadastro-usuario .alterar-senha{
 	float: right;
 	height: 30px;
 	line-height: 30px;
-	color: #5b85e5 ;
+	color: #337ab7 ;
 }
 
 form.cadastro-usuario .alterar-senha input{
@@ -2788,7 +2788,7 @@ form.cadastro-usuario input[type="file"]{
 	text-align: center;
 	line-height: 50px;
 	font-size: 50px;
-	color: #D95D51;
+	color: #097cc1;
 }
 
 .mensagem.visualizado .icone{
@@ -2813,7 +2813,7 @@ form.cadastro-usuario input[type="file"]{
 
 .mensagem .texto .data{
 	font-size: 14px;
-	color: #5b85e5;
+	color: #337ab7;
 }
 
 
@@ -2856,7 +2856,7 @@ form.cadastro-usuario input[type="file"]{
 
 .interacao .texto .data{
 	font-size: 14px;
-	color: #5b85e5;
+	color: #337ab7;
 }
 
 button.interagir{

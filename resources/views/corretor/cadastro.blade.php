@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-        <title>Explicaí - Tudo que você precisa saber sobre CCT</title>
+        <title>Lançamentos Online - Plataforma do Corretor</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="keywords" content="Clean Recipe App Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android  Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+        <meta name="keywords" content="lancamentos imobiliarios, imóveis novos, na planta" />
         <script type="application/x-javascript"> addEventListener("load", function() {setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
         <meta charset utf="8">
 
@@ -60,7 +60,7 @@
 		<div class="phone-box wrap push" id="home">
 			<div class="menu-notify">
 				<div class="Profile-mid">
-					<h5 class="pro-link">APP ExplicaÍ</h5>
+					<h5 class="pro-link">Plataforma do Corretor</h5>
 				</div>
                 <div class="voltar"><a href="javascript:void(0)" onClick="history.go(-1); return false;"><button><i class="fa fa-angle-double-left" aria-hidden="true"></i></button></a></div>
 				<div class="clearfix"></div>
