@@ -72,9 +72,9 @@
 						<div class="pro-menu">
 							<div class="logo">
 								<li><a class="link link--yaku active" href="{{ route('home-corretor') }}"><span>H</span><span>o</span><span>m</span><span>e</span></a></li>
-                                <li><a class="link link--yaku" href="{{ route('corretor.empreendimentos') }}"><span>E</span><span>M</span><span>P</span><span>R</span><span>E</span> <span>E</span><span>N</span><span>D</span><span>I</span><span>M</span><span>E</span><span>N</span><span>T</span><span>O</span><span>S</span></a></li>
-								<li><a class="link link--yaku" href="{{ route('corretor.perfil') }}"><span>P</span><span>R</span><span>O</span><span>P</span><span>O</span><span>S</span><span>T</span><span>A</span><span>S</span></a></li>
-                                <li><a class="link link--yaku" href="{{ route('corretor.leads') }}"><span>L</span><span>E</span><span>A</span><span>D</span><span>S</span></a></li>
+                                <li><a class="link link--yaku" href="{{ route('corretor.empreendimentos') }}"><span>E</span><span>m</span><span>p</span><span>r</span><span>e</span> <span>e</span><span>n</span><span>d</span><span>i</span><span>m</span><span>e</span><span>n</span><span>t</span><span>o</span><span>s</span></a></li>
+								<li><a class="link link--yaku" href="{{ route('corretor.perfil') }}"><span>P</span><span>r</span><span>o</span><span>p</span><span>o</span><span>s</span><span>t</span><span>a</span><span>s</span></a></li>
+                                <li><a class="link link--yaku" href="{{ route('corretor.leads') }}"><span>L</span><span>e</span><span>a</span><span>d</span><span>s</span></a></li>
                                 <li><a class="link link--yaku" href="{{ route('corretor.logout') }}"><span>S</span><span>a</span><span>i</span><span>r</span></a></li>
                             </div>
 						</div>

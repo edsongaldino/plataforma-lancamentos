@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Explicaí - Tudo que você precisa saber sobre CCT</title>
+    <title>Lançamentos Online - App Corretor</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -56,7 +56,7 @@
                 </div>
 
                 <span class="login100-form-title p-b-45">
-                    Explicaí
+                    App Corretor
                 </span>
 
                 <div class="wrap-input100 validate-input m-b-10" data-validate = "O usuário é obrigatório">

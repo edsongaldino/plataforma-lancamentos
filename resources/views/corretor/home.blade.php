@@ -3,9 +3,9 @@
 <div class="details-grid">
     <div class="details-shade">
         <div class="details-right">
-            <img src="{{ asset('app-assets/images/logo.png') }}" alt=" " />
-            <h3>Explica.Í</h3>
-            <h4>Tudo que precisa saber</h4>
+            <img src="{{ asset('corretor/app-assets/images/logo.png') }}" alt=" " />
+            <h3>Lançamentos Online</h3>
+            <h4>Plataforma do Corretor</h4>
         </div>
     </div>
 </div>
@@ -17,7 +17,7 @@
         <div class="col-sm-6 goal-icons">
             <div class="goal">
                 <div class=" hi-icon-effect-6">
-                    <a href="#" class="hi-icon glyphicon glyphicon-eye-open"></a>
+                    <a href="#" class="hi-icon glyphicon glyphicon-home"></a>
                     <h4>Empreendimentos</h4>
                 </div>
             </div>
@@ -26,8 +26,8 @@
         <div class="col-sm-6 goal-icons">
             <div class="goal">
                 <div class=" hi-icon-effect-6">
-                    <a href="#" class="hi-icon glyphicon glyphicon-eye-open"></a>
-                    <h4>Empreendimentos</h4>
+                    <a href="#" class="hi-icon glyphicon glyphicon-briefcase"></a>
+                    <h4>Propostas</h4>
                 </div>
             </div>
         </div>
@@ -35,8 +35,8 @@
         <div class="col-sm-6 goal-icons">
             <div class="goal">
                 <div class=" hi-icon-effect-6">
-                    <a href="#" class="hi-icon glyphicon glyphicon-eye-open"></a>
-                    <h4>Empreendimentos</h4>
+                    <a href="#" class="hi-icon glyphicon glyphicon-envelope"></a>
+                    <h4>Leads</h4>
                 </div>
             </div>
         </div>
@@ -44,11 +44,12 @@
         <div class="col-sm-6 goal-icons">
             <div class="goal">
                 <div class=" hi-icon-effect-6">
-                    <a href="#" class="hi-icon glyphicon glyphicon-eye-open"></a>
-                    <h4>Empreendimentos</h4>
+                    <a href="#" class="hi-icon glyphicon glyphicon-user"></a>
+                    <h4>Meu Perfil</h4>
                 </div>
             </div>
         </div>
+
 
 
         <div class="clearfix"></div>
