@@ -1,20 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Corretor;
 
 use App\Corretor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Dompdf\Helpers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-use Symfony\Component\Console\Helper\Helper;
-use Symfony\Component\Console\Helper\HelperSet;
 
 class CorretorController extends Controller
 {
-    /**
+        /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -84,10 +81,10 @@ class CorretorController extends Controller
             }
         }
 
-        $User->nome = $request->nome;
+        $User->name = $request->nome;
         $User->email = $request->email;
         $User->data_nascimento = data_mysql($request->data_nascimento);
-        $User->telefone = limpa_campo($request->telefone);
+        $User->celular = limpa_campo($request->telefone);
 
         if ($request->file('imageUpload')) {
         $User->foto = $request->file('imageUpload')->store('user');
@@ -98,7 +95,7 @@ class CorretorController extends Controller
         }
         $User->save();
 
-        return redirect()->route('perfil')->with('success', 'Dados atualizados!');
+        return redirect()->route('corretor.perfil')->with('success', 'Dados atualizados!');
     }
 
     /**
