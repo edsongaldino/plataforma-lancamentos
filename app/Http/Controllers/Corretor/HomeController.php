@@ -53,11 +53,11 @@ class HomeController extends Controller
     }
 
     public function ListaEmpreendimentos(){
-        return view('corretor.empreedimentos.lista');
+        return view('corretor.empreendimentos.lista');
     }
 
     public function EmpreendimentoDetalhes(){
-        return view('corretor.empreedimentos.detalhes');
+        return view('corretor.empreendimentos.detalhes');
     }
 
     public function Perfil()
