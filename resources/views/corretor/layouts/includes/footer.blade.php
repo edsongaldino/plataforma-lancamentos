@@ -9,5 +9,10 @@
         jQuery("#loader").fadeOut("slow");
     });
 </script>
+<script type="text/javascript" src="/site/m/js/materialize.min.js"></script>
+    <script type="text/javascript" src="/site/m/js/slick.min.js"></script>
+    <script type="text/javascript" src="/site/m/js/jquery.swipebox.min.js"></script>
+    <script type="text/javascript" src="/site/m/js/custom.js"></script>
+    <script type="text/javascript" src="/site/m/js/jquery-ui.min.js"></script>
 </body>
 </html>

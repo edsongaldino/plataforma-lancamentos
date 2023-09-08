@@ -266,5 +266,8 @@
   </div>
   <!-- /Imovel Busca -->
 @endforeach
-
-@include('site/busca/mobile/paginacao')
+@if(isset($ocultarLinks))
+  <!-- -->
+@else
+    @include('site/busca/mobile/paginacao')
+@endif
