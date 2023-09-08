@@ -271,8 +271,8 @@ body {
 	line-height: 1.5;
 	font-size:15px;
 }
-body::-webkit-scrollbar { 
-    display: none; 
+body::-webkit-scrollbar {
+    display: none;
 }
 
 h1,h2,h3,h4,h5,h6 {font-weight:500;margin:0;padding:0;}
@@ -1605,8 +1605,18 @@ span.pull-left {
 	margin-bottom: 30px;
 }
 .entry-main01 {
-	padding: 0 0px 25px;
+	padding: 0 0px 0px;
 }
+
+
+
+.endereco-empreendimento{
+    font-size: 1.0em;
+    font-weight: 400;
+    text-align: left;
+    color: #22859b;
+}
+
 .entry-main01 .entry-title {
     margin: 0;
     padding: 0;
@@ -2062,7 +2072,7 @@ ul.lista-construtoras {
     background-position: 35%;
 }
 
-.logo-01 {    
+.logo-01 {
 	display: inline-block;
     text-align: center;
     width: 100%;
@@ -2071,7 +2081,7 @@ ul.lista-construtoras {
 
 
 /*Topo Contato Empreendimento*/
-.box-contato-construtora {    
+.box-contato-construtora {
 	display: inline-block;
     text-align: center;
     width: 100%;
@@ -2119,7 +2129,7 @@ ul.lista-construtoras {
 	opacity: 1;
 }
 
-.campo-busca {    
+.campo-busca {
 	position: absolute;
     width: 100%;
     bottom: 60px;
@@ -2161,24 +2171,24 @@ ul.lista-construtoras {
 .meio {
 	display: none;
 	float: left;
-	text-align: center;
-	margin: 3px 0 0 20px;
-	padding-left: 15px;
+    text-align: center;
+    margin: 3px 0 0 5px;
+    padding-left: 15px;
 }
 
 .meio span {
 	color: #F3F3F3;
 	font-size: 0.7em;
 	display: inline-block;
-	padding: 5px 5px 0 5px;	
-} 
+	padding: 5px 5px 0 5px;
+}
 
 .meio p {
 margin: 0px 0 0 0;
 padding-bottom: 5px;
 text-decoration: none;
 text-transform: lowercase;
-font-size: 1.6em;
+font-size: 1.3em;
 line-height: 20px;
 color: #FFF;
 
@@ -2198,14 +2208,14 @@ color: #FFF;
 	color: #F3F3F3;
     font-size: 0.7em;
     display: inline-block;
-    padding: 5px 5px 0 0;	
-} 
+    padding: 5px 5px 0 0;
+}
 .esquerda span {
 	color: #F3F3F3;
     font-size: 0.7em;
     display: inline-block;
-    padding: 5px 5px 0 0;	
-} 
+    padding: 5px 5px 0 0;
+}
 
 .esquerda p .texto_qtos{
     font-size: 14px;
@@ -2217,7 +2227,7 @@ color: #FFF;
 	margin: 0;
     padding-bottom: 5px;
     text-decoration: none;
-    font-size: 1.6em;
+    font-size: 1.3em;
     line-height: 20px;
     color: #FFF;
 
@@ -2230,7 +2240,7 @@ color: #FFF;
     padding-bottom: 5px;
     text-decoration: none;
     text-transform: lowercase;
-    font-size: 1.6em;
+    font-size: 1.3em;
     line-height: 20px;
     color: #FFF;
 }
@@ -2533,7 +2543,7 @@ fieldset {
     padding: 5px;
     background: #C02825;
     color: #FFF;
-	 
+
 }
 
 .box-icone-tipo-1 {float: right;font-size: 0.8em;display: inline-block;padding: 5px 10px;background: #DB5033;color: #FFF;}
@@ -2570,7 +2580,7 @@ fieldset {
     display: inline-block;
     padding: 5px;
     background: #C02825;
-    color: #FFF; 
+    color: #FFF;
 }
 
 .box-status-perfil-em-obra {
@@ -2626,7 +2636,7 @@ fieldset {
     line-height: 40px;
 
 	background: #C02825;
-	 
+
 }
 
 .icone_right{margin-top: 18px;}

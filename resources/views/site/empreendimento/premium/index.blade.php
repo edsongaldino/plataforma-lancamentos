@@ -221,6 +221,10 @@
             <a href="/empreendimento/{{ $empreendimento->id }}/tour360"><div class="tour-360"><i class="fas fa-circle-notch" aria-hidden="true"></i> Tour Virtual 360º</div></a>
             @endif
 
+            @if($empreendimento->arquivos->where('tipo', 'Memorial Descritivo')->first())
+            <a href="/uploads/arquivos/{{  $empreendimento->arquivos->where('tipo', 'Memorial Descritivo')->first()->arquivo ?? '' }}" target="_blank"><div class="memorial-descritivo"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Memorial Descritivo</div></a>
+            @endif
+
         </div>
 
         @php
@@ -267,10 +271,6 @@
             @endforeach
 
         </div>
-
-        @if($empreendimento->arquivos->where('tipo', 'Memorial Descritivo')->first())
-        <a href="/uploads/arquivos/{{  $empreendimento->arquivos->where('tipo', 'Memorial Descritivo')->first()->arquivo ?? '' }}" target="_blank"><div class="memorial-descritivo"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Memorial Descritivo</div></a>
-        @endif
 
         <div class="localizacao">
             <div class="titulo-mapa"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Localização</div>
