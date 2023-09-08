@@ -2295,6 +2295,7 @@ input[type="file"] {
 	height: 100%;
 	padding: 20px;
 	background-color: #FFF !important;
+    padding-bottom: 80px;
 }
 
 .conteudo h3{
