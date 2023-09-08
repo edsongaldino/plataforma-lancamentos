@@ -13,19 +13,19 @@
     <!-- Meta Keyword -->
     <meta name="keywords" content="lancamentos imobiliarios, imóveis novos, na planta">
 
-    <meta name="twitter:image" content="{{ asset('corretor/app-assets//img/app-corretor.png') }}">
+    <meta name="twitter:image" content="{{ asset('corretor/app-assets/images/logo-app.png') }}">
 
     <meta property="og:url" content="" />
     <meta property="og:title" content="Lançamentos Online - Plataforma do Corretor" />
     <meta property="og:description" content="Um canal direto onde você poderá buscar os melhores negócios e ofertas dos lançamentos imobiliários à venda no Brasil" />
-    <meta property="og:image" content="{{ asset('corretor/app-assets/img/app-corretor.png') }}" />
+    <meta property="og:image" content="{{ asset('corretor/app-assets/images/logo-app.png') }}" />
 
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1067">
     <meta property="og:image:height" content="600">
     <meta property="og:type" content="website">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="{{ asset('corretor/app-assets/img/icons/favicon.ico') }}"/>
+    <link rel="icon" type="image/png" href="{{ asset('corretor/app-assets/images/icons/favicon.ico') }}"/>
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('corretor/app-assets/vendor/bootstrap/css/bootstrap.min.css') }}">
     <!--===============================================================================================-->
@@ -56,7 +56,7 @@
                 </div>
 
                 <span class="login100-form-title p-b-45">
-                    Plataforma do Corretor
+                    App Corretor
                 </span>
 
                 <div class="wrap-input100 validate-input m-b-10" data-validate = "O usuário é obrigatório">
