@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Corretor;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -128,8 +130,8 @@ class UserController extends Controller
 
     public function getFoto($id)
     {
-        $this->user = User::find($id);
-        $arquivo = Storage::get($this->user->foto);
+        $user = User::find($id);
+        $arquivo = Storage::get($user->foto);
         return $arquivo;
     }
 
