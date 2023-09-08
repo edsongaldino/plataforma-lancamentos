@@ -36,6 +36,10 @@
         $classe="apartamento";
       } elseif($empreendimento->subtipo_id == 2) {
         $classe="sala";
+      } elseif($empreendimento->subtipo_id == 3) {
+        $classe="condominio";
+      } elseif($empreendimento->subtipo_id == 4) {
+        $classe="residencial";
       } else{
         $classe= strtolower($empreendimento->getCaracteristica("tipo_condominio"));
       }

@@ -1605,7 +1605,7 @@ span.pull-left {
 	margin-bottom: 30px;
 }
 .entry-main01 {
-	padding: 0 0px 0px;
+	padding: 0 0px 20px;
 }
 
 
@@ -2789,7 +2789,7 @@ input.tabs:checked + label {
 .tipo_empreendimento_lotes{width: auto; height: 40px; background-color: #006666; float: left; position: absolute; z-index: 10; padding: 0px 15px 0px 15px; text-align: center; line-height: 40px; color: #eee; font-weight: bold;}
 .tipo_empreendimento_casas{width: auto; height: 40px; background-color: #E9C42E; float: left; position: absolute; z-index: 10; padding: 0px 15px 0px 15px; text-align: center; line-height: 40px; color: #eee; font-weight: bold;}
 .tipo_empreendimento_sobrados{width: auto; height: 40px; background-color: #146F9E; float: left; position: absolute; z-index: 10; padding: 0px 15px 0px 15px; text-align: center; line-height: 40px; color: #eee; font-weight: bold;}
-
+.tipo_empreendimento_residencial{width: auto; height: 40px; background-color: #146F9E; float: left; position: absolute; z-index: 10; padding: 0px 15px 0px 15px; text-align: center; line-height: 40px; color: #eee; font-weight: bold;}
 
 .tipo_empreendimento_perfil_apartamento{width: auto; height: 40px; background-color: #DB5033; float: left; position: absolute; z-index: 10; padding: 0px 15px 0px 15px; text-align: center; line-height: 40px; color: #eee; font-weight: bold;}
 .tipo_empreendimento_perfil_sala{width: auto; height: 40px; background-color: #E37631; float: left; position: absolute; z-index: 10; padding: 0px 15px 0px 15px; text-align: center; line-height: 40px; color: #eee; font-weight: bold;}
@@ -2797,6 +2797,7 @@ input.tabs:checked + label {
 .tipo_empreendimento_perfil_lotes{width: auto; height: 40px; background-color: #006666; float: left; position: absolute; z-index: 10; padding: 0px 15px 0px 15px; text-align: center; line-height: 40px; color: #eee; font-weight: bold;}
 .tipo_empreendimento_perfil_casas{width: auto; height: 40px; background-color: #E9C42E; float: left; position: absolute; z-index: 10; padding: 0px 15px 0px 15px; text-align: center; line-height: 40px; color: #eee; font-weight: bold;}
 .tipo_empreendimento_perfil_sobrados{width: auto; height: 40px; background-color: #146F9E; float: left; position: absolute; z-index: 10; padding: 0px 15px 0px 15px; text-align: center; line-height: 40px; color: #eee; font-weight: bold;}
+.tipo_empreendimento_perfil_residencial{width: auto; height: 40px; background-color: #146F9E; float: left; position: absolute; z-index: 10; padding: 0px 15px 0px 15px; text-align: center; line-height: 40px; color: #eee; font-weight: bold;}
 
 
 .recaptcha{width: 100% !important; height: 50px !important;background-color: #F4F4F4; padding: 0 0 0 15px !important; color: #666 !important; font-size: 16px !important;}
