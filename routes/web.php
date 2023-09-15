@@ -13,6 +13,7 @@
 
 // Rotas de login
 
+use App\Models\Empreendimento;
 use App\Models\User;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\Artisan;
@@ -612,6 +613,11 @@ Route::get('formatar-valor-reais/{valor}', function ($valor) {
 Route::get('user-restore/{id}', function ($id) {
 	$user = Usuario::withTrashed()->findOrFail($id);
 	$user->restore();
+});
+
+Route::get('empreendimento-restore/{id}', function ($id) {
+	$empreendimento = Empreendimento::withTrashed()->findOrFail($id);
+	$empreendimento->restore();
 });
 
 
