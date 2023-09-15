@@ -94,6 +94,7 @@ h1.fit_tittle{
 	text-align: center;
 	font-size: 20px;
 	color: #FFF;
+    padding: 0px 0px !important;
 }
 
 .footer .minhaconta{
@@ -2294,6 +2295,7 @@ input[type="file"] {
 	height: 100%;
 	padding: 20px;
 	background-color: #FFF !important;
+    padding-bottom: 80px;
 }
 
 .conteudo h3{

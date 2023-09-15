@@ -398,7 +398,7 @@
                         <div class="item">
                             <div class="icone-caracteristica"><i class="fab fa-dollar" aria-hidden="true"></i></div>
                             <div class="titulo-caracteristica">Valor (M²)</div>
-                            <div class="valor-caracteristica">R$ {{ converte_valor_real($unidade->getCaracteristica('metragem_total')/$unidade->getCaracteristica('valor_m2')) }}</div>
+                            <div class="valor-caracteristica">R$ {{ converte_valor_real(($unidade->getCaracteristica('metragem_total'))/$unidade->getCaracteristica('valor_unidade')) }}</div>
                         </div>
                         @endif
                         <div class="item">

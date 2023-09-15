@@ -15,10 +15,8 @@ class CreateCorretorLeadsTable extends Migration
     {
         Schema::create('corretor_leads', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('corretor_id')->unsigned();
-            $table->foreign('corretor_id')->references('id')->on('corretor');
-            $table->integer('lead_id')->unsigned();
-            $table->foreign('lead_id')->references('id')->on('leads');
+            $table->bigInteger('corretor_id')->constrained('corretor');
+            $table->bigInteger('lead_id')->constrained('leads');
             $table->timestamps();
         });
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Corretor;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Empreendimento;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -53,7 +54,9 @@ class HomeController extends Controller
     }
 
     public function ListaEmpreendimentos(){
-        return view('corretor.empreendimentos.lista');
+        $empreendimentos = Empreendimento::where('view_corretor', 'Sim')->get();
+        $ocultarLinks = "Sim";
+        return view('corretor.empreendimentos.lista')->with(compact('empreendimentos', 'ocultarLinks'));
     }
 
     public function EmpreendimentoDetalhes(){

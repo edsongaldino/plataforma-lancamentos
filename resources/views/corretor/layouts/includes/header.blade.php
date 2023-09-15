@@ -8,55 +8,55 @@
         <meta name="keywords" content="" />
         <script type="application/x-javascript"> addEventListener("load", function() {setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
         <meta charset utf="8">
-
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
         <!--font-awsome-css-->
-            <link rel="stylesheet" href="{{ asset('corretor/app-assets/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('corretor/app-assets/css/font-awesome.min.css') }}">
         <!--bootstrap-->
-            <link href="{{ asset('corretor/app-assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('corretor/app-assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
         <!--custom css-->
-            <link href="{{ asset('corretor/app-assets/css/style.css') }}" rel="stylesheet" type="text/css"/>
-            <link rel="stylesheet" href="{{ asset('corretor/app-assets/css/percircle.css') }}">
+        <link href="{{ asset('corretor/app-assets/css/style.css') }}" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="{{ asset('corretor/app-assets/css/percircle.css') }}">
         <!--component-css-->
-            <script src="{{ asset('corretor/app-assets/js/jquery-2.1.4.min.js') }}"></script>
-            <script src="{{ asset('corretor/app-assets/js/bootstrap.min.js') }}"></script>
-                <!--script-->
-                <script src="{{ asset('corretor/app-assets/js/modernizr.custom.js') }}"></script>
-            <script src="{{ asset('corretor/app-assets/js/bigSlide.js') }}"></script>
-            <script>
-                $(document).ready(function() {
-                $('.menu-link').bigSlide();
+        <script src="{{ asset('corretor/app-assets/js/jquery-2.1.4.min.js') }}"></script>
+        <!--script-->
+        <script src="{{ asset('corretor/app-assets/js/modernizr.custom.js') }}"></script>
+        <script src="{{ asset('corretor/app-assets/js/bigSlide.js') }}"></script>
+        <script>
+            $(document).ready(function() {
+            $('.menu-link').bigSlide();
+            });
+        </script>
+        <script type="text/javascript" src="{{ asset('corretor/app-assets/js/move-top.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('corretor/app-assets/js/easing.js') }}"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".scroll").click(function(event){
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
                 });
-            </script>
-            <script type="text/javascript" src="{{ asset('corretor/app-assets/js/move-top.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('corretor/app-assets/js/easing.js') }}"></script>
+            });
+        </script>
+        <!--script-->
+        <!-- swipe box js -->
+        <link rel="stylesheet" href="{{ asset('corretor/app-assets/css/swipebox.css') }}">
+        <script src="{{ asset('corretor/app-assets/js/jquery.swipebox.min.js') }}"></script>
             <script type="text/javascript">
-                        jQuery(document).ready(function($) {
-                            $(".scroll").click(function(event){
-                                event.preventDefault();
-                                $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
-                            });
-                        });
-            </script>
+                jQuery(function($) {
+                    $(".swipebox").swipebox();
+                });
+        </script>
+        <!-- //swipe box js -->
+        <link href="{{ asset('corretor/app-assets/vendor/sweetalert/dist/sweetalert.css') }}" rel="stylesheet" type="text/css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 
-            <!--script-->
-            <!-- swipe box js -->
-            <link rel="stylesheet" href="{{ asset('corretor/app-assets/css/swipebox.css') }}">
-            <script src="{{ asset('corretor/app-assets/js/jquery.swipebox.min.js') }}"></script>
-                <script type="text/javascript">
-                    jQuery(function($) {
-                        $(".swipebox").swipebox();
-                    });
-            </script>
-            <!-- //swipe box js -->
-            <link href="{{ asset('corretor/app-assets/vendor/sweetalert/dist/sweetalert.css') }}" rel="stylesheet" type="text/css" />
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-
-            <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <link href="{{ asset('global/css/loader/index.css') }}" rel="stylesheet" type="text/css" />
 
     </head>
 <body>
+
+<div class="spinner-loading" id="loader"></div>
 
 <div class="body-back">
 	<div class="masthead pdng-stn1">

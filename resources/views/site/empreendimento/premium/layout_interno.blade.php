@@ -106,6 +106,7 @@
 
     </script>
     <script src="/global/js/loader/index.js"></script>
+
     <script src="/global/js/ajax/index.js"></script>
     <script src="/assets/premium/js/index.js?v={{ filemtime('assets/premium/js/index.js') }}"></script>
 

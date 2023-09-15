@@ -36,6 +36,10 @@
         $classe="apartamento";
       } elseif($empreendimento->subtipo_id == 2) {
         $classe="sala";
+      } elseif($empreendimento->subtipo_id == 3) {
+        $classe="condominio";
+      } elseif($empreendimento->subtipo_id == 4) {
+        $classe="residencial";
       } else{
         $classe= strtolower($empreendimento->getCaracteristica("tipo_condominio"));
       }
@@ -221,31 +225,11 @@
       <!-- /Detalhes -->
     </div>
 
-    <div class="entry-main01">
-      <div class="entry-meta">
-        <span class="local-01"></span>
-        <span class="separator"></span>
-        <span class="author">
-          @if ($empreendimento->endereco)
-            {{ $empreendimento->endereco->bairro->nome }},
-          @endif
-
-          @if ($empreendimento->endereco)
-            {{ $empreendimento->endereco->cidade->nome }} -
-          @endif
-
-          @if ($empreendimento->endereco)
-            {{ $empreendimento->endereco->cidade->estado->nome }}
-          @endif
-        </span>
-        <br>
-        <h1 class="entry-title">
-          @if ($empreendimento->construtora)
-            {{ $empreendimento->construtora->nome_abreviado ?? $empreendimento->construtora->nome }}
-          @endif
-        </h1>
-      </div>
+    @if ($empreendimento->endereco)
+    <div class="endereco-empreendimento">
+        <i class="fa fa-map-marker" aria-hidden="true"></i> {{ $empreendimento->endereco->bairro->nome }},{{ $empreendimento->endereco->cidade->nome }} - {{ $empreendimento->endereco->cidade->estado->nome }}
     </div>
+    @endif
 
     @if($empreendimento->ofertasAtivas->count() > 0)
     <div class="info-oferta-site">
@@ -266,5 +250,8 @@
   </div>
   <!-- /Imovel Busca -->
 @endforeach
-
-@include('site/busca/mobile/paginacao')
+@if(isset($ocultarLinks))
+  <!-- -->
+@else
+    @include('site/busca/mobile/paginacao')
+@endif
