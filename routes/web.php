@@ -614,8 +614,6 @@ Route::get('user-restore/{id}', function ($id) {
 	$user->restore();
 });
 
-
-
 //Atualiza Resumo
 Route::get('resumo-estatistica/{tipo}/{mes}/{ano}', 'Admin\EstatisticaController@atualizaResumo');
 

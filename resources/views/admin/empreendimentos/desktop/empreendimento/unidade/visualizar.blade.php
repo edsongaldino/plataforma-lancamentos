@@ -13,7 +13,7 @@
 			Unidade {{ $entry->nome }}
 		</div>
 	</div>
-	
+
 	@if ($entry->empreendimento->tipo == 'Horizontal')
 		<div class="form-group">
 			<div class="row">
@@ -23,7 +23,7 @@
 						<span class="input-group-addon">
 							<i class="fa fa-building-o" aria-hidden="true"></i>
 						</span>
-						<input type="text" name="nome" class="form-control" @if (isset($entry))value="{{ $entry->nome }}"@endif readonly>		
+						<input type="text" name="nome" class="form-control" @if (isset($entry))value="{{ $entry->nome }}"@endif readonly>
 					</div>
 				</div>
 				<div class="col-md-5" style="margin-left: -16px">
@@ -32,7 +32,7 @@
 						<span class="input-group-addon valor">
 							<i class="fa fa-map" aria-hidden="true"></i>
 						</span>
-						<input type="text" name="metragem_total" id="metragem_total" class="form-control moeda2" @if (isset($entry) && $entry->caracteristicas->where('nome', 'metragem_total')->first())value="{{ converte_valor_real($entry->caracteristicas->where('nome', 'metragem_total')->first()->pivot->valor) }}"@endif readonly>		
+						<input type="text" name="metragem_total" id="metragem_total" class="form-control moeda2" @if (isset($entry) && $entry->caracteristicas->where('nome', 'metragem_total')->first())value="{{ converte_valor_real($entry->caracteristicas->where('nome', 'metragem_total')->first()->pivot->valor) }}"@endif readonly>
 					</div>
 				</div>
 				<div class="col-md-4" style="margin-left: -16px">
@@ -41,11 +41,11 @@
 						<span class="input-group-addon valor">
 							<i class="fa fa-dollar" aria-hidden="true"></i>
 						</span>
-						<input type="text" name="valor_m2" id="valor_m2" class="form-control moeda2" @if (isset($entry) && $entry->caracteristicas->where('nome', 'valor_m2')->first())value="{{ converte_valor_real($entry->caracteristicas->where('nome', 'valor_m2')->first()->pivot->valor) }}"@endif readonly>		
+						<input type="text" name="valor_m2" id="valor_m2" class="form-control moeda2" @if (isset($entry) && $entry->caracteristicas->where('nome', 'valor_m2')->first())value="{{ converte_valor_real($entry->caracteristicas->where('nome', 'valor_m2')->first()->pivot->valor) }}"@endif readonly>
 					</div>
-				</div>			
+				</div>
 			</div>
-			
+
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
@@ -54,7 +54,7 @@
 							<span class="input-group-addon valor">
 								<i class="fa fa-dollar" aria-hidden="true"></i>
 							</span>
-							<input type="text" name="valor_unidade" id="valor_unidade" class="form-control moeda valor-unidade" 
+							<input type="text" name="valor_unidade" id="valor_unidade" class="form-control moeda valor-unidade"
 							@if ($entry->caracteristicas->where('nome', 'valor_unidade')->first() && $entry->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '' && $entry->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor <> '0')
 								value="{{ converte_valor_real($entry->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor) }}"
 							@else
@@ -67,7 +67,7 @@
 								@else
 								value="0,00"
 								@endif
-							@endif readonly>		
+							@endif readonly>
 						</div>
 					</div>
 				</div>
@@ -82,11 +82,11 @@
 				<span class="input-group-addon">
 					<i class="fa fa-building-o" aria-hidden="true"></i>
 				</span>
-				<input type="text" name="nome" class="form-control" @if (isset($entry))value="{{ $entry->nome }}"@endif readonly>		
+				<input type="text" name="nome" class="form-control" @if (isset($entry))value="{{ $entry->nome }}"@endif readonly>
 			</div>
 		</div>
 		</div>
-		
+
 		<div class="col-md-6">
 		<div class="form-group">
 			<label class="">Valor da Unidade</label>
@@ -94,7 +94,7 @@
 				<span class="input-group-addon valor">
 					<i class="fa fa-dollar" aria-hidden="true"></i>
 				</span>
-				<input type="text" name="valor_unidade" class="form-control moeda valor-unidade" @if (isset($entry) && $entry->caracteristicas->where('nome', 'valor_unidade')->first())value="{{ converte_valor_real($entry->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor) }}"@endif readonly>		
+				<input type="text" name="valor_unidade" class="form-control moeda valor-unidade" @if (isset($entry) && $entry->caracteristicas->where('nome', 'valor_unidade')->first())value="{{ converte_valor_real($entry->caracteristicas->where('nome', 'valor_unidade')->first()->pivot->valor) }}"@endif readonly>
 			</div>
 		</div>
 		</div>
@@ -111,7 +111,7 @@
 					<span class="input-group-addon">
 						<i class="fa fa-car" aria-hidden="true"></i>
 					</span>
-					<input type="number" min="1" name="vagas_garagem" class="form-control" @if (isset($entry) && $entry->caracteristicas->where('nome', 'vagas_garagem')->first())value="{{ $entry->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor }}"@endif readonly>		
+					<input type="number" min="1" name="vagas_garagem" class="form-control" @if (isset($entry) && $entry->caracteristicas->where('nome', 'vagas_garagem')->first())value="{{ $entry->caracteristicas->where('nome', 'vagas_garagem')->first()->pivot->valor }}"@endif readonly>
 				</div>
 			</div>
 		</div>
@@ -119,37 +119,37 @@
 		<div class="col-md-4">
 			<div class="form-group">
 				<label class="">Posição da Unidade</label>
-		
+
 				<div class="input-group btn-group">
 					<span class="input-group-addon">
 						<i class="fa fa-building-o" aria-hidden="true" rel="tooltip" data-original-title="Posicionamento da Unidade na Torre"></i>
 					</span>
 					<select name="posicao_unidade_torre" class="form-control" disabled>
 						<option value="">Selecione</option>
-						<option 
+						<option
 							@if($entry->caracteristicas->where('nome', 'posicao_unidade_torre')->first())
-								@if ($entry->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor == 'Frente') 	selected="true" 
-								@endif 
-							@endif 
+								@if ($entry->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor == 'Frente') 	selected="true"
+								@endif
+							@endif
 							value="Frente">Frente
 						</option>
-						<option 
+						<option
 							@if($entry->caracteristicas->where('nome', 'posicao_unidade_torre')->first())
-								@if ($entry->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor == 'Fundo') 	selected="true" 
-								@endif 
-							@endif 
+								@if ($entry->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor == 'Fundo') 	selected="true"
+								@endif
+							@endif
 							value="Fundo">Fundo
 						</option>
-						<option 
+						<option
 							@if($entry->caracteristicas->where('nome', 'posicao_unidade_torre')->first())
-								@if ($entry->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor == 'Lateral') 	selected="true" 
-								@endif 
-							@endif 
+								@if ($entry->caracteristicas->where('nome', 'posicao_unidade_torre')->first()->pivot->valor == 'Lateral') 	selected="true"
+								@endif
+							@endif
 							value="Lateral">Lateral
 						</option>
 					</select>
 				</div>
-		
+
 			</div>
 		</div>
 
@@ -162,19 +162,33 @@
 					</span>
 					<select name="tipo_sol" class="form-control" disabled>
 						<option value="">Selecione</option>
-						<option 
+						<option
 							@if($entry->caracteristicas->where('nome', 'tipo_sol')->first())
-								@if ($entry->caracteristicas->where('nome', 'tipo_sol')->first()->pivot->valor == 'Nascente') 	selected="true" 
-								@endif 
-							@endif 
-							value="Nascente">Nascente
+								@if ($entry->caracteristicas->where('nome', 'tipo_sol')->first()->pivot->valor == 'Manhã') 	selected="true"
+								@endif
+							@endif
+							value="Manhã">Manhã
 						</option>
-						<option 
+                        <option
 							@if($entry->caracteristicas->where('nome', 'tipo_sol')->first())
-								@if ($entry->caracteristicas->where('nome', 'tipo_sol')->first()->pivot->valor == 'Poente') 	selected="true" 
-								@endif 
-							@endif 
-							value="Poente">Poente
+								@if ($entry->caracteristicas->where('nome', 'tipo_sol')->first()->pivot->valor == 'Parcial da Manhã') 	selected="true"
+								@endif
+							@endif
+							value="Parcial da Manhã">Parcial da Manhã
+						</option>
+						<option
+							@if($entry->caracteristicas->where('nome', 'tipo_sol')->first())
+								@if ($entry->caracteristicas->where('nome', 'tipo_sol')->first()->pivot->valor == 'Tarde') 	selected="true"
+								@endif
+							@endif
+							value="Tarde">Tarde
+						</option>
+                        <option
+							@if($entry->caracteristicas->where('nome', 'tipo_sol')->first())
+								@if ($entry->caracteristicas->where('nome', 'tipo_sol')->first()->pivot->valor == 'Parcial da Tarde') 	selected="true"
+								@endif
+							@endif
+							value="Parcial da Tarde">Parcial da Tarde
 						</option>
 					</select>
 				</div>
@@ -199,7 +213,7 @@
 						@endforeach
 					</select>
 				</div>
-			</div>	
+			</div>
 		</div>
 
 		<div class="col-md-6">
@@ -219,17 +233,17 @@
 				</div>
 			</div>
 		</div>
-		
+
 	</div>
 
 </form>
 
 <script type="text/javascript">
-	$(function () {		
+	$(function () {
 	  	$('.date').mask('00/00/0000');
 	  	$('.moeda').maskMoney({thousands: '.', decimal: ','});
 	  	$('.moeda2').maskMoney({thousands: '', decimal: '.'});
-	  	
+
 		$('#formAlterarSituacao').on('submit', function (e) {
 			e.preventDefault();
 
@@ -265,7 +279,7 @@
 
 		});
 
-		
+
 		/*$('input[name=metragem_total]').on('blur', function () {
 
 			var metragem_total = $(this).val();

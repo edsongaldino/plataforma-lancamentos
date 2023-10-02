@@ -267,7 +267,7 @@
 
                         @php
                           $tipo_sol = 'SP';
-                          if ($proposta->unidade->getCaracteristica('tipo_sol') == 'Nascente') {
+                          if ($proposta->unidade->getCaracteristica('tipo_sol') == 'Manhã' || $proposta->unidade->getCaracteristica('tipo_sol') == 'Parcial da Manhã') {
                             $tipo_sol = 'SN';
                           }
                         @endphp

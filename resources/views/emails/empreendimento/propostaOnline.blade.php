@@ -166,8 +166,8 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="5" align="left" class="inner" id="banner4" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
                         <tr>
                           <td colspan="5" align="center" bgcolor="#00B2B2"><span style="font:bold 22px Arial, Helvetica, sans-serif; color:#FFF; font-family: Arial, Helvetica, sans-serif; font-size: 22px">{{ $proposta->empreendimento->nome }}</span></td>
-                        </tr>                        
-                        @if($proposta->empreendimento->subtipo->id == 3 
+                        </tr>
+                        @if($proposta->empreendimento->subtipo->id == 3
                           || $proposta->empreendimento->subtipo->id == 4)
                           <tr>
                             <td colspan="5" align="center" bgcolor="#FFFFFF">
@@ -185,8 +185,8 @@
                               {{ $proposta->unidade->quadra->nome }} - Unidade {{ $proposta->unidade->nome }}
                             </td>
                           </tr>
-                        @if($proposta->empreendimento->getCaracteristica('tipo_condominio') == 'Lotes' 
-                          || $proposta->empreendimento->subtipo->id == 6 
+                        @if($proposta->empreendimento->getCaracteristica('tipo_condominio') == 'Lotes'
+                          || $proposta->empreendimento->subtipo->id == 6
                           || $proposta->empreendimento->subtipo->id == 10)
                           <tr>
                             <td height="20" align="center" bgcolor="#FFFFFF">
@@ -202,11 +202,11 @@
                             </td>
                             <td width="15%" bgcolor="#FFFFFF"><span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">Metragem:</span></td>
                             <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
-                              De {{ $proposta->empreendimento->getCaracteristica("area_unidade_min") }} 
+                              De {{ $proposta->empreendimento->getCaracteristica("area_unidade_min") }}
                               à {{ $proposta->empreendimento->getCaracteristica("area_unidade_max") }}m²
                             </td>
                           </tr>
-                        @else                                              
+                        @else
                           <tr>
                             <td height="20" align="center" bgcolor="#FFFFFF">
                               <span class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;"><img src="https://www.lancamentosonline.com.br/site/ferramenta/templates_email/images/icon-planta.png" alt="" width="30" height="30"></span>
@@ -220,7 +220,7 @@
                             <td width="15%" bgcolor="#FFFFFF">
                               <span class="smallfont" style="font:600 14px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">Metragem:</span>
                             </td>
-                            <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">                              
+                            <td width="26%" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                               {{ $proposta->empreendimento->getCaracteristica('area_privativa_real', 'minimo_planta') }}m²
                             </td>
                           </tr>
@@ -253,8 +253,8 @@
                           <td colspan="5" align="center" bgcolor="#FFFFFF">
                             @php
                               $tipo_sol = 'SP';
-                              if ($proposta->unidade->getCaracteristica('tipo_sol') == 'Nascente') {
-                                $tipo_sol = 'SN';                              
+                              if ($proposta->unidade->getCaracteristica('tipo_sol') == 'Manhã' || $proposta->unidade->getCaracteristica('tipo_sol') == 'Parcial da Manhã') {
+                                $tipo_sol = 'SN';
                               }
                             @endphp
                             <img src="https://www.domusapp.com.br/sistema/imagem/icone/icone_{{ $tipo_sol }}.png" title="Sol {{ $proposta->unidade->getCaracteristica('tipo_sol') }}" width="120" height="60">
@@ -268,7 +268,7 @@
                             Unidade:
                           </td>
                           <td colspan="3" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
-                            {{ $proposta->unidade->torre->nome }} - {{ $proposta->unidade->andar->numero }}º Andar, Unidade {{ $proposta->unidade->nome }}                            
+                            {{ $proposta->unidade->torre->nome }} - {{ $proposta->unidade->andar->numero }}º Andar, Unidade {{ $proposta->unidade->nome }}
                           </td>
                         </tr>
                         <tr>
@@ -320,9 +320,9 @@
                               {{ $proposta->empreendimento->getCaracteristica('minimo_suites', 'minimo_planta') }}
                             </span>
                           </td>
-                        </tr>                        
+                        </tr>
                       @endif
-                        
+
                       <tr>
                         <td height="20" align="center" bgcolor="#FFFFFF">
                           <span class="smallfont" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#16c4a9;">
@@ -390,7 +390,7 @@
                       CPF:
                     </span>
                   </td>
-                  <td width="31%" height="20" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">                    
+                  <td width="31%" height="20" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                     {{ $proposta->cliente->cpf }}
                   </td>
                   <td width="15%" bgcolor="#FFFFFF">
@@ -413,7 +413,7 @@
                       Email:
                     </span>
                   </td>
-                  <td height="20" colspan="3" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">                    
+                  <td height="20" colspan="3" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                     {{ $proposta->cliente->email }}
                   </td>
                 </tr>
@@ -440,7 +440,7 @@
                     {{ $proposta->cliente->estado_civil }}
                   </td>
                 </tr>
-                
+
                 @if($proposta->cliente->estado_civil == 'Casado' || $proposta->cliente->estado_civil == 'União Estável' && $proposta->cliente->conjuge)
                   <tr>
                     <td height="20" align="center" bgcolor="#FFFFFF">
@@ -557,7 +557,7 @@
                         Percentual:
                       </span>
                     </td>
-                    <td width="29%" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">                  
+                    <td width="29%" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                       @if ($proposta->oferta->preco_oferta && $proposta->entrada_proposta)
                       {{ round(($proposta->getOriginal('entrada_proposta') / $proposta->oferta->getOriginal('preco_oferta')) * 100) }}%
                       @endif
@@ -592,7 +592,7 @@
                     </span>
                   </td>
                 </tr>
-                  @foreach($proposta->baloes as $balao)                    
+                  @foreach($proposta->baloes as $balao)
                     <tr>
                       <td height="10" align="left" bgcolor="#FFFFFF" style="font:600 16px Open Sans, Arial, Helvetica, sans-serif; color:#333;">
                         R$ {{ $balao->valor }}
