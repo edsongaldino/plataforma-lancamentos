@@ -20,9 +20,9 @@
   <meta property="og:image:width" content="1067">
   <meta property="og:image:height" content="600">
   <meta property="og:type" content="website">
-  
+
   <!-- Bootstrap 3.3.7 -->
-  @include('/site/empreendimento/mobile/mapa/mapa_css')  
+  @include('/site/empreendimento/mobile/mapa/mapa_css')
   <link href="/global/css/loader/index.css" rel="stylesheet">
   <link href="/site/mapa/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="/site/mapa/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet">
@@ -37,7 +37,7 @@
   src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"
   integrity="sha256-SOuLUArmo4YXtXONKz+uxIGSKneCJG4x0nVcA0pFzV0="
   crossorigin="anonymous"></script>
-  
+
   <link rel="stylesheet" href="/global/css/loader/index.css">
   <!-- ATUALIZADO -->
   <script type="text/javascript" src="/site/mapa/fancybox/source/jquery.fancybox.pack.js?v=2.1.7"></script>
@@ -45,13 +45,13 @@
     .fancybox-custom .fancybox-skin {
         box-shadow: 0 0 50px #222;
     }
-    
+
     .modal-center {
       top: 50% !important;
       transform: translateY(-50%) !important;
     }
 
-    #tela {    
+    #tela {
         z-index: 1;
         position: absolute !important;
         top: 0 !important;
@@ -105,7 +105,7 @@
     }
 
     .marcador{
-        background-image: url("/site/images/pin-mapa-unidade.png"); 
+        background-image: url("/site/images/pin-mapa-unidade.png");
         background-repeat: no-repeat;
         width: 420px;
         height: 629px;
@@ -113,14 +113,14 @@
         text-align: center;
         font-weight: bold;
         cursor: pointer;
-        z-index: 3;   
+        z-index: 3;
       }
 
       .info-mapa-move{
         width: 100px;
         height: 100px;
         position: absolute;
-        top: 50px;
+        top: 120px;
         left: 10px;
         background-color: #00698C;
       }
@@ -132,8 +132,8 @@
   </head>
 
   <body>
-  
-  
+
+
   @if($view <> "pdf")
     <div class="spinner-loading" id="loader"></div>
     <a href="/empreendimento/{{ $empreendimento->id }}/visualizar/download-pdf" target="_blank"><button id="btGerarPDF" class="btn-gerar-pdf"></button></a>
@@ -143,11 +143,11 @@
         <div class="btn-copiar js-textareacopybtn-wp"></div>
     </div>
   @endif
-  
+
   <div id="tela">
 
     @if(isset($unidade))
-     
+
       @php
         $situacoes = [
           'Disponível' => 'd',
@@ -156,7 +156,7 @@
           'Bloqueada' => 'b',
           'Outros' => 'o'
         ];
-        
+
         $tipo_pne = "N";
         $title = "Unidade " . $unidade->nome;
         if($empreendimento->getCaracteristica('disponibilidade_mapa') == "N") {
@@ -172,56 +172,56 @@
         $css_tam = "gd";
         $metade_tam_unid = 30;
         $metade_tam_foto = 22;
-      
+
         if ($unidade->getCaracteristica("pne") == "Sim") {
           $tipo_pne = "S";
           $title = "Unidade PNE";
         }
-        
+
         if ($situacao_unidade == 'B') {
           $situacao_unidade = "s";
           $title = "Já existe uma solicitação de reserva desta unidade.";
         }
-        
+
         if ($empreendimento->getCaracteristica('tam_implantacao') == "pq") {
           $css_tam = "pq";
           $metade_tam_unid = 10;
-          $metade_tam_foto = 22;            
+          $metade_tam_foto = 22;
         }
-        
-        if ($empreendimento->getCaracteristica('tam_implantacao') == "md") { 
+
+        if ($empreendimento->getCaracteristica('tam_implantacao') == "md") {
           $css_tam = "md";
           $metade_tam_unid = 20;
-          $metade_tam_foto = 22;          
+          $metade_tam_foto = 22;
         }
-        
+
         $classeCss = "ponto_unidade ponto_unidade_sit_{$situacao_unidade} ponto_unidade_pne_{$tipo_pne}_{$css_tam} ponto_unidade_tam_{$css_tam}";
       @endphp
-    
-      <div 
-        data-idunidade="{{ $unidade->id }}" 
-        data-stunidade="{{ $situacao }}" 
-        class="{{ $classeCss }}" 
+
+      <div
+        data-idunidade="{{ $unidade->id }}"
+        data-stunidade="{{ $situacao }}"
+        class="{{ $classeCss }}"
         style="
-          top: {{ $unidade->coord_y - $metade_tam_unid }}px; 
-          left: {{ $unidade->coord_x - $metade_tam_unid }}px;" 
-          title="{{ $title }}">                    
+          top: {{ $unidade->coord_y - $metade_tam_unid }}px;
+          left: {{ $unidade->coord_x - $metade_tam_unid }}px;"
+          title="{{ $title }}">
           {{ $unidade->nome }}
-      </div>    
+      </div>
 
 
       @if($empreendimento->tipo == 'Horizontal')
       <div class="marcador" style="
-        top: calc({{ $unidade->coord_y - $metade_tam_unid }}px - 630px); 
+        top: calc({{ $unidade->coord_y - $metade_tam_unid }}px - 630px);
         left: calc({{ $unidade->coord_x - $metade_tam_unid }}px - 200px);">
       </div>
       @endif
 
-      
+
 
     @else
 
-    @foreach($empreendimento->unidades as $unidade)          
+    @foreach($empreendimento->unidades as $unidade)
       @php
         $situacoes = [
           'Disponível' => 'd',
@@ -230,7 +230,7 @@
           'Bloqueada' => 'b',
           'Outros' => 'o'
         ];
-        
+
         $tipo_pne = "N";
         $title = "Unidade " . $unidade->nome;
         if($empreendimento->getCaracteristica('disponibilidade_mapa') == "N") {
@@ -246,85 +246,85 @@
         $css_tam = "gd";
         $metade_tam_unid = 30;
         $metade_tam_foto = 22;
-      
+
         if ($unidade->getCaracteristica("pne") == "Sim") {
           $tipo_pne = "S";
           $title = "Unidade PNE";
         }
-        
+
         if ($situacao_unidade == 'B') {
           $situacao_unidade = "s";
           $title = "Já existe uma solicitação de reserva desta unidade.";
         }
-        
+
         if ($empreendimento->getCaracteristica('tam_implantacao') == "pq") {
           $css_tam = "pq";
           $metade_tam_unid = 10;
-          $metade_tam_foto = 22;            
+          $metade_tam_foto = 22;
         }
-        
-        if ($empreendimento->getCaracteristica('tam_implantacao') == "md") { 
+
+        if ($empreendimento->getCaracteristica('tam_implantacao') == "md") {
           $css_tam = "md";
           $metade_tam_unid = 20;
-          $metade_tam_foto = 22;          
+          $metade_tam_foto = 22;
         }
-        
+
         $classeCss = "ponto_unidade ponto_unidade_sit_{$situacao_unidade} ponto_unidade_pne_{$tipo_pne}_{$css_tam} ponto_unidade_tam_{$css_tam}";
       @endphp
-    
-      <div 
-        data-idunidade="{{ $unidade->id }}" 
-        data-stunidade="{{ $situacao }}" 
-        class="{{ $classeCss }}" 
+
+      <div
+        data-idunidade="{{ $unidade->id }}"
+        data-stunidade="{{ $situacao }}"
+        class="{{ $classeCss }}"
         style="
-          top: {{ $unidade->coord_y - $metade_tam_unid }}px; 
-          left: {{ $unidade->coord_x - $metade_tam_unid }}px;" 
-          title="{{ $title }}">                    
+          top: {{ $unidade->coord_y - $metade_tam_unid }}px;
+          left: {{ $unidade->coord_x - $metade_tam_unid }}px;"
+          title="{{ $title }}">
           {{ $unidade->nome }}
-      </div>    
+      </div>
 
       @php
         $fotos = $empreendimento->fotos->where('status', 'Liberada');
       @endphp
 
-      @foreach($fotos as $foto)      
-        <div class="ponto_foto" 
+      @foreach($fotos as $foto)
+        <div class="ponto_foto"
           style="
-            top: {{ $foto->coord_y - $metade_tam_foto}}px; 
+            top: {{ $foto->coord_y - $metade_tam_foto}}px;
             left: {{ $foto->coord_x - $metade_tam_foto}}px;">
           <a class="fancybox"
             @if ($foto->tipo_ponto == 'M')
-              data-fancybox-group="gallery{{ $foto->id }}" 
+              data-fancybox-group="gallery{{ $foto->id }}"
             @endif
 
             @if ($foto->tipo_ponto == 'I')
-              data-fancybox-group="map{{ $foto->id }}" 
+              data-fancybox-group="map{{ $foto->id }}"
             @endif
-            href="{{ $foto->getUrl('original') }}" 
+            href="{{ $foto->getUrl('original') }}"
             title="{{ $foto->descricao }}">
-            
+
             @if ($foto->tipo_ponto == 'M')
               <img src="/site/mapa/imagem/icone_mapa.png" title="{{ $foto->descricao }}" />
             @endif
-            
+
             @if ($foto->tipo_ponto == 'I')
               <img src="/site/mapa/imagem/icone_foto.png" title="{{ $foto->descricao }}" />
             @endif
           </a>
-        </div>      
+        </div>
       @endforeach
     @endforeach
 
     @endif
     <img id="mapa_fundo" src="{{ $empreendimento->getFotoTipo('Implantação') }}"/>
-  </div>  
-    
+  </div>
+
   <div class="modal fade" id="modal_detalhes" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-md modal-center">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Situação</h4>
-          <button tipo="button" class="close fechar-modal" data-dismiss="modal" aria-hidden="true">&times;</button> 
+          <button tipo="button" class="close fechar-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
         </div>
         <div class="modal-body">
           <div class="panel panel-default sem_margin_bottom">
@@ -359,7 +359,7 @@
   <script src="/assets/javascripts/maps/bootstrap.min.js"></script>
   <script src="/global/js/loader/index.js"></script>
   <script src="/global/js/ajax/index.js"></script>
-  <script src="/site/js/empreendimento/mapaMobile.js"></script>  
+  <script src="/site/js/empreendimento/mapaMobile.js"></script>
   <script language="JavaScript">
       var copyTextareaBtn = document.querySelector('.js-textareacopybtn-wp');
 
@@ -391,11 +391,11 @@
                     buttons : {}
                 }
             });
-            
-        
+
+
         $('.fancybox').fancybox();
     });
-    
+
     $(document).ready(function() {
         $(".various").fancybox({
             maxWidth  : 610,
@@ -409,7 +409,7 @@
             closeEffect : 'none'
         });
     });
-    
+
     $(document).ready(function() {
     $(".fancybox-thumb").fancybox({
         prevEffect  : 'none',
@@ -464,7 +464,7 @@
   src="https://code.jquery.com/jquery-1.12.0.min.js"
   integrity="sha256-Xxq2X+KtazgaGuA2cWR1v3jJsuMJUozyIXDB3e793L8="
   crossorigin="anonymous"></script>
-  
+
   <style>
       body{
         background: #FFF;
@@ -550,7 +550,7 @@
       @media screen and (min-height: 480px) {
         .conteudo-mapa{
             width: 100%;
-            height: 480px;
+            height: 100vh;
             float: left;
             margin-top: 80px;
         }
@@ -559,7 +559,7 @@
       @media screen and (min-height: 800px) {
         .conteudo-mapa{
             width: 100%;
-            height: 700px;
+            height: 100vh;
             float: left;
             margin-top: 80px;
         }
@@ -568,7 +568,7 @@
       @media screen and (min-height: 1280px) {
         .conteudo-mapa{
             width: 100%;
-            height: 1180px;
+            height: 100vh;
             float: left;
             margin-top: 80px;
         }
@@ -577,12 +577,12 @@
       @media screen and (min-height: 1920px) {
         .conteudo-mapa{
             width: 100%;
-            height: 1800px;
+            height: 100vh;
             float: left;
             margin-top: 80px;
         }
       }
-      
+
       .botoes-mapa{
 
         width: 100%;
@@ -646,7 +646,7 @@
         float: left;
         background-color: #0a6dad;
       }
-      
+
       .footer .topo .mostrar{
         width: 40%;
         height: 40px;
@@ -702,7 +702,7 @@
     <div class="topo-mapa">
       <div class="logo-empreendimento"><img src="{{ url($empreendimento->getLogo()) }}" alt="" width="125" height="95"></div>
       <div class="entrega">
-        @php 
+        @php
           $previsao = get_previsao_entrega($empreendimento);
         @endphp
 
@@ -720,15 +720,15 @@
       </div>
 
       <div class="botao-mapa-pdf">
-        <a href="/empreendimento/{{ $empreendimento->id }}/visualizar/download-pdf" target="_blank"><div class="botao-ver-completo"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> VER MAPA COMPLETO </div></a> 
+        <a href="/empreendimento/{{ $empreendimento->id }}/visualizar/download-pdf" target="_blank"><div class="botao-ver-completo"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> VER MAPA COMPLETO </div></a>
       </div>
 
     </div>
-    
+
     <div class="info-mapa-move"></div>
-    
+
     <iframe class="conteudo-mapa" id="iframe" src="https://www.lancamentosonline.com.br/empreendimento/{{ $empreendimento->id }}/{{ $empreendimento->id*37 }}/visualizar-mapa/mobile" frameborder="0"></iframe>
-    
+
     @if($view == "user")
       <div class="footer">
         <div class="topo">
@@ -765,7 +765,7 @@
             <div class="ligar"><img src="../../../../assets/images/icone-phone-off.png" alt=""></div>
             @endif
         </div>
-        
+
       </div>
 
     @elseif($view == "construtora")
@@ -814,7 +814,7 @@
             <div class="ligar"><img src="../../../../assets/images/icone-phone-off.png" alt=""></div>
             @endif
         </div>
-        
+
       </div>
     @else
       <div class="footer-corretor">&copy;<script>document.write(new Date().getFullYear());</script> Portal Lançamentos Online</div>
@@ -825,12 +825,12 @@
           $('#showContato').click(function() {
               $('.contato-construtora').slideToggle("slow");
               $(".mostrar").css("display", "none");
-              $('.ocultar').css("display", "block");           
+              $('.ocultar').css("display", "block");
           });
           $('#ocultarContato').click(function() {
               $('.contato-construtora').slideToggle("slow");
               $(".mostrar").css("display", "block");
-              $('.ocultar').css("display", "none"); 
+              $('.ocultar').css("display", "none");
           });
       });
     </script>
