@@ -4,7 +4,7 @@
 	</div>
 	<div class="form-group">
 		<label class="">Título</label>
-		<input type="text" name="nome" class="form-control" value="{{ $entry->nome }}">		
+		<input type="text" name="nome" class="form-control" value="{{ $entry->nome }}">
 	</div>
 	<div class="form-group">
 		<label class="">Descrição</label>
@@ -45,7 +45,7 @@
 					    $('#alterarFoto').modal('toggle');
 					    new PNotify({
 					      text: response.mensagem,
-					      type: 'success',                    
+					      type: 'success',
 					    });
 
 					    setTimeout(function () {
@@ -54,7 +54,7 @@
 					} else {
 					    new PNotify({
 					      text: response.mensagem,
-					      type: 'error',                    
+					      type: 'error',
 					    });
 					}
 				}
