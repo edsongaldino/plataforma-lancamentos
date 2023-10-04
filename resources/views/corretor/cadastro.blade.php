@@ -49,6 +49,7 @@
                     });
             </script>
             <!-- //swipe box js -->
+            <link href="{{ asset('assets/sweetalert/dist/sweetalert.css') }}" rel="stylesheet" type="text/css" />
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     </head>
@@ -79,6 +80,8 @@
                     <input type="text" class="form-control" name="cpf" id="cpf" placeholder="" onblur="$(this).mask('000.000.000-00')" onkeypress="$(this).mask('000.000.000-00')" required>
                     <label for="nome_usuario">NOME COMPLETO</label>
                     <input type="text" class="form-control" name="nome" id="nome" placeholder="" required>
+                    <label for="cpf_usuario">CRECI</label>
+                    <input type="text" class="form-control" name="creci" id="creci" placeholder=""  required>
                     <label for="nome_usuario">DATA DE NASCIMENTO</label>
                     <input type="text" class="form-control" name="data_nascimento" id="data_nascimento" onblur="$(this).mask('00/00/0000')" onkeypress="$(this).mask('00/00/0000')" placeholder="" required>
                     <label for="nome_usuario">TELEFONE</label>
@@ -97,5 +100,6 @@
     </div>
 <script src="{{ asset('corretor/app-assets/js/jquery.nicescroll.js') }}"></script>
 <script src="{{ asset('corretor/app-assets/js/scripts.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/sweetalert/dist/sweetalert.js') }}" ></script>
 </body>
 </html>

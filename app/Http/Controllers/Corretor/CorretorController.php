@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Corretor;
 
-use App\Corretor;
+use App\Models\Corretor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -39,7 +39,31 @@ class CorretorController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        if($this->verificaDuplicidade('email', $request->email)){
+            return redirect()->back()->with('warning', 'Este e-mail ja está cadastrado! Verifique.');
+        }
+
+        if($this->verificaDuplicidade('cpf', limpa_campo($request->cpf))){
+            return redirect()->back()->with('warning', 'Este CPF ja está cadastrado! Verifique.');
+        }
+
+        if($request->senha <> $request->confirmar_senha){
+            return redirect()->back()->with('warning', 'A senha e a confirmação precisam ser iguais.');
+        }
+
+        $Corretor = new Corretor();
+        $Corretor->cpf = limpa_campo($request->cpf);
+        $Corretor->nome = $request->nome;
+        $Corretor->creci = $request->creci;
+        $Corretor->email = $request->email;
+        $Corretor->data_nascimento = data_mysql($request->data_nascimento);
+        $Corretor->telefone = limpa_campo($request->telefone);
+        $Corretor->password = Hash::make($request->senha);
+        $Corretor->save();
+
+        $user = (new UserController())->store($request);
+
+        return redirect()->route('login', compact('Corretor'))->with('success', 'Dados Cadastrados! Faça seu login.');
     }
 
     /**
@@ -107,5 +131,16 @@ class CorretorController extends Controller
     public function destroy(Corretor $corretor)
     {
         //
+    }
+
+    public function verificaDuplicidade($campo, $valor){
+
+        $Corretor = Corretor::where($campo, $valor)->first();
+
+        if(isset($Corretor)){
+            return $Corretor;
+        }else{
+            return false;
+        }
     }
 }

@@ -16,11 +16,11 @@ class CreateCorretorsTable extends Migration
         Schema::create('corretor', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');
-            $table->string('cnpj');
+            $table->string('cpf');
+            $table->date('data_nascimento');
             $table->string('creci');
             $table->string('email');
             $table->string('telefone');
-            $table->string('whatsapp');
             $table->string('password');
             $table->string('foto');
             $table->timestamps();
@@ -34,6 +34,6 @@ class CreateCorretorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('corretors');
+        Schema::dropIfExists('corretor');
     }
 }

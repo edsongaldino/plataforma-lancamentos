@@ -14,9 +14,11 @@
 // Rotas de login
 
 use App\Models\Empreendimento;
+use App\Models\Unidade;
 use App\Models\User;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 
 Route::group(
 [
@@ -633,6 +635,22 @@ Route::get('reenviar-leads', 'Admin\LeadController@ReenviarLeads');
 Route::get('/clear-cache', function() {
     Artisan::call('cache:clear');
     return "Cache is cleared";
+});
+
+Route::get('/atualizar-caracteristicas', function() {
+    $unidades = Unidade::where('empreendimento_id', 343)->get();
+
+    foreach($unidades as $unidade){
+
+        DB::table('caracteristicas_unidades')->insert([
+            ['caracteristica_id' => 588, 'unidade_id' => $unidade->id, 'valor' => '13,00'],
+            ['caracteristica_id' => 589, 'unidade_id' => $unidade->id, 'valor' => '13,00'],
+            ['caracteristica_id' => 590, 'unidade_id' => $unidade->id, 'valor' => '30,00'],
+            ['caracteristica_id' => 591, 'unidade_id' => $unidade->id, 'valor' => '30,00']
+        ]);
+
+    }
+
 });
 
 /*SITE 2023*/

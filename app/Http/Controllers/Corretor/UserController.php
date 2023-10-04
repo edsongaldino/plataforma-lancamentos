@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -39,25 +40,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        if($this->verificaDuplicidade('email', $request->email)){
-            return redirect()->back()->with('warning', 'Este e-mail ja está cadastrado! Verifique.');
-        }
-
-        if($this->verificaDuplicidade('cpf', Helper::limpa_campo($request->cpf))){
-            return redirect()->back()->with('warning', 'Este CPF ja está cadastrado! Verifique.');
-        }
-
         $User = new User();
-        $User->perfil_id = 2;
-        $User->cpf = Helper::limpa_campo($request->cpf);
-        $User->nome = $request->nome;
+        $User->cpf = limpa_campo($request->cpf);
+        $User->name = $request->nome;
         $User->email = $request->email;
-        $User->data_nascimento = Helper::data_mysql($request->data_nascimento);
-        $User->telefone = Helper::limpa_campo($request->telefone);
+        $User->data_nascimento = data_mysql($request->data_nascimento);
+        $User->whatsapp = limpa_campo($request->telefone);
         $User->password = Hash::make($request->senha);
         $User->save();
 
-        return redirect()->route('login', compact('User'))->with('success', 'Dados Cadastrados! Faça seu login.');
+        return $User;
+
     }
 
     /**

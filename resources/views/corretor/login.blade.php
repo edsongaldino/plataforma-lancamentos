@@ -35,13 +35,14 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('corretor/app-assets/vendor/animate/animate.css') }}">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('corretor/app-assets/vendor/css-hamburgers/hamburgers.min.css') }}">
-    <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('corretor/app-assets/vendor/select2/select2.min.css') }}">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('corretor/app-assets/css/util.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('corretor/app-assets/css/main.css') }}">
     <!--===============================================================================================-->
+
+    <link href="{{ asset('assets/sweetalert/dist/sweetalert.css') }}" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
 
@@ -107,12 +108,14 @@
 <!--===============================================================================================-->
 <script src="{{ asset('corretor/app-assets/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
 <!--===============================================================================================-->
-<script src="{{ asset('corretor/app-assets/vendor/bootstrap/js/popper.js') }}"></script>
+
 <script src="{{ asset('corretor/app-assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 <!--===============================================================================================-->
 <script src="{{ asset('corretor/app-assets/vendor/select2/select2.min.js') }}"></script>
 <!--===============================================================================================-->
 <script src="{{ asset('corretor/app-assets/js/main.js') }}"></script>
+
+<script type="text/javascript" src="{{ asset('assets/sweetalert/dist/sweetalert.js') }}" ></script>
 
 </body>
 </html>
