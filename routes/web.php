@@ -653,6 +653,20 @@ Route::get('/atualizar-caracteristicas', function() {
 
 });
 
+Route::get('/deleta-caracteristicas', function() {
+    $unidades = Unidade::where('empreendimento_id', 343)->get();
+
+    foreach($unidades as $unidade){
+
+		DB::table('caracteristicas_unidades')->where('caracteristica_id',588)->where('unidade_id',$unidade->id)->delete();
+		DB::table('caracteristicas_unidades')->where('caracteristica_id',589)->where('unidade_id',$unidade->id)->delete();
+		DB::table('caracteristicas_unidades')->where('caracteristica_id',590)->where('unidade_id',$unidade->id)->delete();
+		DB::table('caracteristicas_unidades')->where('caracteristica_id',591)->where('unidade_id',$unidade->id)->delete();
+
+    }
+
+});
+
 /*SITE 2023*/
 Route::get('busca-mapa.html', 'Site\HomeController@BuscaMapa');
 
