@@ -637,24 +637,36 @@ Route::get('/clear-cache', function() {
     return "Cache is cleared";
 });
 
-Route::get('/atualizar-caracteristicas', function() {
-    $unidades = Unidade::where('empreendimento_id', 343)->get();
+Route::get('/atualizar-caracteristicas/{id}', function($id) {
+    $unidades = Unidade::where('empreendimento_id', $id)->get();
 
     foreach($unidades as $unidade){
 
-        DB::table('caracteristicas_unidades')->insert([
-            ['caracteristica_id' => 588, 'unidade_id' => $unidade->id, 'valor' => '13,00'],
-            ['caracteristica_id' => 589, 'unidade_id' => $unidade->id, 'valor' => '13,00'],
-            ['caracteristica_id' => 590, 'unidade_id' => $unidade->id, 'valor' => '30,00'],
-            ['caracteristica_id' => 591, 'unidade_id' => $unidade->id, 'valor' => '30,00']
-        ]);
+		if($id == 337){
+			DB::table('caracteristicas_unidades')->insert([
+				['caracteristica_id' => 588, 'unidade_id' => $unidade->id, 'valor' => '10,00'],
+				['caracteristica_id' => 589, 'unidade_id' => $unidade->id, 'valor' => '10,00'],
+				['caracteristica_id' => 590, 'unidade_id' => $unidade->id, 'valor' => '22,79'],
+				['caracteristica_id' => 591, 'unidade_id' => $unidade->id, 'valor' => '22,79']
+			]);
+		}
+
+		if($id == 343){
+			DB::table('caracteristicas_unidades')->insert([
+				['caracteristica_id' => 588, 'unidade_id' => $unidade->id, 'valor' => '12,00'],
+				['caracteristica_id' => 589, 'unidade_id' => $unidade->id, 'valor' => '12,00'],
+				['caracteristica_id' => 590, 'unidade_id' => $unidade->id, 'valor' => '25,00'],
+				['caracteristica_id' => 591, 'unidade_id' => $unidade->id, 'valor' => '25,00']
+			]);
+		}
+
 
     }
 
 });
 
-Route::get('/deleta-caracteristicas', function() {
-    $unidades = Unidade::where('empreendimento_id', 343)->get();
+Route::get('/deleta-caracteristicas/{id}', function($id) {
+    $unidades = Unidade::where('empreendimento_id', $id)->get();
 
     foreach($unidades as $unidade){
 
