@@ -114,6 +114,10 @@ Route::group(['middleware' => ['site']], function () {
 	Route::post('/carregar-oferta', 'Site\EmpreendimentoController@oferta');
 	Route::post('/enviar-proposta', 'Site\EmpreendimentoController@enviarProposta');
 	Route::post('/unidade/mapa', 'Site\EmpreendimentoController@unidadeMapa');
+    Route::post('/unidade/dimensao-lote', 'Site\EmpreendimentoController@dimensaoLote');
+
+
+
 
 	Route::get('/unidade/mapa/{id}', 'Site\EmpreendimentoController@GetunidadeMapa');
 
@@ -659,7 +663,6 @@ Route::get('/atualizar-caracteristicas/{id}', function($id) {
 				['caracteristica_id' => 591, 'unidade_id' => $unidade->id, 'valor' => '25,00']
 			]);
 		}
-
 
     }
 

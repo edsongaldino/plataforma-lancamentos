@@ -14,7 +14,7 @@
           </div>
       </div>
       <div class="lote">
-          <div class="titulo">Terreno</div>
+          <div class="titulo">Terreno <a href="#" class="DimensoesLote" data-idunidade="{{ $unidade->id }}"><i class="fa fa-info-circle" aria-hidden="true"></i></a></div>
           <div class="valor">
             {{ $unidade->getCaracteristica('metragem_total') ?? '' }}m²
           </div>
@@ -160,3 +160,23 @@
     <div class="info">*Valores e disponibilidade podem sofrer alterações sem aviso prévio.</div>
   </div>
 </div>
+
+
+<script>
+    $(".DimensoesLote").click(function (e) {
+
+        ajaxRequest({
+        url: '/unidade/dimensao-lote',
+        metodo: 'POST',
+        dados: {
+            unidade: $(this).attr("data-idunidade"),
+            ocultar: 'N'
+        },
+        feedback: false,
+        resultado: '#box_tamanho_lote'
+        });
+
+        $("#modalTamanhoLote").modal("show");
+
+    });
+</script>

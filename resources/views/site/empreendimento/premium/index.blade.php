@@ -208,7 +208,7 @@
             @endif
 
             @if ($empreendimento->tipo == 'Horizontal' && $empreendimento->getFotoTipo('Implantação') && $empreendimento->unidades->count() > 0)
-            <a href="{{ URL::to('/') }}/empreendimento/{{ $empreendimento->id }}/{{ $empreendimento->id*37 }}/visualizar-mapa/construtora" target="_blank"><div class="vagas-disponiveis"><i class="fa fa-check" aria-hidden="true"></i> Mapa de Vendas</div></a>
+            <a href="{{ URL::to('/') }}/empreendimento/{{ $empreendimento->id }}/{{ $empreendimento->id*37 }}/visualizar-mapa/construtora" target="_blank"><div class="vagas-disponiveis"><i class="fa fa-check" aria-hidden="true"></i> Mapa do Empreendimento</div></a>
             @endif
 
             @if ($empreendimento->getFotoTipo('Mapa de Vagas') && $empreendimento->garagens->count() > 0)

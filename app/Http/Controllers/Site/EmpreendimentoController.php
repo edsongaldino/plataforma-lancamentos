@@ -274,6 +274,12 @@ class EmpreendimentoController extends Controller
         return view('site.empreendimento.desktop.unidade_mapa', $this->data);
     }
 
+    public function dimensaoLote(Request $request)
+    {
+        $unidade = Unidade::find($request->unidade);
+        return view('site.empreendimento.desktop.dimensao_lote', compact('unidade'));
+    }
+
     public function GetunidadeMapa($id)
     {
         $this->data['unidade'] = Unidade::find($id);
