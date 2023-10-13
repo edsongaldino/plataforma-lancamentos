@@ -1,7 +1,18 @@
 <div id="openModal" class="modalDialog">
     <div class="modalAtendimento">
       <a href="#close" title="Close" class="close">X</a>
-      <div class="icone-chat-modal"><img src="/assets/images/chat-online.png" alt="" class="img-responsive"></div>
+
+      @if(isset($viewCorretor))
+
+        @if(Session::get('usuario.foto') <> null)
+            <div class="icone-chat-modal"><img src="{{ url('corretor/usuario/'.Session::get('usuario.id').'/foto') }}" alt="" class="img-responsive foto-user"></div>
+        @else
+            <div class="icone-chat-modal"><img src="{{ asset('corretor/app-assets/images/userFoto.png') }}" alt="" class="img-responsive foto-user"></div>
+        @endif
+        
+      @else
+        <div class="icone-chat-modal"><img src="/assets/images/chat-online.png" alt="" class="img-responsive"></div>
+      @endif
       <div class="texto-chat-modal">Para iniciar o atendimento com o corretor, precisamos te conhecer</div>
       <form action="" id="modal-chat" name="modal-chat">
         <input type="text" class="form-control nome-modal" name="nome" id="nome" placeholder="Nome completo" required>

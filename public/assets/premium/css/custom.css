@@ -97,6 +97,26 @@ img {
     color: rgb(8, 117, 50);
 }
 
+.topo .chat img{
+	width: 50%;
+    margin:auto;
+    border-radius:50%;
+}
+
+.topo .chat .corretor-on{
+	font-size: 14px;
+    color: rgb(8, 117, 50);
+}
+
+.topo .chat i{
+	font-size: 20px;
+    color: rgb(9 189 77);
+    position: absolute;
+    top: 25px;
+    right: 15px;
+    text-shadow: 2px 2px black;
+}
+
 .conteudo{
 	width: 100%;
 	height: auto;
@@ -2991,6 +3011,13 @@ html.no-pointerevents.no-touchevents .gallery-grid-item:hover span  {
 .modalDialog .img-responsive {
 	width: auto !important;
 	height: auto;
+}
+
+.modalDialog .foto-user {
+    width: 120px !important;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid #FFF;
 }
 
 .modalDialog .texto-chat-modal{

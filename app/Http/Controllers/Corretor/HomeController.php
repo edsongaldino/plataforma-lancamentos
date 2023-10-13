@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Corretor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Empreendimento;
+use App\Models\Unidade;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -59,8 +60,11 @@ class HomeController extends Controller
         return view('corretor.empreendimentos.lista')->with(compact('empreendimentos', 'ocultarLinks'));
     }
 
-    public function EmpreendimentoDetalhes(){
-        return view('corretor.empreendimentos.detalhes');
+    public function EmpreendimentoDetalhes($id){
+        $empreendimento = Empreendimento::find($id);
+        $unidade = Unidade::where('empreendimento_id', $id)->where('situacao','Disponível')->get();
+        $viewCorretor = 'Corretor';
+        return view('site.empreendimento.premium.index', compact('empreendimento', 'unidade', 'viewCorretor'));
     }
 
     public function Perfil()

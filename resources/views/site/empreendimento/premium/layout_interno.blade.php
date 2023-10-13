@@ -69,6 +69,27 @@
 </head>
 <body>
 
+    @if(isset($viewCorretor))
+
+        <div class="topo">
+            <a href="/empreendimento/{{ $empreendimento->id }}/premium"><div class="logo"><img src="{{ url($empreendimento->construtora->getLogoPremium()) }}" alt="" class="img-responsive center-block d-block mx-auto"></div></a>
+            <div class="logo-empreendimento"><img src="{{ url($empreendimento->getLogo()) }}" class="img-responsive center-block d-block mx-auto" alt="" width="100" height="76"></div>
+
+            <a href="#openModal" id="ModalChat">
+                <div class="chat">
+                    @if(Session::get('usuario.foto') <> null)
+                    <img class="img-circle border-effect" src="{{ url('corretor/usuario/'.Session::get('usuario.id').'/foto') }}" alt=" ">
+                    @else
+                    <img class="img-circle border-effect" src="{{ asset('corretor/app-assets/images/userFoto.png') }}" alt=" ">
+                    @endif
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    <br/><span class="corretor-on">Corretor <strong>ON</strong>
+                </div>
+            </a>
+
+        </div>
+
+    @else
     <div class="topo">
         <a href="/empreendimento/{{ $empreendimento->id }}/premium"><div class="logo"><img src="{{ url($empreendimento->construtora->getLogoPremium()) }}" alt="" class="img-responsive center-block d-block mx-auto"></div></a>
         <div class="logo-empreendimento"><img src="{{ url($empreendimento->getLogo()) }}" class="img-responsive center-block d-block mx-auto" alt="" width="100" height="76"></div>
@@ -78,6 +99,7 @@
         </a>
 
     </div>
+    @endif
 
     <div id="loader" class="loader"></div>
 
