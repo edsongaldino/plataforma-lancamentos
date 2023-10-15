@@ -109,7 +109,37 @@ img {
     color: rgb(8, 117, 50);
 }
 
-.topo .chat i{
+.topo .chat-corretor{
+	width: 25%;
+	height: 80px;
+	float: right;
+    text-align: center;
+	padding-top: 10px;
+}
+
+.topo .chat-corretor i{
+	font-size: 40px;
+    color: rgb(9 189 77);
+}
+
+.topo .chat-corretor .corretor-on{
+	font-size: 14px;
+    color: rgb(8, 117, 50);
+}
+
+.topo .chat-corretor img{
+	margin: auto;
+    height: 45px;
+    border-radius: 50%;
+    width: auto;
+}
+
+.topo .chat-corretor .corretor-on{
+	font-size: 14px;
+    color: rgb(8, 117, 50);
+}
+
+.topo .chat-corretor i{
 	font-size: 20px;
     color: rgb(9 189 77);
     position: absolute;

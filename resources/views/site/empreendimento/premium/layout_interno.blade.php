@@ -76,7 +76,7 @@
             <div class="logo-empreendimento"><img src="{{ url($empreendimento->getLogo()) }}" class="img-responsive center-block d-block mx-auto" alt="" width="100" height="76"></div>
 
             <a href="#openModal" id="ModalChat">
-                <div class="chat">
+                <div class="chat-corretor">
                     @if(Session::get('usuario.foto') <> null)
                     <img class="img-circle border-effect" src="{{ url('corretor/usuario/'.Session::get('usuario.id').'/foto') }}" alt=" ">
                     @else
