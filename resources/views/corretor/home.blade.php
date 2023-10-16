@@ -17,7 +17,7 @@
         <div class="col-sm-6 goal-icons">
             <div class="goal">
                 <div class=" hi-icon-effect-6">
-                    <a href="{{ route('corretor.empreendimentos') }}" class="hi-icon glyphicon glyphicon-home"></a>
+                    <a href="{{ route('corretor.empreendimentos') }}" class="hi-icon fa fa-key"></a>
                     <h4>Empreendimentos</h4>
                 </div>
             </div>

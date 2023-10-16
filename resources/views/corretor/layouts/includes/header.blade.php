@@ -73,9 +73,11 @@
 						<div class="pro-menu">
 							<div class="logo">
 								<li><a class="link link--yaku active" href="{{ route('home-corretor') }}"><span>H</span><span>o</span><span>m</span><span>e</span></a></li>
+                                <!--
                                 <li><a class="link link--yaku" href="{{ route('corretor.empreendimentos') }}"><span>E</span><span>m</span><span>p</span><span>r</span><span>e</span> <span>e</span><span>n</span><span>d</span><span>i</span><span>m</span><span>e</span><span>n</span><span>t</span><span>o</span><span>s</span></a></li>
 								<li><a class="link link--yaku" href="{{ route('corretor.propostas') }}"><span>P</span><span>r</span><span>o</span><span>p</span><span>o</span><span>s</span><span>t</span><span>a</span><span>s</span></a></li>
                                 <li><a class="link link--yaku" href="{{ route('corretor.leads') }}"><span>L</span><span>e</span><span>a</span><span>d</span><span>s</span></a></li>
+                                -->
                                 <li><a class="link link--yaku" href="{{ route('corretor.perfil') }}"><span>P</span><span>e</span><span>r</span><span>f</span><span>i</span><span>l</span></a></li>
                                 <li><a class="link link--yaku" href="{{ route('corretor.logout') }}"><span>S</span><span>a</span><span>i</span><span>r</span></a></li>
                             </div>
