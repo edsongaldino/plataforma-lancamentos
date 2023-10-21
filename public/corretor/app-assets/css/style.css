@@ -2931,23 +2931,23 @@ button.interagir{
 }
 
 .conteudo.empreendimentos .lista-empreendimentos .foto{
-    position: relative;  
+    position: relative;
     width: 40%;
-    height: 120px;  
+    height: 120px;
     overflow: hidden;
     background-color: #000;
     float: left;
 }
 
 .conteudo.empreendimentos .lista-empreendimentos .foto img{
-    position: absolute;  
-    overflow: hidden;  
-    top: 50%;  
-    left: 50%;  
-    -webkit-transform: translate(-50%,-50%);  
-    -moz-transform: translate(-50%,-50%);  
-    -ms-transform: translate(-50%,-50%);  
-    -o-transform: translate(-50%,-50%);  
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
 }
 
@@ -3014,10 +3014,44 @@ button.interagir{
     float: left;
     line-height: 30px;
     font-size: 14px;
-    background-color: #f3f0ed;
+    background-color: #d7e3e2;
     text-align: center;
     margin-top: 3px;
+    color: #336699;
 }
 
+.conteudo.empreendimentos .lista-empreendimentos .contato-construtora{
+    width: 60%;
+    height: 40px;
+    float: left;
+    line-height: 40px;
+    font-size: 14px;
+    background-color: #cceeeb;
+    color:#1B9E97;
+    text-align: center;
+    margin-top: 0px;
+}
 
+.conteudo.empreendimentos .lista-empreendimentos .ligar-construtora{
+    width: 20%;
+    height: 40px;
+    float: left;
+    line-height: 40px;
+    font-size: 25px;
+    background-color: #12a6b9;
+    text-align: center;
+    margin-top: 0px;
+    color: #FFF;
+}
 
+.conteudo.empreendimentos .lista-empreendimentos .whatsapp-construtora{
+    width: 20%;
+    height: 40px;
+    float: left;
+    line-height: 40px;
+    font-size: 25px;
+    background-color: #0acf9e;
+    text-align: center;
+    margin-top: 0px;
+    color: #FFF;
+}

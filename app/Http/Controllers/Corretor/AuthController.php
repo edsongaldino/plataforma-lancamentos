@@ -12,15 +12,13 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
-    public function dashboard(){
+    public function home(){
 
         if(Auth::check() === true){
-            $usuario = Auth::user();
-            $empreendimentos = Empreendimento::where('destaque','Sim')->get();
-            return view('app.dashboard', compact('usuario', 'empreendimentos'));
+            return view('corretor.home');
         }
 
-        return redirect()->route('app.login')->with('warning', 'Efetue Login para acessar');
+        return redirect()->route('login')->with('warning', 'Efetue Login para acessar');
     }
 
     public function LembrarSenha(){

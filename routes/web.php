@@ -686,7 +686,7 @@ Route::get('/deleta-caracteristicas/{id}', function($id) {
 Route::get('busca-mapa.html', 'Site\HomeController@BuscaMapa');
 
 /* Rotas Corretor */
-Route::get('/home-corretor', 'Corretor\HomeController@login')->name('home-corretor');
+Route::get('/home-corretor', 'Corretor\AuthController@home')->name('home-corretor');
 Route::post('/corretor/login', 'Corretor\AuthController@Login')->name('login-corretor');
 Route::post('/corretor/salvar', 'Corretor\CorretorController@store')->name('corretor.salvar');
 Route::post('/corretor/reenviar-senha', 'Corretor\AuthController@ReenviarSenha')->name('corretor.reenviar-senha');
