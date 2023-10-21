@@ -100,6 +100,7 @@ class TabelaVendasController extends Controller
         $tabela->data_parcela_unica = $request->data_parcela_unica;
         $tabela->qtd_mensais = $request->qtd_mensais;
         $tabela->percentual_mensais = converte_reais_to_mysql($request->percentual_mensais);
+        $tabela->qtd_parcelas_entrada = $request->qtd_parcelas_entrada;
         $tabela->qtd_baloes = $request->qtd_baloes;
         $tabela->percentual_baloes = converte_reais_to_mysql($request->percentual_baloes);
         $tabela->percentual_remanescente = converte_reais_to_mysql($request->percentual_remanescente);
@@ -212,6 +213,7 @@ class TabelaVendasController extends Controller
         $tabela->data_parcela_unica = $request->data_parcela_unica;
         $tabela->qtd_mensais = $request->qtd_mensais;
         $tabela->percentual_mensais = converte_reais_to_mysql($request->percentual_mensais);
+        $tabela->qtd_parcelas_entrada = $request->qtd_parcelas_entrada;
         $tabela->qtd_baloes = $request->qtd_baloes;
         $tabela->percentual_baloes = converte_reais_to_mysql($request->percentual_baloes);
         $tabela->percentual_remanescente = converte_reais_to_mysql($request->percentual_remanescente);

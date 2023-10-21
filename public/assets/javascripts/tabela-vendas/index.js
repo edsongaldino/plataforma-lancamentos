@@ -298,8 +298,24 @@ $(function(){
 
     $("#possuiEntrada").on('change', function () {
       var valor = $(this).val();
-      if (valor == 'Sim') {$("#percentualEntrada").css("display", "block");}
-      if (valor == 'Não') {$("#percentualEntrada").css("display", "none");}
+      if (valor == 'Sim') {
+        $("#percentualEntrada").css("display", "block");
+        $("#parcelamentoEntrada").css("display", "block");
+      }
+      if (valor == 'Não') {
+        $("#percentualEntrada").css("display", "none");
+        $("#parcelamentoEntrada").css("display", "none");
+      }
+    });
+
+    $("#entradaParcelada").on('change', function () {
+        var valor = $(this).val();
+        if (valor == 'Sim') {
+          $("#QtdeParcelaEntrada").css("display", "block");
+        }
+        if (valor == 'Não') {
+          $("#QtdeParcelaEntrada").css("display", "none");
+        }
     });
 
     $("#possuiMensais").on('change', function () {

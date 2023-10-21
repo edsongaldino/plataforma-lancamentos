@@ -149,6 +149,33 @@
             </div>
         </div>
 
+        <div class="col-md-3" id="parcelamentoEntrada" @if (($tabela->percentual_entrada ?? '') <> null) style="display: block;" @else style="display: none;" @endif>
+            <div class="form-group">
+                <label>Entrada Parcelada?</label>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-building"></i>
+                    </span>
+                    <select class="form-control select-empreendimento" name="entradaParcelada" id="entradaParcelada">
+                        <option value="Não">Não</option>
+                        <option value="Sim"@if (($tabela->qtd_parcelas_entrada ?? '') <> null) selected="true" @endif>Sim</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div id="QtdeParcelaEntrada" class="col-md-3" @if (($tabela->qtd_parcelas_entrada ?? '') <> null) style="display: block;" @else style="display: none;" @endif>
+            <div class="form-group">
+                <label>Nº Parcelas (Máximo)</label>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-sort-numeric-asc"></i>
+                    </span>
+                    <input class="form-control select-empreendimento" type="number" name="qtd_parcelas_entrada" id="qtd_parcelas_entrada" value="{{ $tabela->qtd_parcelas_entrada ?? '' }}" placeholder="">
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <div class="row">
