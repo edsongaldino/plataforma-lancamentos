@@ -145,7 +145,7 @@ img {
     position: absolute;
     top: 25px;
     right: 15px;
-    text-shadow: 2px 2px black;
+    text-shadow: 1px 1px #175e28;
 }
 
 .conteudo{
@@ -828,7 +828,7 @@ img {
 	background-color: #FFF;
 	padding: 0px 20px 10px 20px;
 	float: left;
-	margin-top: 0px;
+	margin-top: 110px;
 }
 
 .conteudo .detalhe-unidade.proposta-construtora h2{
@@ -1288,11 +1288,12 @@ img {
     height: auto;
     float: left;
     padding: 0 20px 150px 20px;
-	margin-top: -20px;
+	margin-top: 80px;
 }
 
 .conteudo .condicoes-construtora.abaResumo{
     padding: 0px !important;
+    margin-top: 0px !important;
 }
 
 
@@ -1835,7 +1836,8 @@ img {
 }
 
 .condicoes-construtora.minha-proposta{
-	padding: 0 30px 30px 30px;
+	padding: 0 30px 30px 30px !important;
+    margin-top: 0px !important;
 }
 
 .botoes .btn-minha-propostra{

@@ -194,7 +194,7 @@
                                 $valor_m2 = $unidade->caracteristicas->where('nome', 'valor_m2')->first()->pivot->valor;
                                 $metragem = $unidade->caracteristicas->where('nome', 'metragem_total')->first()->pivot->valor;
                             @endphp
-                            {{ converte_valor_real($valor_m2 * $metragem) }}
+                            {{ converte_valor_real(($valor_m2 || '0') * ($metragem || '0')) }}
                         @else
                             Consulte
                         @endif
@@ -356,7 +356,7 @@
                                     $valor_m2 = $unidade->caracteristicas->where('nome', 'valor_m2')->first()->pivot->valor;
                                     $metragem = $unidade->caracteristicas->where('nome', 'metragem_total')->first()->pivot->valor;
                                 @endphp
-                                {{ converte_valor_real($valor_m2 * $metragem) }}
+                                {{ converte_valor_real(($valor_m2 || '0') * ($metragem || '0')) }}
                             @else
                                 Consulte
                             @endif
@@ -384,7 +384,7 @@
                     @if($empreendimento->variacao->nome == "Lote")
                     <div class="caracteristicas lote">
                         <div class="item">
-                            <div class="icone-caracteristica"><i class="fa fa-building" aria-hidden="true"></i></div>
+                            <div class="icone-caracteristica"><i class="fa fa-map" aria-hidden="true"></i></div>
                             <div class="titulo-caracteristica">{{ $unidade->quadra->nome }}</div>
                             <div class="valor-caracteristica">{{ $unidade->empreendimento->variacao->nome }} - <strong>{{ $unidade->nome }}</strong></div>
                         </div>
@@ -407,11 +407,17 @@
                             <div class="valor-caracteristica">{{ $unidade->getCaracteristica('metragem_total') ?? '' }}m²</div>
                         </div>
 
+                        <div class="item">
+                            <div class="icone-caracteristica"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+                            <div class="titulo-caracteristica">Entrega</div>
+                            <div class="valor-caracteristica">{{ get_previsao_entrega($empreendimento) }}</div>
+                        </div>
+
                     </div>
                     @else
                     <div class="caracteristicas">
                         <div class="item">
-                            <div class="icone-caracteristica"><i class="fa fa-building" aria-hidden="true"></i></div>
+                            <div class="icone-caracteristica"><i class="fa fa-home" aria-hidden="true"></i></div>
                             <div class="titulo-caracteristica">{{ $unidade->quadra->nome }}</div>
                             <div class="valor-caracteristica">{{ $unidade->empreendimento->variacao->nome }} - <strong>{{ $unidade->nome }}</strong></div>
                         </div>

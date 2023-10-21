@@ -1715,7 +1715,7 @@ if (!function_exists('valor_unidade')) {
 
 				$valor_m2 = $unidade->caracteristicas->where('nome', 'valor_m2')->first()->pivot->valor;
 				$metragem = $unidade->caracteristicas->where('nome', 'metragem_total')->first()->pivot->valor;
-				$valor = $valor_m2 * $metragem;
+				$valor = ($valor_m2 || '0') * ($metragem || '0');
 			}else{
 				$valor = 0;
 			}

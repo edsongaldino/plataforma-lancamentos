@@ -129,7 +129,7 @@
 
                 <div class="item">
                     <div class="icone-caracteristica"><i class="far fa-calendar-alt" aria-hidden="true"></i></div>
-                    <div class="titulo-caracteristica">Previão de Entrega</div>
+                    <div class="titulo-caracteristica">Previsão de Entrega</div>
                     <div class="valor-caracteristica">{{ get_previsao_entrega($empreendimento) }}</div>
                 </div>
 
@@ -175,7 +175,7 @@
 
                     <div class="item">
                         <div class="icone-caracteristica"><i class="far fa-calendar-alt" aria-hidden="true"></i></div>
-                        <div class="titulo-caracteristica">Previão de Entrega</div>
+                        <div class="titulo-caracteristica">Previsão de Entrega</div>
                         <div class="valor-caracteristica">{{ get_previsao_entrega($empreendimento) }}</div>
                     </div>
 
@@ -201,7 +201,7 @@
 
                     <div class="item">
                         <div class="icone-caracteristica"><i class="far fa-calendar-alt" aria-hidden="true"></i></div>
-                        <div class="titulo-caracteristica">Previão de Entrega</div>
+                        <div class="titulo-caracteristica">Previsão de Entrega</div>
                         <div class="valor-caracteristica">{{ get_previsao_entrega($empreendimento) }}</div>
                     </div>
 
