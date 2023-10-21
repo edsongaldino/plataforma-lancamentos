@@ -370,7 +370,7 @@ h5.pro-link {
 }
 .profile-menu img{
 	width: 100px;
-    height: 100px;
+    height: auto;
 }
 .profile-menu{
 	margin:25px 0;
@@ -2767,7 +2767,7 @@ form.cadastro-usuario .profile-container{
 form.cadastro-usuario img.profileImage{
 	border-radius: 50% !important;
 	width: 160px;
-	height: 160px;
+	height: auto;
 	margin: 0 auto;
 }
 
@@ -2898,7 +2898,6 @@ button.interagir{
     float: left;
     text-align: center;
 	color: #097cc1;
-	background-color: #f0ecec;
 }
 
 .conteudo.empreendimentos .busca .busca-cidade{

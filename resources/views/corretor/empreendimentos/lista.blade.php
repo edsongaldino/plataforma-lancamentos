@@ -25,23 +25,23 @@
 
     @foreach ($empreendimentos as $empreendimento)
 
-    @php
-        $icone_tipo = '';
-        switch($empreendimento->subtipo_id):
-        case 1:
-            $icone_tipo = '<i class="fa fa-building"></i>';
-        break;
-        case 2:
-            $icone_tipo = '<i class="fa fa-briefcase"></i>';
-        break;
-        case 3:
-            $icone_tipo = '<i class="fa fa-home"></i>';
-        break;
-        case 4:
-            $icone_tipo = '<i class="fa fa-tree"></i>';
-        break;
-        endswitch;
-    @endphp
+        @php
+            $icone_tipo = '';
+            switch($empreendimento->subtipo_id):
+            case 1:
+                $icone_tipo = '<i class="fa fa-building"></i>';
+            break;
+            case 2:
+                $icone_tipo = '<i class="fa fa-briefcase"></i>';
+            break;
+            case 3:
+                $icone_tipo = '<i class="fa fa-home"></i>';
+            break;
+            case 4:
+                $icone_tipo = '<i class="fa fa-tree"></i>';
+            break;
+            endswitch;
+        @endphp
 
 
         <div class="lista-empreendimentos">
@@ -63,7 +63,7 @@
             </div>
             </a>
             <div class="endereco"><span class="fa fa-map-marker"></span> {{ $empreendimento->endereco->bairro->nome }}, {{ $empreendimento->endereco->cidade->nome }} - {{ $empreendimento->endereco->estado->uf }}</div>
-            <div class="contato-construtora">Contactar Construtora</div>
+            <div class="contato-construtora">Contatar Construtora</div>
             <div class="ligar-construtora"><span class="fa fa-phone"></span></div>
             <div class="whatsapp-construtora"><span class="fa fa-whatsapp"></span></div>
         </div>

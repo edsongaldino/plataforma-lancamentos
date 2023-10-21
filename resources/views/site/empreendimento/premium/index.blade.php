@@ -65,7 +65,25 @@
 
     <div id="detalhes-empreendimento">
 
-        <h1 class="nome-empreendimento"><i class="fa fa-building" aria-hidden="true"></i> {{ $empreendimento->nome }}</h1>
+        @php
+            $icone_tipo = '';
+            switch($empreendimento->subtipo_id):
+            case 1:
+                $icone_tipo = '<i class="fa fa-building"></i>';
+            break;
+            case 2:
+                $icone_tipo = '<i class="fa fa-briefcase"></i>';
+            break;
+            case 3:
+                $icone_tipo = '<i class="fa fa-home"></i>';
+            break;
+            case 4:
+                $icone_tipo = '<i class="fa fa-tree"></i>';
+            break;
+            endswitch;
+        @endphp
+
+        <h1 class="nome-empreendimento"><?php echo $icone_tipo;?> {{ $empreendimento->nome }}</h1>
         <h2 class="subtitulo-empreendimento">{{ $empreendimento->subtipo->nome }}, {{ $empreendimento->endereco->cidade->nome }} - {{ $empreendimento->endereco->estado->uf }}</h2>
 
 
