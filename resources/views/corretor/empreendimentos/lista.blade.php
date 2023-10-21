@@ -3,7 +3,7 @@
 <div class="conteudo empreendimentos">
     <h3 class="perfil"><i class="fa fa-info"></i> Empreendimentos</h3>
 
-    <div class="busca">
+    <div class="busca" style="display: none;">
         <div class="icone-filtro"><span class="glyphicon glyphicon-search" aria-hidden="true"></div>
         <div class="busca-cidade">
             <select class="form-control" name="cidade" id="BuscaCidade">
