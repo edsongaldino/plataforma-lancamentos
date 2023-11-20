@@ -54,6 +54,7 @@
         z-index: 1;
         position: absolute !important;
         top: 0 !important;
+        padding-bottom: 150px !important;
     }
 
     h4.modal-title {
