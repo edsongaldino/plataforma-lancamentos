@@ -129,6 +129,7 @@ body {
     z-index: 1;
     position: absolute;
     top: 0;
+    padding-bottom: 150px !important;
 }
 
 /* inicio - excluir modal */
