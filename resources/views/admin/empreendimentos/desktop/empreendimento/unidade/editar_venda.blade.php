@@ -16,12 +16,12 @@
 
 	<div class="form-group linha-50 left">
 		<label class="">Data da Venda</label>
-		<input type="date" name="data_venda" class="form-control" @if (isset($entry->comprador->data))value="{{ $entry->comprador->data }}"@endif>		
+		<input type="date" name="data_venda" id="data_venda" class="form-control" @if (isset($entry->comprador->data))value="{{ $entry->comprador->data }}"@endif required>		
 	</div>
 
 	<div class="form-group linha-50">
 		<label class="">Valor da Venda</label>
-		<input type="text" name="valor_venda" class="form-control moeda" @if (isset($entry->comprador->valor))value="{{ $entry->comprador->valor }}"@endif>		
+		<input type="text" name="valor_venda" id="valor_venda" class="form-control moeda" @if (isset($entry->comprador->valor))value="{{ $entry->comprador->valor }}"@endif required>		
 	</div>	
 
 
@@ -230,7 +230,28 @@
 	  	});
 	  	
 		$('#formAlterarVendaUnidade').on('submit', function (e) {
+			
 			e.preventDefault();
+
+			if ($("#data_venda").val() === '') {
+				Swal.fire(
+				'Desculpe',
+				'Informe a data da venda',
+				'error'
+				);
+
+				return false;
+			}
+
+			if ($("#valor_venda").val() === '' || $("#valor_venda").val() === '0.00') {
+				Swal.fire(
+				'Desculpe',
+				'Informe o valor da venda',
+				'error'
+				);
+
+				return false;
+			}
 
 			ajaxRequest({
 			  url: "{{ route('atualizar-venda-unidade', $entry->id) }}",
