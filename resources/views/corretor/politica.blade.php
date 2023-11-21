@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-        <title>Lançamentos Online - Plataforma do Corretor</title>
+        <title>Lançamentos Online - Conectando o Corretor</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="lancamentos imobiliarios, imóveis novos, na planta" />

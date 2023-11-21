@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Lançamentos Online - Plataforma do Corretor</title>
+    <title>Lançamentos Online - Conectando o Corretor</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -16,7 +16,7 @@
     <meta name="twitter:image" content="{{ asset('corretor/app-assets/images/logo-app.png') }}">
 
     <meta property="og:url" content="" />
-    <meta property="og:title" content="Lançamentos Online - Plataforma do Corretor" />
+    <meta property="og:title" content="Lançamentos Online - Conectando o Corretor" />
     <meta property="og:description" content="Um canal direto onde você poderá buscar os melhores negócios e ofertas dos lançamentos imobiliários à venda no Brasil" />
     <meta property="og:image" content="{{ asset('corretor/app-assets/images/logo-app.png') }}" />
 

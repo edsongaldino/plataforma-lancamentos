@@ -5,7 +5,7 @@
         <div class="details-right">
             <img src="{{ asset('corretor/app-assets/images/logo.png') }}" alt=" " />
             <h3>Lançamentos Online</h3>
-            <h4>Plataforma do Corretor</h4>
+            <h4>Conectando o Corretor</h4>
         </div>
     </div>
 </div>
