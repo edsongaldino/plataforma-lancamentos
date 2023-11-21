@@ -101,6 +101,7 @@ class TabelaVendasController extends Controller
         $tabela->qtd_mensais = $request->qtd_mensais;
         $tabela->percentual_mensais = converte_reais_to_mysql($request->percentual_mensais);
         $tabela->qtd_parcelas_entrada = $request->qtd_parcelas_entrada;
+        $tabela->percentual_juros_mensal = converte_reais_to_mysql($request->percentual_juros_mensal);
         $tabela->qtd_baloes = $request->qtd_baloes;
         $tabela->percentual_baloes = converte_reais_to_mysql($request->percentual_baloes);
         $tabela->percentual_remanescente = converte_reais_to_mysql($request->percentual_remanescente);
@@ -109,7 +110,7 @@ class TabelaVendasController extends Controller
         $tabela->renda_minima = converte_reais_to_mysql($request->renda_minima);
         $tabela->programa_habitacional = $request->programa_habitacional;
         $tabela->subsidio_maximo = converte_reais_to_mysql($request->subsidio_maximo);
-        $tabela->correcao_obra = $request->correcao_obra;
+        //$tabela->correcao_obra = $request->correcao_obra;
         $tabela->correcao_poschave = $request->correcao_poschave;
         $tabela->aceita_bens = $request->aceita_bens;
         $tabela->possui_vaga_extra = $request->possui_vaga_extra;
@@ -213,6 +214,7 @@ class TabelaVendasController extends Controller
         $tabela->data_parcela_unica = $request->data_parcela_unica;
         $tabela->qtd_mensais = $request->qtd_mensais;
         $tabela->percentual_mensais = converte_reais_to_mysql($request->percentual_mensais);
+        $tabela->percentual_juros_mensal = converte_reais_to_mysql($request->percentual_juros_mensal);
         $tabela->qtd_parcelas_entrada = $request->qtd_parcelas_entrada;
         $tabela->qtd_baloes = $request->qtd_baloes;
         $tabela->percentual_baloes = converte_reais_to_mysql($request->percentual_baloes);
@@ -222,7 +224,7 @@ class TabelaVendasController extends Controller
         $tabela->renda_minima = converte_reais_to_mysql($request->renda_minima);
         $tabela->programa_habitacional = $request->programa_habitacional;
         $tabela->subsidio_maximo = converte_reais_to_mysql($request->subsidio_maximo);
-        $tabela->correcao_obra = $request->correcao_obra;
+        //$tabela->correcao_obra = $request->correcao_obra;
         $tabela->correcao_poschave = $request->correcao_poschave;
         $tabela->aceita_bens = $request->aceita_bens;
         $tabela->possui_vaga_extra = $request->possui_vaga_extra;

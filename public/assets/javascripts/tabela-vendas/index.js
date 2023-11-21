@@ -214,14 +214,16 @@ $(function(){
         return false;
       }
 
-      if ($("#subsidio_maximo").val() === '') {
-        Swal.fire(
-          'Desculpe',
-          'Informe o subsídio máximo',
-          'error'
-          );
+      if ($("#programaHabitacional").val() != 'Não') {
+        if ($("#subsidio_maximo").val() === '') {
+          Swal.fire(
+            'Desculpe',
+            'Informe o subsídio máximo',
+            'error'
+            );
 
-        return false;
+          return false;
+        }
       }
 
       if ($("#validade_tabela").val() === '') {

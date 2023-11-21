@@ -218,6 +218,18 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Qual o percentual de juros ao mês?</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            %
+                        </span>
+                        <input class="form-control percentual-valor percentual" name="percentual_juros_mensal" id="percentual_juros_mensal" value="{{ converte_valor_real($tabela->percentual_juros_mensal ?? '') }}" placeholder="">
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -463,6 +475,7 @@
     </div>
 
     <div class="row">
+        
         <div class="col-md-3">
             <div class="form-group">
                 <label>Percentual Remanescente (Financiamento)</label>
@@ -505,6 +518,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
 
@@ -559,7 +573,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="col-md-3">
                 <div class="form-group">
                     <label>Subsídio de até:</label>
@@ -571,6 +585,8 @@
                     </div>
                 </div>
             </div>
+
+            <!--
 
             <div class="col-md-3">
                 <div class="form-group">
@@ -587,6 +603,7 @@
                     </div>
                 </div>
             </div>
+            -->
 
             <div class="col-md-3">
                 <div class="form-group">
@@ -597,7 +614,7 @@
                         </span>
                         <select class="form-control select-empreendimento" name="correcao_poschave" id="correcao_poschave" required>
                             <option value="">Selecione</option>
-                            <option value="IPCA" @if (($tabela->correcao_poschave ?? '') == 'IPCA') selected="true" @endif>IPCA</option>
+                            <option value="INCC" @if (($tabela->correcao_poschave ?? '') == 'INCC') selected="true" @endif>INCC</option>
                             <option value="IGPM" @if (($tabela->correcao_poschave ?? '') == 'IGPM') selected="true" @endif>IGPM</option>
                         </select>
                     </div>
