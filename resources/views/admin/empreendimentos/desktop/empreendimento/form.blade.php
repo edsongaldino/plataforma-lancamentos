@@ -43,6 +43,8 @@
       @include('admin/empreendimentos/desktop/empreendimento/principal/seo')  
       
       @include('admin/empreendimentos/desktop/empreendimento/principal/arquivos')
+
+      @include('admin/empreendimentos/desktop/empreendimento/principal/honorarios')
     </div>
   </div>
   <div class="col-md-12 col-lg-2">                        

@@ -611,6 +611,25 @@ class EmpreendimentoController
 	    }
 	}
 
+	public function salvarHonorariosIntermediacao(Request $request)
+	{
+		$id = $request->id;
+	    $resultado = (new Empreendimento())->salvarHonorariosIntermediacao($request, $id);
+
+	    if ($resultado) {
+	        return response()->json([
+	        	'sucesso' => 'true',
+	        	'mensagem' => 'Dados atualizados',
+	        	'id' => $resultado
+	        ]);
+	    } else {
+	        return response()->json([
+	        	'sucesso' => 'false',
+	        	'mensagem' => 'Erro ao atualizar dados'
+	        ]);
+	    }
+	}
+
 	public function salvarCanaisEmpreendimento(Request $request)
 	{
 		$id = $request->id;

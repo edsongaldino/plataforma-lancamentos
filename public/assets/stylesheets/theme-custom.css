@@ -673,6 +673,11 @@ select.populate{
 	color: #FFF;
 }
 
+.panel-group .panel-accordion-honorarios .panel-heading .panel-title a {
+	background: rgb(141 88 42);
+	color: #FFF;
+}
+
 .btn-add {
 	background: #00B2B2;
     color: #FFF;
@@ -1937,4 +1942,11 @@ input.valor-vaga{
 
 .btn-tooltip{
     color: #337ab7 !important;
+}
+
+.valor-percentual-honorario{
+    font-size: 30px;
+    color: #633a17 !important;
+    font-weight: bold;
+    text-align: center;
 }

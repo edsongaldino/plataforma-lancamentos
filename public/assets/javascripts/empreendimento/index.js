@@ -117,6 +117,18 @@ $(function () {
     });
   });
 
+  $("#salvar-honorarios-intermediacao").on('click', function () {
+    ajaxRequest({
+      url: '/admin/salvar-honorarios-intermediacao',
+      metodo: 'POST',
+      dados: $("#honorarios-intermediacao").serialize(),
+      feedback: true,
+      mensagemSucesso: 'Honorários de intermediação salvos com sucesso',
+      mensagemErro: 'Erro, tente novamente mais tarde',
+      reload: false
+    });
+  });
+
   $("#salvar-seo-empreendimento").on('click', function () {
     ajaxRequest({
       url: '/admin/empreendimento/salvar-seo',

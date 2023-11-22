@@ -190,6 +190,19 @@ class Empreendimento extends Model
         }
     }
 
+    public function atribuirHonorariosEmpreendimento($request, $empreendimento)
+    {
+        $caracteristicas = [
+            'percentual_imobiliaria',
+            'percentual_corretor',
+            'percentual_lancamentos'
+        ];
+
+        foreach ($caracteristicas as $caracteristica) {
+            atribuir_caracteristica_manual($request->{$caracteristica}, $empreendimento, 'Empreendimento', $caracteristica);
+        }
+    }
+
     public function salvarMidiasEmpreendimento($request, $id)
     {
 
@@ -205,6 +218,16 @@ class Empreendimento extends Model
 
         $empreendimento = $this->find($id);
         $this->atribuirCanaisEmpreendimento($request, $empreendimento);
+
+        return true;
+
+    }
+
+    public function salvarHonorariosIntermediacao($request, $id)
+    {
+
+        $empreendimento = $this->find($id);
+        $this->atribuirHonorariosEmpreendimento($request, $empreendimento);
 
         return true;
 
