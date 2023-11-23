@@ -197,8 +197,6 @@ iframe {
   background: transparent;
 }
 
-
-
 /*------------------------------------------------------------------
 [  ]*/
 .login100-form {
@@ -221,6 +219,11 @@ iframe {
 
   width: 100%;
   display: block;
+}
+
+.login100-form-title .subtitulo{
+  font-size: 18px;
+  color: #ffc926;
 }
 
 /*---------------------------------------------*/

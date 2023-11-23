@@ -61,7 +61,7 @@
 		<div class="phone-box wrap push" id="home">
 			<div class="menu-notify">
 				<div class="Profile-mid">
-					<h5 class="pro-link">Plataforma do Corretor</h5>
+					<h5 class="pro-link">Lançamentos Online - Conectando o Corretor</h5>
 				</div>
                 <div class="voltar"><a href="javascript:void(0)" onClick="history.go(-1); return false;"><button><i class="fa fa-angle-double-left" aria-hidden="true"></i></button></a></div>
 				<div class="clearfix"></div>

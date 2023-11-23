@@ -63,7 +63,7 @@
             </div>
             </a>
             <div class="endereco"><span class="fa fa-map-marker"></span> {{ $empreendimento->endereco->bairro->nome }}, {{ $empreendimento->endereco->cidade->nome }} - {{ $empreendimento->endereco->estado->uf }}</div>
-            <div class="contato-construtora">Contatar Construtora</div>
+            <div class="contato-construtora"><img src="{{ url($empreendimento->getLogo()) }}" class="img-responsive logo-busca" alt=""></div>
             <div class="ligar-construtora"><span class="fa fa-phone"></span></div>
             <div class="whatsapp-construtora"><span class="fa fa-whatsapp"></span></div>
         </div>

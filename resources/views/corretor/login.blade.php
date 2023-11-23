@@ -57,7 +57,7 @@
                 </div>
 
                 <span class="login100-form-title p-b-45">
-                    App Corretor
+                    Lançamentos Online<br/><span class="subtitulo">Conectando o Corretor</span>
                 </span>
 
                 <div class="wrap-input100 validate-input m-b-10" data-validate = "O usuário é obrigatório">
