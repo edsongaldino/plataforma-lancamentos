@@ -52,12 +52,33 @@
             </div>
             <div class="foto"><img src="{{ $empreendimento->fotoPrincipal() }}" class="img-responsive" alt=""></div>
             <div class="info">
-                <div class="quartos"><span class="fa fa-bed"></span><br/> 3</div>
-                <div class="garagem"><span class="fa fa-car"></span><br/> 3</div>
-                <div class="metragem"><span class="fa fa-object-group"></span><br/> 48,32m²</div>
 
+                @if($empreendimento->subtipo_id == 1)
+                <div class="quartos"><span class="fa fa-bed"></span><br/> {!! qtd_dormitorio($empreendimento, true) !!}</div>
+                <div class="garagem"><span class="fa fa-car"></span><br/> {!! vagas_empreendimento($empreendimento) !!}</div>
+                <div class="metragem"><span class="fa fa-object-group"></span><br/> {!! qtd_metragem($empreendimento) !!}m²</div>
+                @elseif($empreendimento->subtipo_id == 2)
+                <div class="quartos"><span class="fa fa-columns"></span><br/> {{ get_elevadores($empreendimento->id) }}</div>
+                <div class="garagem"><span class="fa fa-car"></span><br/> {!! vagas_empreendimento($empreendimento) !!}</div>
+                <div class="metragem"><span class="fa fa-object-group"></span><br/> {!! qtd_metragem($empreendimento) !!}m²</div>
+                @elseif($empreendimento->subtipo_id == 3 || $empreendimento->subtipo_id == 4)
+
+                    @if($empreendimento->variacao->nome == "Lote")
+                    <div class="quartos"><span class="fa fa-columns"></span><br/> {{ $empreendimento->quadras->count() }}</div>
+                    <div class="garagem"><i class="fab fa-buromobelexperte" aria-hidden="true"></i><br/> {{ $empreendimento->unidades->count() }}</div>
+                    <div class="metragem"><span class="fa fa-object-group"></span><br/> {!! qtd_metragem($empreendimento) !!}m²</div>
+                    @else
+                    <div class="quartos"><span class="fa fa-bed"></span><br/> {!! qtd_dormitorio($empreendimento, true) !!}</div>
+                    <div class="garagem"><span class="fa fa-car"></span><br/> {!! vagas_empreendimento($empreendimento) !!}</div>
+                    <div class="metragem"><span class="fa fa-object-group"></span><br/> {!! qtd_metragem($empreendimento) !!}m²</div>
+                    @endif
+
+                @endif
+
+
+                @php $tabela = $empreendimento->TabelaAtiva->where('tipo_tabela_id', 1)->first(); @endphp
                 <div class="titulo-comissao">Comissão de Vendas</div>
-                <div class="comissao-corretor">Corretor <span class="valor">4%</span></div>
+                <div class="comissao-corretor">Corretor <span class="valor">{{ $tabela->id ?? '' }}</span></div>
                 <div class="comissao-imobiliaria">Imobiliária <span class="valor">5%</span></div>
 
             </div>

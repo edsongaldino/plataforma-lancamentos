@@ -82,6 +82,7 @@
             break;
             endswitch;
         @endphp
+        
 
         <h1 class="nome-empreendimento"><?php echo $icone_tipo;?> {{ $empreendimento->nome }}</h1>
         <h2 class="subtitulo-empreendimento">{{ $empreendimento->subtipo->nome }}, {{ $empreendimento->endereco->cidade->nome }} - {{ $empreendimento->endereco->estado->uf }}</h2>
