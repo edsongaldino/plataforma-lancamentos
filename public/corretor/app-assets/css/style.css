@@ -100,7 +100,7 @@ h1.fit_tittle{
 .footer .minhaconta{
 	width: 33%;
 	height: 60px;
-	background-color: #111111;
+	background-color: #337ab7;
 	float: left;
 	color: #FFF !important;
 	text-align: center;
@@ -109,7 +109,7 @@ h1.fit_tittle{
 .footer .ajuda{
 	width: 34%;
 	height: 60px;
-	background-color: #333;
+	background-color: #0d3c54;
 	float: left;
 	color: #FFF;
 	text-align: center;
@@ -119,12 +119,10 @@ h1.fit_tittle{
 	width: 33%;
 	height: 60px;
 	float: right;
-	background-color: #443e3e;
+	background-color: #024f77;
 	color: #FFF;
 	text-align: center;
 }
-
-
 
 .footer .comentarios{
 	width: 50%;
@@ -356,7 +354,7 @@ h5.pro-link {
 
 .panel {
     margin-bottom: 0px;
-       background: rgb(30, 31, 33);
+    background: #143f65;
     width: auto;
     height: 100% !important;
     width: 15.625em !important;
@@ -2608,7 +2606,7 @@ select.destaque{
 }
 
 .menu-notify .voltar a button{
-	background-color: #232323;
+	background-color: #084f71;
 	border: 0px;
 	padding: 5px 20px;
 	margin-top: -5px;

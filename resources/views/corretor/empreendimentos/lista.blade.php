@@ -65,8 +65,8 @@
 
                     @if($empreendimento->variacao->nome == "Lote")
                     <div class="quartos"><span class="fa fa-columns"></span><br/> {{ $empreendimento->quadras->count() }}</div>
-                    <div class="garagem"><i class="fab fa-buromobelexperte" aria-hidden="true"></i><br/> {{ $empreendimento->unidades->count() }}</div>
-                    <div class="metragem"><span class="fa fa-object-group"></span><br/> {!! qtd_metragem($empreendimento) !!}m²</div>
+                    <div class="garagem"><span class="fa fa-th-large" aria-hidden="true"></span><br/> {{ $empreendimento->unidades->count() }}</div>
+                    <div class="metragem"><span class="fa fa-object-group"></span><br/> {{ converte_valor_real_semdecimal($empreendimento->getCaracteristica('area_unidade_min')) }}m²</div>
                     @else
                     <div class="quartos"><span class="fa fa-bed"></span><br/> {!! qtd_dormitorio($empreendimento, true) !!}</div>
                     <div class="garagem"><span class="fa fa-car"></span><br/> {!! vagas_empreendimento($empreendimento) !!}</div>
@@ -75,18 +75,16 @@
 
                 @endif
 
-
-                @php $tabela = $empreendimento->TabelaAtiva->where('tipo_tabela_id', 1)->first(); @endphp
                 <div class="titulo-comissao">Comissão de Vendas</div>
-                <div class="comissao-corretor">Corretor <span class="valor">{{ $tabela->id ?? '' }}</span></div>
-                <div class="comissao-imobiliaria">Imobiliária <span class="valor">5%</span></div>
+                <div class="comissao-corretor">Corretor <span class="valor">{{ $empreendimento->caracteristicas->where('nome', 'percentual_corretor')->first()->pivot->valor ?? '' }}%</span></div>
+                <div class="comissao-imobiliaria">Imobiliária <span class="valor">{{ $empreendimento->caracteristicas->where('nome', 'percentual_imobiliaria')->first()->pivot->valor ?? '' }}%</span></div>
 
             </div>
             </a>
             <div class="endereco"><span class="fa fa-map-marker"></span> {{ $empreendimento->endereco->bairro->nome }}, {{ $empreendimento->endereco->cidade->nome }} - {{ $empreendimento->endereco->estado->uf }}</div>
             <div class="contato-construtora"><img src="{{ url($empreendimento->getLogo()) }}" class="img-responsive logo-busca" alt=""></div>
-            <div class="ligar-construtora"><span class="fa fa-phone"></span></div>
-            <div class="whatsapp-construtora"><span class="fa fa-whatsapp"></span></div>
+            <a href="tel:{{ $empreendimento->getCaracteristica('telefone_central') }}"><div class="ligar-construtora"><span class="fa fa-phone"></span></div></a>
+            <a href="https://api.whatsapp.com/send?phone=55{{ limpa_campo($empreendimento->getCaracteristica('whatsapp_atendimento')) }}&text=Ol%C3%A1%2C%20vi%20o%20an%C3%BAncio%20do%20empreendimento%20({{ $empreendimento->nome }})%20no%20Portal%20Lan%C3%A7amentos%20Online%20e%20gostaria%20de%20obter%20maiores%20informa%C3%A7%C3%B5es" target="_blank"><div class="whatsapp-construtora"><span class="fa fa-whatsapp"></span></div></a>
         </div>
 
     @endforeach
