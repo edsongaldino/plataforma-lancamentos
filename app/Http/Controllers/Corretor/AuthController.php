@@ -42,9 +42,15 @@ class AuthController extends Controller
             $usuario = Auth::user();
             Session::put('usuario', $usuario);
             Session::put('ViewCorretor', 'Sim');
-            return view('corretor.home');
+
+            return response()->json([
+                'success'=>'Login Efetuado!'
+            ]);
+        }else{
+            return response()->json([
+                'error'=>'Dados incorretos!'
+            ]);
         }
-        return redirect()->back()->with('warning', 'Os dados informados estão incorretos!');
     }
 
     public function Logout(){

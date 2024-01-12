@@ -17,3 +17,55 @@ jQuery(document).ready(function(){
 		});
 	}
 });
+
+$(document).on('click', '.loginCorretor', function (e) {
+  
+	e.preventDefault();
+  
+	let email = $('#emailLogin').val();
+	let senha = $('#senhaLogin').val();
+ 
+  
+	if (email == '') {
+	  swal('Desculpe', 'Por favor, nos informe o email de login', "info");
+	  return false;
+	}
+  
+	if (senha == '') {
+	  swal('Ops', 'Por favor, é obrigatório informar a senha', "info");
+	  return false;
+	}
+  
+	$.ajaxSetup({
+	  headers: {
+		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	  }
+	});
+	
+	$.ajax({
+	  url: "/corretor/login",
+	  type:"POST",
+	  data:{
+		"_token": $('#token').val(),
+		email:email,
+		senha:senha
+	  },
+	  success:function(response){
+		
+		if(response.success){
+			swal('OK', 'Dados Verificados! Aguarde redirecionamento.', "success");
+			window.location.href = "/home-corretor";
+		}else{
+			swal('Ops', 'Os dados de acesso estão incorretos! Verifique.', "warning");
+	  		return false;
+		}
+		
+		
+	  },
+	  error: function(response) {
+		swal('Ops', 'Os dados de acesso estão incorretos! Verifique.', "warning");
+	  	return false;
+	  },
+	});
+  
+  });

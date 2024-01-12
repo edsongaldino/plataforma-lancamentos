@@ -182,7 +182,7 @@ class BuscaController extends Controller
     {        
         $texto = $request->texto;
 
-        $retorno = (new Empreendimento())->autocompleteGeral($texto);
+        $retorno = (new Empreendimento())->autocompleteGeral($texto);      
         
         if ($retorno) {
             $retorno = array_column($retorno, 'nome');

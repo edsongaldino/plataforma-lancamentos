@@ -50,7 +50,7 @@
     <div class="container-login100" style="background-image: url({{ asset('corretor/app-assets/images/img-01.jpg') }});">
         <div class="wrap-login100 p-t-190 p-b-30">
             <form class="login100-form validate-form" method="POST" action="{{ route('login-corretor') }}">
-                @csrf
+                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                 <input type="hidden" name="acao" value="login">
                 <div class="login100-form-avatar">
                     <img src="{{ asset('corretor/app-assets/images/avatar-01.png') }}" alt="AVATAR">
@@ -61,7 +61,7 @@
                 </span>
 
                 <div class="wrap-input100 validate-input m-b-10" data-validate = "O usuário é obrigatório">
-                    <input class="input100" type="text" name="email" placeholder="Usuário">
+                    <input class="input100" type="text" name="email" id="emailLogin" placeholder="Usuário">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-user"></i>
@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-10" data-validate = "A senha é obrigatória">
-                    <input class="input100" type="password" name="senha" placeholder="Senha">
+                    <input class="input100" type="password" name="senha" id="senhaLogin" placeholder="Senha">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-lock"></i>
@@ -77,7 +77,7 @@
                 </div>
 
                 <div class="container-login100-form-btn p-t-10">
-                    <button class="login100-form-btn" type="submit" name="btLogar">
+                    <button class="login100-form-btn loginCorretor" type="button" name="btLogar">
                         ENTRAR
                     </button>
                 </div>
@@ -101,9 +101,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 <!--===============================================================================================-->
 <script src="{{ asset('corretor/app-assets/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
