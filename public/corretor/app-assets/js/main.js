@@ -23,7 +23,7 @@ $(document).on('click', '.loginCorretor', function (e) {
 	e.preventDefault();
   
 	let email = $('#emailLogin').val();
-	let senha = $('#senhaLogin').val();
+	let password = $('#senhaLogin').val();
  
   
 	if (email == '') {
@@ -31,7 +31,7 @@ $(document).on('click', '.loginCorretor', function (e) {
 	  return false;
 	}
   
-	if (senha == '') {
+	if (password == '') {
 	  swal('Ops', 'Por favor, é obrigatório informar a senha', "info");
 	  return false;
 	}
@@ -48,10 +48,10 @@ $(document).on('click', '.loginCorretor', function (e) {
 	  data:{
 		"_token": $('#token').val(),
 		email:email,
-		senha:senha
+		password:password
 	  },
 	  success:function(response){
-		
+	
 		if(response.success){
 			swal('OK', 'Dados Verificados! Aguarde redirecionamento.', "success");
 			window.location.href = "/home-corretor";

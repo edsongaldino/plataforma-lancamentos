@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Corretor;
 
-use App\Models\Corretor;
+use App\Models\Corretor\Corretor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -40,15 +40,21 @@ class CorretorController extends Controller
     public function store(Request $request)
     {
         if($this->verificaDuplicidade('email', $request->email)){
-            return redirect()->back()->with('warning', 'Este e-mail ja está cadastrado! Verifique.');
+            return response()->json([
+                'error'=>'Erro!'
+            ]);
         }
 
         if($this->verificaDuplicidade('cpf', limpa_campo($request->cpf))){
-            return redirect()->back()->with('warning', 'Este CPF ja está cadastrado! Verifique.');
+            return response()->json([
+                'error'=>'Erro!'
+            ]);
         }
 
         if($request->senha <> $request->confirmar_senha){
-            return redirect()->back()->with('warning', 'A senha e a confirmação precisam ser iguais.');
+            return response()->json([
+                'error'=>'Erro!'
+            ]);
         }
 
         $Corretor = new Corretor();
@@ -59,11 +65,16 @@ class CorretorController extends Controller
         $Corretor->data_nascimento = data_mysql($request->data_nascimento);
         $Corretor->telefone = limpa_campo($request->telefone);
         $Corretor->password = Hash::make($request->senha);
-        $Corretor->save();
 
-        $user = (new UserController())->store($request);
-
-        return redirect()->route('login', compact('Corretor'))->with('success', 'Dados Cadastrados! Faça seu login.');
+        if($Corretor->save()){
+            return response()->json([
+                'success'=>'Dados Salvos!'
+            ]);
+        }else{
+            return response()->json([
+                'error'=>'Erro!'
+            ]);
+        }
     }
 
     /**
@@ -97,7 +108,7 @@ class CorretorController extends Controller
      */
     public function update(Request $request)
     {
-        $User = User::findOrFail(Session::get('usuario.id'));
+        $User = Corretor::findOrFail(Session::get('usuario.id'));
 
         if($request->email <> $User->email){
             if($this->verificaDuplicidade('email', $request->email)){
@@ -105,10 +116,10 @@ class CorretorController extends Controller
             }
         }
 
-        $User->name = $request->nome;
+        $User->nome = $request->nome;
         $User->email = $request->email;
         $User->data_nascimento = data_mysql($request->data_nascimento);
-        $User->celular = limpa_campo($request->telefone);
+        $User->telefone = limpa_campo($request->telefone);
 
         if ($request->file('imageUpload')) {
         $User->foto = $request->file('imageUpload')->store('user');

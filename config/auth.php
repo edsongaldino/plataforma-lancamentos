@@ -41,6 +41,11 @@ return [
             'provider' => 'users',
         ],
 
+        'corretor' => [
+            'driver' => 'session',
+            'provider' => 'corretor',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -69,6 +74,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'corretor' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Corretor\Corretor::class
         ]
         // 'users' => [
         //     'driver' => 'database',

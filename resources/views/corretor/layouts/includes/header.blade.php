@@ -68,7 +68,7 @@
                         @else
                         <img class="img-circle border-effect" src="{{ asset('corretor/app-assets/images/userFoto.png') }}" alt=" ">
                         @endif
-						<h3>{{ Session::get('usuario.name') }}</h3>
+						<h3>{{ Session::get('usuario.nome') }}</h3>
 						<p>Corretor</p>
 						<div class="pro-menu">
 							<div class="logo">

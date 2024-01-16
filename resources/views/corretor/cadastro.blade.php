@@ -75,7 +75,7 @@
                 </div>
                 @endif
                 <form action="{{ route('corretor.salvar') }}" method="POST" class="cadastro-usuario">
-                    @csrf
+                    <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                     <label for="cpf_usuario">CPF</label>
                     <input type="text" class="form-control" name="cpf" id="cpf" placeholder="" onblur="$(this).mask('000.000.000-00')" onkeypress="$(this).mask('000.000.000-00')" required>
                     <label for="nome_usuario">NOME COMPLETO</label>
@@ -92,7 +92,7 @@
                     <input type="password" class="form-control" name="senha" id="senha" placeholder="" maxlength="8" required>
                     <input type="password" class="form-control" name="confirmar_senha" id="confirmar_senha" placeholder="CONFIRME SUA SENHA" maxlength="8" required>
 
-                    <button class="gravar-dados-usuario" type="submit"><i class="fa fa-save"></i> Gravar Informações</button>
+                    <button class="gravar-dados-usuario cadastroCorretor" type="button"><i class="fa fa-save"></i> Gravar Informações</button>
                 </form>
 
             </div>

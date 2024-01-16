@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Corretor;
 
-use App\Corretor;
+use App\Models\Corretor\Corretor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\SendMailUser;
 use App\Models\Empreendimento;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -14,7 +15,7 @@ class AuthController extends Controller
 {
     public function home(){
 
-        if(Auth::check() === true){
+        if(Auth::guard("corretor")->check() === true){
             return view('corretor.home');
         }
 
@@ -35,11 +36,12 @@ class AuthController extends Controller
 
         $credencials = [
             'email' => $request->email,
-            'password' => $request->senha
+            'password' => $request->password
         ];
 
-        if(Auth::attempt($credencials)){
-            $usuario = Auth::user();
+        if(Auth::guard("corretor")->attempt($credencials)){
+
+            $usuario = Auth::guard("corretor")->user();
             Session::put('usuario', $usuario);
             Session::put('ViewCorretor', 'Sim');
 
@@ -54,8 +56,7 @@ class AuthController extends Controller
     }
 
     public function Logout(){
-
-        Auth::logout();
+        Auth::guard("corretor")->logout();
         return redirect()->route('login')->with('success', 'Logof Efetuado');
     }
 

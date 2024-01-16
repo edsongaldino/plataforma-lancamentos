@@ -55,12 +55,18 @@ class HomeController extends Controller
     }
 
     public function ListaEmpreendimentos(){
+        if(Auth::guard("corretor")->check() === false){
+            return view('corretor.login');
+        }
         $empreendimentos = Empreendimento::where('view_corretor', 'Sim')->get();
         $ocultarLinks = "Sim";
         return view('corretor.empreendimentos.lista')->with(compact('empreendimentos', 'ocultarLinks'));
     }
 
     public function EmpreendimentoDetalhes($id){
+        if(Auth::guard("corretor")->check() === false){
+            return view('corretor.login');
+        }
         $empreendimento = Empreendimento::find($id);
         $unidade = Unidade::where('empreendimento_id', $id)->where('situacao','Disponível')->get();
         $viewCorretor = 'Corretor';
@@ -69,7 +75,10 @@ class HomeController extends Controller
 
     public function Perfil()
     {
-        $usuario = Auth::user();
+        if(Auth::guard("corretor")->check() === false){
+            return view('corretor.login');
+        }
+        $usuario = Auth::guard("corretor")->user();
         return view('corretor.perfil')->with(compact('usuario'));
     }
 
