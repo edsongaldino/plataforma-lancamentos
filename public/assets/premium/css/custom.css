@@ -2646,6 +2646,12 @@ html.no-pointerevents.no-touchevents .gallery-grid-item:hover span  {
     background-color: #f50 !important;
 }
 
+.rodape.detalhes .negociar.fale-com-o-corretor{
+	background-color: #10982f !important;
+	width: 45%;
+    font-size: 14px !important;
+}
+
 .rodape.detalhes .negociar.fale-com-a-construtora{
 	width: 45%;
     font-size: 12px;

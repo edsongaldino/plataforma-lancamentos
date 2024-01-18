@@ -334,7 +334,11 @@
         @if($empreendimento->TabelaAtiva->count() > 0)
         <a href="/empreendimento/{{ $empreendimento->id }}/unidades"><div class="negociar"><i class="fas fa-cart-plus" aria-hidden="true"></i> Negociar Unidade</div></a>
         @else
-        <a data-toggle="modal" data-target="#ModalContatoConstrutora"><div class="negociar fale-com-a-construtora"><i class="fas fa-envelope" aria-hidden="true"></i> Fale com a Construtora</div></a>
+            @if(Session::get('ViewCorretor') <> null)
+                <a href="#openModal" id="ModalChat"><div class="negociar fale-com-o-corretor"><i class="fab fa-whatsapp" aria-hidden="true"></i> Fale com o Corretor</div></a>
+            @else
+                <a data-toggle="modal" data-target="#ModalContatoConstrutora"><div class="negociar fale-com-a-construtora"><i class="fas fa-envelope" aria-hidden="true"></i> Fale com a Construtora</div></a>
+            @endif
         @endif
     </div>
 
