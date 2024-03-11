@@ -16,7 +16,7 @@ class BuscaSiteTest extends DuskTestCase
     public function testExample()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/resultado_busca.php')
+            $browser->visit('/resultado-busca')
                 ->pause(3000)
                 ->assertSee('SUA BUSCA RETORNOU');
         });

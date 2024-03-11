@@ -13,17 +13,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" type="text/css" href="/global/css/loader/index.css">
     <script src="/global/js/loader/index.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Ads: 791268609 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-791268609"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'AW-791268609');
-    </script>
-
   </head>
   <body>
     <div class="loader-bg"></div>
@@ -71,7 +60,7 @@
               </div>
               <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                 <div class="busca-topo">
-                  <form class="simple-search-form" method="get" id="form_busca" action="/resultado_busca.php">
+                  <form class="simple-search-form" method="get" id="form_busca" action="/resultado-busca">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                       <div class="col-lg-1 col-md-12 col-sm-1 col-xs-1 div-select-estado">
                         <select name="estado_id" id="estado_busca" class="select-uf-topo" title="UF:" data-url="{{ route('buscar-cidade-site') }}">
@@ -310,17 +299,6 @@
         new Newsletter();
       });
     </script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S0SXNSHLBM"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-S0SXNSHLBM');
-    </script>
-
     <script src="/site/ferramenta/bootstrap/bootstrap3-typeahead.min.js"></script>
 
     <script type="text/javascript">

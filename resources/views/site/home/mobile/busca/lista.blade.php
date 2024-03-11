@@ -8,7 +8,7 @@
       -->
       <section class="site-main__search-property search-property">
         <div class="site-content-wrapper">
-          <form class="js-searchForm index" id="form_busca" name="form_busca" method="get" action="/resultado_busca.php">
+          <form class="js-searchForm index" id="form_busca" name="form_busca" method="get" action="/resultado-busca">
             <fieldset class="js-searchByLocation">
               <div class="search-property__search-box search-box">
                 <div class="box-check-busca" id="busca-geral" style="display:block">

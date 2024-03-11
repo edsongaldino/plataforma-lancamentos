@@ -62,8 +62,8 @@ Route::group(['middleware' => ['site']], function () {
 	]);
 
 	// Pagina de busca
-	Route::get('resultado_busca.php', 'Site\BuscaController@index');
-	Route::post('resultado_busca.php', 'Site\BuscaController@ajax');
+	Route::get('resultado-busca', 'Site\BuscaController@index');
+	Route::post('resultado-busca', 'Site\BuscaController@ajax');
 	Route::get('/empreendimentos-em-{cidade}-{id}.html', 'Site\BuscaController@cidade')->where(['cidade' => '(.*)', 'id' => '([0-9]+)']);
 
 	Route::get('/imoveis-em-{cidade}-{id}.html', 'Site\BuscaController@cidade')->where([

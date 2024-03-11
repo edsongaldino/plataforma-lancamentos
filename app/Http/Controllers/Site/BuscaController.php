@@ -53,7 +53,7 @@ class BuscaController extends Controller
             'oferta' => $request->input('oferta', false),
             'page' => $request->input('page', 1),
             'querystring' => $request->getQueryString(),
-            'url' => isset($array['url']) ? $array['url'] : '/resultado_busca.php',
+            'url' => isset($array['url']) ? $array['url'] : '/resultado-busca',
             'ordenacao' => $request->input('ordenacao', null),
         ];
 

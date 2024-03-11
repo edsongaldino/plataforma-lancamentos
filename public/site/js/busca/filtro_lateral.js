@@ -207,7 +207,7 @@ function buscaAjax() {
 
     $.ajax({
       type: "POST",
-      url: "/resultado_busca.php",
+      url: "/resultado-busca",
       data: parametros,
       beforeSend: function() {
         $('#resultados').empty().append('Carregando...');

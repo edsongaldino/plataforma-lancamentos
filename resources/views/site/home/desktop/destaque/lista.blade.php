@@ -19,7 +19,7 @@
 
     <!-- Slides -->
 
-      <!-- Slides
+      <!-- Slides-->
       <div class="swiper-slide swiper-lazy banner-index" data-background="/site/images/slides/slide_apartamento.jpg">
         <div class="container">
 
@@ -37,8 +37,8 @@
 
         </div>
       </div>
-      -->
-
+      
+<!--
     <div class="swiper-slide swiper-lazy banner-index" data-background="/site/images/slides/banner-gms.jpg">
 
       <div class="container">
@@ -48,7 +48,7 @@
       </div>
 
     </div>
-    <!--
+    
     <div class="swiper-slide swiper-lazy banner-index" data-background="/site/images/slides/slide_apartamento.jpg">
       <div class="container">
           <a href="https://www.lancamentosonline.com.br/1-apartamentos.html" target="_blank">
