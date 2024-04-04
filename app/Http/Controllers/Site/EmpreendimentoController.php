@@ -23,6 +23,7 @@ class EmpreendimentoController extends Controller
 {
     private $view;
     private $viewProposta;
+    private $viewPremium;
 
     public function __construct()
     {
@@ -44,12 +45,8 @@ class EmpreendimentoController extends Controller
         $this->data['array_empreendimentos_favoritos'] = [];
         $this->data['tour360'] = TourVirtual::where('empreendimento_id', $id)->get();
 
-        if($empreendimento->TabelaAtiva->count() > 0 || $empreendimento->tipo_visualizacao == 'Premium'){
-            $viewEmpreendimento = $this->viewPremium;
-        }else{
-            $viewEmpreendimento = $this->view;
-        }
-
+        $viewEmpreendimento = $this->viewPremium;
+        
         return view($viewEmpreendimento, $this->data);
     }
 
