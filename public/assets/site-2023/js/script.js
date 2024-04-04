@@ -1013,7 +1013,7 @@
         });
         if ($('.showFilter').length) {
             $('.showFilter').on('click', function () {
-                $(this).toggleText('Show Filter', 'Fechar Filtro');
+                $(this).toggleText('Mostrar Filtro', 'Fechar Filtro');
                 $(this).toggleClass('flaticon-close flaticon-filter-results-button sidebarOpended sidebarClosed');
                 $('.listing_toogle_sidebar.sidenav').toggleClass('opened');
                 $('.body_content').toggleClass('translated');
@@ -1028,7 +1028,7 @@
 
         if ($('.showBtns').length) {
             $('.showBtns').on('click', function() {
-                $(this).toggleText2('Show Filter', 'Fechar Filtro');
+                $(this).toggleText2('Mostrar Filtro', 'Fechar Filtro');
                 $(this).toggleClass('flaticon-close flaticon-filter-results-button sidebarOpended2 sidebarClosed2');
                 $('.sidebar_content_details').toggleClass('is-full-width');
             });

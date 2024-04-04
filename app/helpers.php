@@ -777,7 +777,7 @@ if (!function_exists('qtd_dormitorio')) {
 }
 
 if (!function_exists('qtd_vagas')) {
-	function qtd_vagas($empreendimento, $tipoEmpreendimento, $total = false) {
+	function qtd_vagas($empreendimento, $tipoEmpreendimento = null, $total = false) {
 
 		$vagas = vagas_padrao_novo($empreendimento);
 

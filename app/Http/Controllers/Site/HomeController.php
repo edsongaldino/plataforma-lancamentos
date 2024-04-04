@@ -10,6 +10,7 @@ use App\Models\Newsletter;
 use App\Models\Publicacao;
 use App\Http\Requests\NewsletterRequest;
 use App\Models\ContatoComercial;
+use App\Models\Subtipo;
 
 class HomeController extends Controller
 {
@@ -60,8 +61,9 @@ class HomeController extends Controller
     }
 
     public function BuscaMapa(){
-        $empreendimentos = Empreendimento::latest()->where('status', 'Liberada')->paginate(10);;
-        return view('site-2023.busca-mapa', compact('empreendimentos'));
+        $subtipos = Subtipo::all();
+        $empreendimentos = Empreendimento::latest()->where('status', 'Liberada')->paginate(10);
+        return view('site-2023.busca-mapa', compact('empreendimentos', 'subtipos'));
     }
 
     public function newsletter(NewsletterRequest $request)

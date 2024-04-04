@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="{{ asset('assets/site-2023/css/style.css') }}">
 <!-- Responsive stylesheet -->
 <link rel="stylesheet" href="{{ asset('assets/site-2023/css/responsive.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/site-2023/css/custom.css') }}">
 <!-- Title -->
 <title>Lançamentos Online - O seu novo lar está aqui!</title>
 <!-- Favicon -->
@@ -37,8 +38,8 @@
 		            </button>
 		        </div>
 		        <a href="#" class="navbar_brand float-left dn-smd">
-		            <img class="logo1 img-fluid" src="{{ asset('assets/site-2023/images/header-logo2.png') }}" alt="header-logo.png">
-		            <img class="logo2 img-fluid" src="{{ asset('assets/site-2023/images/header-logo2.png') }}" alt="header-logo2.png">
+		            <img class="logo1 img-fluid" src="{{ asset('assets/site-2023/images/header-logo.png') }}" alt="header-logo.png">
+		            <img class="logo2 img-fluid" src="{{ asset('assets/site-2023/images/header-logo.png') }}" alt="header-logo.png">
 		        </a>
 		        <!-- Responsive Menu Structure-->
 		        <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
@@ -68,7 +69,7 @@
 			<div class="header stylehome1">
 				<div class="d-flex justify-content-between">
 					<a class="mobile-menu-trigger" href="#menu"><img src="{{ asset('assets/site-2023/images/dark-nav-icon.svg') }}" alt=""></a>
-					<a class="nav_logo_img" href="index.html"><img class="img-fluid mt20" src="{{ asset('assets/site-2023/images/header-logo2.png') }}" alt="header-logo2.png"></a>
+					<a class="nav_logo_img" href="index.html"><img class="img-fluid mt20" src="{{ asset('assets/site-2023/images/header-logo.png') }}" alt="header-logo.png"></a>
 					<a class="mobile-menu-reg-link" href="page-register.html"><span class="flaticon-user"></span></a>
 				</div>
 			</div>
@@ -109,13 +110,10 @@
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
-														<option>Tipo</option>
-														<option>Apartment</option>
-														<option>Bungalow</option>
-														<option>Condo</option>
-														<option>House</option>
-														<option>Land</option>
-														<option>Single Family</option>
+														<option selected disabled>Tipo</option>
+														@foreach ($subtipos as $subtipo)
+														<option value="{{ $subtipo->id }}">{{ $subtipo->nome }}</option>
+														@endforeach
 													</select>
 												</div>
 											</div>
@@ -379,13 +377,10 @@
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
-														<option>Tipo</option>
-														<option>Apartment</option>
-														<option>Bungalow</option>
-														<option>Condo</option>
-														<option>House</option>
-														<option>Land</option>
-														<option>Single Family</option>
+														<option selected disabled>Tipo</option>
+														@foreach ($subtipos as $subtipo)
+														<option value="{{ $subtipo->id }}">{{ $subtipo->nome }}</option>
+														@endforeach
 													</select>
 												</div>
 											</div>
@@ -451,27 +446,23 @@
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
-														<option>Previsão de Entrega</option>
-														<option>2013</option>
-														<option>2014</option>
-														<option>2015</option>
-														<option>2016</option>
-														<option>2017</option>
-														<option>2018</option>
-														<option>2019</option>
-														<option>2020</option>
+														<option disabled selected>Modalidade</option>
+														<option value="Lançamento">Lançamento</option>
+														<option value="Em Obra">Lançamento</option>
+														<option value="Mude já">Pronto pra Morar</option>
 													</select>
 												</div>
 											</div>
 										</li>
+
 										<li class="min_area style2 list-inline-item">
 										    <div class="form-group">
-										    	<input type="text" class="form-control" id="exampleInputName2" placeholder="Min Area">
+										    	<input type="text" class="form-control moeda" id="min_valor" placeholder="Min Valor">
 										    </div>
 										</li>
 										<li class="max_area list-inline-item">
 										    <div class="form-group">
-										    	<input type="text" class="form-control" id="exampleInputName3" placeholder="Max Area">
+										    	<input type="text" class="form-control moeda" id="max_valor" placeholder="Max Valor">
 										    </div>
 										</li>
 										<li>
@@ -488,96 +479,60 @@
 												                <ul class="ui_kit_checkbox selectable-list float-left fn-400">
 												                	<li>
 																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck1">
-																			<label class="custom-control-label" for="customCheck1">Air Conditioning</label>
+																			<input type="checkbox" class="custom-control-input" id="customCheckseguranca">
+																			<label class="custom-control-label" for="customCheckseguranca">Segurança 24h</label>
 																		</div>
 												                	</li>
 												                	<li>
 																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck4">
-																			<label class="custom-control-label" for="customCheck4">Barbeque</label>
+																			<input type="checkbox" class="custom-control-input" id="customCheckPortaria">
+																			<label class="custom-control-label" for="customCheckPortaria">Portaria</label>
 																		</div>
 												                	</li>
 												                	<li>
 																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck10">
-																			<label class="custom-control-label" for="customCheck10">Gym</label>
+																			<input type="checkbox" class="custom-control-input" id="customChecktenis">
+																			<label class="custom-control-label" for="customChecktenis">Quadra de Tênis</label>
+																		</div>
+												                	</li>
+																	<li>
+																		<div class="custom-control custom-checkbox">
+																			<input type="checkbox" class="custom-control-input" id="customCheckQuadra">
+																			<label class="custom-control-label" for="customCheckQuadra">Quadra Poliesportiva</label>
+																		</div>
+												                	</li>
+																	<li>
+																		<div class="custom-control custom-checkbox">
+																			<input type="checkbox" class="custom-control-input" id="customCheckLago">
+																			<label class="custom-control-label" for="customCheckLago">Lago</label>
+																		</div>
+												                	</li>
+																	<li>
+																		<div class="custom-control custom-checkbox">
+																			<input type="checkbox" class="custom-control-input" id="customCheckPiscina">
+																			<label class="custom-control-label" for="customCheckPiscina">Piscina</label>
 																		</div>
 												                	</li>
 												                	<li>
 																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck5">
-																			<label class="custom-control-label" for="customCheck5">Microwave</label>
+																			<input type="checkbox" class="custom-control-input" id="customCheckCampo">
+																			<label class="custom-control-label" for="customCheckCampo">Campo de Futebol</label>
 																		</div>
 												                	</li>
 												                	<li>
 																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck6">
-																			<label class="custom-control-label" for="customCheck6">TV Cable</label>
+																			<input type="checkbox" class="custom-control-input" id="customCheckPista">
+																			<label class="custom-control-label" for="customCheckPista">Pista de Caminhada</label>
 																		</div>
 												                	</li>
 												                	<li>
 																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck2">
-																			<label class="custom-control-label" for="customCheck2">Lawn</label>
+																			<input type="checkbox" class="custom-control-input" id="customCheckBike">
+																			<label class="custom-control-label" for="customCheckBike">Bicicletário</label>
 																		</div>
 												                	</li>
-												                	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck11">
-																			<label class="custom-control-label" for="customCheck11">Refrigerator</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck3">
-																			<label class="custom-control-label" for="customCheck3">Swimming Pool</label>
-																		</div>
-												                	</li>
-												                </ul>
-												                <ul class="ui_kit_checkbox selectable-list float-right fn-400">
-												                	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck12">
-																			<label class="custom-control-label" for="customCheck12">WiFi</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck14">
-																			<label class="custom-control-label" for="customCheck14">Sauna</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck7">
-																			<label class="custom-control-label" for="customCheck7">Dryer</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck9">
-																			<label class="custom-control-label" for="customCheck9">Washer</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck13">
-																			<label class="custom-control-label" for="customCheck13">Laundry</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck8">
-																			<label class="custom-control-label" for="customCheck8">Outdoor Shower</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div class="custom-control custom-checkbox">
-																			<input type="checkbox" class="custom-control-input" id="customCheck15">
-																			<label class="custom-control-label" for="customCheck15">Window Coverings</label>
-																		</div>
-												                	</li>
+												                	
+		
 												                </ul>
 													        </div>
 												        </div>
@@ -635,48 +590,82 @@
 								<ul class="feature_property_half_clist style2 mb0">
 
                                     @foreach ($empreendimentos as $empreendimento)
+									
                                     <li class="extrawide list-inline-item">
 										<div class="feat_property home7 style4">
 											<div class="thumb">
 												<div class="fp_single_item_slider">
                                                     @foreach($empreendimento->getFotosCarrosselMapa() as $foto)
 													<div class="item">
-														<img class="img-whp" src="{{ $foto->getUrl() }}" alt="{{ $foto->nome }}">
+														<a href="/imoveis/{{ url_amigavel($empreendimento->subtipo->nome)}}-{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html" target="_blank"><img class="img-whp" src="{{ $foto->getUrl() }}" alt="{{ $foto->nome }}"></a>
 													</div>
                                                     @endforeach
 												</div>
 												<div class="thmb_cntnt style2">
 													<ul class="tag mb0">
-														<li class="list-inline-item"><a href="#">{{ $empreendimento->modalidade }}</a></li>
+														<li class="list-inline-item txt-modalidade">{{ $empreendimento->modalidade }}</li>
 													</ul>
 												</div>
 												<div class="thmb_cntnt style3">
 													<ul class="icon mb0">
-														<li class="list-inline-item"><a href="#"><span class="flaticon-heart"></span></a></li>
+														<li class="list-inline-item"><span class="flaticon-heart"></span></li>
 													</ul>
-													<a class="fp_price" href="#">R$ {{ $empreendimento->valor_inicial }}</a>
+													<span class="fp_price">R$ {{ $empreendimento->valor_inicial }}
 												</div>
 											</div>
+											<a href="/imoveis/{{ url_amigavel($empreendimento->subtipo->nome)}}-{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html" target="_blank">
 											<div class="details">
 												<div class="tc_content">
-													<p class="text-thm"><span class="fa fa-building"></span> {{ $empreendimento->subtipo->nome }}</p>
+													<p class="text-thm">
+														@if ($empreendimento->subtipo_id == 1)
+															<i class="fa fa-building" aria-hidden="true" title="Apartamento"></i>
+														@elseif ($empreendimento->subtipo_id == 2)
+															<i class="fa fa-briefcase" aria-hidden="true" title="Salas Comerciais"></i>
+														@else
+															<i class="fa fa-home" aria-hidden="true" title="Casas em Condomínio"></i>
+														@endif
+														
+														{{ $empreendimento->subtipo->nome }}
+													</p>
 													<h4>{{ $empreendimento->nome }}</h4>
 													<p><span class="flaticon-placeholder"></span> {{ $empreendimento->endereco->cidade->nome }} - {{ $empreendimento->endereco->estado->uf }}</p>
+													@if($empreendimento->subtipo_id == 1)
+													<ul class="prop_details mb0">
+														<li class="list-inline-item"><span class="fa fa-bed"></span> {{ qtd_dormitorio($empreendimento) }}</li>
+														<li class="list-inline-item"><span class="fa fa-car"></span> {{ qtd_vagas($empreendimento) }}</li>
+														<li class="list-inline-item"><span class="fa fa-object-group"></span> {{ qtd_metragem($empreendimento)}} m<sup>2</sup></li>
+													</ul>
+													@elseif($empreendimento->subtipo_id == 2)
 													<ul class="prop_details mb0">
 														<li class="list-inline-item"><span class="fa fa-bed"></span> 3</li>
 														<li class="list-inline-item"><span class="fa fa-car"></span> 2</li>
 														<li class="list-inline-item"><span class="fa fa-object-group"></span> 48,32m²</li>
 													</ul>
+													@elseif($empreendimento->subtipo_id == 3)
+													<ul class="prop_details mb0">
+														<li class="list-inline-item"><span class="fa fa-bed"></span> 3</li>
+														<li class="list-inline-item"><span class="fa fa-car"></span> 2</li>
+														<li class="list-inline-item"><span class="fa fa-object-group"></span> 48,32m²</li>
+													</ul>
+													@elseif($empreendimento->subtipo_id == 4)
+													<ul class="prop_details mb0">
+														<li class="list-inline-item"><span class="fa fa-bed"></span> 3</li>
+														<li class="list-inline-item"><span class="fa fa-car"></span> 2</li>
+														<li class="list-inline-item"><span class="fa fa-object-group"></span> 48,32m²</li>
+													</ul>
+													@endif
 												</div>
 												<div class="fp_footer">
 													<ul class="fp_meta float-left mb0">
-														<li class="list-inline-item" title="{{ $empreendimento->construtora->nome_abreviado }}"><a href="#"><img src="{{ $empreendimento->construtora->getLogoUrl('260x260') }}" width="50" alt="pposter1.png"></a></li>
+														<li class="list-inline-item" title="{{ $empreendimento->construtora->nome_abreviado }}"><img src="{{ $empreendimento->construtora->getLogoUrl('260x260') }}" width="50" alt="pposter1.png"></li>
 													</ul>
 													<div class="fp_pdate float-right">{{ get_previsao_entrega($empreendimento) }}</div>
 												</div>
 											</div>
+											</a>
 										</div>
 									</li>
+
                                     @endforeach
 
 								</ul>
@@ -731,8 +720,12 @@
 <script type="text/javascript" src="{{ asset('assets/site-2023/js/google-maps.js') }}"></script>
 <!-- Custom script for all pages -->
 <script type="text/javascript" src="{{ asset('assets/site-2023/js/script.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/javascripts/mascaras/jquery.mask.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/javascripts/mascaras/jquery.maskMoney.js') }}"></script>
+
 
 <script>
+$('.moeda').maskMoney({thousands: '.', decimal: ','});
 /* New Map CustomCode */
 "use strict";
 function gMapHome () {
@@ -837,7 +830,7 @@ function gMapHome () {
             title: 'Tenby ',
             infoWindow: {
             content:
-            '<img src="{{ $empreendimento->fotoPrincipal() }}" alt="fp1.jpg"/> <h5>{{ $empreendimento->nome }}</h5> <h4>{{ $empreendimento->subtipo->nome }}</h4> <p>{{ $empreendimento->endereco->bairro->nome }}, {{ $empreendimento->endereco->cidade->nome }} - {{ $empreendimento->endereco->estado->uf }}</p> <p><span><span class="fa fa-bed"></span> 3</span> <span><span class="fa fa-car"></span> 3</span> <span><span class="fa fa-object-group"></span> 48,32m²</span></p>'
+            '<a href="/imoveis/{{ url_amigavel($empreendimento->subtipo->nome)}}-{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html" target="_blank"><img src="{{ $empreendimento->fotoPrincipal() }}" alt="fp1.jpg"/> <h5>{{ $empreendimento->nome }}</h5> <h4>{{ $empreendimento->subtipo->nome }}</h4> <p>{{ $empreendimento->endereco->bairro->nome }}, {{ $empreendimento->endereco->cidade->nome }} - {{ $empreendimento->endereco->estado->uf }}</p> <p><span><span class="fa fa-bed"></span> 3</span> <span><span class="fa fa-car"></span> 3</span> <span><span class="fa fa-object-group"></span> 48,32m²</span></p></a>'
           }
         });
         @endforeach
