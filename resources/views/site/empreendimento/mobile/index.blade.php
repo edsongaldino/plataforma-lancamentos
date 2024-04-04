@@ -97,7 +97,7 @@ $link_tour = $link_tour->pivot->valor;
 
 @push('js_header')
 
-@if($empreendimento->construtora_id == 58){
+@if($empreendimento->construtora_id == 58)
   <script>
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -110,8 +110,8 @@ $link_tour = $link_tour->pivot->valor;
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=576443426940162&ev=PageView&noscript=1"
   /></noscript>
-  }
-  
+@endif
+
 @endpush
 
 @push('js_footer')
