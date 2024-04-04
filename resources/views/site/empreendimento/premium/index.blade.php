@@ -327,7 +327,11 @@
 
     <div class="rodape detalhes">
         <div class="valor">
+            @if($empreendimento->valor_inicial == 0 || $empreendimento->valor_inicial == null)
+            <span class="inicial">Consulte<br/>
+            @else
             <span class="inicial"><i class="fas fa-dollar-sign" aria-hidden="true"></i> {{ $empreendimento->valor_inicial }}</span><br/>
+            @endif
             <span class="texto">Unidades à partir de</span>
         </div>
 
