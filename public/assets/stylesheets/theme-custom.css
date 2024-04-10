@@ -1128,6 +1128,30 @@ input.valor-alteracao{
     font-weight: bold;
 }
 
+.input-group-addon.desconto{
+    background-color: #dfa300;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.input-group-addon.valor-final{
+    background-color: #cf2d05;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.input-group-addon.oferta{
+    background-color: #00B2B2;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.input-group-addon.proposta-online{
+    background-color: #f5b609;
+    color: #FFF;
+    font-weight: bold;
+}
+
 .editar-mapa{
     float: right;
     line-height: 30px;

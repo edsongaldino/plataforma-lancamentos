@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Ofertas imperdíveis de diversos empreendimentos na planta e prontos pra morar">
+	<meta name="keywords" content="lançamentos online, lançamentos imobiliários, apartamento em cuiabá, apartamento novo, imoveis mt, imoveis novos cuiabá">
+	<meta name="author" content="Lançamentos Online">
+	<!-- css file -->
+	<link rel="stylesheet" href="{{ asset('assets/site-2023/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/site-2023/css/style.css') }}">
+	<!-- Responsive stylesheet -->
+	<link rel="stylesheet" href="{{ asset('assets/site-2023/css/responsive.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/site-2023/css/custom.css') }}">
+	<!-- Title -->
+	<title>Lançamentos Online - O seu novo lar está aqui!</title>
+	<!-- Favicon -->
+	<link href="{{ asset('site/favicon.ico') }}" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
+	<link href="{{ asset('site/favicon.ico') }}" sizes="128x128" rel="shortcut icon" />
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="wrapper">
+	<div class="preloader"></div>
+
+	<!-- Main Header Nav -->
+	<header class="header-nav menu_style_home_one style2 navbar-scrolltofixed stricky main-menu">
+		<div class="container-fluid p0">
+		    <!-- Ace Responsive Menu -->
+		    <nav>
+		        <!-- Menu Toggle btn-->
+		        <div class="menu-toggle">
+		            <img class="nav_logo_img img-fluid" src="{{ asset('assets/site-2023/images/header-logo.png') }}" alt="header-logo.png">
+		            <button type="button" id="menu-btn">
+		                <span class="icon-bar"></span>
+		                <span class="icon-bar"></span>
+		                <span class="icon-bar"></span>
+		            </button>
+		        </div>
+		        <a href="#" class="navbar_brand float-left dn-smd">
+		            <img class="logo1 img-fluid" src="{{ asset('assets/site-2023/images/header-logo.png') }}" alt="header-logo.png">
+		            <img class="logo2 img-fluid" src="{{ asset('assets/site-2023/images/header-logo.png') }}" alt="header-logo.png">
+		        </a>
+		        <!-- Responsive Menu Structure-->
+		        <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
+		        <ul id="respMenu" class="ace-responsive-menu text-right" data-menu-style="horizontal">
+		            <li>
+		                <a href="#"><span class="title">Home</span></a>
+		            </li>
+		            <li>
+		                <a href="#"><span class="title">Lançamentos</span></a>
+		            </li>
+		            <li>
+		                <a href="#"><span class="title">Prontos pra Morar</span></a>
+		            </li>
+		            <li>
+		                <a href="#"><span class="title">Financiamento</span></a>
+		            </li>
+	                <li class="list-inline-item add_listing"><a href="page-add-new-property.html"><span class="flaticon-plus"></span><span class="dn-lg"> Proposta Online</span></a></li>
+		        </ul>
+		    </nav>
+		</div>
+	</header>
+
+
+	<!-- Main Header Nav For Mobile -->
+	<div id="page" class="stylehome1 h0">
+		<div class="mobile-menu">
+			<div class="header stylehome1">
+				<div class="d-flex justify-content-between">
+					<a class="mobile-menu-trigger" href="#menu"><img src="{{ asset('assets/site-2023/images/dark-nav-icon.svg') }}" alt=""></a>
+					<a class="nav_logo_img" href="index.html"><img class="img-fluid mt20" src="{{ asset('assets/site-2023/images/header-logo.png') }}" alt="header-logo.png"></a>
+					<a class="mobile-menu-reg-link" href="page-register.html"><span class="flaticon-user"></span></a>
+				</div>
+			</div>
+		</div><!-- /.mobile-menu -->
+		<nav id="menu" class="stylehome1">
+			<ul>
+				<li><span>Home</span>
+				</li>
+				<li><span>Lançamentos</span>
+				</li>
+				<li><span>Prontos pra Morar</span>
+				</li>
+				<li><span>Financiamento</span></li>
+				<li class="cl_btn"><a class="btn btn-block btn-lg btn-thm circle" href="#"><span class="flaticon-building"></span> Proposta Online</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<!-- Listing Grid View -->
+	<section id="feature-property" class="our-listing bgc-f7 pt0 pb0">
+    @yield('content')
+	</section>
+
+  <a class="scrollToHome" href="#"><i class="flaticon-arrows"></i></a>
+
+  <!-- Our Footer -->
+	<section class="footer_one">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 pr0 pl0">
+					<div class="footer_about_widget">
+						<h4>Lançamentos Online</h4>
+						<p>O Lancamentos Online é o primeiro portal que publica exclusivamente imóveis novos e na planta das Construtoras e Incorporadoras conectadas. Criamos um canal direto onde você poderá buscar os melhores negócios e ofertas dos lançamentos imobiliários à venda no Brasil.</p>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
+					<div class="footer_qlink_widget">
+						<h4>Acesso rápido</h4>
+						<ul class="list-unstyled">
+							<li class="list-inline-item"><a href="#">Home</a></li>
+							<li class="list-inline-item"><a href="#">Lançamentos</a></li>
+							<li class="list-inline-item"><a href="#">Em Obra</a></li>
+							<li class="list-inline-item"><a href="#">Pronto pra Morar</a></li>
+							<li class="list-inline-item"><a href="#">Proposta Online</a></li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
+					<div class="footer_social_widget">
+						<h4>Siga-nos</h4>
+						<ul class="mb30">
+							<li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fa fa-google"></i></a></li>
+						</ul>
+						<h4>Inscreva-se</h4>
+						<form class="footer_mailchimp_form">
+						 	<div class="form-row align-items-center">
+							    <div class="col-auto">
+							    	<input type="email" class="form-control mb-2" id="inlineFormInput" placeholder="Seu email">
+							    </div>
+							    <div class="col-auto">
+							    	<button type="submit" class="btn btn-primary mb-2"><i class="fa fa-angle-right"></i></button>
+							    </div>
+						  	</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+  <!-- Our Footer Bottom Area -->
+	<section class="footer_middle_area pt40 pb40">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-xl-6">
+					<div class="footer_menu_widget">
+						<ul>
+							<li class="list-inline-item"><a href="#">Home</a></li>
+							<li class="list-inline-item"><a href="#">Lançamentos</a></li>
+							<li class="list-inline-item"><a href="#">Em Obra</a></li>
+							<li class="list-inline-item"><a href="#">Pronto pra Morar</a></li>
+							<li class="list-inline-item"><a href="#">Proposta Online</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-6 col-xl-6">
+					<div class="copyright-widget text-right">
+						<p>© @php echo date("Y"); @endphp Portal Lançamentos Online</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</div>
+<!-- Wrapper End -->
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/jquery-3.3.1.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/jquery-migrate-3.0.0.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/popper.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/jquery.mmenu.all.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/ace-responsive-menu.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/bootstrap-select.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/snackbar.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/simplebar.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/parallax.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/scrollto.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/jquery-scrolltofixed-min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/jquery.counterup.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/wow.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/slider.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/pricing-slider.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/timepicker.js') }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLZYFMbNKXu2gyC_yxbdEDGxA6G0LSNu8&callback=initMap"type="text/javascript"></script>
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/google-maps.js') }}"></script>
+<!-- Custom script for all pages -->
+<script type="text/javascript" src="{{ asset('assets/site-2023/js/script.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/javascripts/mascaras/jquery.mask.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/javascripts/mascaras/jquery.maskMoney.js') }}"></script>
+
+</body>
+</html>

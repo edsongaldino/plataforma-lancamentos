@@ -308,6 +308,64 @@
 
 	</div>
 
+	<div class="row">
+
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="">Unidade em Oferta?</label>
+				<div class="input-group btn-group">
+					<span class="input-group-addon oferta">
+						<i class="fa fa-check-square-o" aria-hidden="true"></i>
+					</span>
+					<select name="oferta_online" id="oferta_online" class="form-control">
+						<option @if ($entry->oferta_online == 'Não') selected="true" @endif value="Não">Não</option>
+						<option @if ($entry->oferta_online == 'Sim') selected="true" @endif value="Sim">Sim</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-8 proposta-unidade" style="display: block">
+			<div class="form-group">
+				<label class="">Unidade disponível para Proposta Online?</label>
+				<div class="input-group btn-group">
+					<span class="input-group-addon proposta-online">
+						<i class="fa fa-briefcase" aria-hidden="true"></i>
+					</span>
+					<select name="proposta_online" id="proposta_online" class="form-control">
+						<option @if ($entry->proposta_online == 'Não') selected="true" @endif value="Não">Não</option>
+						<option @if ($entry->proposta_online == 'Sim') selected="true" @endif value="Sim">Sim</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-3 oferta-unidade" style="display: none">
+			<div class="form-group">
+				<label class="">Desconto %</label>
+				<div class="input-group btn-group">
+					<span class="input-group-addon desconto">
+						%
+					</span>
+					<input type="text" name="oferta_desconto_percentual" class="form-control moeda valor-unidade" @if (isset($entry) && $entry->caracteristicas->where('nome', 'oferta_desconto_percentual')->first())value="{{ converte_valor_real($entry->caracteristicas->where('nome', 'oferta_desconto_percentual')->first()->pivot->valor) }}"@endif>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-5 oferta-unidade" style="display: none">
+			<div class="form-group">
+				<label class="">Valor Final</label>
+				<div class="input-group btn-group">
+					<span class="input-group-addon valor-final">
+						<i class="fa fa-dollar" aria-hidden="true"></i>
+					</span>
+					<input type="text" name="oferta_valor_final" class="form-control moeda valor-unidade" @if (isset($entry) && $entry->caracteristicas->where('nome', 'oferta_valor_final')->first())value="{{ converte_valor_real($entry->caracteristicas->where('nome', 'oferta_valor_final')->first()->pivot->valor) }}"@endif>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
 	@endif
 
 	<div class="clearfix"></div>
@@ -338,16 +396,27 @@
 			});
 		});
 
-		$('input[name=valor_unidade]').on('blur', function () {
+		$('input[name=oferta_desconto_percentual]').on('blur', function () {
 
-	  		var valor_unidade = remove_mascara_valor($(this).val());
-	  		var metragem_total = $('input[name=metragem_total]').val();
+	  		var oferta_desconto_percentual = remove_mascara_valor($(this).val());
+	  		var valor_unidade = remove_mascara_valor($('input[name=valor_unidade]').val());
 
-	  		if (valor_unidade != '' && metragem_total != '') {
-				var valor_m2 = formata_valor_real(calcularValorM2(valor_unidade, metragem_total));
-	  			$('input[name=valor_m2]').val(valor_m2);
+	  		if (valor_unidade != '' && oferta_desconto_percentual != '') {
+				var valor_final = formata_valor_real(calcularDesconto(valor_unidade, oferta_desconto_percentual));
+	  			$('input[name=oferta_valor_final]').val(valor_final);
 	  		}
 	  	});
+
+		$('input[name=valor_unidade]').on('blur', function () {
+
+			var valor_unidade = remove_mascara_valor($(this).val());
+			var metragem_total = $('input[name=metragem_total]').val();
+
+			if (valor_unidade != '' && metragem_total != '') {
+			var valor_m2 = formata_valor_real(calcularValorM2(valor_unidade, metragem_total));
+				$('input[name=valor_m2]').val(valor_m2);
+			}
+		});
 
 	    /*
 		$('input[name=valor_m2]').on('blur', function () {
@@ -381,6 +450,11 @@
 			return (valor_m2 * metragem_total);
 	  	}
 
+		function calcularDesconto(valor_unidade, valor_desconto) {
+			var valor_final = valor_unidade - (valor_unidade / 100 * valor_desconto);
+			return valor_final;
+	  	}
+
 		function remove_mascara_valor(valor)
 		{
 		  if (valor) {
@@ -405,6 +479,18 @@
 
 		  return result;
 		}
+
+		$('#oferta_online').change(function (){
+			var oferta_online = ($(this).val());
+
+			if(oferta_online == "Sim"){
+				$(".oferta-unidade").css("display", "block");
+				$(".proposta-unidade").css("display", "none");
+			}else{
+				$(".oferta-unidade").css("display", "none");
+				$(".proposta-unidade").css("display", "block");
+			}
+		});
 
 	});
 </script>

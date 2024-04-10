@@ -59,6 +59,7 @@
                 </div>
               </div>
               <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                <!--
                 <div class="busca-topo">
                   <form class="simple-search-form" method="get" id="form_busca" action="/resultado-busca">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -98,6 +99,8 @@
                     </div>
                   </form>
                 </div>
+
+              -->
               </div>
             </div>
           </div>

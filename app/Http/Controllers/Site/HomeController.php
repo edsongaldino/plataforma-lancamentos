@@ -66,6 +66,12 @@ class HomeController extends Controller
         return view('site-2023.busca-mapa', compact('empreendimentos', 'subtipos'));
     }
 
+    public function Busca(){
+        $subtipos = Subtipo::all();
+        $empreendimentos = Empreendimento::latest()->where('status', 'Liberada')->paginate(10);
+        return view('site-2023.lista', compact('empreendimentos', 'subtipos'));
+    }
+
     public function newsletter(NewsletterRequest $request)
     {
         $resultado = (new Newsletter())->salvar($request);

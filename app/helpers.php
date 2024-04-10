@@ -776,6 +776,55 @@ if (!function_exists('qtd_dormitorio')) {
 	}
 }
 
+if (!function_exists('qtd_banheiro')) {
+	function qtd_banheiro($empreendimento, $range = false) {
+		$plantas = $empreendimento->plantas;
+
+		$minimo = 0;
+		$maximo = 0;
+		$valores = [];
+		$texto = null;
+
+		foreach ($plantas as $planta) {
+
+			$caracteristica = $planta->caracteristicas->where('nome', 'Banheiro')->where('tipo', 'Planta')->first();
+
+			if ($caracteristica && $caracteristica->pivot->valor > 0) {
+				$valores[] = $caracteristica->pivot->valor;
+			} else {
+				$caracteristica = $planta->caracteristicas->where('nome', 'qtd_banheiro')->where('tipo', 'Planta')->first();
+
+				if ($caracteristica && $caracteristica->pivot->valor > 0) {
+					$valores[] = $caracteristica->pivot->valor;
+				}
+			}
+		}
+
+		if ($valores) {
+			$minimo = min($valores);
+			$maximo = max($valores);
+
+			$texto = $minimo;
+
+			if (!$range) {
+				return $minimo;
+			}
+
+			if($minimo != $maximo) {
+
+				if($minimo == 0){
+					$texto = "{$maximo} <span class='texto_previsao'>";
+				}else{
+					$texto = "{$minimo}<span class='texto_previsao'> à </span>{$maximo}<span class='texto_previsao'>";
+				}
+
+			}
+		}
+
+		return $texto;
+	}
+}
+
 if (!function_exists('qtd_vagas')) {
 	function qtd_vagas($empreendimento, $tipoEmpreendimento = null, $total = false) {
 

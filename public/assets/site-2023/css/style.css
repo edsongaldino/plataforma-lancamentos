@@ -4407,10 +4407,10 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .properti_city.home6 .thumb .thmb_cntnt ul.tag li,
 .feat_property.list .dtls_headr ul.tag li{
   border-radius: 3px;
-  height: 25px;
   line-height: 25px;
   text-align: center;
-  width: 75px;
+  width: auto;
+  padding: 5px 10px;
 }
 .feat_property.home8 ul.tag{
   margin-bottom: 10px;
@@ -11737,7 +11737,7 @@ a.btn.btn_error{
 }
 .sasw_list .min_area,
 .sasw_list .max_area{
-  width: 135px;
+  width: 170px;
 }
 .sasw_list .max_area{
   float: right;
@@ -15259,7 +15259,7 @@ canvas {
   -moz-transition: all .1s ease;
   -o-transition: all .1s ease;
   transition: all .1s ease;
-  width: 360px;
+  width: auto;
   z-index: 9;
 }
 .sidebar_content_details::-webkit-scrollbar {

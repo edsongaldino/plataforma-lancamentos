@@ -23,3 +23,7 @@
 .txt-modalidade{
   color: #FFF !important;
 }
+
+.container.portal{
+  max-width: 1370px !important;
+}

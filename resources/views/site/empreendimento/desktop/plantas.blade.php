@@ -1,4 +1,4 @@
-  <div class="row">
+  <div class="container">
       <div class="col-xs-12 col-sm-9 margin-top-60">
         <h2 class="title-negative-margin title-color">
           <i class="fa fa-object-group" aria-hidden="true"></i> Plantas
