@@ -317,7 +317,7 @@
 								</div>
 								<div class="fp_footer">
 									<ul class="fp_meta float-left mb0">
-										<li class="list-inline-item"><img src="{{ $destaque->construtora->getLogoUrl('125x95') }}" width="80" alt=""></li>
+										<li class="list-inline-item"><img src="{{ $destaque->construtora->getLogoUrl('125x95') }}" width="80" class="logo-construtora" alt=""></li>
 									</ul>
 									<div class="fp_pdate float-right">{{get_previsao_entrega($destaque)}}</div>
 								</div>

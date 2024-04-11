@@ -3198,3 +3198,7 @@ html.no-pointerevents.no-touchevents .gallery-grid-item:hover span  {
     color: #FFF;
     font-size: 18px;
 }
+
+.logo-construtora{
+	width: 80px !important;
+}
