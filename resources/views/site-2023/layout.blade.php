@@ -198,5 +198,145 @@
 <script type="text/javascript" src="{{ asset('assets/javascripts/mascaras/jquery.mask.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/javascripts/mascaras/jquery.maskMoney.js') }}"></script>
 
+<script>
+	$('.moeda').maskMoney({thousands: '.', decimal: ','});
+
+	//verifica se o navegador tem suporte a geolocalização
+	if(navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function(position){ // callback de sucesso
+			// ajusta a posição do marker para a localização do usuário
+			$('#contact-google-map').attr('data-map-lat', position.coords.latitude);
+			$('#contact-google-map').attr('data-map-lng', position.coords.longitude);
+		}, 
+		function(error){ // callback de erro
+		alert('Erro ao obter localização!');
+		console.log('Erro ao obter localização.', error);
+		});
+	} else {
+		console.log('Navegador não suporta Geolocalização!');
+	}
+
+	/* New Map CustomCode */
+	"use strict";
+	function gMapHome () {
+	  if ($('.map-canvas').length) {
+		$('.map-canvas').each(function () {
+		  // getting options from html
+		  var Self = $(this);
+		  var mapName = Self.attr('id');
+		  var mapLat = Self.data('map-lat');
+		  var mapLng = Self.data('map-lng');
+		  var iconPath = Self.data('icon-path');
+		  var mapZoom = Self.data('map-zoom');
+		  var mapTitle = Self.data('map-title');
+	
+		  var styles = [
+			{"featureType": "all", "elementType": "labels.text", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{"color": "#222222"} ] },
+			{"featureType": "landscape", "elementType": "all", "stylers": [{"color": "#f2f2f2"} ] },
+			{"featureType": "poi", "elementType": "all", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "road", "elementType": "all", "stylers": [{"saturation": -100 },
+			{"lightness": 45 } ] },
+			{"featureType": "road.highway", "elementType": "all", "stylers": [{"visibility": "simplified"} ] },
+			{"featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "road.local", "elementType": "labels.text", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "transit", "elementType": "all", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "water", "elementType": "all", "stylers": [{"color": "#ffe807"},
+			{"visibility": "on"} ] } ];
+	
+		  if ($(this).hasClass('skin1')) {
+			var iconPath = 'assets/site-2023/images/resource/map-marker.png';
+			var styles = [
+			{"featureType": "all", "elementType": "labels.text", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{"color": "#444444"} ] },
+			{"featureType": "landscape", "elementType": "all", "stylers": [{"color": "#f2f2f2"} ] },
+			{"featureType": "poi", "elementType": "all", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "road", "elementType": "all", "stylers": [{"saturation": -100 },
+			{"lightness": 45 } ] }, {"featureType": "road.highway", "elementType": "all", "stylers": [{"visibility": "simplified"} ] },
+			{"featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "road.local", "elementType": "labels.text", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "transit", "elementType": "all", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "water", "elementType": "all", "stylers": [{"color": "#ffe807"}, {"visibility": "on"} ] } ];
+		  }
+		  if ($(this).hasClass('skin2')) {
+			var iconPath = 'assets/site-2023/images/resource/map-marker.png';
+			var styles = [
+			{"featureType": "all", "elementType": "labels", "stylers": [{"visibility": "on"} ] },
+			{"featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{"color": "#222222"} ] },
+			{"featureType": "landscape", "elementType": "all", "stylers": [{"color": "green"} ] },
+			{"featureType": "poi", "elementType": "all", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "road", "elementType": "all", "stylers": [{"saturation": -100 }, {"lightness": 45 } ] },
+			{"featureType": "road.highway", "elementType": "all", "stylers": [{"visibility": "simplified"} ] },
+			{"featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "transit", "elementType": "all", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "water", "elementType": "all", "stylers": [{"color": "blue"}, {"visibility": "on"}]}];
+		  }
+		  if ($(this).hasClass('skin3')) {
+			var iconPath = 'assets/site-2023/images/resource/map-marker.png';
+			var styles = [{"featureType": "all", "elementType": "labels", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{"color": "#444444"} ] },
+			{"featureType": "landscape", "elementType": "all", "stylers": [{"color": "#f2f2f2"} ] },
+			{"featureType": "poi", "elementType": "all", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "road", "elementType": "all", "stylers": [{"saturation": -100 },
+			{"lightness": 45 } ] }, {"featureType": "road.highway", "elementType": "all", "stylers": [{"visibility": "simplified"} ] },
+			{"featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "transit", "elementType": "all", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "water", "elementType": "all", "stylers": [{"color": "#13a0b2"}, {"visibility": "on"} ] } ];
+		  }
+		  if ($(this).hasClass('skin4')) {
+			var iconPath = 'assets/site-2023/images/resource/map-marker.png';
+			var styles = [{"featureType": "all", "elementType": "labels", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{"color": "#444444"} ] },
+			{"featureType": "landscape", "elementType": "all", "stylers": [{"color": "#f2f2f2"} ] },
+			{"featureType": "poi", "elementType": "all", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "road", "elementType": "all", "stylers": [{"saturation": -100 },
+			{"lightness": 45 } ] }, {"featureType": "road.highway", "elementType": "all", "stylers": [{"visibility": "simplified"} ] },
+			{"featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "transit", "elementType": "all", "stylers": [{"visibility": "off"} ] },
+			{"featureType": "water", "elementType": "all", "stylers": [{"color": "#44e2ff"}, {"visibility": "on"} ] } ];
+		  }
+	
+		  // if zoom not defined the zoom value will be 15;
+		  if (!mapZoom) {
+			var mapZoom = 12;
+		  };
+		  // init map
+		  var map;
+		  map = new GMaps({
+			  div: '#'+mapName,
+			  scrollwheel: false,
+			  lat: mapLat,
+			  lng: mapLng,
+			  styles: styles,
+			  zoom: mapZoom
+		  });
+		  // if icon path setted then show marker
+		  if(iconPath) {
+			@foreach ($empreendimentos as $empreendimento)
+			map.addMarker({
+				icon: iconPath,
+				lat: {{ $empreendimento->endereco->latitude ?? '-15.595626' }},
+				lng: {{ $empreendimento->endereco->longitude ?? '-56.099996' }},
+				title: 'Tenby ',
+				infoWindow: {
+				content:
+				'<a href="/imoveis/{{ url_amigavel($empreendimento->subtipo->nome)}}-{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html" target="_blank"><img src="{{ $empreendimento->fotoPrincipal() }}" alt="fp1.jpg"/> <h5>{{ $empreendimento->nome }}</h5> <h4>{{ $empreendimento->subtipo->nome }}</h4> <p>{{ $empreendimento->endereco->bairro->nome }}, {{ $empreendimento->endereco->cidade->nome }} - {{ $empreendimento->endereco->estado->uf }}</p> <p><span><span class="fa fa-bed"></span> 3</span> <span><span class="fa fa-car"></span> 3</span> <span><span class="fa fa-object-group"></span> 48,32m²</span></p></a>'
+			  }
+			});
+			@endforeach
+		  }
+		});
+	  };
+	}
+	
+	// Dom Ready Function
+	jQuery(document).on('ready', function () {
+	  (function ($) {
+		// add your functions
+		gMapHome();
+	  })(jQuery);
+	});
+	</script>
+
 </body>
 </html>

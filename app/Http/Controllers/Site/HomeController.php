@@ -60,6 +60,14 @@ class HomeController extends Controller
         return view('site.pagina-comercial.index');
     }
 
+    public function NovaIndex(){
+        $subtipos = Subtipo::all();
+        $empreendimentos = Empreendimento::latest()->where('status', 'Liberada')->take(30)->get();
+        $noticias = Publicacao::where('status', 'Liberada')->orderBy('data', 'DESC')->take(3)->get();
+        $destaques = Empreendimento::latest()->where('status', 'Liberada')->take(12)->get();
+        return view('site-2023.index', compact('empreendimentos', 'subtipos', 'noticias', 'destaques'));
+    }
+
     public function BuscaMapa(){
         $subtipos = Subtipo::all();
         $empreendimentos = Empreendimento::latest()->where('status', 'Liberada')->paginate(10);

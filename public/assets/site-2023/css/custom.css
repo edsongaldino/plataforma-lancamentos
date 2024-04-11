@@ -27,3 +27,9 @@
 .container.portal{
   max-width: 1370px !important;
 }
+
+h4.resumo{
+  font-size: 16px !important;
+  font-weight: lighter !important;
+  text-align: justify !important;
+}
