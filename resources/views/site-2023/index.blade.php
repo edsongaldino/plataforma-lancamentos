@@ -285,8 +285,6 @@
 			</div>
 			<div class="col-lg-12">
 				<div class="feature_property_slider">
-
-
 					@foreach($destaques as $destaque)
 					<div class="item">
 						<div class="feat_property">
