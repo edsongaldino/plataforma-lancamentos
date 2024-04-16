@@ -668,7 +668,6 @@ Route::get('/atualizar-caracteristicas/{id}', function($id) {
 		}
 
     }
-
 });
 
 Route::get('/deleta-caracteristicas/{id}', function($id) {
@@ -682,7 +681,6 @@ Route::get('/deleta-caracteristicas/{id}', function($id) {
 		DB::table('caracteristicas_unidades')->where('caracteristica_id',591)->where('unidade_id',$unidade->id)->delete();
 
     }
-
 });
 
 /*SITE 2023*/
