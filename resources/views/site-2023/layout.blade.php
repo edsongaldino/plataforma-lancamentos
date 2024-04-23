@@ -32,14 +32,14 @@
 		    <nav>
 		        <!-- Menu Toggle btn-->
 		        <div class="menu-toggle">
-		            <img class="nav_logo_img img-fluid" src="{{ asset('assets/site-2023/images/header-logo.png') }}" alt="header-logo.png">
+		            <a href="/pagina-inicial.html"><img class="nav_logo_img img-fluid" src="{{ asset('assets/site-2023/images/header-logo.png') }}" alt="header-logo.png"></a>
 		            <button type="button" id="menu-btn">
 		                <span class="icon-bar"></span>
 		                <span class="icon-bar"></span>
 		                <span class="icon-bar"></span>
 		            </button>
 		        </div>
-		        <a href="#" class="navbar_brand float-left dn-smd">
+		        <a href="/pagina-inicial.html" class="navbar_brand float-left dn-smd">
 		            <img class="logo1 img-fluid" src="{{ asset('assets/site-2023/images/header-logo.png') }}" alt="header-logo.png">
 		            <img class="logo2 img-fluid" src="{{ asset('assets/site-2023/images/header-logo.png') }}" alt="header-logo.png">
 		        </a>
@@ -47,18 +47,15 @@
 		        <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
 		        <ul id="respMenu" class="ace-responsive-menu text-right" data-menu-style="horizontal">
 		            <li>
-		                <a href="#"><span class="title">Home</span></a>
+		                <a href="/empreendimentos/1-apartamentos.html"><span class="title"><i class="fas fa-building"></i> Apartamentos</span></a>
 		            </li>
 		            <li>
-		                <a href="#"><span class="title">Lançamentos</span></a>
+		                <a href="/empreendimentos/2-salascomerciais.html"><span class="title"><i class="fas fa-store"></i> Salas Comerciais</span></a>
 		            </li>
 		            <li>
-		                <a href="#"><span class="title">Prontos pra Morar</span></a>
+		                <a href="/empreendimentos/3-condominiofechado.html"><span class="title"><i class="fas fa-house-damage"></i> Condomínios Horizontais</span></a>
 		            </li>
-		            <li>
-		                <a href="#"><span class="title">Financiamento</span></a>
-		            </li>
-	                <li class="list-inline-item add_listing"><a href="page-add-new-property.html"><span class="flaticon-plus"></span><span class="dn-lg"> Proposta Online</span></a></li>
+	                <li class="list-inline-item add_listing"><a href="/plataforma-lancamentos-online.html" target="_blank"><i class="fas fa-rocket"></i><span class="dn-lg"> Anuncie</span></a></li>
 		        </ul>
 		    </nav>
 		</div>
@@ -78,14 +75,16 @@
 		</div><!-- /.mobile-menu -->
 		<nav id="menu" class="stylehome1">
 			<ul>
-				<li><span>Home</span>
+				<li>
+					<a href="/empreendimentos/1-apartamentos.html"><span class="title"><i class="fas fa-building"></i> Apartamentos</span></a>
 				</li>
-				<li><span>Lançamentos</span>
+				<li>
+					<a href="/empreendimentos/2-salascomerciais.html"><span class="title"><i class="fas fa-store"></i> Salas Comerciais</span></a>
 				</li>
-				<li><span>Prontos pra Morar</span>
+				<li>
+					<a href="/empreendimentos/3-condominiofechado.html"><span class="title"><i class="fas fa-house-damage"></i> Condomínios Horizontais</span></a>
 				</li>
-				<li><span>Financiamento</span></li>
-				<li class="cl_btn"><a class="btn btn-block btn-lg btn-thm circle" href="#"><span class="flaticon-building"></span> Proposta Online</a></li>
+				<li class="cl_btn"><a class="btn btn-block btn-lg btn-thm circle" href="/plataforma-lancamentos-online.html" target="_blank"><i class="fas fa-rocket"></i> Anuncie</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -111,11 +110,10 @@
 					<div class="footer_qlink_widget">
 						<h4>Acesso rápido</h4>
 						<ul class="list-unstyled">
-							<li class="list-inline-item"><a href="#">Home</a></li>
-							<li class="list-inline-item"><a href="#">Lançamentos</a></li>
-							<li class="list-inline-item"><a href="#">Em Obra</a></li>
-							<li class="list-inline-item"><a href="#">Pronto pra Morar</a></li>
-							<li class="list-inline-item"><a href="#">Proposta Online</a></li>
+							<li class="list-inline-item"><a href="/empreendimentos/1-apartamentos.html"><i class="fas fa-building"></i> Apartamentos</a></li>
+							<li class="list-inline-item"><a href="/empreendimentos/2-salascomerciais.html"><i class="fas fa-store"></i> Salas Comerciais</a></li>
+							<li class="list-inline-item"><a href="/empreendimentos/3-condominiofechado.html"><i class="fas fa-house-damage"></i> Condomínios Horizontais</a></li>
+							<li class="list-inline-item"><a href="/plataforma-lancamentos-online.html" target="_blank"><i class="fas fa-rocket"></i> Anuncie</a></li>
 						</ul>
 					</div>
 				</div>
@@ -124,12 +122,12 @@
 					<div class="footer_social_widget">
 						<h4>Siga-nos</h4>
 						<ul class="mb30">
-							<li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
-							<li class="list-inline-item"><a href="#"><i class="fa fa-pinterest"></i></a></li>
-							<li class="list-inline-item"><a href="#"><i class="fa fa-dribbble"></i></a></li>
-							<li class="list-inline-item"><a href="#"><i class="fa fa-google"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fab fa-dribbble"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fab fa-google"></i></a></li>
 						</ul>
 						<h4>Inscreva-se</h4>
 						<form class="footer_mailchimp_form">
@@ -153,15 +151,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-xl-6">
-					<div class="footer_menu_widget">
-						<ul>
-							<li class="list-inline-item"><a href="#">Home</a></li>
-							<li class="list-inline-item"><a href="#">Lançamentos</a></li>
-							<li class="list-inline-item"><a href="#">Em Obra</a></li>
-							<li class="list-inline-item"><a href="#">Pronto pra Morar</a></li>
-							<li class="list-inline-item"><a href="#">Proposta Online</a></li>
-						</ul>
-					</div>
+					
 				</div>
 				<div class="col-lg-6 col-xl-6">
 					<div class="copyright-widget text-right">

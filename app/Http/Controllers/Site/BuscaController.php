@@ -17,7 +17,7 @@ class BuscaController extends Controller
 
     public function __construct()
     {
-        $this->view = isMobile() ? 'site.busca.mobile.index' : 'site.busca.desktop.index';
+        $this->view = isMobile() ? 'site.busca.mobile.index' : 'site-2023.busca-mapa';
     }
 
     public function index(Request $request)
@@ -29,7 +29,7 @@ class BuscaController extends Controller
     public function ajax(Request $request)
     {
         $this->getDadosBusca($request);
-        return view('site.busca.desktop.resultados', $this->data);
+        return view('site-2023.busca-mapa', $this->data);
     }
 
     public function getDadosBusca($request, $array = null)
@@ -59,7 +59,8 @@ class BuscaController extends Controller
 
         $retorno = (new Empreendimento())->buscar($parametros);
 
-        $this->data['parametros'] = $parametros;        
+        $this->data['parametros'] = $parametros;      
+        $this->data['subtipos'] = Subtipo::all();   
         $this->data['total'] = $retorno['total'];
         $this->data['empreendimentos'] = $retorno['resultados'];
         $this->data['paginacao'] = $retorno['paginacao'];

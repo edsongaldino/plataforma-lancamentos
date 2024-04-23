@@ -33,3 +33,8 @@ h4.resumo{
   font-weight: lighter !important;
   text-align: justify !important;
 }
+
+.logo-construtora{
+  max-width: 70px !important;
+  height: auto !important;
+}

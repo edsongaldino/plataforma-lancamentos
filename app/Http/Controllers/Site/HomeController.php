@@ -68,14 +68,33 @@ class HomeController extends Controller
         return view('site-2023.index', compact('empreendimentos', 'subtipos', 'noticias', 'destaques'));
     }
 
-    public function BuscaMapa(){
-        $subtipos = Subtipo::all();
-        $empreendimentos = Empreendimento::latest()->where('status', 'Liberada')->paginate(10);
+    public function BuscaMapa(Request $busca){
+        $ListaEmpreendimentos = Empreendimento::where('status', 'Liberada');
+
+        if($busca->modalidade){
+            $ListaEmpreendimentos->where('empreendimentos.modalidade', $busca->modalidade);
+        }
+        if($busca->subtipo_id){
+            $ListaEmpreendimentos->where('empreendimentos.subtipo_id', $busca->subtipo_id);
+        }
+
+        if($busca->valor_min){
+            $ListaEmpreendimentos->where('empreendimentos.valor_inicial','>=', $busca->valor_min);
+        }
+
+        if($busca->valor_max){
+            $ListaEmpreendimentos->where('empreendimentos.valor_final','<', $busca->valor_max);
+        }
+
+        if($busca->cidade){
+            $ListaEmpreendimentos->endereco->where('enderecos.cidade_id', $busca->cidade);
+        }
+
+        $empreendimentos = $ListaEmpreendimentos->paginate(10);
         return view('site-2023.busca-mapa', compact('empreendimentos', 'subtipos'));
     }
 
     public function Busca(){
-        $subtipos = Subtipo::all();
         $empreendimentos = Empreendimento::latest()->where('status', 'Liberada')->paginate(10);
         return view('site-2023.lista', compact('empreendimentos', 'subtipos'));
     }

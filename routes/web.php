@@ -50,7 +50,7 @@ Route::group(['middleware' => ['site']], function () {
 	Route::post('/pagina-comercial/captar-dados-cliente', 'Site\HomeController@ContatoComercial');
 
 	// Home
-	Route::get('pagina-inicial.html', 'Site\HomeController@index')->name('homepage');
+	Route::get('pagina-inicial.html', 'Site\HomeController@NovaIndex')->name('homepage');
 
 
 	Route::get('/sitemap.xml', 'Site\HomeController@SiteMap');
@@ -115,8 +115,6 @@ Route::group(['middleware' => ['site']], function () {
 	Route::post('/enviar-proposta', 'Site\EmpreendimentoController@enviarProposta');
 	Route::post('/unidade/mapa', 'Site\EmpreendimentoController@unidadeMapa');
     Route::post('/unidade/dimensao-lote', 'Site\EmpreendimentoController@dimensaoLote');
-
-
 
 
 	Route::get('/unidade/mapa/{id}', 'Site\EmpreendimentoController@GetunidadeMapa');
@@ -684,7 +682,7 @@ Route::get('/deleta-caracteristicas/{id}', function($id) {
 });
 
 /*SITE 2023*/
-Route::get('busca-mapa.html', 'Site\HomeController@BuscaMapa');
+Route::any('busca-mapa.html', 'Site\BuscaController@index');
 Route::get('resultado-busca.html', 'Site\HomeController@Busca');
 Route::get('index.html', 'Site\HomeController@NovaIndex');
 

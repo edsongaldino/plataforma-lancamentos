@@ -1405,11 +1405,11 @@ header.header-nav.menu_style_home_one.style2.home10 ul.ace-responsive-menu li.li
   display: none;
 }
 header.header-nav.menu_style_home_one.style2 ul.ace-responsive-menu li.add_listing{
-  background-color: rgb(57 107 161);
-  -webkit-box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
-  -moz-box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
-  -o-box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
-  box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
+  background-color: rgb(251 214 76);
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(20, 19, 19, 0.3);
+  -moz-box-shadow: 0px 1px 4px 0px rgba(37, 35, 35, 0.3);
+  -o-box-shadow: 0px 1px 4px 0px rgba(20, 19, 19, 0.3);
+  box-shadow: 0px 1px 4px 0px rgba(17, 17, 17, 0.3);
 }
 header.header-nav.menu_style_home_one.style2 ul.ace-responsive-menu li.add_listing.home2{
   background-color: rgb(36, 50, 74);
@@ -4352,20 +4352,14 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   box-shadow: 0px 0px 30px 0px rgba(19, 19, 28, 0.12);
 }
 .feat_property .thumb{
-  background-color: #1d293e;
   border-radius: 8px;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
   overflow: hidden;
   margin: 10px 10px 0 10px;
   position: relative;
+  background-color: #000;
 }
 .feat_property .thumb img{
-  opacity: 0.99;
-  /*object-fit: cover;*/
+  opacity: 0.79;
 }
 .feat_property .thumb .blog_tag{
   background-color: #00A3D9;
@@ -4388,6 +4382,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .for_blog.feat_property .thumb img{
   opacity: 1;
   height: 190px;
+  width: 100% !important;
 }
 .feat_property .thumb .thmb_cntnt,
 .properti_city.home6 .thumb .thmb_cntnt{
@@ -4961,6 +4956,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .for_blog.feat_property.home9 .thumb{
   position: absolute;
   top: -130px;
+  width: 95%;
 }
 .for_blog.feat_property.home9 .details{
   bottom: 0;
@@ -7007,10 +7003,11 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   padding: 80px 0 70px;
 }
 .footer_one {
-  background-color: #24324a;
+  background: #151F2B url(../../../site/images/footer-bg.jpg) no-repeat center 0px;
+  background-position: center;
 }
 .footer_middle_area{
-  background-color: #1d293e;
+  background-color: #031830;
 }
 .footer_bottom_area {
   background-color: #484848;

@@ -9,6 +9,7 @@ use App\Models\Construtora;
 use App\Models\Empreendimento;
 use App\Models\EmpreendimentoPerfil;
 use App\Models\Estado;
+use App\Models\Foto;
 use App\Models\Garagem;
 use App\Models\LancamentoFinanceiro;
 use App\Models\Planta;
@@ -421,7 +422,19 @@ if (!function_exists('getimg')) {
 		return $return;
 	}
 }
+if(!function_exists('getFotosCarrossel')){
 
+	function getFotosCarrossel($id){
+        return Foto::where('empreendimento_id', $id)
+            ->where('destaque_carrossel', 'Sim')
+            ->where(function ($q) {
+                $q->orWhere('planta_id', null)
+                  ->orWhere('planta_id', 0);
+            })
+            ->where('status', 'Liberada')
+            ->get();
+    }
+}
 if(!function_exists('getMapaUnidade')){
 
 	function getMapaUnidade($id){

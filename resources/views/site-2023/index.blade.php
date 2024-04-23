@@ -19,15 +19,17 @@
 		<div class="row featured_row">
 			<div class="col-lg-12">
 				<div class="home1-advnc-search home2 mt20">
+					<form action="busca-mapa.html" method="GET">
+					@csrf
 					<ul class="h1ads_1st_list mb0">
 						<li class="list-inline-item">
 							<div class="search_option_two home2">
 								<div class="candidate_revew_select">
-									<select class="selectpicker w100 show-tick">
+									<select class="selectpicker w100 show-tick" name="modalidade" id="modalidade">
 										<option disabled selected>Modalidade</option>
-										<option>Lançamento</option>
-										<option>Em Obra</option>
-										<option>Pronto para Morar</option>
+										<option value="Lançamento">Lançamento</option>
+										<option value="Em Obra">Em Obra</option>
+										<option value="Mude Já">Pronto para Morar</option>
 									</select>
 								</div>
 							</div>
@@ -35,7 +37,7 @@
 						<li class="list-inline-item">
 							<div class="search_option_two home2">
 								<div class="candidate_revew_select">
-									<select class="selectpicker w100 show-tick">
+									<select class="selectpicker w100 show-tick" name="subtipo_id" id="subtipo_id">
 										<option disabled selected>Tipo</option>
 										@foreach ($subtipos as $subtipo)
 										<option value="{{ $subtipo->id }}">{{ $subtipo->nome }}</option>
@@ -46,7 +48,7 @@
 						</li>
 						<li class="list-inline-item">
 							<div class="form-group">
-								<input type="text" class="form-control" id="exampleInputEmail" placeholder="Localização">
+								<input type="text" class="form-control" id="cidade" placeholder="Localização" name="cidade">
 								<label for="exampleInputEmail"><span class="flaticon-maps-and-flags"></span></label>
 							</div>
 						</li>
@@ -266,10 +268,11 @@
 						</li>
 						<li class="list-inline-item">
 							<div class="search_option_button">
-								<button type="submit" class="btn btn-thm">Buscar</button>
+								<button type="submit" class="btn btn-thm buscar-empreendimentos">Buscar</button>
 							</div>
 						</li>
 					</ul>
+				</form>
 				</div>
 			</div>
 		</div>
@@ -286,16 +289,17 @@
 			<div class="col-lg-12">
 				<div class="feature_property_slider">
 					@foreach($destaques as $destaque)
+					<a href="/imoveis/{{ url_amigavel($destaque->subtipo->nome)}}-{{ url_amigavel($destaque->nome)}}-{{ $destaque->id }}.html" target="_blank">
 					<div class="item">
 						<div class="feat_property">
 							<div class="thumb">
-								<a href="/imoveis/{{ url_amigavel($destaque->subtipo->nome)}}-{{ url_amigavel($destaque->nome)}}-{{ $destaque->id }}.html"><img class="img-whp" src="{{ $destaque->fotoPrincipal() }}" alt="{{ $destaque->nome }}"></a>
+								<img class="img-whp" src="{{ $destaque->fotoPrincipal() }}" alt="{{ $destaque->nome }}">
 								<div class="thmb_cntnt">
 									<ul class="tag mb0">
-										<li class="list-inline-item"><a href="#">Oferta</a></li>
-										<li class="list-inline-item"><a href="#">Proposta</a></li>
+										<li class="list-inline-item">Oferta</li>
+										<li class="list-inline-item">Proposta</li>
 									</ul>
-									<a class="fp_price">R$ {{ $destaque->valor_inicial }}<small>,00</small></a>
+									<div class="fp_price">R$ {{ $destaque->valor_inicial }}<small>,00</small></div>
 								</div>
 							</div>
 							<div class="details">
@@ -322,6 +326,7 @@
 							</div>
 						</div>
 					</div>
+					</a>
 					@endforeach
 
 				</div>

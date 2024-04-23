@@ -12,108 +12,23 @@
     <link rel="stylesheet" href="/site/css/mobile.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" type="text/css" href="/global/css/loader/index.css">
+    <link rel="stylesheet" href="/assets/site-2023/css/ace-responsive-menu.css">
     <script src="/global/js/loader/index.js"></script>
   </head>
   <body>
     <div class="loader-bg"></div>
-    <div id="wrapper" class="wrapper-sticky-start">
-      <header class="header2 list sticky-start blackmonth">
-        <div class="top-bar-wrapper">
-          <div class="container top-bar">
-            <div class="row">
-              <div class="col-xs-12 col-sm-3">
-                <a href="/pagina-inicial.html">
-                  <div class="icone-home"><i class="fa fa-home fa-10x"></i></div>
-                </a>
-              </div>
-              <div class="col-xs-12 col-sm-9">
-                <a href="#login-modal" data-toggle="modal">
-                  <div id="btn-entrar"><i class="fa fa-lock"></i> Visitante</div>
-                </a>
-                <a href="/admin">
-                  <div id="btn-entrar-painel"><i class="fa fa-cog"></i> Construtora</div>
-                </a>
-                <a href="/seja-membro.html" target="_blank">
-                  <div id="btn-construtoras"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Seja membro</div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /.top-bar -->
+    <header class="menu-topo">
+
+        <a href="/pagina-inicial.html"><img class="logo-lancamentos-topo" src="{{ asset('assets/site-2023/images/header-logo.png') }}" alt="header-logo.png"></a>
+
+        <div class="menu">
+          <div class="item"><a href="/empreendimentos/1-apartamentos.html"><i class="fa fa-building"></i> Apartamentos</div></a>
+          <div class="item"><a href="/empreendimentos/2-salascomerciais.html"><i class="fa fa-briefcase" aria-hidden="true"></i> Salas Comerciais</div>
+          <div class="item"><a href="/empreendimentos/3-condominiofechado.html"><i class="fa fa-home"></i> Condomínios Horizontais</a></div>
+          <div class="item parceiro"><a href="/plataforma-lancamentos-online.html" target="_blank"><i class="fa fa-rocket" aria-hidden="true"></i> Anuncie</a></div>
         </div>
-        <!-- /.Page top-bar-wrapper -->
-        <nav class="navbar main-menu-cont topo">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar icon-bar1"></span>
-                  <span class="icon-bar icon-bar2"></span>
-                  <span class="icon-bar icon-bar3"></span>
-                  </button>
-                  <a href="/pagina-inicial.html" title="Lançamentos Online" class="navbar-brand">
-                  <img src="/site/images/logo-dark.png" alt="Lançamentos Online">
-                  </a>
-                </div>
-              </div>
-              <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-                <!--
-                <div class="busca-topo">
-                  <form class="simple-search-form" method="get" id="form_busca" action="/resultado-busca">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                      <div class="col-lg-1 col-md-12 col-sm-1 col-xs-1 div-select-estado">
-                        <select name="estado_id" id="estado_busca" class="select-uf-topo" title="UF:" data-url="{{ route('buscar-cidade-site') }}">
-                          <option value="">UF:</option>
-                          @foreach (get_estados() as $estado)
-                            <option class="estado" value="{{ $estado->id }}">{{ $estado->uf }}</option>
-                          @endforeach
-                        </select>
-                      </div>
-                      <div class="col-lg-2 col-md-12 col-sm-2 col-xs-2 div-select-cidade">
-                        <select name="cidade_id" id="cidade_busca" class="select-cidade-topo" title="Cidade:">
-                          <option value="">Cidade:</option>
-                          @foreach (get_cidades() as $cidade)
-                            <option value="{{ $cidade->id }}">{{ $cidade->nome }} ({{ $cidade->estado->uf }})</option>
-                          @endforeach
-                        </select>
-                      </div>
-                      <div class="col-lg-3 col-md-12 col-sm-3 col-xs-3 div-select-tipo">
-                        <select name="subtipo_id" id="tipo_busca_topo" class="select-tipo-topo" title="Tipo:">
-                          <option value="">Tipo:</option>
-                          @foreach (get_subtipos() as $subtipo)
-                            <option value="{{ $subtipo->id }}">{{ $subtipo->nome }}</option>
-                          @endforeach
-                        </select>
-                      </div>
-                      <div class="col-lg-5 col-md-12 col-sm-5 col-xs-5">
-                        <input type="text" name="busca_rapida" data-provide="typeahead" autocomplete="off" class="busca-rapida typeahead" id="busca_rapida" placeholder="Digite o nome do empreendimento, construtora, cidade ou o bairro">
-                      </div>
-                      <div class="col-lg-1 col-md-12 col-sm-1 col-xs-1 div-botao-buscar">
-                        <a href="javascript:void(0);" onclick="document.getElementById('form_busca').submit();">
-                          <div class="botao-buscar"></div>
-                        </a>
-                      </div>
-                      <div class="clearfix"></div>
-                    </div>
-                  </form>
-                </div>
 
-              -->
-              </div>
-            </div>
-          </div>
-
-          <!--
-          <a href="/ofertas/1-empreendimentos-com-descontos-incriveis.html">
-            <div class="banner-oferta"></div>
-          </a>
-          -->
-
-        </nav>
-      </header>
-    </div>
+    </header>
     <div id="mensagem-envio"></div>
 
     @yield('content')

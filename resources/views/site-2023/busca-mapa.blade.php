@@ -18,6 +18,8 @@
 <link href="{{ asset('site/favicon.ico') }}" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
 <link href="{{ asset('site/favicon.ico') }}" sizes="128x128" rel="shortcut icon" />
 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
 </head>
 <body>
 <div class="wrapper">
@@ -30,14 +32,14 @@
 		    <nav>
 		        <!-- Menu Toggle btn-->
 		        <div class="menu-toggle">
-		            <img class="nav_logo_img img-fluid" src="{{ asset('assets/site-2023/images/header-logo.png') }}" alt="header-logo.png">
+		            <a href="/pagina-inicial.html"><img class="nav_logo_img img-fluid" src="{{ asset('assets/site-2023/images/header-logo.png') }}" alt="header-logo.png"></a>
 		            <button type="button" id="menu-btn">
 		                <span class="icon-bar"></span>
 		                <span class="icon-bar"></span>
 		                <span class="icon-bar"></span>
 		            </button>
 		        </div>
-		        <a href="#" class="navbar_brand float-left dn-smd">
+		        <a href="/pagina-inicial.html" class="navbar_brand float-left dn-smd">
 		            <img class="logo1 img-fluid" src="{{ asset('assets/site-2023/images/header-logo.png') }}" alt="header-logo.png">
 		            <img class="logo2 img-fluid" src="{{ asset('assets/site-2023/images/header-logo.png') }}" alt="header-logo.png">
 		        </a>
@@ -45,18 +47,15 @@
 		        <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
 		        <ul id="respMenu" class="ace-responsive-menu text-right" data-menu-style="horizontal">
 		            <li>
-		                <a href="#"><span class="title">Home</span></a>
-		            </li>
-		            <li>
-		                <a href="#"><span class="title">Lançamentos</span></a>
-		            </li>
-		            <li>
-		                <a href="#"><span class="title">Prontos pra Morar</span></a>
-		            </li>
-		            <li>
-		                <a href="#"><span class="title">Financiamento</span></a>
-		            </li>
-	                <li class="list-inline-item add_listing"><a href="page-add-new-property.html"><span class="flaticon-plus"></span><span class="dn-lg"> Proposta Online</span></a></li>
+						<a href="/empreendimentos/1-apartamentos.html"><span class="title"><i class="fas fa-building"></i> Apartamentos</span></a>
+					</li>
+					<li>
+						<a href="/empreendimentos/2-salascomerciais.html"><span class="title"><i class="fas fa-store"></i> Salas Comerciais</span></a>
+					</li>
+					<li>
+						<a href="/empreendimentos/3-condominiofechado.html"><span class="title"><i class="fas fa-house-damage"></i> Condomínios Horizontais</span></a>
+					</li>
+					<li class="cl_btn"><a href="/plataforma-lancamentos-online.html" target="_blank"><i class="fas fa-rocket"></i> Anuncie</a></li>
 		        </ul>
 		    </nav>
 		</div>
@@ -96,6 +95,7 @@
 					<div class="listing_sidebar dn db-991">
 						<div class="sidebar_content_details style3">
 							<!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+							
 							<div class="sidebar_listing_list style2 mobile_sytle_sidebar mb0">
 								<div class="sidebar_advanced_search_widget">
 									<h4 class="mb25">Filtrar Resultado <a class="filter_closed_btn float-right" href="#"><small>Fechar Filtro</small> <span class="flaticon-close"></span></a></h4>
@@ -111,7 +111,7 @@
 												<div class="candidate_revew_select">
 													<select class="selectpicker w100 show-tick">
 														<option selected disabled>Tipo</option>
-														@foreach ($subtipos as $subtipo)
+														@foreach (get_subtipos() as $subtipo)
 														<option value="{{ $subtipo->id }}">{{ $subtipo->nome }}</option>
 														@endforeach
 													</select>
@@ -339,6 +339,7 @@
 									</ul>
 								</div>
 							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -350,6 +351,8 @@
 							<!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
 							<div class="sidebar_listing_list style2 mb0">
 								<div class="sidebar_advanced_search_widget">
+									<form action="busca-mapa.html" method="GET">
+									@csrf
 									<h4 class="mb25">Busca Avançada</h4>
 									<ul class="sasw_list style2 mb0">
 										<li class="search_area">
@@ -376,9 +379,9 @@
 										<li>
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
-													<select class="selectpicker w100 show-tick">
+													<select class="selectpicker w100 show-tick" name="subtipo_id" id="subtipo_id">
 														<option selected disabled>Tipo</option>
-														@foreach ($subtipos as $subtipo)
+														@foreach (get_subtipos() as $subtipo)
 														<option value="{{ $subtipo->id }}">{{ $subtipo->nome }}</option>
 														@endforeach
 													</select>
@@ -445,10 +448,10 @@
 										<li>
 											<div class="search_option_two">
 												<div class="candidate_revew_select">
-													<select class="selectpicker w100 show-tick">
+													<select class="selectpicker w100 show-tick" name="modalidade" id="modalidade">
 														<option disabled selected>Modalidade</option>
 														<option value="Lançamento">Lançamento</option>
-														<option value="Em Obra">Lançamento</option>
+														<option value="Em Obra">Em Obra</option>
 														<option value="Mude já">Pronto pra Morar</option>
 													</select>
 												</div>
@@ -457,12 +460,12 @@
 
 										<li class="min_area style2 list-inline-item">
 										    <div class="form-group">
-										    	<input type="text" class="form-control moeda" id="min_valor" placeholder="Min Valor">
+										    	<input type="text" class="form-control moeda" name="valor_min" id="valor_min" placeholder="Min Valor">
 										    </div>
 										</li>
 										<li class="max_area list-inline-item">
 										    <div class="form-group">
-										    	<input type="text" class="form-control moeda" id="max_valor" placeholder="Max Valor">
+										    	<input type="text" class="form-control moeda" name="valor_max" id="valor_max" placeholder="Max Valor">
 										    </div>
 										</li>
 										<li>
@@ -545,6 +548,7 @@
 											    <button type="submit" class="btn btn-block btn-thm">Filtrar</button>
 											</div>
 										</li>
+									</form>
 									</ul>
 								</div>
 							</div>
@@ -595,7 +599,7 @@
 										<div class="feat_property home7 style4">
 											<div class="thumb">
 												<div class="fp_single_item_slider">
-                                                    @foreach($empreendimento->getFotosCarrosselMapa() as $foto)
+                                                    @foreach($empreendimento->getFotosCarrossel() as $foto)
 													<div class="item">
 														<a href="/imoveis/{{ url_amigavel($empreendimento->subtipo->nome)}}-{{ url_amigavel($empreendimento->nome)}}-{{ $empreendimento->id }}.html" target="_blank"><img class="img-whp" src="{{ $foto->getUrl() }}" alt="{{ $foto->nome }}"></a>
 													</div>
@@ -674,7 +678,29 @@
                             <div class="col-lg-12 mb30">
 								<div class="mbp_pagination">
 									<ul class="page_navigation">
-							            {{ $empreendimentos->links() }}
+							            @if (isset($paginacao))
+										{{ $paginacao->appends([
+										'estado_id' => $parametros['estado_id'],
+										'cidade_id' => $parametros['cidade_id'],
+										'subtipo_id' => $parametros['subtipo_id'],
+										'busca_rapida' => $parametros['busca_rapida'],
+										'construtora_id_multiplo' => $parametros['construtora_id_multiplo'],
+										'construtora_id' => $parametros['construtora_id'],
+										'subtipo_id_multiplo' => $parametros['subtipo_id_multiplo'],
+										'modalidade_id_multiplo' => $parametros['modalidade_id_multiplo'],
+										'cidade_id_multiplo' => $parametros['cidade_id_multiplo'],
+										'bairro_id_multiplo' => $parametros['bairro_id_multiplo'],
+										'valor' => $parametros['valor'],
+										'quarto' => $parametros['quarto'],
+										'area' => $parametros['area'],
+										'ordenacao' => $parametros['ordenacao'],
+										])->links() }}
+
+										@else
+
+										{{ $empreendimentos->links() }}
+
+										@endif
 									</ul>
 								</div>
 							</div>
