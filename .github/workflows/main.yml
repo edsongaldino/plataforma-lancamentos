@@ -18,4 +18,4 @@ jobs:
         server: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
         password: ${{ secrets.PASSWORD }}
-        server-dir: ~/public_html/
+        server-dir: /public_html/
